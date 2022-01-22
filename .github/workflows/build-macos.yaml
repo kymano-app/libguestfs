@@ -21,7 +21,7 @@ jobs:
 
       - name: Brew
         run: |
-           brew install xorriso augeas libmagic jansson
+           brew install xorriso augeas libmagic jansson automake
 
       - name: Macports install
         run: |
