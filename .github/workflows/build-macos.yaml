@@ -37,7 +37,7 @@ jobs:
           cd hivex-1.3.21
           rm -rf xml
           patch ./configure.ac < ../configure.ac.patch
-          cat ./configure.ac
+          patch ./Makefile.am.patch < ../Makefile.am.patch
           CC="gcc -m64" ./configure --with-libintl-prefix=/usr/local/ --disable-ruby --disable-nls --disable-python --disable-perl
           make
 
