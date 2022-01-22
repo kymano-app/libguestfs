@@ -21,7 +21,7 @@ jobs:
 
       - name: Brew
         run: |
-           brew install xorriso augeas
+           brew install xorriso
 
       - name: Macports install
         run: |
@@ -33,8 +33,9 @@ jobs:
           # sudo chown runner /opt/local/etc/macports/macports.conf 
           # sudo echo 'build_arch arm64' >> /opt/local/etc/macports/macports.conf
           export PATH="/opt/local/bin:$PATH"
-          sudo port install autoconf automake gettext ocaml ocaml-findlib po4a augeas libmagic file magic ncurses
-    
+          sudo port install autoconf automake gettext ocaml ocaml-findlib po4a libmagic
+          sudo port install augeas
+          sudo port install ncurses
       - name: Install
         run: |
           curl -OL https://download.libguestfs.org/1.46-stable/libguestfs-1.46.2.tar.gz
