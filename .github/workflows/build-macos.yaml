@@ -23,16 +23,6 @@ jobs:
         run: |
            brew install xorriso augeas libmagic jansson
 
-      - name: Hivex
-        run: |
-          git clone https://github.com/libguestfs/hivex.git
-          cd hivex
-          git submodule update --init
-          autoreconf -i
-          ./bootstrap
-          ./configure CFLAGS=-fPIC --exec-prefix=/opt/local/
-          make
-
       - name: Macports install
         run: |
            wget https://github.com/macports/macports-base/releases/download/v2.7.1/MacPorts-2.7.1-11-BigSur.pkg
@@ -46,6 +36,17 @@ jobs:
           sudo port install autoconf automake gettext ocaml ocaml-findlib po4a magic
           sudo port install augeas
           sudo port install ncurses
+
+     - name: Hivex
+        run: |
+          git clone https://github.com/libguestfs/hivex.git
+          cd hivex
+          git submodule update --init
+          autoreconf -i
+          ./bootstrap
+          ./configure CFLAGS=-fPIC --exec-prefix=/opt/local/
+          make
+
       - name: Install
         run: |
           # curl -OL https://download.libguestfs.org/1.46-stable/libguestfs-1.46.2.tar.gz
