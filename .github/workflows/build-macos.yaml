@@ -21,7 +21,7 @@ jobs:
 
       - name: Brew
         run: |
-           brew install xorriso augeas libmagic jansson automake
+           brew install xorriso augeas libmagic jansson automake libiconv
 
       - name: Macports install
         run: |
@@ -42,7 +42,7 @@ jobs:
           curl -OL https://download.libguestfs.org/hivex/hivex-1.3.21.tar.gz
           tar -xzf hivex-1.3.21.tar.gz
           cd hivex-1.3.21
-          ./configure CFLAGS=-fPIC --prefix=/opt/local --disable-ruby --disable-nls --disable-python --disable-perl --disable-libtool-lock --disable-option-checking --disable-dependency-tracking --disable-largefile --disable-threads
+          ./configure CFLAGS=-fPIC --with-libiconv-prefix=/opt/local/ --prefix=/opt/local --disable-ruby --disable-nls --disable-python --disable-perl --disable-libtool-lock --disable-option-checking --disable-dependency-tracking --disable-largefile --disable-threads
           make
           sudo make install
 
