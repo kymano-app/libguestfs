@@ -45,6 +45,9 @@ jobs:
           ./configure CFLAGS=-fPIC --with-libiconv-prefix=/opt/local/ --prefix=/opt/local --disable-ruby --disable-nls --disable-python --disable-perl --disable-libtool-lock --disable-option-checking --disable-dependency-tracking --disable-largefile --disable-threads
           make
           sudo make install 2>/dev/null
+          ls -l /opt/local/lib
+          ls -l /opt/local/include
+          ls -l /opt/local/bin
 
       - name: Install
         run: |
