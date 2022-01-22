@@ -22,6 +22,8 @@ jobs:
       - name: Brew
         run: |
            brew install xorriso augeas libmagic jansson automake libiconv
+           brew install gettext
+           brew link gettext --force
 
       - name: Hivex
         run: |
