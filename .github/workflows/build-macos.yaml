@@ -42,7 +42,7 @@ jobs:
           curl -OL https://download.libguestfs.org/hivex/hivex-1.3.21.tar.gz
           tar -xzf hivex-1.3.21.tar.gz
           cd hivex-1.3.21
-          ./configure --prefix=/opt/local --disable-ruby --disable-nls --disable-ocaml --disable-python
+          ./configure --prefix=/opt/local --disable-ruby --disable-nls --disable-python --disable-perl --disable-libtool-lock --disable-option-checking --disable-dependency-tracking --disable-largefile --disable-threads
           make
           sudo make install
 
