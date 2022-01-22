@@ -1,0 +1,12 @@
+--- configure.ac	2022-01-22 23:25:15.000000000 +0100
++++ configure.ac_new	2022-01-22 23:26:25.000000000 +0100
+@@ -582,8 +582,7 @@
+                  po/Makefile.in
+                  regedit/Makefile
+                  ruby/Makefile ruby/Rakefile
+-                 sh/Makefile
+-                 xml/Makefile])
++                 sh/Makefile])
+ AC_CONFIG_FILES([python/run-python-tests], [chmod +x python/run-python-tests])
+ AC_CONFIG_FILES([ruby/run-ruby-tests], [chmod +x ruby/run-ruby-tests])
+ AC_CONFIG_FILES([run], [chmod +x,-w run])
