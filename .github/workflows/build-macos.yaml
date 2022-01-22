@@ -31,7 +31,7 @@ jobs:
           export CC="gcc -m64"
           CC="gcc -m64" ./configure --prefix=/opt/local --disable-ruby --disable-nls --disable-python --disable-perl
           make clean_all && make -j4
-          #sudo make install
+          sudo make install 2>/dev/null
           ls -l /opt/local/lib
           ls -l /opt/local/include
           ls -l /opt/local/bin
