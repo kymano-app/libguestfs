@@ -18,12 +18,12 @@ jobs:
         uses: actions/checkout@v2
         with:
           submodules: recursive
-      - name: Install dependencies
-        run: |
-          curl -OL https://download.libguestfs.org/1.46-stable/libguestfs-1.46.2.tar.gz
-          tar -xzf libguestfs-1.46.2.tar.gz
 
-      - name: Macports 0
+      - name: Brew
+        run: |
+           brew install xorriso libmagic file
+
+      - name: Macports install
         run: |
            wget https://github.com/macports/macports-base/releases/download/v2.7.1/MacPorts-2.7.1-11-BigSur.pkg
            sudo installer -pkg ./MacPorts-2.7.1-11-BigSur.pkg -target /
@@ -33,7 +33,12 @@ jobs:
           # sudo chown runner /opt/local/etc/macports/macports.conf 
           # sudo echo 'build_arch arm64' >> /opt/local/etc/macports/macports.conf
           export PATH="/opt/local/bin:$PATH"
-          sudo port install autoconf automake gettext ocaml ocaml-findlib po4a 
+          sudo port install autoconf automake gettext ocaml ocaml-findlib po4a augeas libmagic file
+    
+      - name: Install
+        run: |
+          curl -OL https://download.libguestfs.org/1.46-stable/libguestfs-1.46.2.tar.gz
+          tar -xzf libguestfs-1.46.2.tar.gz
           cd libguestfs-1.46.2
           ./configure
           make
