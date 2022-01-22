@@ -21,7 +21,7 @@ jobs:
 
       - name: Brew
         run: |
-           brew install xorriso libmagic file magic ncurses
+           brew install xorriso
 
       - name: Macports install
         run: |
