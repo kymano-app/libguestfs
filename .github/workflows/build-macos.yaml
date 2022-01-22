@@ -34,7 +34,7 @@ jobs:
           cd libguestfs
           git submodule update --init
           autoreconf -i
-          ./configure CFLAGS=-fPIC
+          ./configure CFLAGS=-fPIC 
           make 
 
       - name: Compress
