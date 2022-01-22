@@ -35,7 +35,7 @@ jobs:
           git submodule update --init
           autoreconf -i
           ./configure CFLAGS=-fPIC
-          make
+          make 
 
       - name: Compress
         run: |
