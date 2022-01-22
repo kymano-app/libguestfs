@@ -28,7 +28,7 @@ jobs:
         run: |
           # sudo chown runner /opt/local/etc/macports/macports.conf 
           # sudo echo 'build_arch arm64' >> /opt/local/etc/macports/macports.conf
-          # export PATH="/opt/local/bin:$PATH"
+          export PATH="/opt/local/bin:$PATH"
           sudo port install autoconf automake gettext ocaml ocaml-findlib po4a 
           git clone https://github.com/libguestfs/libguestfs
           cd libguestfs
