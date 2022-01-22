@@ -38,9 +38,9 @@ jobs:
           sudo port install ncurses
       - name: Install
         run: |
-          curl -OL https://download.libguestfs.org/1.46-stable/libguestfs-1.46.2.tar.gz
-          tar -xzf libguestfs-1.46.2.tar.gz
-          cd libguestfs-1.46.2
+          curl -OL https://download.libguestfs.org/1.47-development/libguestfs-1.47.2.tar.gz
+          tar -xzf libguestfs-1.47.2.tar.gz
+          cd libguestfs-1.47.2
           ./configure
           make
 
