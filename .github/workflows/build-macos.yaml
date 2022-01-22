@@ -1,0 +1,49 @@
+name: Macos
+
+on:
+  push:
+    tags:
+      - "[0-9]+.[0-9]+.[0-9]"
+
+jobs:
+  build-macos-ports:
+    name: Build0
+    runs-on: macos-11
+    strategy:
+      matrix:
+        arch: [x86_64]
+        platform: [macos]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Macports 0
+        run: |
+           wget https://github.com/macports/macports-base/releases/download/v2.7.1/MacPorts-2.7.1-11-BigSur.pkg
+           sudo installer -pkg ./MacPorts-2.7.1-11-BigSur.pkg -target /
+
+      - name: Install dependencies
+        run: |
+          # sudo chown runner /opt/local/etc/macports/macports.conf 
+          # sudo echo 'build_arch arm64' >> /opt/local/etc/macports/macports.conf
+          # export PATH="/opt/local/bin:$PATH"
+          sudo port install autoconf automake gettext OCaml findlib po4a 
+          git clone https://github.com/libguestfs/libguestfs
+          cd libguestfs
+          git submodule update --init
+          autoreconf -i
+          ./configure CFLAGS=-fPIC
+          make
+
+      - name: Compress
+        run: |
+          tar -czvf g.tgz libs bin share
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            *.tgz
+          prerelease: true
