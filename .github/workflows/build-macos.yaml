@@ -38,10 +38,16 @@ jobs:
           sudo port install ncurses
       - name: Install
         run: |
-          curl -OL https://download.libguestfs.org/1.47-development/libguestfs-1.47.2.tar.gz
-          tar -xzf libguestfs-1.47.2.tar.gz
-          cd libguestfs-1.47.2
-          ./configure --enable-daemon=no
+          # curl -OL https://download.libguestfs.org/1.46-stable/libguestfs-1.46.2.tar.gz
+          # tar -xzf libguestfs-1.46.2.tar.gz
+          # cd libguestfs-1.46.2
+          # ./configure --enable-daemon=no
+          # make
+          git clone https://github.com/libguestfs/libguestfs
+          cd libguestfs
+          git submodule update --init
+          autoreconf -i
+          ./configure CFLAGS=-fPIC --enable-daemon=no --exec-prefix=/opt/local/
           make
 
       - name: Compress
