@@ -46,6 +46,7 @@ jobs:
           ./bootstrap
           ./configure CFLAGS=-fPIC --exec-prefix=/opt/local/
           make
+          make install
 
       - name: Install
         run: |
