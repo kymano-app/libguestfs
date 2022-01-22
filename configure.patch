@@ -1,18 +1,19 @@
 --- configure	2021-08-02 10:10:42.000000000 +0200
-+++ configure_new	2022-01-23 00:06:03.000000000 +0100
++++ configure_new	2022-01-23 00:14:48.000000000 +0100
 @@ -43935,7 +43935,7 @@
  
  ac_config_headers="$ac_config_headers config.h"
  
 -ac_config_files="$ac_config_files Makefile extra-tests/Makefile generator/Makefile gnulib/lib/Makefile gnulib/tests/Makefile hivex.pc images/Makefile lib/Makefile lib/tools/Makefile ocaml/Makefile ocaml/META perl/Makefile perl/Makefile.PL python/Makefile po/Makefile.in regedit/Makefile ruby/Makefile ruby/Rakefile sh/Makefile xml/Makefile"
-+ac_config_files="$ac_config_files Makefile extra-tests/Makefile generator/Makefile gnulib/lib/Makefile gnulib/tests/Makefile hivex.pc images/Makefile lib/Makefile lib/tools/Makefile ocaml/Makefile ocaml/META perl/Makefile perl/Makefile.PL python/Makefile po/Makefile.in regedit/Makefile ruby/Makefile ruby/Rakefile sh/Makefile"
++ac_config_files="$ac_config_files Makefile extra-tests/Makefile generator/Makefile gnulib/lib/Makefile gnulib/tests/Makefile hivex.pc images/Makefile lib/Makefile lib/tools/Makefile ocaml/Makefile ocaml/META perl/Makefile perl/Makefile.PL python/Makefile po/Makefile.in regedit/Makefile ruby/Makefile ruby/Rakefile"
  
  ac_config_files="$ac_config_files python/run-python-tests"
  
-@@ -45123,7 +45123,6 @@
+@@ -45122,8 +45122,6 @@
+     "regedit/Makefile") CONFIG_FILES="$CONFIG_FILES regedit/Makefile" ;;
      "ruby/Makefile") CONFIG_FILES="$CONFIG_FILES ruby/Makefile" ;;
      "ruby/Rakefile") CONFIG_FILES="$CONFIG_FILES ruby/Rakefile" ;;
-     "sh/Makefile") CONFIG_FILES="$CONFIG_FILES sh/Makefile" ;;
+-    "sh/Makefile") CONFIG_FILES="$CONFIG_FILES sh/Makefile" ;;
 -    "xml/Makefile") CONFIG_FILES="$CONFIG_FILES xml/Makefile" ;;
      "python/run-python-tests") CONFIG_FILES="$CONFIG_FILES python/run-python-tests" ;;
      "ruby/run-ruby-tests") CONFIG_FILES="$CONFIG_FILES ruby/run-ruby-tests" ;;
