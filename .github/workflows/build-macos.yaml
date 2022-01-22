@@ -22,6 +22,8 @@ jobs:
       - name: Brew
         run: |
            brew install xorriso augeas libmagic jansson automake libiconv
+           which ranlib
+           $(which ranlib) -V
 
       - name: Hivex
         run: |
@@ -35,7 +37,7 @@ jobs:
           ls -l /opt/local/lib
           ls -l /opt/local/include
           ls -l /opt/local/bin
-          
+
       - name: Macports install
         run: |
            wget https://github.com/macports/macports-base/releases/download/v2.7.1/MacPorts-2.7.1-11-BigSur.pkg
