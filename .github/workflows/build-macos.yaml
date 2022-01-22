@@ -39,14 +39,12 @@ jobs:
 
       - name: Hivex
         run: |
-          git clone https://github.com/libguestfs/hivex.git
-          cd hivex
-          git submodule update --init
-          autoreconf -i
-          ./bootstrap
-          ./configure CFLAGS=-fPIC --exec-prefix=/opt/local/
+          curl -OL https://download.libguestfs.org/hivex/hivex-1.3.21.tar.gz
+          tar -xzf hivex-1.3.21.tar.gz
+          cd hivex-1.3.21
+          ./configure --prefix=/opt/local
           make
-          make install
+          sudo make install
 
       - name: Install
         run: |
