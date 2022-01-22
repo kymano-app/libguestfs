@@ -21,7 +21,7 @@ jobs:
 
       - name: Brew
         run: |
-           brew install xorriso libmagic file
+           brew install xorriso libmagic file magic
 
       - name: Macports install
         run: |
@@ -33,7 +33,7 @@ jobs:
           # sudo chown runner /opt/local/etc/macports/macports.conf 
           # sudo echo 'build_arch arm64' >> /opt/local/etc/macports/macports.conf
           export PATH="/opt/local/bin:$PATH"
-          sudo port install autoconf automake gettext ocaml ocaml-findlib po4a augeas libmagic file
+          sudo port install autoconf automake gettext ocaml ocaml-findlib po4a augeas libmagic file magic
     
       - name: Install
         run: |
