@@ -18,6 +18,10 @@ jobs:
         uses: actions/checkout@v2
         with:
           submodules: recursive
+      - name: Install dependencies
+        run: |
+          curl -OL https://download.libguestfs.org/1.46-stable/libguestfs-1.46.2.tar.gz
+          tar -xzf libguestfs-1.46.2.tar.gz
 
       - name: Macports 0
         run: |
@@ -30,12 +34,9 @@ jobs:
           # sudo echo 'build_arch arm64' >> /opt/local/etc/macports/macports.conf
           export PATH="/opt/local/bin:$PATH"
           sudo port install autoconf automake gettext ocaml ocaml-findlib po4a 
-          git clone https://github.com/libguestfs/libguestfs
-          cd libguestfs
-          git submodule update --init
-          autoreconf -i
-          ./configure CFLAGS=-fPIC 
-          make 
+          cd libguestfs-1.46.2
+          ./configure
+          make
 
       - name: Compress
         run: |
