@@ -22,8 +22,6 @@ jobs:
       - name: Brew
         run: |
            brew install xorriso augeas libmagic jansson automake libiconv
-           which ranlib
-           $(which ranlib) -V
 
       - name: Hivex
         run: |
@@ -33,7 +31,7 @@ jobs:
           export CC="gcc -m64"
           CC="gcc -m64" ./configure --prefix=/opt/local --disable-ruby --disable-nls --disable-python --disable-perl
           make clean_all && make -j4
-          sudo make install
+          #sudo make install
           ls -l /opt/local/lib
           ls -l /opt/local/include
           ls -l /opt/local/bin
