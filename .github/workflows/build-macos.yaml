@@ -41,7 +41,7 @@ jobs:
           curl -OL https://download.libguestfs.org/1.47-development/libguestfs-1.47.2.tar.gz
           tar -xzf libguestfs-1.47.2.tar.gz
           cd libguestfs-1.47.2
-          ./configure
+          ./configure --enable-daemon=no
           make
 
       - name: Compress
