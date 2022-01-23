@@ -80,8 +80,8 @@ jobs:
           git submodule update --init
           autoreconf -i
           ./configure --help
-          ./configure CFLAGS="-fPIC -Wno-error=implicit-function-declaration" --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --disable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --enable-daemon=no --disable-daemon --disable-appliance --exec-prefix=/opt/local/
-          make CFLAGS="-Wno-error=implicit-function-declaration" WERROR_CFLAGS="-Wno-error=implicit-function-declaration"
+          ./configure CFLAGS="-fPIC -Wno-error" --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --disable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --enable-daemon=no --disable-daemon --disable-appliance --exec-prefix=/opt/local/
+          make CFLAGS="-Wno-error" WERROR_CFLAGS="-Wno-error"
 
       - name: Compress
         run: |
