@@ -27,22 +27,19 @@ jobs:
           
       # - name: Hivex
       #   run: |
-
       #     export LDFLAGS="-L/usr/local/opt/libiconv/lib"
       #     export CPPFLAGS="-I/usr/local/opt/libiconv/include"
       #     export CFLAGS="$CFLAGS -std=c90"
-
       #     #find / -name "libintl.h" 2>/dev/null
       #     curl -OL https://download.libguestfs.org/hivex/hivex-1.3.21.tar.gz
       #     tar -xzf hivex-1.3.21.tar.gz
       #     cd hivex-1.3.21
       #     rm -rf xml
-      #     patch ./configure.ac < ../configure.ac.patch
-      #     patch ./Makefile.am < ../Makefile.am.patch
-      #     patch ./run.in < ../run.in.patch
-      #     patch ./configure < ../configure.patch
-      #     patch ./m4/00gnulib.m4 < ../00gnulib.m4.patch
-        
+      #     patch ./configure.ac < ../libguestfs-patches/configure.ac.patch
+      #     patch ./Makefile.am < ../libguestfs-patches/Makefile.am.patch
+      #     patch ./run.in < ../libguestfs-patches/run.in.patch
+      #     patch ./configure < ../libguestfs-patches/configure.patch
+      #     patch ./m4/00gnulib.m4 < ../libguestfs-patches/00gnulib.m4.patch
       #     CC="gcc -m64" ./configure --with-libintl-prefix=/usr/local/ --disable-ruby --disable-nls --disable-python --disable-perl CC="gcc -std=c90" 
       #     make
 
@@ -83,7 +80,7 @@ jobs:
         
           git submodule update --init
           autoreconf -i
-          ./configure CFLAGS=-fPIC --enable-daemon=no --exec-prefix=/opt/local/
+          ./configure CFLAGS=-fPIC --enable-daemon=no --disable-appliance --exec-prefix=/opt/local/
           make
 
       - name: Compress
