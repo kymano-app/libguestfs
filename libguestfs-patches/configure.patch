@@ -1,0 +1,722 @@
+--- ./configure	2021-12-24 10:46:19.000000000 +0100
++++ ./configure_new	2022-01-23 17:46:21.000000000 +0100
+@@ -654,450 +654,55 @@
+ # include <unistd.h>
+ #endif"
+ 
+-ac_header_c_list=
+-gt_needs=
+-ac_subst_vars='am__EXEEXT_FALSE
+-am__EXEEXT_TRUE
+-LTLIBOBJS
+-SYSCONFDIR
+-HAVE_BASH_COMPLETION_FALSE
+-HAVE_BASH_COMPLETION_TRUE
+-BASH_COMPLETIONS_DIR
+-BASH_COMPLETION_LIBS
+-BASH_COMPLETION_CFLAGS
+-ENABLE_VAPIGEN_FALSE
+-ENABLE_VAPIGEN_TRUE
+-VAPIGEN_MAKEFILE
+-VAPIGEN_VAPIDIR
+-VAPIGEN
+-HAVE_RUST_FALSE
+-HAVE_RUST_TRUE
+-CARGO
+-RUSTC
+-HAVE_INTROSPECTION_FALSE
+-HAVE_INTROSPECTION_TRUE
+-INTROSPECTION_MAKEFILE
+-INTROSPECTION_LIBS
+-INTROSPECTION_CFLAGS
+-INTROSPECTION_TYPELIBDIR
+-INTROSPECTION_GIRDIR
+-INTROSPECTION_GENERATE
+-INTROSPECTION_COMPILER
+-INTROSPECTION_SCANNER
+-GJS
+-HAVE_GOBJECT_FALSE
+-HAVE_GOBJECT_TRUE
+-GIO_LIBS
+-GIO_CFLAGS
+-GOBJECT_LIBS
+-GOBJECT_CFLAGS
+-HAVE_GOLANG_FALSE
+-HAVE_GOLANG_TRUE
+-GOLANG
+-HAVE_LUA_FALSE
+-HAVE_LUA_TRUE
+-LUA_VERSION
+-LUA_LIBS
+-LUA_CFLAGS
+-LUA
+-HAVE_ERLANG_FALSE
+-HAVE_ERLANG_TRUE
+-ERLANG_LIB_DIR
+-ERLANG_LIB_VER_erl_interface
+-ERLANG_LIB_DIR_erl_interface
+-ERL
+-ERLCFLAGS
+-ERLC
+-HAVE_PHP_FALSE
+-HAVE_PHP_TRUE
+-PHPIZE
+-PHP
+-HAVE_HASKELL_FALSE
+-HAVE_HASKELL_TRUE
+-GHC
+-HAVE_JAVA_FALSE
+-HAVE_JAVA_TRUE
+-HAVE_JAVAH_FALSE
+-HAVE_JAVAH_TRUE
+-JNI_VERSION_INFO
+-JNI_INSTALL_DIR
+-JAR_INSTALL_DIR
+-EXTRA_JAVAC_FLAGS
+-JNI_CFLAGS
+-JAR
+-JAVADOC
+-JAVAH
+-JAVAC
+-JAVA_EXE
+-JAVA
+-HAVE_RUBY_FALSE
+-HAVE_RUBY_TRUE
+-RAKE
+-RUBY
+-HAVE_PYCODESTYLE_FALSE
+-HAVE_PYCODESTYLE_TRUE
+-HAVE_PYTHON_FALSE
+-HAVE_PYTHON_TRUE
+-PYTHON_EXT_SUFFIX
+-PYTHON_INSTALLDIR
+-PYTHON_PREFIX
+-PYCODESTYLE
+-PYTHON_VERSION
+-PYTHON_LIBS
+-PYTHON_CFLAGS
+-PYTHON
+-HAVE_TOOLS_FALSE
+-HAVE_TOOLS_TRUE
+-HAVE_PERL_FALSE
+-HAVE_PERL_TRUE
+-PODWRAPPER
+-PERL
+-OCAML_FLAGS
+-OCAML_WARN_ERROR
+-HAVE_OCAML_GETTEXT_FALSE
+-HAVE_OCAML_GETTEXT_TRUE
+-OCAML_GETTEXT
+-HAVE_OCAML_PKG_OUNIT_FALSE
+-HAVE_OCAML_PKG_OUNIT_TRUE
+-HAVE_OCAML_PKG_GETTEXT_FALSE
+-HAVE_OCAML_PKG_GETTEXT_TRUE
+-ounit_is_v2
+-OCAML_PKG_ounit2
+-OCAML_PKG_gettext
+-HIVEX_OPEN_UNSAFE_FLAG
+-CAMLRUN
+-OCAML_PKG_hivex
+-OCAMLDEP_ONE_LINE
+-OCAMLDEP_ALL
+-OCAML_RUNTIME_VARIANT_PIC_OPTION
+-HAVE_OCAMLDOC_FALSE
+-HAVE_OCAMLDOC_TRUE
+-HAVE_OCAMLOPT_FALSE
+-HAVE_OCAMLOPT_TRUE
+-HAVE_OCAML_FALSE
+-HAVE_OCAML_TRUE
+-OCAMLFIND
+-OCAMLBUILD
+-OCAMLDOC
+-OCAMLMKLIB
+-OCAMLMKTOP
+-OCAMLDEP
+-OCAMLOPTDOTOPT
+-OCAMLCDOTOPT
+-OCAMLBEST
+-OCAMLOPT
+-OCAMLLIB
+-OCAMLVERSION
+-OCAMLC
+-HAVE_LIBCONFIG_FALSE
+-HAVE_LIBCONFIG_TRUE
+-LIBCONFIG_LIBS
+-LIBCONFIG_CFLAGS
+-LIBREADLINE
+-LIBLZMA_LIBS
+-LIBLZMA_CFLAGS
+-LIBCRYPT_LIBS
+-LIBCRYPT_CFLAGS
+-QEMU
+-GUESTFS_DEFAULT_PATH
+-EXTRA_PACKAGES
+-DISTRO
+-HAVE_PACMAN_FALSE
+-HAVE_PACMAN_TRUE
+-HAVE_DPKG_FALSE
+-HAVE_DPKG_TRUE
+-HAVE_RPM_FALSE
+-HAVE_RPM_TRUE
+-SUPERMIN_EXTRA_OPTIONS
+-SUPERMIN_PACKAGER_CONFIG
+-SUPERMIN
+-ENABLE_APPLIANCE
+-ENABLE_APPLIANCE_FALSE
+-ENABLE_APPLIANCE_TRUE
+-YARA_LIBS
+-YARA_CFLAGS
+-TSK_LIBS
+-SD_JOURNAL_LIBS
+-SD_JOURNAL_CFLAGS
+-LIBRPM_LIBS
+-LIBRPM_CFLAGS
+-HAVE_HIVEX_FALSE
+-HAVE_HIVEX_TRUE
+-HIVEX_LIBS
+-HIVEX_CFLAGS
+-CAP_LIBS
+-ACL_LIBS
+-INSTALL_DAEMON_FALSE
+-INSTALL_DAEMON_TRUE
+-DAEMON_SUPERMIN_DIR
+-ENABLE_DAEMON_FALSE
+-ENABLE_DAEMON_TRUE
+-HAVE_FUSE_FALSE
+-HAVE_FUSE_TRUE
+-FUSE_LIBS
+-FUSE_CFLAGS
+-MAX_PROC_NR
+-HAVE_CXX_FALSE
+-HAVE_CXX_TRUE
+-CXXCPP
+-am__fastdepCXX_FALSE
+-am__fastdepCXX_TRUE
+-CXXDEPMODE
+-ac_ct_CXX
+-CXXFLAGS
+-CXX
+-JANSSON_LIBS
+-JANSSON_CFLAGS
+-LIBXML2_LIBS
+-LIBXML2_CFLAGS
+-libvirt_ro_uri
+-HAVE_LIBVIRT_FALSE
+-HAVE_LIBVIRT_TRUE
+-LIBVIRT_LIBS
+-LIBVIRT_CFLAGS
+-MAGIC_LIBS
+-AUGEAS_LIBS
+-AUGEAS_CFLAGS
+-PCRE2_CONFIG
+-PCRE2_LIBS
+-PCRE2_CFLAGS
+-SELINUX_LIBS
+-HAVE_RPCGEN_FALSE
+-HAVE_RPCGEN_TRUE
+-RPCGEN
+-RPC_LIBS
+-RPC_CFLAGS
+-HAVE_LIBDL_FALSE
+-HAVE_LIBDL_TRUE
+-POSUB
+-LTLIBINTL
+-LIBINTL
+-INTLLIBS
+-LTLIBICONV
+-LIBICONV
+-INTL_MACOSX_LIBS
+-XGETTEXT_EXTRA_OPTIONS
+-MSGMERGE_FOR_MSGFMT_OPTION
+-XGETTEXT_015
+-GMSGFMT_015
+-GMSGFMT
+-GETTEXT_MACRO_VERSION
+-USE_NLS
+-HAVE_GNU_GETTEXT_FALSE
+-HAVE_GNU_GETTEXT_TRUE
+-MSGMERGE
+-MSGFMT
+-MSGCAT
+-XGETTEXT
+-NCURSES_CONFIG
+-LIBTINFO_LIBS
+-LIBTINFO_CFLAGS
+-PKG_CONFIG_LIBDIR
+-PKG_CONFIG_PATH
+-PKG_CONFIG
+-LIBOBJS
+-INCLUDE_DIRECTORY
+-GCC_VISIBILITY_HIDDEN
+-VERSION_SCRIPT_FLAGS
+-WERROR_CFLAGS
+-WARN_CFLAGS
+-CPP
+-RELEASE_DATE
+-TOOL_TRUE
+-FUSER
+-VG
+-VALGRIND
+-YFLAGS
+-YACC
+-LEXLIB
+-LEX_OUTPUT_ROOT
+-LEX
+-XZCAT
+-WRESTOOL
+-PAMCUT
+-BMPTOPNM
+-PNMTOPNG
+-PBMTEXT
+-SQLITE3
+-HAVE_PO4A_FALSE
+-HAVE_PO4A_TRUE
+-PO4A_TRANSLATE
+-PO4A_GETTEXTIZE
+-HAVE_XMLLINT_FALSE
+-HAVE_XMLLINT_TRUE
+-XMLLINT
+-MKISOFS
+-GPERF
+-CPIO
+-PACKAGE_VERSION_FULL
+-BRANCH_TYPE
+-BRANCH_NUMBER
+-LT_SYS_LIBRARY_PATH
+-OTOOL64
+-OTOOL
+-LIPO
+-NMEDIT
+-DSYMUTIL
+-MANIFEST_TOOL
+-RANLIB
+-ac_ct_AR
+-AR
+-DLLTOOL
+-OBJDUMP
+-LN_S
+-NM
+-ac_ct_DUMPBIN
+-DUMPBIN
+-LD
+-FGREP
+-EGREP
+-GREP
+-SED
+-host_os
+-host_vendor
+-host_cpu
+-host
+-build_os
+-build_vendor
+-build_cpu
+-build
+-LIBTOOL
+-AM_BACKSLASH
+-AM_DEFAULT_VERBOSITY
+-AM_DEFAULT_V
+-AM_V
+-am__fastdepCC_FALSE
+-am__fastdepCC_TRUE
+-CCDEPMODE
+-am__nodep
+-AMDEPBACKSLASH
+-AMDEP_FALSE
+-AMDEP_TRUE
+-am__include
+-DEPDIR
+-am__untar
+-am__tar
+-AMTAR
+-am__leading_dot
+-SET_MAKE
+-AWK
+-mkdir_p
+-MKDIR_P
+-INSTALL_STRIP_PROGRAM
+-STRIP
+-install_sh
+-MAKEINFO
+-AUTOHEADER
+-AUTOMAKE
+-AUTOCONF
+-ACLOCAL
+-VERSION
+-PACKAGE
+-CYGPATH_W
+-am__isrc
+-INSTALL_DATA
+-INSTALL_SCRIPT
+-INSTALL_PROGRAM
+-OBJEXT
+-EXEEXT
+-ac_ct_CC
+-CPPFLAGS
+-LDFLAGS
+-CFLAGS
+-CC
+-target_alias
+-host_alias
+-build_alias
+-LIBS
+-ECHO_T
+-ECHO_N
+-ECHO_C
+-DEFS
+-mandir
+-localedir
+-libdir
+-psdir
+-pdfdir
+-dvidir
+-htmldir
+-infodir
+-docdir
+-oldincludedir
+-includedir
+-runstatedir
+-localstatedir
+-sharedstatedir
+-sysconfdir
+-datadir
+-datarootdir
+-libexecdir
+-sbindir
+-bindir
+-program_transform_name
+-prefix
+-exec_prefix
+-PACKAGE_URL
+-PACKAGE_BUGREPORT
+-PACKAGE_STRING
+-PACKAGE_VERSION
+-PACKAGE_TARNAME
+-PACKAGE_NAME
+-PATH_SEPARATOR
+-SHELL
+-am__quote'
+-ac_subst_files=''
+-ac_user_opts='
+-enable_option_checking
+-enable_dependency_tracking
+-enable_silent_rules
+-enable_shared
+-enable_static
+-with_pic
+-enable_fast_install
+-with_aix_soname
+-with_gnu_ld
+-with_sysroot
+-enable_libtool_lock
+-with_extra
+-enable_werror
+-enable_largefile
+-enable_nls
+-enable_rpath
+-with_libiconv_prefix
+-with_libintl_prefix
+-with_default_backend
+-with_default_attach_method
+-enable_probes
+-enable_packet_dump
+-with_libvirt
+-enable_fuse
+-enable_daemon
+-enable_install_daemon
+-enable_appliance
+-with_supermin_packager_config
+-with_supermin_extra_options
+-with_distro
+-with_extra_packages
+-with_guestfs_path
+-enable_appliance_format_auto
+-with_qemu
+-with_readline
+-enable_ocaml
+-enable_perl
+-enable_python
+-with_python_installdir
+-enable_ruby
+-with_java
+-enable_haskell
+-enable_php
+-enable_erlang
+-enable_lua
+-enable_golang
+-enable_gobject
+-enable_introspection
+-enable_rust
+-enable_vala
+-'
++ac_header_c_list= gt_needs= ac_subst_vars='am__EXEEXT_FALSE am__EXEEXT_TRUE LTLIBOBJS SYSCONFDIR HAVE_BASH_COMPLETION_FALSE 
++HAVE_BASH_COMPLETION_TRUE BASH_COMPLETIONS_DIR BASH_COMPLETION_LIBS BASH_COMPLETION_CFLAGS ENABLE_VAPIGEN_FALSE 
++ENABLE_VAPIGEN_TRUE VAPIGEN_MAKEFILE VAPIGEN_VAPIDIR VAPIGEN HAVE_RUST_FALSE HAVE_RUST_TRUE CARGO RUSTC 
++HAVE_INTROSPECTION_FALSE HAVE_INTROSPECTION_TRUE INTROSPECTION_MAKEFILE INTROSPECTION_LIBS INTROSPECTION_CFLAGS 
++INTROSPECTION_TYPELIBDIR INTROSPECTION_GIRDIR INTROSPECTION_GENERATE INTROSPECTION_COMPILER INTROSPECTION_SCANNER GJS 
++HAVE_GOBJECT_FALSE HAVE_GOBJECT_TRUE GIO_LIBS GIO_CFLAGS GOBJECT_LIBS GOBJECT_CFLAGS HAVE_GOLANG_FALSE HAVE_GOLANG_TRUE GOLANG 
++HAVE_LUA_FALSE HAVE_LUA_TRUE LUA_VERSION LUA_LIBS LUA_CFLAGS LUA HAVE_ERLANG_FALSE HAVE_ERLANG_TRUE ERLANG_LIB_DIR 
++ERLANG_LIB_VER_erl_interface ERLANG_LIB_DIR_erl_interface ERL ERLCFLAGS ERLC HAVE_PHP_FALSE HAVE_PHP_TRUE PHPIZE PHP 
++HAVE_HASKELL_FALSE HAVE_HASKELL_TRUE GHC HAVE_JAVA_FALSE HAVE_JAVA_TRUE HAVE_JAVAH_FALSE HAVE_JAVAH_TRUE JNI_VERSION_INFO 
++JNI_INSTALL_DIR JAR_INSTALL_DIR EXTRA_JAVAC_FLAGS JNI_CFLAGS JAR JAVADOC JAVAH JAVAC JAVA_EXE JAVA HAVE_RUBY_FALSE 
++HAVE_RUBY_TRUE RAKE RUBY HAVE_PYCODESTYLE_FALSE HAVE_PYCODESTYLE_TRUE HAVE_PYTHON_FALSE HAVE_PYTHON_TRUE PYTHON_EXT_SUFFIX 
++PYTHON_INSTALLDIR PYTHON_PREFIX PYCODESTYLE PYTHON_VERSION PYTHON_LIBS PYTHON_CFLAGS PYTHON HAVE_TOOLS_FALSE HAVE_TOOLS_TRUE 
++HAVE_PERL_FALSE HAVE_PERL_TRUE PODWRAPPER PERL OCAML_FLAGS OCAML_WARN_ERROR HAVE_OCAML_GETTEXT_FALSE HAVE_OCAML_GETTEXT_TRUE 
++OCAML_GETTEXT HAVE_OCAML_PKG_OUNIT_FALSE HAVE_OCAML_PKG_OUNIT_TRUE HAVE_OCAML_PKG_GETTEXT_FALSE HAVE_OCAML_PKG_GETTEXT_TRUE 
++ounit_is_v2 OCAML_PKG_ounit2 OCAML_PKG_gettext CAMLRUN OCAMLDEP_ONE_LINE OCAMLDEP_ALL OCAML_RUNTIME_VARIANT_PIC_OPTION 
++HAVE_OCAMLDOC_FALSE HAVE_OCAMLDOC_TRUE HAVE_OCAMLOPT_FALSE HAVE_OCAMLOPT_TRUE HAVE_OCAML_FALSE HAVE_OCAML_TRUE OCAMLFIND 
++OCAMLBUILD OCAMLDOC OCAMLMKLIB OCAMLMKTOP OCAMLDEP OCAMLOPTDOTOPT OCAMLCDOTOPT OCAMLBEST OCAMLOPT OCAMLLIB OCAMLVERSION OCAMLC 
++HAVE_LIBCONFIG_FALSE HAVE_LIBCONFIG_TRUE LIBCONFIG_LIBS LIBCONFIG_CFLAGS LIBREADLINE LIBLZMA_LIBS LIBLZMA_CFLAGS LIBCRYPT_LIBS 
++LIBCRYPT_CFLAGS QEMU GUESTFS_DEFAULT_PATH EXTRA_PACKAGES DISTRO HAVE_PACMAN_FALSE HAVE_PACMAN_TRUE HAVE_DPKG_FALSE 
++HAVE_DPKG_TRUE HAVE_RPM_FALSE HAVE_RPM_TRUE SUPERMIN_EXTRA_OPTIONS SUPERMIN_PACKAGER_CONFIG SUPERMIN ENABLE_APPLIANCE 
++ENABLE_APPLIANCE_FALSE ENABLE_APPLIANCE_TRUE YARA_LIBS YARA_CFLAGS TSK_LIBS SD_JOURNAL_LIBS SD_JOURNAL_CFLAGS LIBRPM_LIBS 
++LIBRPM_CFLAGS HAVE_HIVEX_FALSE HAVE_HIVEX_TRUE HIVEX_LIBS HIVEX_CFLAGS CAP_LIBS ACL_LIBS INSTALL_DAEMON_FALSE 
++INSTALL_DAEMON_TRUE DAEMON_SUPERMIN_DIR ENABLE_DAEMON_FALSE ENABLE_DAEMON_TRUE HAVE_FUSE_FALSE HAVE_FUSE_TRUE FUSE_LIBS 
++FUSE_CFLAGS MAX_PROC_NR HAVE_CXX_FALSE HAVE_CXX_TRUE CXXCPP am__fastdepCXX_FALSE am__fastdepCXX_TRUE CXXDEPMODE ac_ct_CXX 
++CXXFLAGS CXX JANSSON_LIBS JANSSON_CFLAGS LIBXML2_LIBS LIBXML2_CFLAGS libvirt_ro_uri HAVE_LIBVIRT_FALSE HAVE_LIBVIRT_TRUE 
++LIBVIRT_LIBS LIBVIRT_CFLAGS MAGIC_LIBS AUGEAS_LIBS AUGEAS_CFLAGS PCRE2_CONFIG PCRE2_LIBS PCRE2_CFLAGS SELINUX_LIBS 
++HAVE_RPCGEN_FALSE HAVE_RPCGEN_TRUE RPCGEN RPC_LIBS RPC_CFLAGS HAVE_LIBDL_FALSE HAVE_LIBDL_TRUE POSUB LTLIBINTL LIBINTL INTLLIBS 
++LTLIBICONV LIBICONV INTL_MACOSX_LIBS XGETTEXT_EXTRA_OPTIONS MSGMERGE_FOR_MSGFMT_OPTION XGETTEXT_015 GMSGFMT_015 GMSGFMT 
++GETTEXT_MACRO_VERSION USE_NLS HAVE_GNU_GETTEXT_FALSE HAVE_GNU_GETTEXT_TRUE MSGMERGE MSGFMT MSGCAT XGETTEXT NCURSES_CONFIG 
++LIBTINFO_LIBS LIBTINFO_CFLAGS PKG_CONFIG_LIBDIR PKG_CONFIG_PATH PKG_CONFIG LIBOBJS INCLUDE_DIRECTORY GCC_VISIBILITY_HIDDEN 
++VERSION_SCRIPT_FLAGS WERROR_CFLAGS WARN_CFLAGS CPP RELEASE_DATE TOOL_TRUE FUSER VG VALGRIND YFLAGS YACC LEXLIB LEX_OUTPUT_ROOT 
++LEX XZCAT WRESTOOL PAMCUT BMPTOPNM PNMTOPNG PBMTEXT SQLITE3 HAVE_PO4A_FALSE HAVE_PO4A_TRUE PO4A_TRANSLATE PO4A_GETTEXTIZE 
++HAVE_XMLLINT_FALSE HAVE_XMLLINT_TRUE XMLLINT MKISOFS GPERF CPIO PACKAGE_VERSION_FULL BRANCH_TYPE BRANCH_NUMBER 
++LT_SYS_LIBRARY_PATH OTOOL64 OTOOL LIPO NMEDIT DSYMUTIL MANIFEST_TOOL RANLIB ac_ct_AR AR DLLTOOL OBJDUMP LN_S NM ac_ct_DUMPBIN 
++DUMPBIN LD FGREP EGREP GREP SED host_os host_vendor host_cpu host build_os build_vendor build_cpu build LIBTOOL AM_BACKSLASH 
++AM_DEFAULT_VERBOSITY AM_DEFAULT_V AM_V am__fastdepCC_FALSE am__fastdepCC_TRUE CCDEPMODE am__nodep AMDEPBACKSLASH AMDEP_FALSE 
++AMDEP_TRUE am__include DEPDIR am__untar am__tar AMTAR am__leading_dot SET_MAKE AWK mkdir_p MKDIR_P INSTALL_STRIP_PROGRAM STRIP 
++install_sh MAKEINFO AUTOHEADER AUTOMAKE AUTOCONF ACLOCAL VERSION PACKAGE CYGPATH_W am__isrc INSTALL_DATA INSTALL_SCRIPT 
++INSTALL_PROGRAM OBJEXT EXEEXT ac_ct_CC CPPFLAGS LDFLAGS CFLAGS CC target_alias host_alias build_alias LIBS ECHO_T ECHO_N ECHO_C 
++DEFS mandir localedir libdir psdir pdfdir dvidir htmldir infodir docdir oldincludedir includedir runstatedir localstatedir 
++sharedstatedir sysconfdir datadir datarootdir libexecdir sbindir bindir program_transform_name prefix exec_prefix PACKAGE_URL 
++PACKAGE_BUGREPORT PACKAGE_STRING PACKAGE_VERSION PACKAGE_TARNAME PACKAGE_NAME PATH_SEPARATOR SHELL am__quote' ac_subst_files='' 
++ac_user_opts=' enable_option_checking enable_dependency_tracking enable_silent_rules enable_shared enable_static with_pic 
++enable_fast_install with_aix_soname with_gnu_ld with_sysroot enable_libtool_lock with_extra enable_werror enable_largefile 
++enable_nls enable_rpath with_libiconv_prefix with_libintl_prefix with_default_backend with_default_attach_method enable_probes 
++enable_packet_dump with_libvirt enable_fuse enable_daemon enable_install_daemon enable_appliance with_supermin_packager_config 
++with_supermin_extra_options with_distro with_extra_packages with_guestfs_path enable_appliance_format_auto with_qemu 
++with_readline enable_ocaml enable_perl enable_python with_python_installdir enable_ruby with_java enable_haskell enable_php 
++enable_erlang enable_lua enable_golang enable_gobject enable_introspection enable_rust enable_vala '
+       ac_precious_vars='build_alias
+ host_alias
+ target_alias
+@@ -1133,8 +738,6 @@
+ CXXCPP
+ FUSE_CFLAGS
+ FUSE_LIBS
+-HIVEX_CFLAGS
+-HIVEX_LIBS
+ LIBRPM_CFLAGS
+ LIBRPM_LIBS
+ SD_JOURNAL_CFLAGS
+@@ -1923,9 +1526,6 @@
+   CXXCPP      C++ preprocessor
+   FUSE_CFLAGS C compiler flags for FUSE, overriding pkg-config
+   FUSE_LIBS   linker flags for FUSE, overriding pkg-config
+-  HIVEX_CFLAGS
+-              C compiler flags for HIVEX, overriding pkg-config
+-  HIVEX_LIBS  linker flags for HIVEX, overriding pkg-config
+   LIBRPM_CFLAGS
+               C compiler flags for LIBRPM, overriding pkg-config
+   LIBRPM_LIBS linker flags for LIBRPM, overriding pkg-config
+@@ -25202,98 +24802,6 @@
+ 
+ 
+ pkg_failed=no
+-{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for HIVEX" >&5
+-printf %s "checking for HIVEX... " >&6; }
+-
+-if test -n "$HIVEX_CFLAGS"; then
+-    pkg_cv_HIVEX_CFLAGS="$HIVEX_CFLAGS"
+- elif test -n "$PKG_CONFIG"; then
+-    if test -n "$PKG_CONFIG" && \
+-    { { printf "%s\n" "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"hivex\""; } >&5
+-  ($PKG_CONFIG --exists --print-errors "hivex") 2>&5
+-  ac_status=$?
+-  printf "%s\n" "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
+-  test $ac_status = 0; }; then
+-  pkg_cv_HIVEX_CFLAGS=`$PKG_CONFIG --cflags "hivex" 2>/dev/null`
+-		      test "x$?" != "x0" && pkg_failed=yes
+-else
+-  pkg_failed=yes
+-fi
+- else
+-    pkg_failed=untried
+-fi
+-if test -n "$HIVEX_LIBS"; then
+-    pkg_cv_HIVEX_LIBS="$HIVEX_LIBS"
+- elif test -n "$PKG_CONFIG"; then
+-    if test -n "$PKG_CONFIG" && \
+-    { { printf "%s\n" "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"hivex\""; } >&5
+-  ($PKG_CONFIG --exists --print-errors "hivex") 2>&5
+-  ac_status=$?
+-  printf "%s\n" "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
+-  test $ac_status = 0; }; then
+-  pkg_cv_HIVEX_LIBS=`$PKG_CONFIG --libs "hivex" 2>/dev/null`
+-		      test "x$?" != "x0" && pkg_failed=yes
+-else
+-  pkg_failed=yes
+-fi
+- else
+-    pkg_failed=untried
+-fi
+-
+-
+-
+-if test $pkg_failed = yes; then
+-   	{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
+-printf "%s\n" "no" >&6; }
+-
+-if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
+-        _pkg_short_errors_supported=yes
+-else
+-        _pkg_short_errors_supported=no
+-fi
+-        if test $_pkg_short_errors_supported = yes; then
+-	        HIVEX_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "hivex" 2>&1`
+-        else
+-	        HIVEX_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "hivex" 2>&1`
+-        fi
+-	# Put the nasty error message in config.log where it belongs
+-	echo "$HIVEX_PKG_ERRORS" >&5
+-
+-	{ { printf "%s\n" "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
+-printf "%s\n" "$as_me: error: in \`$ac_pwd':" >&2;}
+-as_fn_error $? "hivex library is required
+-See \`config.log' for more details" "$LINENO" 5; }
+-elif test $pkg_failed = untried; then
+-     	{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
+-printf "%s\n" "no" >&6; }
+-	{ { printf "%s\n" "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
+-printf "%s\n" "$as_me: error: in \`$ac_pwd':" >&2;}
+-as_fn_error $? "hivex library is required
+-See \`config.log' for more details" "$LINENO" 5; }
+-else
+-	HIVEX_CFLAGS=$pkg_cv_HIVEX_CFLAGS
+-	HIVEX_LIBS=$pkg_cv_HIVEX_LIBS
+-        { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
+-printf "%s\n" "yes" >&6; }
+-
+-
+-
+-
+-printf "%s\n" "#define HAVE_HIVEX 1" >>confdefs.h
+-
+-
+-fi
+- if test "x$HIVEX_LIBS" != "x"; then
+-  HAVE_HIVEX_TRUE=
+-  HAVE_HIVEX_FALSE='#'
+-else
+-  HAVE_HIVEX_TRUE='#'
+-  HAVE_HIVEX_FALSE=
+-fi
+-
+-
+-
+-pkg_failed=no
+ { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for LIBRPM" >&5
+ printf %s "checking for LIBRPM... " >&6; }
+ 
+@@ -28022,90 +27530,6 @@
+ fi
+ 
+ 
+-have_Hivex_OPEN_UNSAFE=no
+-if test "x$enable_daemon" = "xyes"; then
+-    OCAML_PKG_hivex=no
+-
+-  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for OCaml findlib package hivex" >&5
+-printf %s "checking for OCaml findlib package hivex... " >&6; }
+-
+-  unset found
+-  unset pkg
+-  found=no
+-  for pkg in hivex  ; do
+-    if $OCAMLFIND query $pkg >/dev/null 2>/dev/null; then
+-      { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: found" >&5
+-printf "%s\n" "found" >&6; }
+-      OCAML_PKG_hivex=$pkg
+-      found=yes
+-      break
+-    fi
+-  done
+-  if test "$found" = "no" ; then
+-    { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: not found" >&5
+-printf "%s\n" "not found" >&6; }
+-    OCAML_PKG_hivex=no
+-  fi
+-
+-
+-
+-    if test "x$OCAML_PKG_hivex" = "xno"; then
+-        as_fn_error $? "the OCaml module 'hivex' is required" "$LINENO" 5
+-    fi
+-
+-    # Check if Hivex has 'OPEN_UNSAFE' flag.
+-    { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for Hivex.OPEN_UNSAFE" >&5
+-printf %s "checking for Hivex.OPEN_UNSAFE... " >&6; }
+-    rm -f conftest.ml
+-    echo 'let s = Hivex.OPEN_UNSAFE' > conftest.ml
+-    if $OCAMLFIND ocamlc -package hivex -c conftest.ml >&5 2>&5 ; then
+-        { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: yes" >&5
+-printf "%s\n" "yes" >&6; }
+-        have_Hivex_OPEN_UNSAFE=yes
+-    else
+-        { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
+-printf "%s\n" "no" >&6; }
+-        have_Hivex_OPEN_UNSAFE=no
+-    fi
+-
+-                { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking which OCaml runtime we should link the daemon with" >&5
+-printf %s "checking which OCaml runtime we should link the daemon with... " >&6; }
+-    if test "x$OCAMLOPT" != "xno"; then
+-        for f in asmrun_pic asmrun; do
+-            if test -f "$OCAMLLIB/lib$f.a"; then
+-                CAMLRUN=$f
+-                break
+-            fi
+-        done
+-    else
+-        for f in camlrun; do
+-            if test -f "$OCAMLLIB/lib$f.a"; then
+-                CAMLRUN=$f
+-                break
+-            fi
+-        done
+-    fi
+-    if test "x$CAMLRUN" != "x"; then
+-        { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $CAMLRUN" >&5
+-printf "%s\n" "$CAMLRUN" >&6; }
+-    else
+-        as_fn_error $? "could not find or link to libasmrun or libcamlrun" "$LINENO" 5
+-    fi
+-
+-fi
+-
+-if test "x$have_Hivex_OPEN_UNSAFE" = "xno"
+-then :
+-
+-    HIVEX_OPEN_UNSAFE_FLAG="None"
+-
+-else $as_nop
+-
+-    HIVEX_OPEN_UNSAFE_FLAG="Some Hivex.OPEN_UNSAFE"
+-
+-fi
+-
+-
+ OCAML_PKG_gettext=no
+ OCAML_PKG_ounit2=no
+ ounit_is_v2=no
+@@ -31568,10 +30992,6 @@
+   as_fn_error $? "conditional \"INSTALL_DAEMON\" was never defined.
+ Usually this means the macro was only invoked conditionally." "$LINENO" 5
+ fi
+-if test -z "${HAVE_HIVEX_TRUE}" && test -z "${HAVE_HIVEX_FALSE}"; then
+-  as_fn_error $? "conditional \"HAVE_HIVEX\" was never defined.
+-Usually this means the macro was only invoked conditionally." "$LINENO" 5
+-fi
+ if test -z "${ENABLE_APPLIANCE_TRUE}" && test -z "${ENABLE_APPLIANCE_FALSE}"; then
+   as_fn_error $? "conditional \"ENABLE_APPLIANCE\" was never defined.
+ Usually this means the macro was only invoked conditionally." "$LINENO" 5
