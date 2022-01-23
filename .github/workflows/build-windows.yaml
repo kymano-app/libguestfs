@@ -66,11 +66,10 @@ jobs:
           patch ./common/mlpcre/pcre-c.c ../libguestfs-patches/common/mlpcre/pcre-c.c.patch 
           # git submodule update --init
           # autoreconf -i
-          # ./configure --help 
-          ./configure CFLAGS="-fPIC -Werror-limit=10000 -Wno-error=implicit-function-declaration -Wno-traditional" --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --disable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-appliance
+          ./configure --help 
+          ./configure CFLAGS="-Werror-limit=10000 -Wno-error=implicit-function-declaration -Wno-traditional" --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --disable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-appliance
           make CFLAGS="-Werror-limit=10000 -Wno-error=implicit-function-declaration -Wno-traditional" WERROR_CFLAGS="-Werror-limit=10000 -Wno-error=implicit-function-declaration -Wno-traditional"
 
-      
       - name: Compress
         run: |
           tar -czvf "qemu-${{ steps.branch_name.outputs.TAG }}-windows-x86_64.tgz" bin share
