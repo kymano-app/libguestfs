@@ -34,8 +34,7 @@ jobs:
           # sudo chown runner /opt/local/etc/macports/macports.conf 
           # sudo echo 'build_arch arm64' >> /opt/local/etc/macports/macports.conf
           export PATH="/opt/local/bin:$PATH"
-          sudo port install autoconf automake gettext ocaml ocaml-findlib po4a magic
-          sudo port install augeas
+          sudo port install autoconf po4a magic
           sudo port install ncurses
           #sudo port install binutils
 
