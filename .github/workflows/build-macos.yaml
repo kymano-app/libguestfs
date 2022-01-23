@@ -72,13 +72,13 @@ jobs:
           ls -l
           git clone https://github.com/libguestfs/libguestfs
           cd libguestfs
-          patch ./generator/Makefile.am < ../generator/Makefile.am.patch
-          patch ./daemon/Makefile.am < ../daemon/Makefile.am.patch
-          patch ./gobject/Makefile.inc < ../gobject/Makefile.inc.patch
-          patch ./java/Makefile.inc < ../java/Makefile.inc.patch
-          patch ./m4/guestfs-ocaml.m4 < ../m4/guestfs-ocaml.m4.patch
-          patch ./m4/guestfs-daemon.m4 < ../m4/guestfs-daemon.m4.patch
-          patch ./podwrapper.pl.in < ../podwrapper.pl.in.patch
+          patch ./generator/Makefile.am < ../libguestfs-patches/generator/Makefile.am.patch
+          patch ./daemon/Makefile.am < ../libguestfs-patches/daemon/Makefile.am.patch
+          patch ./gobject/Makefile.inc < ../libguestfs-patches/gobject/Makefile.inc.patch
+          patch ./java/Makefile.inc < ../libguestfs-patches/java/Makefile.inc.patch
+          patch ./m4/guestfs-ocaml.m4 < ../libguestfs-patches/m4/guestfs-ocaml.m4.patch
+          patch ./m4/guestfs-daemon.m4 < ../libguestfs-patches/m4/guestfs-daemon.m4.patch
+          patch ./podwrapper.pl.in < ../libguestfs-patches/podwrapper.pl.in.patch
          
           git submodule update --init
           autoreconf -i
