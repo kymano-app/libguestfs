@@ -30,6 +30,7 @@ jobs:
 
           export LDFLAGS="-L/usr/local/opt/libiconv/lib"
           export CPPFLAGS="-I/usr/local/opt/libiconv/include"
+          export CFLAGS="$CFLAGS -std=c90"
 
           #find / -name "libintl.h" 2>/dev/null
           curl -OL https://download.libguestfs.org/hivex/hivex-1.3.21.tar.gz
@@ -40,6 +41,8 @@ jobs:
           patch ./Makefile.am < ../Makefile.am.patch
           patch ./run.in < ../run.in.patch
           patch ./configure < ../configure.patch
+          patch ./00gnulib.m4 < ../00gnulib.m4.patch
+        
           CC="gcc -m64" ./configure --with-libintl-prefix=/usr/local/ --disable-ruby --disable-nls --disable-python --disable-perl CC="gcc -std=c90" 
           make
 
