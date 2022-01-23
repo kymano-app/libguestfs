@@ -21,7 +21,6 @@ jobs:
 
       - name: Brew Install
         run: |
-           ls -l /Library/Developer/CommandLineTools//SDKs/MacOSX11.3.sdk/usr/include/mach
            brew install xorriso augeas libmagic jansson automake libiconv gettext
            brew install qemu ocaml opam ocaml-findlib coreutils osxfuse
 
