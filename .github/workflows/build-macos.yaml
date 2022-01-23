@@ -77,6 +77,8 @@ jobs:
           patch ./examples/Makefile.am < ../libguestfs-patches/examples/Makefile.am.patch
           patch ./common/utils/guestfs-utils.h ../libguestfs-patches/common/utils/guestfs-utils.h.patch
           patch ./gnulib/lib/getprogname.h ../libguestfs-patches/gnulib/lib/getprogname.h.patch
+          patch ./gnulib/lib/getprogname.h ../libguestfs-patches/gnulib/lib/getprogname.h.patch
+          patch ./lib/inspect-apps.c ../lib/inspect-apps.c.patch
           # git submodule update --init
           # autoreconf -i
           # ./configure --help
