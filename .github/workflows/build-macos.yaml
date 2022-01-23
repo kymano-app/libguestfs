@@ -24,7 +24,7 @@ jobs:
            brew install xorriso augeas libmagic jansson automake libiconv
            brew install gettext
            brew unlink gettext && brew link gettext
-          
+
       # - name: Hivex
       #   run: |
       #     export LDFLAGS="-L/usr/local/opt/libiconv/lib"
@@ -56,9 +56,7 @@ jobs:
           sudo port install autoconf automake gettext ocaml ocaml-findlib po4a magic
           sudo port install augeas
           sudo port install ncurses
-          sudo port info binutils
-          sudo port info qemu
-
+          sudo port install qemu
 
       - name: Libguestfs Install
         run: |
