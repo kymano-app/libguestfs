@@ -64,7 +64,7 @@ jobs:
           ls -l
           # git clone https://github.com/libguestfs/libguestfs
           # cd libguestfs
-          patch ./configure.patch < ../libguestfs-patches/configure.patch
+          patch ./configure < ../libguestfs-patches/configure.patch
           patch ./generator/Makefile.am < ../libguestfs-patches/generator/Makefile.am.patch
           patch ./generator/actions.ml < ../libguestfs-patches/generator/actions.ml.patch
           patch ./generator/proc_nr.ml < ../libguestfs-patches/generator/proc_nr.ml.patch
