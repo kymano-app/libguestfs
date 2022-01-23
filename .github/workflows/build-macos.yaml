@@ -21,12 +21,8 @@ jobs:
 
       - name: Brew Install
         run: |
-           brew install xorriso augeas libmagic jansson automake libiconv
-           brew install gettext
-           brew unlink gettext && brew link gettext
-           brew install qemu
-           brew install ocaml
-           brew install opam ocaml-findlib
+           brew install xorriso augeas libmagic jansson automake libiconv gettext
+           brew install qemu ocaml opam ocaml-findlib coreutils
 
       - name: Macports
         run: |
