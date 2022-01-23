@@ -84,7 +84,7 @@ jobs:
           export CXXFLAGS="-Wno-error"
 
           ./configure LIBTINFO_CFLAGS=-Wno-error CFLAGS="-fPIC LIBCONFIG_CFLAGS=-Wno-error RPC_CFLAGS=-Wno-error -Wno-error" GOBJECT_CFLAGS=-Wno-error BASH_COMPLETION_CFLAGS=-Wno-error  GIO_CFLAGS=-Wno-error CXXFLAGS=-Wno-error --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --disable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --enable-daemon=no --disable-daemon --disable-appliance --exec-prefix=/opt/local/
-          make CFLAGS="-Wno-error=format-truncation"
+          make CFLAGS=-Wno-error
 
       - name: Compress
         run: |
