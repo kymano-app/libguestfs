@@ -1,6 +1,6 @@
 --- m4/00gnulib.m4	2021-05-03 12:12:22.000000000 +0200
-+++ m4/00gnulib.m4_new	2022-01-23 07:53:48.000000000 +0100
-@@ -48,9 +48,9 @@
++++ m4/00gnulib.m4_new	2022-01-23 08:03:14.000000000 +0100
+@@ -48,13 +48,13 @@
      [gl_cv_compiler_check_decl_option],
      [if test $gl_cv_compiler_clang = yes; then
         dnl Test whether the compiler supports the option
@@ -12,3 +12,8 @@
         dnl Use _AC_COMPILE_IFELSE instead of AC_COMPILE_IFELSE, to avoid a
         dnl warning "AC_COMPILE_IFELSE was called before AC_USE_SYSTEM_EXTENSIONS".
         _AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[]],[[]])],
+-         [gl_cv_compiler_check_decl_option='-Werror=implicit-function-declaration'],
++         [gl_cv_compiler_check_decl_option=''],
+          [gl_cv_compiler_check_decl_option=none])
+        ac_compile="$save_ac_compile"
+      else
