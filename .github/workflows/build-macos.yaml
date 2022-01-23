@@ -74,6 +74,7 @@ jobs:
           patch ./m4/guestfs-daemon.m4 < ../libguestfs-patches/m4/guestfs-daemon.m4.patch
           patch ./podwrapper.pl.in < ../libguestfs-patches/podwrapper.pl.in.patch
           patch ./examples/Makefile.am < ../libguestfs-patches/examples/Makefile.am.patch
+          patch ./common/utils/guestfs-utils.h ../libguestfs-patches/common/utils/guestfs-utils.h.patch
           # git submodule update --init
           # autoreconf -i
           # ./configure --help
