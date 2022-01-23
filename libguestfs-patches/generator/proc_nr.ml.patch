@@ -1,0 +1,34 @@
+--- generator/proc_nr.ml	2022-01-23 08:12:00.000000000 +0100
++++ proc_nr.ml_new	2022-01-23 11:29:02.000000000 +0100
+@@ -359,22 +359,6 @@
+ 347, "ls0";
+ 348, "fill_dir";
+ 349, "xfs_admin";
+-350, "hivex_open";
+-351, "hivex_close";
+-352, "hivex_root";
+-353, "hivex_node_name";
+-354, "hivex_node_children";
+-355, "hivex_node_get_child";
+-356, "hivex_node_parent";
+-357, "hivex_node_values";
+-358, "hivex_node_get_value";
+-359, "hivex_value_key";
+-360, "hivex_value_type";
+-361, "hivex_value_value";
+-362, "hivex_commit";
+-363, "hivex_node_add_child";
+-364, "hivex_node_delete_child";
+-365, "hivex_node_set_value";
+ 366, "xfs_repair";
+ 367, "rm_f";
+ 368, "mke2fs";
+@@ -484,8 +468,6 @@
+ 475, "file_architecture";
+ 476, "list_filesystems";
+ 477, "part_resize";
+-478, "hivex_value_utf8";
+-479, "hivex_value_string";
+ 480, "inspect_os";
+ 481, "inspect_get_roots";
+ 482, "inspect_get_format";
