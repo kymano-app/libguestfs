@@ -77,7 +77,7 @@ jobs:
           patch ./m4/guestfs-daemon.m4 < ../libguestfs-patches/m4/guestfs-daemon.m4.patch
           patch ./podwrapper.pl.in < ../libguestfs-patches/podwrapper.pl.in.patch
           patch ./examples/Makefile.am < ../libguestfs-patches/examples/Makefile.am.patch
-        
+         
           git submodule update --init
           autoreconf -i
           ./configure CFLAGS=-fPIC --enable-daemon=no --disable-appliance --exec-prefix=/opt/local/
