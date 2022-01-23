@@ -40,9 +40,7 @@ jobs:
           patch ./Makefile.am < ../Makefile.am.patch
           patch ./run.in < ../run.in.patch
           patch ./configure < ../configure.patch
-         
-          cat ./run.in
-          CC="gcc -m64" ./configure --with-libintl-prefix=/usr/local/ --disable-ruby --disable-nls --disable-python --disable-perl
+          CC="gcc -m64" ./configure --with-libintl-prefix=/usr/local/ --disable-ruby --disable-nls --disable-python --disable-perl CC="gcc -std=c90" 
           make
 
       - name: Macports install
