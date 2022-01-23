@@ -1,0 +1,29 @@
+--- Makefile.in	2021-12-24 10:46:16.000000000 +0100
++++ Makefile.in_new	2022-01-23 22:49:43.000000000 +0100
+@@ -457,7 +457,7 @@
+ 	common/mlutils bundled/ocaml-augeas common/mlpcre \
+ 	common/mlgettext daemon appliance tests common/edit \
+ 	common/options common/parallel common/progress common/visit \
+-	common/windows test-tool fish rescue bash perl perl/examples \
++	common/windows fish rescue bash perl perl/examples \
+ 	ocaml ocaml/examples python python/examples ruby ruby/examples \
+ 	java java/examples haskell php erlang erlang/examples lua \
+ 	lua/examples gobject golang golang/examples rust csharp fuse \
+@@ -899,7 +899,7 @@
+ 	common/mlutils bundled/ocaml-augeas common/mlpcre \
+ 	common/mlgettext $(am__append_1) $(am__append_2) tests \
+ 	common/edit common/options common/parallel common/progress \
+-	common/visit common/windows test-tool fish rescue bash \
++	common/visit common/windows fish rescue bash \
+ 	$(am__append_3) $(am__append_4) $(am__append_5) \
+ 	$(am__append_6) $(am__append_7) $(am__append_8) \
+ 	$(am__append_9) $(am__append_10) $(am__append_11) \
+@@ -1778,7 +1778,7 @@
+ # is NOT a substitute for proper testing!
+ 
+ quickcheck:
+-	$(top_builddir)/run test-tool/libguestfs-test-tool $(QUICKCHECK_TEST_TOOL_ARGS)
++	$(top_builddir)/run $(QUICKCHECK_TEST_TOOL_ARGS)
+ 
+ # Non-standard tests.
+ 
