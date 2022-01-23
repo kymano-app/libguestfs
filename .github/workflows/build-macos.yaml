@@ -41,7 +41,7 @@ jobs:
           patch ./Makefile.am < ../Makefile.am.patch
           patch ./run.in < ../run.in.patch
           patch ./configure < ../configure.patch
-          patch ./00gnulib.m4 < ../00gnulib.m4.patch
+          patch ./m4/00gnulib.m4 < ../00gnulib.m4.patch
         
           CC="gcc -m64" ./configure --with-libintl-prefix=/usr/local/ --disable-ruby --disable-nls --disable-python --disable-perl CC="gcc -std=c90" 
           make
