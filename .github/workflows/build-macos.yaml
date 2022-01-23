@@ -69,6 +69,7 @@ jobs:
           # cd libguestfs-1.46.2
           # ./configure --enable-daemon=no
           # make
+          ls -l
           git clone https://github.com/libguestfs/libguestfs
           cd libguestfs
           patch ./generator/Makefile.am < ../generator/Makefile.am.patch
