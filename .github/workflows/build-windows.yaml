@@ -1,0 +1,83 @@
+name: Windows
+
+on:
+  push:
+    tags:
+      - "[0-9]+.[0-9]+.[0-9]+-win" 
+
+jobs:
+  build:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        arch: [x86_64]
+        platform: [windows]
+    defaults:
+      run:
+        shell: msys2 {0}
+    steps:
+      - name: Branch name
+        id: branch_name
+        shell: bash
+        run: |
+          echo ::set-output name=TAG::${GITHUB_REF#refs/tags/}
+
+      - uses: msys2/setup-msys2@v2
+        with:
+          update: true
+          install: >-
+            base-devel
+            git
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Build
+        run: |
+          BUILD_PATH=$HOME/QEMU-bin
+          mkdir bin
+          pacman -Suy --noconfirm
+          pacman -Sy --noconfirm mingw-w64-x86_64-gcc python
+          pacman -Sy --noconfirm mingw-w64-x86_64-toolchain
+          pacman -Sy --noconfirm ninja
+          pacman -Sy --noconfirm mingw-w64-x86_64-diffutils
+          curl -OL https://download.libguestfs.org/1.46-stable/libguestfs-1.46.2.tar.gz
+          tar -xzf libguestfs-1.46.2.tar.gz
+          cd libguestfs-1.46.2
+          ls -l
+          # git clone https://github.com/libguestfs/libguestfs
+          # cd libguestfs
+          patch ./configure < ../libguestfs-patches/configure.patch
+          patch ./generator/Makefile.am < ../libguestfs-patches/generator/Makefile.am.patch
+          patch ./generator/actions.ml < ../libguestfs-patches/generator/actions.ml.patch
+          patch ./generator/proc_nr.ml < ../libguestfs-patches/generator/proc_nr.ml.patch
+          patch ./daemon/Makefile.am < ../libguestfs-patches/daemon/Makefile.am.patch
+          patch ./gobject/Makefile.inc < ../libguestfs-patches/gobject/Makefile.inc.patch
+          patch ./java/Makefile.inc < ../libguestfs-patches/java/Makefile.inc.patch
+          patch ./m4/guestfs-ocaml.m4 < ../libguestfs-patches/m4/guestfs-ocaml.m4.patch
+          patch ./m4/guestfs-daemon.m4 < ../libguestfs-patches/m4/guestfs-daemon.m4.patch
+          patch ./podwrapper.pl.in < ../libguestfs-patches/podwrapper.pl.in.patch
+          patch ./examples/Makefile.am < ../libguestfs-patches/examples/Makefile.am.patch
+          patch ./common/utils/guestfs-utils.h ../libguestfs-patches/common/utils/guestfs-utils.h.patch
+          patch ./gnulib/lib/getprogname.h ../libguestfs-patches/gnulib/lib/getprogname.h.patch
+          patch ./lib/inspect-apps.c ../libguestfs-patches/lib/inspect-apps.c.patch
+          patch ./common/mlpcre/pcre-c.c ./libguestfs-patches/common/mlpcre/pcre-c.c.patch
+          # git submodule update --init
+          # autoreconf -i
+          # ./configure --help 
+          ./configure CFLAGS="-fPIC -Werror-limit=10000 -Wno-error=implicit-function-declaration -Wno-traditional -I/Library/Developer/CommandLineTools/usr/include/c++/v1" --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --disable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-appliance --exec-prefix=/opt/local/ LDFLAGS="-L/opt/local/lib" LIBS="-lintl" FUSE_CFLAGS="-I/usr/local/include/osxfuse/fuse -D_FILE_OFFSET_BITS=64" FUSE_LIBS="-losxfuse"
+          make CFLAGS="-Werror-limit=10000 -Wno-error=implicit-function-declaration -Wno-traditional" WERROR_CFLAGS="-Werror-limit=10000 -Wno-error=implicit-function-declaration -Wno-traditional"
+
+      
+      - name: Compress
+        run: |
+          tar -czvf "qemu-${{ steps.branch_name.outputs.TAG }}-windows-x86_64.tgz" bin share
+      
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            *.tgz
+          prerelease: true
