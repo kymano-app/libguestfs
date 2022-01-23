@@ -1,6 +1,6 @@
 --- gnulib/lib/getprogname.h	2021-11-26 10:49:56.000000000 +0100
-+++ gnulib/lib/getprogname.h_new	2022-01-23 19:33:34.000000000 +0100
-@@ -21,10 +21,10 @@
++++ gnulib/lib/getprogname.h_new	2022-01-23 19:51:44.000000000 +0100
+@@ -21,10 +21,4 @@
  
  #include <errno.h>
  
@@ -9,10 +9,5 @@
 -{
 -  return program_invocation_short_name;
 -}
-+#static inline char const *
-+#getprogname (void)
-+#{
-+#  return program_invocation_short_name;
-+#}
- 
+-
  #endif /* GUESTFS_GETPROGNAME */
