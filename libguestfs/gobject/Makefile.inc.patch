@@ -1,0 +1,36 @@
+--- gobject/Makefile.inc	2022-01-23 08:12:00.000000000 +0100
++++ Makefile.inc_new	2022-01-23 08:23:35.000000000 +0100
+@@ -31,8 +31,6 @@
+   include/guestfs-gobject/struct-btrfsscrub.h \
+   include/guestfs-gobject/struct-btrfssubvolume.h \
+   include/guestfs-gobject/struct-dirent.h \
+-  include/guestfs-gobject/struct-hivex_node.h \
+-  include/guestfs-gobject/struct-hivex_value.h \
+   include/guestfs-gobject/struct-inotify_event.h \
+   include/guestfs-gobject/struct-int_bool.h \
+   include/guestfs-gobject/struct-isoinfo.h \
+@@ -76,7 +74,6 @@
+   include/guestfs-gobject/optargs-fstrim.h \
+   include/guestfs-gobject/optargs-glob_expand.h \
+   include/guestfs-gobject/optargs-grep.h \
+-  include/guestfs-gobject/optargs-hivex_open.h \
+   include/guestfs-gobject/optargs-inspect_get_icon.h \
+   include/guestfs-gobject/optargs-internal_test.h \
+   include/guestfs-gobject/optargs-internal_test_63_optargs.h \
+@@ -125,8 +122,6 @@
+   src/struct-btrfsscrub.c \
+   src/struct-btrfssubvolume.c \
+   src/struct-dirent.c \
+-  src/struct-hivex_node.c \
+-  src/struct-hivex_value.c \
+   src/struct-inotify_event.c \
+   src/struct-int_bool.c \
+   src/struct-isoinfo.c \
+@@ -170,7 +165,6 @@
+   src/optargs-fstrim.c \
+   src/optargs-glob_expand.c \
+   src/optargs-grep.c \
+-  src/optargs-hivex_open.c \
+   src/optargs-inspect_get_icon.c \
+   src/optargs-internal_test.c \
+   src/optargs-internal_test_63_optargs.c \
