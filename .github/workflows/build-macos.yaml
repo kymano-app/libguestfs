@@ -51,11 +51,11 @@ jobs:
           tar -xzf hivex-1.3.21.tar.gz
           cd hivex-1.3.21
           rm -rf xml
-          patch ./configure.ac < ../libguestfs-patches/configure.ac.patch
-          patch ./Makefile.am < ../libguestfs-patches/Makefile.am.patch
-          patch ./run.in < ../libguestfs-patches/run.in.patch
-          patch ./configure < ../libguestfs-patches/configure.patch
-          patch ./m4/00gnulib.m4 < ../libguestfs-patches/00gnulib.m4.patch
+          patch ./configure.ac < ../hivex-patches/configure.ac.patch
+          patch ./Makefile.am < ../hivex-patches/Makefile.am.patch
+          patch ./run.in < ../hivex-patches/run.in.patch
+          patch ./configure < ../hivex-patches/configure.patch
+          patch ./m4/00gnulib.m4 < ../hivex-patches/00gnulib.m4.patch
           CC="gcc -m64" ./configure --with-libintl-prefix=/usr/local/ --disable-ruby --disable-nls --disable-python --disable-perl CC="gcc -std=c90" 
           make
 
