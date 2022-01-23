@@ -75,6 +75,8 @@ jobs:
           patch ./daemon/Makefile.am < ../daemon/Makefile.am.patch
           patch ./gobject/Makefile.inc < ../gobject/Makefile.inc.patch
           patch ./java/Makefile.inc < ../java/Makefile.inc.patch
+          patch ./m4/guestfs-ocaml.m4 < ../m4/guestfs-ocaml.m4.patch
+          patch ./m4/guestfs-daemon.m4 < ../m4/guestfs-daemon.m4.patch
          
           git submodule update --init
           autoreconf -i
