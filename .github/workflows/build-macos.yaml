@@ -76,6 +76,7 @@ jobs:
           patch ./podwrapper.pl.in < ../libguestfs-patches/podwrapper.pl.in.patch
           patch ./examples/Makefile.am < ../libguestfs-patches/examples/Makefile.am.patch
           patch ./common/utils/guestfs-utils.h ../libguestfs-patches/common/utils/guestfs-utils.h.patch
+          patch ./gnulib/lib/getprogname.h ../libguestfs-patches/gnulib/lib/getprogname.h.patch
           # git submodule update --init
           # autoreconf -i
           # ./configure --help
