@@ -22,7 +22,7 @@ jobs:
       - name: Brew Install
         run: |
            brew install xorriso augeas libmagic jansson automake libiconv gettext
-           brew install qemu ocaml opam ocaml-findlib coreutils
+           brew install qemu ocaml opam ocaml-findlib coreutils osxfuse
 
       - name: Macports
         run: |
@@ -76,11 +76,11 @@ jobs:
           patch ./m4/guestfs-daemon.m4 < ../libguestfs-patches/m4/guestfs-daemon.m4.patch
           patch ./podwrapper.pl.in < ../libguestfs-patches/podwrapper.pl.in.patch
           patch ./examples/Makefile.am < ../libguestfs-patches/examples/Makefile.am.patch
-         
+          ls -l /Library/Developer/CommandLineTools/usr/include/c++/v1/
           git submodule update --init
           autoreconf -i
           ./configure --help
-          ./configure CFLAGS="-fPIC -Wno-error=implicit-function-declaration -I/opt/local/include" --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --disable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-appliance --exec-prefix=/opt/local/ LDFLAGS="-L/opt/local/lib" LIBS="-lintl" FUSE_CFLAGS="-I/usr/local/include/osxfuse/fuse -D_FILE_OFFSET_BITS=64" FUSE_LIBS="-losxfuse"
+          ./configure CFLAGS="-fPIC -Wno-error=implicit-function-declaration -I/Library/Developer/CommandLineTools/usr/include/c++/v1" --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --disable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-appliance --exec-prefix=/opt/local/ LDFLAGS="-L/opt/local/lib" LIBS="-lintl" FUSE_CFLAGS="-I/usr/local/include/osxfuse/fuse -D_FILE_OFFSET_BITS=64" FUSE_LIBS="-losxfuse"
           make CFLAGS="-Wno-error=implicit-function-declaration" WERROR_CFLAGS="-Wno-error=implicit-function-declaration"
 
       - name: Compress
