@@ -78,7 +78,7 @@ jobs:
          
           git submodule update --init
           autoreconf -i
-          ./configure CFLAGS=-fPIC --with-distro=openbsd --enable-daemon=no --disable-daemon --disable-appliance --exec-prefix=/opt/local/
+          ./configure CFLAGS=-fPIC --disbale-guestfs-haskell --disbale-guestfs-python  --disbale-guestfs-ruby --with-distro=openbsd --enable-daemon=no --disable-daemon --disable-appliance --exec-prefix=/opt/local/
           make
 
       - name: Compress
