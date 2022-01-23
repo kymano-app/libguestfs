@@ -25,7 +25,9 @@ jobs:
            brew install gettext
            brew unlink gettext && brew link gettext
            brew install qemu
-
+           brew install ocaml
+           brew install opam
+           
       - name: Macports
         run: |
            wget https://github.com/macports/macports-base/releases/download/v2.7.1/MacPorts-2.7.1-11-BigSur.pkg
