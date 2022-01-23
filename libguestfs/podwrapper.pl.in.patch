@@ -1,0 +1,10 @@
+--- podwrapper.pl.in	2022-01-23 08:12:00.000000000 +0100
++++ podwrapper.pl.in_new	2022-01-23 08:38:06.000000000 +0100
+@@ -568,7 +568,6 @@
+         return 1 if /^guestf/;
+         return 1 if /^guestmount/;
+         return 1 if /^guestunmount/;
+-        return 1 if /^hivex/;
+         return 1 if /^supermin/;
+         return 1 if /^libnbd/;
+         return 1 if /^nbd/;

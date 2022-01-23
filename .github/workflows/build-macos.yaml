@@ -19,7 +19,7 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Brew
+      - name: Brew Install
         run: |
            brew install xorriso augeas libmagic jansson automake libiconv
            brew install gettext
@@ -46,12 +46,12 @@ jobs:
       #     CC="gcc -m64" ./configure --with-libintl-prefix=/usr/local/ --disable-ruby --disable-nls --disable-python --disable-perl CC="gcc -std=c90" 
       #     make
 
-      - name: Macports install
+      - name: Macports
         run: |
            wget https://github.com/macports/macports-base/releases/download/v2.7.1/MacPorts-2.7.1-11-BigSur.pkg
            sudo installer -pkg ./MacPorts-2.7.1-11-BigSur.pkg -target /
 
-      - name: Install dependencies
+      - name: Macports Install
         run: |
           # sudo chown runner /opt/local/etc/macports/macports.conf 
           # sudo echo 'build_arch arm64' >> /opt/local/etc/macports/macports.conf
@@ -62,7 +62,7 @@ jobs:
           sudo port info binutils
 
 
-      - name: Install
+      - name: Libguestfs Install
         run: |
           # curl -OL https://download.libguestfs.org/1.46-stable/libguestfs-1.46.2.tar.gz
           # tar -xzf libguestfs-1.46.2.tar.gz
@@ -78,6 +78,7 @@ jobs:
           patch ./java/Makefile.inc < ../java/Makefile.inc.patch
           patch ./m4/guestfs-ocaml.m4 < ../m4/guestfs-ocaml.m4.patch
           patch ./m4/guestfs-daemon.m4 < ../m4/guestfs-daemon.m4.patch
+          patch ./podwrapper.pl.in < ../podwrapper.pl.in.patch
          
           git submodule update --init
           autoreconf -i
