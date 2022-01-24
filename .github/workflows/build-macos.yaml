@@ -65,6 +65,22 @@ jobs:
           # git clone https://github.com/libguestfs/libguestfs
           # cd libguestfs
           rm -rf docs
+          rm -rf daemon
+          rm -rf php
+          rm -rf erlang
+          rm -rf examples
+          rm -rf golang
+          rm -rf haskell
+          rm -rf java
+          rm -rf lua
+          rm -rf php
+          rm -rf po-docs
+          rm -rf python
+          rm -rf ruby
+          rm -rf rust
+          rm -rf test-data
+          rm -rf test-tool
+          rm -rf tests
           patch ./configure < ../libguestfs-patches/configure.patch
           patch ./Makefile.in < ../libguestfs-patches/Makefile.in.patch
           patch ./generator/Makefile.am < ../libguestfs-patches/generator/Makefile.am.patch
