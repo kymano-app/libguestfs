@@ -1,6 +1,6 @@
 --- Makefile.am	2021-11-26 10:49:56.000000000 +0100
-+++ Makefile.am_new	2022-01-24 08:04:05.000000000 +0100
-@@ -24,7 +24,6 @@
++++ Makefile.am_new	2022-01-24 19:22:58.000000000 +0100
+@@ -24,14 +24,13 @@
  
  # Files and other test data used by the tests.  Must be before any
  # tests run.
@@ -8,6 +8,14 @@
  
  # Basic source for the library.
  SUBDIRS += gnulib/lib
+ SUBDIRS += common/errnostring common/protocol common/qemuopts
+ SUBDIRS += common/utils
+ SUBDIRS += common/structs
+-SUBDIRS += include lib docs examples
++SUBDIRS += include lib docs
+ 
+ # The daemon and the appliance.
+ SUBDIRS += common/mlutils
 @@ -45,9 +44,6 @@
  SUBDIRS += appliance
  endif
@@ -18,7 +26,7 @@
  # Common code used by the tools.
  SUBDIRS += common/edit
  SUBDIRS += common/options
-@@ -57,7 +53,7 @@
+@@ -57,48 +53,14 @@
  SUBDIRS += common/windows
  
  # Small tools written in C.
@@ -27,7 +35,48 @@
  
  # bash-completion
  SUBDIRS += bash
-@@ -122,7 +118,6 @@
+ 
+-# Language bindings.
+-if HAVE_PERL
+-SUBDIRS += perl perl/examples
+-endif
+-if HAVE_OCAML
+-SUBDIRS += ocaml ocaml/examples
+-endif
+-if HAVE_PYTHON
+-SUBDIRS += python python/examples
+-endif
+-if HAVE_RUBY
+-SUBDIRS += ruby ruby/examples
+-endif
+-if HAVE_JAVA
+-SUBDIRS += java java/examples
+-endif
+-if HAVE_HASKELL
+-SUBDIRS += haskell
+-endif
+-if HAVE_PHP
+-SUBDIRS += php
+-endif
+-if HAVE_ERLANG
+-SUBDIRS += erlang erlang/examples
+-endif
+-if HAVE_LUA
+-SUBDIRS += lua lua/examples
+-endif
+ if HAVE_GOBJECT
+ SUBDIRS += gobject
+ endif
+-if HAVE_GOLANG
+-SUBDIRS += golang golang/examples
+-endif
+-if HAVE_RUST
+-SUBDIRS += rust
+-endif
+ 
+ # Unconditional because nothing is built yet.
+ SUBDIRS += csharp
+@@ -122,7 +84,6 @@
  	.lvimrc \
  	.mailmap \
  	bugs-in-changelog.sh \
@@ -35,7 +84,7 @@
  	build-aux/config.rpath \
  	check-mli.sh \
  	common/.gitignore \
-@@ -157,7 +152,6 @@
+@@ -157,7 +118,6 @@
  	logo/fish-10yrs.svg logo/fish-10yrs.png \
  	logo/virt-builder.svg \
  	podcheck.pl \
@@ -43,7 +92,38 @@
  	tmp/.gitignore \
  	valgrind-suppressions \
  	website/bugs.png \
-@@ -292,7 +286,7 @@
+@@ -213,30 +173,6 @@
+ 
+ # This has to be in the top-level Makefile.am so that we have access
+ # to DIST_SUBDIRS.
+-docs/C_SOURCE_FILES: configure.ac
+-	rm -f $@ $@-t
+-	find $(DIST_SUBDIRS) -name '*.[ch]' | \
+-	grep -v -E '^(builder/index-parse\.|builder/index-scan\.|examples/|gobject/|java/com_redhat_et_libguestfs|perl/|php/extension/config\.h|ruby/ext/guestfs/extconf\.h|tests/|test-data/|bundled/)' | \
+-	grep -v -E '/(guestfs|rc)_protocol\.' | \
+-	grep -v -E '.*/errnostring\.' | \
+-	grep -v -E '.*-gperf\.' | \
+-	grep -v -E '/dummy.c$$' | \
+-	LC_ALL=C sort -u > $@-t
+-	mv $@-t $@
+-
+-# For more information about translations, see po/Makefile.am.
+-po/POTFILES: configure.ac
+-	rm -f $@ $@-t
+-	cd $(srcdir); \
+-	find $(DIST_SUBDIRS) -name '*.c' | \
+-	grep -v -E '^(examples|perl/(blib|examples)|po-docs|tests|test-data|bundled)/' | \
+-	grep -v -E '/((guestfs|rc)_protocol\.c|dummy\.c)$$' | \
+-	grep -v -E '^python/utils\.c$$' | \
+-	grep -v -E '^perl/lib/Sys/Guestfs\.c$$' | \
+-	grep -v -E '.*-(tests|gperf)\.c$$' | \
+-	LC_ALL=C sort -u > $@-t
+-	mv $@-t $@
+-
+ # Try to stop people using 'make install' without 'DESTDIR'.
+ install:
+ 	@if test "x$(DESTDIR)" != "x" || test "x$(REALLY_INSTALL)" = "xyes"; \
+@@ -292,7 +228,7 @@
  # is NOT a substitute for proper testing!
  
  quickcheck:
@@ -52,3 +132,15 @@
  
  # Non-standard tests.
  
+@@ -353,11 +289,6 @@
+ 	SKIP_TEST_RHBZ914931=1 \
+ 	SKIP_TEST_INSPECT_FSTAB_MD_SH=1
+ 
+-check-uml:
+-	$(MAKE) LIBGUESTFS_BACKEND=uml $(SKIP_TESTS_FAILING_IN_UML) check
+-
+-check-valgrind-uml:
+-	$(MAKE) LIBGUESTFS_BACKEND=uml $(SKIP_TESTS_FAILING_IN_UML) check-valgrind
+ 
+ QEMUDIR = $(HOME)/d/qemu
+ QEMUBINARY = $(QEMUDIR)/x86_64-softmmu/qemu-system-x86_64
