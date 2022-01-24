@@ -1,5 +1,5 @@
 --- configure	2021-12-24 10:46:19.000000000 +0100
-+++ configure_new	2022-01-24 18:57:37.000000000 +0100
++++ configure_new	2022-01-24 19:33:35.000000000 +0100
 @@ -764,9 +764,7 @@
  ounit_is_v2
  OCAML_PKG_ounit2
@@ -218,7 +218,14 @@
  
  
  OCAML_PKG_gettext=no
-@@ -31388,7 +31206,7 @@
+@@ -31381,14 +31199,12 @@
+ 
+ ac_config_files="$ac_config_files ocaml-link.sh"
+ 
+-ac_config_files="$ac_config_files php/extension/php-for-tests.sh"
+-
+ ac_config_files="$ac_config_files podwrapper.pl"
+ 
  ac_config_files="$ac_config_files run"
  
  
@@ -227,7 +234,7 @@
  
  
  cat >confcache <<\_ACEOF
-@@ -31568,10 +31386,6 @@
+@@ -31568,10 +31384,6 @@
    as_fn_error $? "conditional \"INSTALL_DAEMON\" was never defined.
  Usually this means the macro was only invoked conditionally." "$LINENO" 5
  fi
@@ -238,7 +245,7 @@
  if test -z "${ENABLE_APPLIANCE_TRUE}" && test -z "${ENABLE_APPLIANCE_FALSE}"; then
    as_fn_error $? "conditional \"ENABLE_APPLIANCE\" was never defined.
  Usually this means the macro was only invoked conditionally." "$LINENO" 5
-@@ -32695,61 +32509,20 @@
+@@ -32695,61 +32507,20 @@
      "common/windows/Makefile") CONFIG_FILES="$CONFIG_FILES common/windows/Makefile" ;;
      "config.sh") CONFIG_FILES="$CONFIG_FILES config.sh" ;;
      "csharp/Makefile") CONFIG_FILES="$CONFIG_FILES csharp/Makefile" ;;
