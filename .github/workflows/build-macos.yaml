@@ -81,6 +81,7 @@ jobs:
           patch ./lib/inspect-apps.c ../libguestfs-patches/lib/inspect-apps.c.patch
           patch ./common/mlpcre/pcre-c.c ../libguestfs-patches/common/mlpcre/pcre-c.c.patch 
           patch ./run.in ../libguestfs-patches/run.in.patch
+          patch ./installcheck.sh.in ../libguestfs-patches/installcheck.sh.in.patch
           # git submodule update --init 
           # autoreconf -i
           # ./configure --help 
