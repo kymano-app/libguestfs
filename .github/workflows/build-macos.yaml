@@ -36,7 +36,7 @@ jobs:
           export PATH="/opt/local/bin:$PATH"
           sudo port install autoconf po4a magic
           sudo port install ncurses
-          sudo port install binutils
+          #sudo port install binutils
 
       # - name: Hivex
       #   run: |
