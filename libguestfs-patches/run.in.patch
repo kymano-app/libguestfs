@@ -1,0 +1,10 @@
+--- run.in	2021-11-26 10:49:57.000000000 +0100
++++ run.in_new	2022-01-24 07:58:58.000000000 +0100
+@@ -102,7 +102,6 @@
+ prepend PATH "$b/resize"
+ prepend PATH "$b/sparsify"
+ prepend PATH "$b/sysprep"
+-prepend PATH "$b/test-tool"
+ prepend PATH "$b/tools"
+ export PATH
+ 
