@@ -1,5 +1,5 @@
 --- generator/main.ml	2021-11-26 10:49:56.000000000 +0100
-+++ generator/main.ml_new	2022-01-24 21:12:05.000000000 +0100
++++ generator/main.ml_new	2022-01-24 21:38:50.000000000 +0100
 @@ -122,55 +122,6 @@
              C.generate_client_actions_variants;
    output_to_subset "lib/actions-%d.c"
@@ -167,3 +167,15 @@
    output_to "gobject/bindtests.js"
              Bindtests.generate_gobject_js_bindtests;
    output_to "gobject/Makefile.inc"
+@@ -367,11 +217,6 @@
+               Customize.generate_customize_options_pod
+   );
+ 
+-  output_to "rust/src/guestfs.rs"
+-            Rust.generate_rust;
+-  output_to "rust/src/bin/bindtests.rs"
+-            Bindtests.generate_rust_bindtests;
+-
+   (* Generate the list of files generated -- last. *)
+   printf "generated %d lines of code\n" (get_lines_generated ());
+   let files = List.sort compare (get_files_generated ()) in
