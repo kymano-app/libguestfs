@@ -88,11 +88,11 @@ jobs:
           patch ./generator/proc_nr.ml < ../libguestfs-patches/generator/proc_nr.ml.patch
           # patch ./daemon/Makefile.am < ../libguestfs-patches/daemon/Makefile.am.patch
           patch ./gobject/Makefile.inc < ../libguestfs-patches/gobject/Makefile.inc.patch
-          patch ./java/Makefile.inc < ../libguestfs-patches/java/Makefile.inc.patch
+          # patch ./java/Makefile.inc < ../libguestfs-patches/java/Makefile.inc.patch
           patch ./m4/guestfs-ocaml.m4 < ../libguestfs-patches/m4/guestfs-ocaml.m4.patch
           patch ./m4/guestfs-daemon.m4 < ../libguestfs-patches/m4/guestfs-daemon.m4.patch
           patch ./podwrapper.pl.in < ../libguestfs-patches/podwrapper.pl.in.patch
-          patch ./examples/Makefile.am < ../libguestfs-patches/examples/Makefile.am.patch
+          # patch ./examples/Makefile.am < ../libguestfs-patches/examples/Makefile.am.patch
           patch ./common/utils/guestfs-utils.h ../libguestfs-patches/common/utils/guestfs-utils.h.patch
           patch ./gnulib/lib/getprogname.h ../libguestfs-patches/gnulib/lib/getprogname.h.patch
           patch ./lib/inspect-apps.c ../libguestfs-patches/lib/inspect-apps.c.patch
