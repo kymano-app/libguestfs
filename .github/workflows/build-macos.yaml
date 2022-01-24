@@ -100,6 +100,7 @@ jobs:
           patch ./run.in ../libguestfs-patches/run.in.patch
           patch ./installcheck.sh.in ../libguestfs-patches/installcheck.sh.in.patch
           patch ./Makefile.am ../libguestfs-patches/Makefile.am.patch
+          patch ./configure.ac ../libguestfs-patches/configure.ac.patch
           # git submodule update --init 
           # autoreconf -i
           # ./configure --help 
