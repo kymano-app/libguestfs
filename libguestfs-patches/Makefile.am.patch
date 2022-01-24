@@ -1,0 +1,54 @@
+--- Makefile.am	2021-11-26 10:49:56.000000000 +0100
++++ Makefile.am_new	2022-01-24 08:04:05.000000000 +0100
+@@ -24,7 +24,6 @@
+ 
+ # Files and other test data used by the tests.  Must be before any
+ # tests run.
+-SUBDIRS += test-data
+ 
+ # Basic source for the library.
+ SUBDIRS += gnulib/lib
+@@ -45,9 +44,6 @@
+ SUBDIRS += appliance
+ endif
+ 
+-# Tests.
+-SUBDIRS += tests
+-
+ # Common code used by the tools.
+ SUBDIRS += common/edit
+ SUBDIRS += common/options
+@@ -57,7 +53,7 @@
+ SUBDIRS += common/windows
+ 
+ # Small tools written in C.
+-SUBDIRS += test-tool fish rescue
++SUBDIRS += fish rescue
+ 
+ # bash-completion
+ SUBDIRS += bash
+@@ -122,7 +118,6 @@
+ 	.lvimrc \
+ 	.mailmap \
+ 	bugs-in-changelog.sh \
+-	bindtests \
+ 	build-aux/config.rpath \
+ 	check-mli.sh \
+ 	common/.gitignore \
+@@ -157,7 +152,6 @@
+ 	logo/fish-10yrs.svg logo/fish-10yrs.png \
+ 	logo/virt-builder.svg \
+ 	podcheck.pl \
+-	tests/test-functions.sh \
+ 	tmp/.gitignore \
+ 	valgrind-suppressions \
+ 	website/bugs.png \
+@@ -292,7 +286,7 @@
+ # is NOT a substitute for proper testing!
+ 
+ quickcheck:
+-	$(top_builddir)/run test-tool/libguestfs-test-tool $(QUICKCHECK_TEST_TOOL_ARGS)
++	$(top_builddir)/run  $(QUICKCHECK_TEST_TOOL_ARGS)
+ 
+ # Non-standard tests.
+ 
