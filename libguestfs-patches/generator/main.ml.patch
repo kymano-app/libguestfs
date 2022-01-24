@@ -1,0 +1,151 @@
+--- generator/main.ml	2021-11-26 10:49:56.000000000 +0100
++++ generator/main.ml_new	2022-01-24 20:54:07.000000000 +0100
+@@ -122,37 +122,6 @@
+             C.generate_client_actions_variants;
+   output_to_subset "lib/actions-%d.c"
+                    C.generate_client_actions;
+-  output_to "tests/c-api/tests.c"
+-            Tests_c_api.generate_c_api_tests;
+-
+-  output_to "daemon/actions.h"
+-            Daemon.generate_daemon_actions_h;
+-  output_to "daemon/stubs.h"
+-            Daemon.generate_daemon_stubs_h;
+-  output_to_subset "daemon/stubs-%d.c"
+-                   Daemon.generate_daemon_stubs;
+-  output_to "daemon/caml-stubs.c"
+-            Daemon.generate_daemon_caml_stubs;
+-  output_to "daemon/callbacks.ml"
+-            Daemon.generate_daemon_caml_callbacks_ml;
+-  output_to "daemon/dispatch.c"
+-            Daemon.generate_daemon_dispatch;
+-  output_to "daemon/names.c"
+-            Daemon.generate_daemon_names;
+-  output_to "daemon/optgroups.c"
+-            Daemon.generate_daemon_optgroups_c;
+-  output_to "daemon/optgroups.h"
+-            Daemon.generate_daemon_optgroups_h;
+-  output_to "daemon/optgroups.ml"
+-            Daemon.generate_daemon_optgroups_ml;
+-  output_to "daemon/optgroups.mli"
+-            Daemon.generate_daemon_optgroups_mli;
+-  output_to "daemon/lvm-tokenization.c"
+-            Daemon.generate_daemon_lvm_tokenization;
+-  output_to "daemon/structs-cleanups.c"
+-            Daemon.generate_daemon_structs_cleanups_c;
+-  output_to "daemon/structs-cleanups.h"
+-            Daemon.generate_daemon_structs_cleanups_h;
+   let daemon_ocaml_interfaces =
+     List.fold_left (
+       fun set { impl } ->
+@@ -200,110 +169,9 @@
+   output_to ~perm:0o555 "fish/test-prep.sh"
+             Fish.generate_fish_test_prep_sh;
+ 
+-  output_to "ocaml/guestfs.mli"
+-            OCaml.generate_ocaml_mli;
+-  output_to "ocaml/guestfs.ml"
+-            OCaml.generate_ocaml_ml;
+-  output_to "ocaml/guestfs-c-actions.c"
+-            OCaml.generate_ocaml_c;
+-  output_to "ocaml/guestfs-c-errnos.c"
+-            OCaml.generate_ocaml_c_errnos;
+-  output_to "daemon/structs.ml"
+-            OCaml.generate_ocaml_daemon_structs;
+-  output_to "daemon/structs.mli"
+-            OCaml.generate_ocaml_daemon_structs;
+-  output_to "ocaml/bindtests.ml"
+-            Bindtests.generate_ocaml_bindtests;
+-
+-  output_to "perl/lib/Sys/Guestfs.xs"
+-            Perl.generate_perl_xs;
+-  output_to "perl/lib/Sys/Guestfs.pm"
+-            Perl.generate_perl_pm;
+-  output_to "perl/bindtests.pl"
+-            Bindtests.generate_perl_bindtests;
+-
+-  output_to "python/actions.h"
+-            Python.generate_python_actions_h;
+-  output_to_subset "python/actions-%d.c"
+-                   Python.generate_python_actions;
+-  output_to "python/module.c"
+-            Python.generate_python_module;
+-  output_to "python/structs.c"
+-            Python.generate_python_structs;
+-  output_to "python/guestfs.py"
+-            Python.generate_python_py;
+-  output_to "python/bindtests.py"
+-            Bindtests.generate_python_bindtests;
+-
+-  output_to "ruby/ext/guestfs/actions.h"
+-            Ruby.generate_ruby_h;
+-  output_to_subset "ruby/ext/guestfs/actions-%d.c"
+-                   Ruby.generate_ruby_c;
+-  output_to "ruby/ext/guestfs/module.c"
+-            Ruby.generate_ruby_module;
+-  output_to "ruby/bindtests.rb"
+-            Bindtests.generate_ruby_bindtests;
+-
+-  output_to "java/com/redhat/et/libguestfs/GuestFS.java"
+-            Java.generate_java_java;
+-  List.iter (
+-    fun { s_name = typ; s_camel_name = jtyp } ->
+-      let cols = cols_of_struct typ in
+-      let filename = sprintf "java/com/redhat/et/libguestfs/%s.java" jtyp in
+-      output_to filename (Java.generate_java_struct jtyp cols)
+-  ) external_structs;
+-  delete_except_generated
+-    ~skip:["java/com/redhat/et/libguestfs/LibGuestFSException.java";
+-           "java/com/redhat/et/libguestfs/LibGuestFSOutOfMemory.java";
+-           "java/com/redhat/et/libguestfs/EventCallback.java"]
+-    "java/com/redhat/et/libguestfs/*.java";
+-  output_to "java/Makefile.inc"
+-            Java.generate_java_makefile_inc;
+-  output_to_subset "java/actions-%d.c"
+-                   Java.generate_java_c;
+-  output_to "java/com/redhat/et/libguestfs/.gitignore"
+-            Java.generate_java_gitignore;
+-  output_to "java/Bindtests.java"
+-            Bindtests.generate_java_bindtests;
+-
+-  output_to "haskell/Guestfs.hs"
+-            Haskell.generate_haskell_hs;
+-  output_to "haskell/Bindtests.hs"
+-            Bindtests.generate_haskell_bindtests;
+-
+   output_to "csharp/Libguestfs.cs"
+             Csharp.generate_csharp;
+ 
+-  output_to "php/extension/php_guestfs_php.h"
+-            Php.generate_php_h;
+-  output_to "php/extension/guestfs_php.c"
+-            Php.generate_php_c;
+-  output_to "php/extension/tests/guestfs_090_bindtests.phpt"
+-            Bindtests.generate_php_bindtests;
+-
+-  output_to "erlang/guestfs.erl"
+-            Erlang.generate_erlang_erl;
+-  output_to "erlang/actions.h"
+-            Erlang.generate_erlang_actions_h;
+-  output_to_subset "erlang/actions-%d.c"
+-                   Erlang.generate_erlang_actions;
+-  output_to "erlang/dispatch.c"
+-            Erlang.generate_erlang_dispatch;
+-  output_to "erlang/structs.c"
+-            Erlang.generate_erlang_structs;
+-  output_to ~perm:0o555 "erlang/bindtests.erl"
+-            Bindtests.generate_erlang_bindtests;
+-
+-  output_to "lua/lua-guestfs.c"
+-            Lua.generate_lua_c;
+-  output_to "lua/bindtests.lua"
+-            Bindtests.generate_lua_bindtests;
+-
+-  output_to "golang/src/libguestfs.org/guestfs/guestfs.go"
+-            Golang.generate_golang_go;
+-  output_to "golang/bindtests/bindtests.go"
+-            Bindtests.generate_golang_bindtests;
+-
+   output_to "gobject/bindtests.js"
+             Bindtests.generate_gobject_js_bindtests;
+   output_to "gobject/Makefile.inc"

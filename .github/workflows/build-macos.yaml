@@ -86,6 +86,7 @@ jobs:
           patch ./generator/Makefile.am < ../libguestfs-patches/generator/Makefile.am.patch
           patch ./generator/actions.ml < ../libguestfs-patches/generator/actions.ml.patch
           patch ./generator/proc_nr.ml < ../libguestfs-patches/generator/proc_nr.ml.patch
+          patch ./generator/main.ml < ../libguestfs-patches/generator/main.ml.patch
           # patch ./daemon/Makefile.am < ../libguestfs-patches/daemon/Makefile.am.patch
           patch ./gobject/Makefile.inc < ../libguestfs-patches/gobject/Makefile.inc.patch
           # patch ./java/Makefile.inc < ../libguestfs-patches/java/Makefile.inc.patch
