@@ -56,7 +56,8 @@ jobs:
       #     CC="gcc -m64" ./configure CFLAGS="-Wno-error=implicit-function-declaration"  --with-libintl-prefix=/usr/local/ --disable-ruby --disable-nls --disable-python --disable-perl CC="gcc -std=c90"
       #     make CFLAGS="-Wno-error=implicit-function-declaration" WERROR_CFLAGS="-Wno-error=implicit-function-declaration"
 
-      - name: Libguestfs Install
+      - name: Libguestfs 1.46.2 Install
+        if false:
         run: |
           curl -OL https://download.libguestfs.org/1.46-stable/libguestfs-1.46.2.tar.gz
           tar -xzf libguestfs-1.46.2.tar.gz
@@ -99,12 +100,40 @@ jobs:
           patch ./installcheck.sh.in ../libguestfs-patches/installcheck.sh.in.patch
           patch ./Makefile.am ../libguestfs-patches/Makefile.am.patch
           patch ./configure.ac ../libguestfs-patches/configure.ac.patch
+          patch ./lib/Makefile.am ../libguestfs-patches/lib/Makefile.am.patch
+          patch ./gnulib/lib/Makefile.am ../libguestfs-patches/gnulib/lib/Makefile.am.patch
         
           # git submodule update --init 
           # autoreconf -i
           # ./configure --help 
           ./configure CC="cc -m64" CPPFLAGS="-I/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/mach" CFLAGS="-fPIC -Werror-limit=10000 -Wno-error=implicit-function-declaration -Wno-traditional -I/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/mach -I/Library/Developer/CommandLineTools/usr/include/c++/v1" --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --disable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-appliance --exec-prefix=/opt/local/ LDFLAGS="-L/opt/local/lib" LIBS="-lintl" FUSE_CFLAGS="-I/usr/local/include/osxfuse/fuse -D_FILE_OFFSET_BITS=64" FUSE_LIBS="-losxfuse"
           make CC="cc -m64" CFLAGS="-Werror-limit=10000 -Wno-error=implicit-function-declaration -Wno-traditional -I/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/mach" WERROR_CFLAGS="-Werror-limit=10000 -Wno-error=implicit-function-declaration -Wno-traditional"
+
+      - name: Libguestfs 1.44.2 Install
+        run: |
+          curl -OL https://download.libguestfs.org/1.46-stable/libguestfs-1.44.2.tar.gz
+          tar -xzf libguestfs-1.44.2.tar.gz
+          cd libguestfs-1.44.2
+          rm -rf docs
+          rm -rf daemon
+          rm -rf php
+          rm -rf erlang
+          rm -rf examples
+          rm -rf golang
+          rm -rf haskell
+          rm -rf java
+          rm -rf lua
+          rm -rf php
+          rm -rf po-docs
+          rm -rf python
+          rm -rf ruby
+          rm -rf rust
+          rm -rf test-data
+          rm -rf test-tool
+          rm -rf tests
+          patch ./configure < ../libguestfs-patches-1.44.2/configure.patch
+        
+          ./configure CC="cc -m64" CPPFLAGS="-I/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/mach" CFLAGS="-fPIC -Werror-limit=10000 -Wno-error=implicit-function-declaration -Wno-traditional -I/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/mach -I/Library/Developer/CommandLineTools/usr/include/c++/v1" --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --disable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-appliance --exec-prefix=/opt/local/ LDFLAGS="-L/opt/local/lib" LIBS="-lintl" FUSE_CFLAGS="-I/usr/local/include/osxfuse/fuse -D_FILE_OFFSET_BITS=64" FUSE_LIBS="-losxfuse" JANSSON_LIBS=/opt/homebrew/Cellar/jansson/2.14/lib JANSSON_CFLAGS=/opt/homebrew/Cellar/jansson/2.14/include
 
       - name: Compress
         run: |
