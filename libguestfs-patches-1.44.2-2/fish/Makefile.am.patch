@@ -1,0 +1,25 @@
+--- ./fish/Makefile.am	2021-03-11 17:20:47.000000000 +0100
++++ .//fish/Makefile.am_new	2022-01-27 20:59:35.000000000 +0100
+@@ -182,20 +182,8 @@
+ 
+ # Manual pages.
+ 
+-man_MANS = \
+-	guestfish.1 \
+-	libguestfs-tools.conf.5 \
+-	virt-copy-in.1 \
+-	virt-copy-out.1 \
+-	virt-tar-in.1 \
+-	virt-tar-out.1
+-noinst_DATA = \
+-	$(top_builddir)/website/guestfish.1.html \
+-	$(top_builddir)/website/libguestfs-tools.conf.5.html \
+-	$(top_builddir)/website/virt-copy-in.1.html \
+-	$(top_builddir)/website/virt-copy-out.1.html \
+-	$(top_builddir)/website/virt-tar-in.1.html \
+-	$(top_builddir)/website/virt-tar-out.1.html
++man_MANS =
++noinst_DATA = 
+ 
+ guestfish.1 $(top_builddir)/website/guestfish.1.html: stamp-guestfish.pod
+ 

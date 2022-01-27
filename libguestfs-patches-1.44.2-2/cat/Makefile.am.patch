@@ -1,0 +1,19 @@
+--- .//cat/Makefile.am	2021-03-11 17:20:47.000000000 +0100
++++ .//cat/Makefile.am_new	2022-01-27 21:05:09.000000000 +0100
+@@ -178,14 +178,9 @@
+ 	../gnulib/lib/libgnu.la
+ 
+ # Manual pages and HTML files for the website.
+-man_MANS = virt-cat.1 virt-filesystems.1 virt-log.1 virt-ls.1 virt-tail.1
++man_MANS = 
+ 
+-noinst_DATA = \
+-	$(top_builddir)/website/virt-cat.1.html \
+-	$(top_builddir)/website/virt-filesystems.1.html \
+-	$(top_builddir)/website/virt-log.1.html \
+-	$(top_builddir)/website/virt-ls.1.html \
+-	$(top_builddir)/website/virt-tail.1.html
++noinst_DATA = 
+ 
+ virt-cat.1 $(top_builddir)/website/virt-cat.1.html: stamp-virt-cat.pod
+ 

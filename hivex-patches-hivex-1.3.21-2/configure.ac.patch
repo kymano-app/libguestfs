@@ -1,0 +1,16 @@
+--- configure.ac	2021-08-02 10:10:24.000000000 +0200
++++ configure.ac_new	2022-01-26 17:53:31.000000000 +0100
+@@ -191,11 +191,11 @@
+ ], [
+     have_libxml2=no
+ ])
+-AM_CONDITIONAL([HAVE_LIBXML2],[test "x$have_libxml2" = "xyes"])
++AM_CONDITIONAL([HAVE_LIBXML2],[false])
+ 
+ dnl hivexsh depends on open_memstream, which is absent on OS X.
+ AC_CHECK_FUNC([open_memstream])
+-AM_CONDITIONAL([HAVE_HIVEXSH],[test "x$ac_cv_func_open_memstream" = "xyes"])
++AM_CONDITIONAL([HAVE_HIVEXSH],[false])
+ 
+ dnl Check for OCaml (optional, for OCaml bindings).
+ OCAMLC=no

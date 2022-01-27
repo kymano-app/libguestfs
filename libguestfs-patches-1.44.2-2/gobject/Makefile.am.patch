@@ -1,0 +1,13 @@
+--- .//gobject/Makefile.am	2021-03-11 17:20:47.000000000 +0100
++++ .//gobject/Makefile.am_new	2022-01-26 22:37:03.000000000 +0100
+@@ -128,8 +128,8 @@
+ 
+ # Documentation.
+ 
+-man_MANS = guestfs-gobject.3
+-noinst_DATA = $(top_builddir)/website/guestfs-gobject.3.html
++man_MANS = 
++noinst_DATA = 
+ 
+ guestfs-gobject.3 $(top_builddir)/website/guestfs-gobject.3.html: stamp-guestfs-gobject.pod
+ 

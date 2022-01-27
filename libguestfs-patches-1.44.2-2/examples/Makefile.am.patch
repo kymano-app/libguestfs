@@ -1,0 +1,13 @@
+--- examples/Makefile.am	2021-03-11 17:20:47.000000000 +0100
++++ examples/Makefile.am_new	2022-01-26 22:41:16.000000000 +0100
+@@ -127,8 +127,8 @@
+ 	$(top_builddir)/lib/libguestfs.la
+ endif
+ 
+-man_MANS = guestfs-examples.3
+-noinst_DATA = $(top_builddir)/website/guestfs-examples.3.html
++man_MANS = 
++noinst_DATA = 
+ 
+ guestfs-examples.3 $(top_builddir)/website/guestfs-examples.3.html: stamp-guestfs-examples.pod
+ 

@@ -1,0 +1,14 @@
+--- test-tool/test-tool.c	2020-03-06 20:31:08.000000000 +0100
++++ test-tool/test-tool.c_new	2022-01-27 08:20:37.000000000 +0100
+@@ -47,6 +47,11 @@
+ 
+ #define DEFAULT_TIMEOUT 600
+ 
++#undef textdomain
++#define textdomain(Domainname) /* empty */
++#undef bindtextdomain
++#define bindtextdomain(Domainname, Dirname) /* empty */
++
+ static int timeout = DEFAULT_TIMEOUT;
+ 
+ static void set_qemu (guestfs_h *g, const char *path, int use_wrapper);

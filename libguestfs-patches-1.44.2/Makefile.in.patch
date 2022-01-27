@@ -1,0 +1,196 @@
+--- Makefile.in	2022-01-24 23:37:00.000000000 +0100
++++ Makefile.in_new	2022-01-25 23:37:11.000000000 +0100
+@@ -128,44 +128,12 @@
+ 
+ # Must be the first tests that run.
+ @ENABLE_APPLIANCE_TRUE@am__append_1 = tests/qemu
+-@ENABLE_GNULIB_TESTS_TRUE@am__append_2 = gnulib/tests
+ @ENABLE_DAEMON_TRUE@am__append_3 = daemon tests/daemon
+ 
+-# Tests - order is important.
+-@ENABLE_APPLIANCE_TRUE@am__append_4 = appliance tests/c-api \
+-@ENABLE_APPLIANCE_TRUE@	tests/tmpdirs tests/protocol \
+-@ENABLE_APPLIANCE_TRUE@	tests/events tests/parallel \
+-@ENABLE_APPLIANCE_TRUE@	tests/create tests/disks tests/discard \
+-@ENABLE_APPLIANCE_TRUE@	tests/mountable tests/network tests/lvm \
+-@ENABLE_APPLIANCE_TRUE@	tests/luks tests/md tests/selinux \
+-@ENABLE_APPLIANCE_TRUE@	tests/relabel tests/ntfs tests/btrfs \
+-@ENABLE_APPLIANCE_TRUE@	tests/xfs tests/charsets tests/xml \
+-@ENABLE_APPLIANCE_TRUE@	tests/mount-local tests/9p tests/rsync \
+-@ENABLE_APPLIANCE_TRUE@	tests/bigdirs tests/disk-labels \
+-@ENABLE_APPLIANCE_TRUE@	tests/hotplug tests/nbd tests/http \
+-@ENABLE_APPLIANCE_TRUE@	tests/syslinux tests/journal \
+-@ENABLE_APPLIANCE_TRUE@	tests/relative-paths tests/gdisk \
+-@ENABLE_APPLIANCE_TRUE@	tests/regressions tests/tsk tests/yara
+-
+-# Language bindings.
+-@HAVE_PERL_TRUE@am__append_5 = perl perl/examples
+-@HAVE_OCAML_TRUE@am__append_6 = ocaml ocaml/examples
+-@HAVE_PYTHON_TRUE@am__append_7 = python python/examples
+-@HAVE_RUBY_TRUE@am__append_8 = ruby ruby/examples
+-@HAVE_JAVA_TRUE@am__append_9 = java java/examples
+-@HAVE_HASKELL_TRUE@am__append_10 = haskell
+-@HAVE_PHP_TRUE@am__append_11 = php
+-@HAVE_ERLANG_TRUE@am__append_12 = erlang erlang/examples
+-@HAVE_LUA_TRUE@am__append_13 = lua lua/examples
+-@HAVE_GOBJECT_TRUE@am__append_14 = gobject
+-@HAVE_GOLANG_TRUE@am__append_15 = golang golang/examples
+-@HAVE_RUST_TRUE@am__append_16 = rust
+-
+ # OCaml tools.  Note 'common/ml*' and 'customize' contain shared code
+ # used by other OCaml tools, so these must come first.
+-@HAVE_OCAML_TRUE@am__append_17 = common/mlgettext common/mlprogress \
+-@HAVE_OCAML_TRUE@	common/mlvisit common/mlxml common/mltools \
+-@HAVE_OCAML_TRUE@	common/mlcustomize customize builder \
++@HAVE_OCAML_TRUE@	common/mlvisit common/mltools \
++@HAVE_OCAML_TRUE@	builder \
+ @HAVE_OCAML_TRUE@	builder/templates get-kernel resize sparsify \
+ @HAVE_OCAML_TRUE@	sysprep
+ @HAVE_FUSE_TRUE@@HAVE_OCAML_TRUE@am__append_18 = dib
+@@ -219,7 +187,6 @@
+ 	$(top_srcdir)/m4/gnulib-common.m4 \
+ 	$(top_srcdir)/m4/gnulib-comp.m4 \
+ 	$(top_srcdir)/m4/guestfs-find-db-tool.m4 \
+-	$(top_srcdir)/m4/guestfs-ocaml-gettext.m4 \
+ 	$(top_srcdir)/m4/human.m4 $(top_srcdir)/m4/include_next.m4 \
+ 	$(top_srcdir)/m4/inet_pton.m4 \
+ 	$(top_srcdir)/m4/intl-thread-locale.m4 \
+@@ -621,29 +588,20 @@
+ TEST_LOG_DRIVER = $(SHELL) $(top_srcdir)/build-aux/test-driver
+ TEST_LOG_COMPILE = $(TEST_LOG_COMPILER) $(AM_TEST_LOG_FLAGS) \
+ 	$(TEST_LOG_FLAGS)
+-DIST_SUBDIRS = common/mlstdutils generator tests/qemu test-data \
+-	gnulib/lib gnulib/tests common/errnostring common/protocol \
+-	common/qemuopts common/utils common/structs include lib docs \
+-	examples common/mlutils bundled/ocaml-augeas common/mlpcre \
+-	daemon tests/daemon appliance tests/c-api tests/tmpdirs \
+-	tests/protocol tests/events tests/parallel tests/create \
+-	tests/disks tests/discard tests/mountable tests/network \
+-	tests/lvm tests/luks tests/md tests/selinux tests/relabel \
+-	tests/ntfs tests/btrfs tests/xfs tests/charsets tests/xml \
+-	tests/mount-local tests/9p tests/rsync tests/bigdirs \
+-	tests/disk-labels tests/hotplug tests/nbd tests/http \
+-	tests/syslinux tests/journal tests/relative-paths tests/gdisk \
+-	tests/regressions tests/tsk tests/yara common/edit \
++DIST_SUBDIRS = generator tests/qemu \
++	gnulib/lib common/errnostring common/protocol \
++	common/qemuopts common/utils common/structs include lib \
++	common/mlutils bundled/ocaml-augeas common/mlpcre \
++	appliance \
++	common/edit \
+ 	common/options common/parallel common/progress common/visit \
+-	common/windows test-tool fish align cat diff df edit format \
+-	inspector make-fs rescue bash perl perl/examples ocaml \
+-	ocaml/examples python python/examples ruby ruby/examples java \
+-	java/examples haskell php erlang erlang/examples lua \
+-	lua/examples gobject golang golang/examples rust csharp \
+-	common/mlgettext common/mlprogress common/mlvisit common/mlxml \
+-	common/mltools common/mlcustomize customize builder \
++	common/windows fish align cat diff df edit format \
++	inspector make-fs rescue bash  \
++	csharp \
++	common/mlprogress common/mlvisit \
++	common/mltools  builder \
+ 	builder/templates get-kernel resize sparsify sysprep dib tools \
+-	fuse po po-docs
++	fuse
+ am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/config.h.in \
+ 	$(srcdir)/config.sh.in $(srcdir)/installcheck.sh.in \
+ 	$(srcdir)/ocaml-dep.sh.in $(srcdir)/ocaml-link.sh.in \
+@@ -796,7 +754,6 @@
+ GENISOIMAGE = @GENISOIMAGE@
+ GETOPT_CDEFS_H = @GETOPT_CDEFS_H@
+ GETOPT_H = @GETOPT_H@
+-GETTEXT_MACRO_VERSION = @GETTEXT_MACRO_VERSION@
+ GHC = @GHC@
+ GIO_CFLAGS = @GIO_CFLAGS@
+ GIO_LIBS = @GIO_LIBS@
+@@ -1573,9 +1530,6 @@
+ HAVE_XLOCALE_H = @HAVE_XLOCALE_H@
+ HAVE__BOOL = @HAVE__BOOL@
+ HAVE__EXIT = @HAVE__EXIT@
+-HIVEX_CFLAGS = @HIVEX_CFLAGS@
+-HIVEX_LIBS = @HIVEX_LIBS@
+-HIVEX_OPEN_UNSAFE_FLAG = @HIVEX_OPEN_UNSAFE_FLAG@
+ INCLUDE_DIRECTORY = @INCLUDE_DIRECTORY@
+ INCLUDE_NEXT = @INCLUDE_NEXT@
+ INCLUDE_NEXT_AS_FIRST_DIRECTIVE = @INCLUDE_NEXT_AS_FIRST_DIRECTIVE@
+@@ -1637,8 +1591,6 @@
+ LIBTOOL = @LIBTOOL@
+ LIBVIRT_CFLAGS = @LIBVIRT_CFLAGS@
+ LIBVIRT_LIBS = @LIBVIRT_LIBS@
+-LIBXML2_CFLAGS = @LIBXML2_CFLAGS@
+-LIBXML2_LIBS = @LIBXML2_LIBS@
+ LIB_CLOCK_GETTIME = @LIB_CLOCK_GETTIME@
+ LIB_GETLOGIN = @LIB_GETLOGIN@
+ LIB_GETRANDOM = @LIB_GETRANDOM@
+@@ -1785,9 +1737,6 @@
+ OCAMLOPTDOTOPT = @OCAMLOPTDOTOPT@
+ OCAMLVERSION = @OCAMLVERSION@
+ OCAML_FLAGS = @OCAML_FLAGS@
+-OCAML_GETTEXT = @OCAML_GETTEXT@
+-OCAML_PKG_gettext = @OCAML_PKG_gettext@
+-OCAML_PKG_hivex = @OCAML_PKG_hivex@
+ OCAML_PKG_oUnit = @OCAML_PKG_oUnit@
+ OCAML_RUNTIME_VARIANT_PIC_OPTION = @OCAML_RUNTIME_VARIANT_PIC_OPTION@
+ OCAML_WARN_ERROR = @OCAML_WARN_ERROR@
+@@ -1814,7 +1763,6 @@
+ PKG_CONFIG_LIBDIR = @PKG_CONFIG_LIBDIR@
+ PKG_CONFIG_PATH = @PKG_CONFIG_PATH@
+ PNMTOPNG = @PNMTOPNG@
+-PO4A_GETTEXTIZE = @PO4A_GETTEXTIZE@
+ PO4A_TRANSLATE = @PO4A_TRANSLATE@
+ PODWRAPPER = @PODWRAPPER@
+ POSUB = @POSUB@
+@@ -2140,10 +2088,6 @@
+ WINDOWS_STAT_TIMESPEC = @WINDOWS_STAT_TIMESPEC@
+ WINT_T_SUFFIX = @WINT_T_SUFFIX@
+ WRESTOOL = @WRESTOOL@
+-XGETTEXT = @XGETTEXT@
+-XGETTEXT_015 = @XGETTEXT_015@
+-XGETTEXT_EXTRA_OPTIONS = @XGETTEXT_EXTRA_OPTIONS@
+-XMLLINT = @XMLLINT@
+ XZCAT = @XZCAT@
+ YACC = @YACC@
+ YARA_CFLAGS = @YARA_CFLAGS@
+@@ -2274,13 +2218,13 @@
+ # Unconditional because nothing is built yet.
+ 
+ # After all source files were used we can generate the translation strings
+-SUBDIRS = common/mlstdutils generator $(am__append_1) test-data \
++SUBDIRS =  generator $(am__append_1) \
+ 	gnulib/lib $(am__append_2) common/errnostring common/protocol \
+-	common/qemuopts common/utils common/structs include lib docs \
+-	examples common/mlutils bundled/ocaml-augeas common/mlpcre \
++	common/qemuopts common/utils common/structs include lib \
++	common/mlutils bundled/ocaml-augeas common/mlpcre \
+ 	$(am__append_3) $(am__append_4) common/edit common/options \
+ 	common/parallel common/progress common/visit common/windows \
+-	test-tool fish align cat diff df edit format inspector make-fs \
++	fish align cat diff df edit format inspector make-fs \
+ 	rescue bash $(am__append_5) $(am__append_6) $(am__append_7) \
+ 	$(am__append_8) $(am__append_9) $(am__append_10) \
+ 	$(am__append_11) $(am__append_12) $(am__append_13) \
+@@ -3125,7 +3069,7 @@
+ docs/C_SOURCE_FILES: configure.ac
+ 	rm -f $@ $@-t
+ 	find $(DIST_SUBDIRS) -name '*.[ch]' | \
+-	grep -v -E '^(builder/index-parse\.|builder/index-scan\.|examples/|gnulib/|gobject/|java/com_redhat_et_libguestfs|perl/|php/extension/config\.h|ruby/ext/guestfs/extconf\.h|tests/|test-data/|bundled/)' | \
++	grep -v -E '^(builder/index-parse\.|builder/index-scan\./|gnulib/|gobject/|java/com_redhat_et_libguestfs|perl/|php/extension/config\.h|ruby/ext/guestfs/extconf\.h|bundled/)' | \
+ 	grep -v -E '/(guestfs|rc)_protocol\.' | \
+ 	grep -v -E '.*/errnostring\.' | \
+ 	grep -v -E '.*-gperf\.' | \
+@@ -3138,11 +3082,11 @@
+ 	rm -f $@ $@-t
+ 	cd $(srcdir); \
+ 	find $(DIST_SUBDIRS) -name '*.c' | \
+-	grep -v -E '^(examples|gnulib|perl/(blib|examples)|po-docs|tests|test-data|bundled)/' | \
++	grep -v -E '^(gnulib/(blib)|bundled)/' | \
+ 	grep -v -E '/((guestfs|rc)_protocol\.c|dummy\.c)$$' | \
+ 	grep -v -E '^python/utils\.c$$' | \
+ 	grep -v -E '^perl/lib/Sys/Guestfs\.c$$' | \
+-	grep -v -E '.*-(tests|gperf)\.c$$' | \
++	grep -v -E '.*-(gperf)\.c$$' | \
+ 	LC_ALL=C sort -u > $@-t
+ 	mv $@-t $@
+ 

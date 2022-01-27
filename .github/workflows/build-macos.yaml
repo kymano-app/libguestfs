@@ -38,23 +38,17 @@ jobs:
           sudo port install ncurses
           #sudo port install binutils
 
-      # - name: Hivex
-      #   run: |
-      #     export LDFLAGS="-L/usr/local/opt/libiconv/lib"
-      #     export CPPFLAGS="-I/usr/local/opt/libiconv/include"
-      #     export CFLAGS="$CFLAGS -std=c90"
-      #     #find / -name "libintl.h" 2>/dev/null
-      #     curl -OL https://download.libguestfs.org/hivex/hivex-1.3.21.tar.gz
-      #     tar -xzf hivex-1.3.21.tar.gz
-      #     cd hivex-1.3.21
-      #     rm -rf xml
-      #     patch ./configure.ac < ../hivex-patches/configure.ac.patch
-      #     patch ./Makefile.am < ../hivex-patches/Makefile.am.patch
-      #     patch ./run.in < ../hivex-patches/run.in.patch
-      #     patch ./configure < ../hivex-patches/configure.patch
-      #     patch ./m4/00gnulib.m4 < ../hivex-patches/00gnulib.m4.patch
-      #     CC="gcc -m64" ./configure CFLAGS="-Wno-error=implicit-function-declaration"  --with-libintl-prefix=/usr/local/ --disable-ruby --disable-nls --disable-python --disable-perl CC="gcc -std=c90"
-      #     make CFLAGS="-Wno-error=implicit-function-declaration" WERROR_CFLAGS="-Wno-error=implicit-function-declaration"
+      - name: Hivex
+        run: |
+          curl -OL https://download.libguestfs.org/hivex/hivex-1.3.21.tar.gz
+          tar -xzf hivex-1.3.21.tar.gz
+          cd hivex-1.3.21
+          rm -rf xml
+          patch ./configure.ac < ../hivex-patches-hivex-1.3.21-2/configure.ac.patch
+          autoreconf -i --force
+          CC="gcc -m64" ./configure CFLAGS="-Wno-error=implicit-function-declaration"  --with-libintl-prefix=/usr/local/ --disable-ruby --disable-nls --disable-python --disable-perl --disable-ocaml CC="gcc -std=c90" --prefix=/opt/local/
+          make CFLAGS="-Wno-error=implicit-function-declaration" WERROR_CFLAGS="-Wno-error=implicit-function-declaration"
+          sudo make install
 
       - name: Libguestfs 1.46.2 Install
         if: false
@@ -82,6 +76,9 @@ jobs:
           rm -rf test-data
           rm -rf test-tool
           rm -rf tests
+          rm -rf gobject
+          rm -rf ocaml
+          rm -rf perl
           patch ./configure < ../libguestfs-patches/configure.patch
           patch ./Makefile.in < ../libguestfs-patches/Makefile.in.patch
           patch ./generator/Makefile.am < ../libguestfs-patches/generator/Makefile.am.patch
@@ -106,34 +103,35 @@ jobs:
           # git submodule update --init 
           # autoreconf -i
           # ./configure --help 
-          ./configure CC="cc -m64" CPPFLAGS="-I/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/mach" CFLAGS="-fPIC -Werror-limit=10000 -Wno-error=implicit-function-declaration -Wno-traditional -I/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/mach -I/Library/Developer/CommandLineTools/usr/include/c++/v1" --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --disable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-appliance --exec-prefix=/opt/local/ LDFLAGS="-L/opt/local/lib" LIBS="-lintl" FUSE_CFLAGS="-I/usr/local/include/osxfuse/fuse -D_FILE_OFFSET_BITS=64" FUSE_LIBS="-losxfuse"
+          ./configure CC="cc -m64" CPPFLAGS="-I/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/mach" CFLAGS="-fPIC -Werror-limit=10000 -Wno-error=implicit-function-declaration -Wno-traditional -I/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/mach -I/Library/Developer/CommandLineTools/usr/include/c++/v1" --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --disable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-appliance --exec-prefix=/opt/local/ LDFLAGS="-L/opt/local/lib" LIBS="-lintl" FUSE_CFLAGS="-I/usr/local/include/osxfuse/fuse -D_FILE_OFFSET_BITS=64" FUSE_LIBS="-losxfuse" --with-libintl-prefix=/System/Volumes/Data/opt/homebrew/Cellar/gettext/0.21/
+
+
           make CC="cc -m64" CFLAGS="-Werror-limit=10000 -Wno-error=implicit-function-declaration -Wno-traditional -I/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/mach" WERROR_CFLAGS="-Werror-limit=10000 -Wno-error=implicit-function-declaration -Wno-traditional"
 
       - name: Libguestfs 1.44.2 Install
+        
         run: |
-          curl -OL https://download.libguestfs.org/1.46-stable/libguestfs-1.44.2.tar.gz
+          curl -OL https://download.libguestfs.org/1.44-stable/libguestfs-1.44.2.tar.gz
           tar -xzf libguestfs-1.44.2.tar.gz
           cd libguestfs-1.44.2
-          rm -rf docs
-          rm -rf daemon
-          rm -rf php
-          rm -rf erlang
-          rm -rf examples
-          rm -rf golang
-          rm -rf haskell
-          rm -rf java
-          rm -rf lua
-          rm -rf php
-          rm -rf po-docs
-          rm -rf python
-          rm -rf ruby
-          rm -rf rust
-          rm -rf test-data
-          rm -rf test-tool
-          rm -rf tests
           patch ./configure < ../libguestfs-patches-1.44.2/configure.patch
-        
-          ./configure CC="cc -m64" CPPFLAGS="-I/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/mach" CFLAGS="-fPIC -Werror-limit=10000 -Wno-error=implicit-function-declaration -Wno-traditional -I/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/mach -I/Library/Developer/CommandLineTools/usr/include/c++/v1" --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --disable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-appliance --exec-prefix=/opt/local/ LDFLAGS="-L/opt/local/lib" LIBS="-lintl" FUSE_CFLAGS="-I/usr/local/include/osxfuse/fuse -D_FILE_OFFSET_BITS=64" FUSE_LIBS="-losxfuse" JANSSON_LIBS=/opt/homebrew/Cellar/jansson/2.14/lib JANSSON_CFLAGS=/opt/homebrew/Cellar/jansson/2.14/include
+          patch ./Makefile.in < ../libguestfs-patches-1.44.2/Makefile.in.patch
+          autoreconf -i
+          ./configure CPPFLAGS="-I/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/mach" CFLAGS="-I/usr/local/include/osxfuse/fuse -Werror-limit=10000 -Wno-error=implicit-function-declaration -Wno-traditional -I/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/mach -I/Library/Developer/CommandLineTools/usr/include/c++/v1" --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --disable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-appliance --disable-fuse --exec-prefix=/opt/local/ LDFLAGS="-L/opt/local/lib" LIBS="-lintl" FUSE_CFLAGS="-I/usr/local/include/osxfuse/fuse -D_FILE_OFFSET_BITS=64" FUSE_LIBS="-losxfuse" --with-libintl-prefix=/System/Volumes/Data/opt/homebrew/Cellar/gettext/0.21/ JANSSON_LIBS=/opt/homebrew/Cellar/jansson/2.14/lib JANSSON_CFLAGS=/opt/homebrew/Cellar/jansson/2.14/include
+
+          make WERROR_CFLAGS="-Werror-limit=10000  -Wno-error=format-nonliteral -Wno-error=implicit-function-declaration" CFLAGS="-I/usr/local/include/osxfuse/fuse -I/System/Volumes/Data/opt/homebrew/Cellar/gettext/0.21/include  -Wno-error=implicit-function-declaration -L/System/Volumes/Data/opt/local/lib/ -L/System/Volumes/Data/opt/homebrew/Cellar/gettext/0.21/lib -I/System/Volumes/Data/opt/homebrew/Cellar/gettext/0.21/include -I/System/Volumes/Data/opt/homebrew/Cellar/jansson/2.14/include/ -I/System/Volumes/Data/opt/homebrew/Cellar/pcre2/10.39/include/"
+
+      - name: Libguestfs 1.46.2 Install 2.0
+        if: false
+        run: |
+          curl -OL https://download.libguestfs.org/1.46-stable/libguestfs-1.46.2.tar.gz
+          tar -xzf libguestfs-1.46.2.tar.gz
+          cd libguestfs-1.46.2
+
+          autoreconf -i
+          ./configure CC="cc -m64" CPPFLAGS="-I/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/mach" CFLAGS="-I/usr/local/include/osxfuse/fuse -fPIC -Werror-limit=10000 -Wno-error=implicit-function-declaration -Wno-traditional -I/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/mach -I/Library/Developer/CommandLineTools/usr/include/c++/v1" --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --disable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-appliance --disable-fuse --exec-prefix=/opt/local/ LDFLAGS="-L/opt/local/lib" LIBS="-lintl" FUSE_CFLAGS="-I/usr/local/include/osxfuse/fuse -D_FILE_OFFSET_BITS=64" FUSE_LIBS="-losxfuse" --with-libintl-prefix=/System/Volumes/Data/opt/homebrew/Cellar/gettext/0.21/ JANSSON_LIBS=/opt/homebrew/Cellar/jansson/2.14/lib JANSSON_CFLAGS=/opt/homebrew/Cellar/jansson/2.14/include
+
+          make WERROR_CFLAGS="-Werror-limit=10000  -Wno-error=format-nonliteral -Wno-error=implicit-function-declaration" CFLAGS="-fPIC -I/usr/local/include/osxfuse/fuse -I/System/Volumes/Data/opt/homebrew/Cellar/gettext/0.21/include  -Wno-error=implicit-function-declaration -L/System/Volumes/Data/opt/local/lib/ -L/System/Volumes/Data/opt/homebrew/Cellar/gettext/0.21/lib -I/System/Volumes/Data/opt/homebrew/Cellar/gettext/0.21/include -I/System/Volumes/Data/opt/homebrew/Cellar/jansson/2.14/include/ -I/System/Volumes/Data/opt/homebrew/Cellar/pcre2/10.39/include/"
 
       - name: Compress
         run: |

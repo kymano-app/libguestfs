@@ -1,0 +1,218 @@
+--- Makefile.am	2022-01-24 23:37:34.000000000 +0100
++++ Makefile.am_new	2022-01-25 23:40:56.000000000 +0100
+@@ -20,80 +20,25 @@
+ ACLOCAL_AMFLAGS = -I m4
+ 
+ # The generator - must be before anything else.
+-SUBDIRS = common/mlstdutils generator
+-
+-# Must be the first tests that run.
+-if ENABLE_APPLIANCE
+-SUBDIRS += tests/qemu
+-endif
+-
+-# Files and other test data used by the tests.  Must be before any
+-# tests run, except tests/qemu.
+-SUBDIRS += test-data
++SUBDIRS =  generator
+ 
+ # Gnulib - must be built and tested before the library.
+ SUBDIRS += gnulib/lib
+-if ENABLE_GNULIB_TESTS
+-SUBDIRS += gnulib/tests
+-endif
+ 
+ # Basic source for the library.
+ SUBDIRS += common/errnostring common/protocol common/qemuopts
+ SUBDIRS += common/utils
+ SUBDIRS += common/structs
+-SUBDIRS += include lib docs examples
++SUBDIRS += include lib
+ 
+ # The daemon and the appliance.
+ SUBDIRS += common/mlutils
+ SUBDIRS += bundled/ocaml-augeas
+ SUBDIRS += common/mlpcre
+-if ENABLE_DAEMON
+-SUBDIRS += daemon
+-SUBDIRS += tests/daemon
+-endif
+ if ENABLE_APPLIANCE
+ SUBDIRS += appliance
+ endif
+ 
+-# Tests - order is important.
+-if ENABLE_APPLIANCE
+-SUBDIRS += tests/c-api
+-SUBDIRS += tests/tmpdirs
+-SUBDIRS += tests/protocol
+-SUBDIRS += tests/events
+-SUBDIRS += tests/parallel
+-SUBDIRS += tests/create
+-SUBDIRS += tests/disks
+-SUBDIRS += tests/discard
+-SUBDIRS += tests/mountable
+-SUBDIRS += tests/network
+-SUBDIRS += tests/lvm
+-SUBDIRS += tests/luks
+-SUBDIRS += tests/md
+-SUBDIRS += tests/selinux
+-SUBDIRS += tests/relabel
+-SUBDIRS += tests/ntfs
+-SUBDIRS += tests/btrfs
+-SUBDIRS += tests/xfs
+-SUBDIRS += tests/charsets
+-SUBDIRS += tests/xml
+-SUBDIRS += tests/mount-local
+-SUBDIRS += tests/9p
+-SUBDIRS += tests/rsync
+-SUBDIRS += tests/bigdirs
+-SUBDIRS += tests/disk-labels
+-SUBDIRS += tests/hotplug
+-SUBDIRS += tests/nbd
+-SUBDIRS += tests/http
+-SUBDIRS += tests/syslinux
+-SUBDIRS += tests/journal
+-SUBDIRS += tests/relative-paths
+-SUBDIRS += tests/gdisk
+-SUBDIRS += tests/regressions
+-SUBDIRS += tests/tsk
+-SUBDIRS += tests/yara
+-endif
+-
+ # Common code used by the tools.
+ SUBDIRS += common/edit
+ SUBDIRS += common/options
+@@ -102,9 +47,6 @@
+ SUBDIRS += common/visit
+ SUBDIRS += common/windows
+ 
+-# libguestfs-test-tool
+-SUBDIRS += test-tool
+-
+ # Guestfish.
+ SUBDIRS += fish
+ 
+@@ -114,57 +56,15 @@
+ # bash-completion
+ SUBDIRS += bash
+ 
+-# Language bindings.
+-if HAVE_PERL
+-SUBDIRS += perl perl/examples
+-endif
+-if HAVE_OCAML
+-SUBDIRS += ocaml ocaml/examples
+-endif
+-if HAVE_PYTHON
+-SUBDIRS += python python/examples
+-endif
+-if HAVE_RUBY
+-SUBDIRS += ruby ruby/examples
+-endif
+-if HAVE_JAVA
+-SUBDIRS += java java/examples
+-endif
+-if HAVE_HASKELL
+-SUBDIRS += haskell
+-endif
+-if HAVE_PHP
+-SUBDIRS += php
+-endif
+-if HAVE_ERLANG
+-SUBDIRS += erlang erlang/examples
+-endif
+-if HAVE_LUA
+-SUBDIRS += lua lua/examples
+-endif
+-if HAVE_GOBJECT
+-SUBDIRS += gobject
+-endif
+-if HAVE_GOLANG
+-SUBDIRS += golang golang/examples
+-endif
+-if HAVE_RUST
+-SUBDIRS += rust
+-endif
+-
+ # Unconditional because nothing is built yet.
+ SUBDIRS += csharp
+ 
+ # OCaml tools.  Note 'common/ml*' and 'customize' contain shared code
+ # used by other OCaml tools, so these must come first.
+ if HAVE_OCAML
+-SUBDIRS += common/mlgettext
+ SUBDIRS += common/mlprogress
+ SUBDIRS += common/mlvisit
+-SUBDIRS += common/mlxml
+ SUBDIRS += common/mltools
+-SUBDIRS += common/mlcustomize
+-SUBDIRS += customize
+ SUBDIRS += builder builder/templates
+ SUBDIRS += get-kernel
+ SUBDIRS += resize
+@@ -185,13 +85,6 @@
+ SUBDIRS += fuse
+ endif
+ 
+-# After all source files were used we can generate the translation strings
+-SUBDIRS += po
+-
+-# po-docs must come after tools, inspector.
+-if HAVE_PO4A
+-SUBDIRS += po-docs
+-endif
+ 
+ EXTRA_DIST = \
+ 	AUTHORS BUGS HACKING RELEASES TODO \
+@@ -294,10 +187,6 @@
+ #                   special xgettext option [not generated here]
+ #  po/POTFILES-ml - OCaml files, which need a special tool to translate
+ 
+-dist-hook: BUGS ChangeLog docs/C_SOURCE_FILES po/POTFILES po/POTFILES-ml
+-	cp BUGS $(distdir)/BUGS
+-	cp ChangeLog $(distdir)/ChangeLog
+-
+ BUGS: configure.ac
+ 	rm -f $@ $@-t
+ 	unset LC_ALL; \
+@@ -311,39 +200,7 @@
+ 
+ # This has to be in the top-level Makefile.am so that we have access
+ # to DIST_SUBDIRS.
+-docs/C_SOURCE_FILES: configure.ac
+-	rm -f $@ $@-t
+-	find $(DIST_SUBDIRS) -name '*.[ch]' | \
+-	grep -v -E '^(builder/index-parse\.|builder/index-scan\.|examples/|gnulib/|gobject/|java/com_redhat_et_libguestfs|perl/|php/extension/config\.h|ruby/ext/guestfs/extconf\.h|tests/|test-data/|bundled/)' | \
+-	grep -v -E '/(guestfs|rc)_protocol\.' | \
+-	grep -v -E '.*/errnostring\.' | \
+-	grep -v -E '.*-gperf\.' | \
+-	grep -v -E '/dummy.c$$' | \
+-	LC_ALL=C sort -u > $@-t
+-	mv $@-t $@
+-
+ # For more information about translations, see po/Makefile.am.
+-po/POTFILES: configure.ac
+-	rm -f $@ $@-t
+-	cd $(srcdir); \
+-	find $(DIST_SUBDIRS) -name '*.c' | \
+-	grep -v -E '^(examples|gnulib|perl/(blib|examples)|po-docs|tests|test-data|bundled)/' | \
+-	grep -v -E '/((guestfs|rc)_protocol\.c|dummy\.c)$$' | \
+-	grep -v -E '^python/utils\.c$$' | \
+-	grep -v -E '^perl/lib/Sys/Guestfs\.c$$' | \
+-	grep -v -E '.*-(tests|gperf)\.c$$' | \
+-	LC_ALL=C sort -u > $@-t
+-	mv $@-t $@
+-
+-po/POTFILES-ml: configure.ac
+-	rm -f $@ $@-t
+-	cd $(srcdir); \
+-	find builder common/ml* customize dib get-kernel resize sparsify sysprep -name '*.ml' | \
+-	grep -v '^builder/templates/' | \
+-	grep -v '^common/mlv2v/' | \
+-	grep -v -E '.*_tests\.ml$$' | \
+-	LC_ALL=C sort > $@-t
+-	mv $@-t $@
+ 
+ # Try to stop people using 'make install' without 'DESTDIR'.
+ install:

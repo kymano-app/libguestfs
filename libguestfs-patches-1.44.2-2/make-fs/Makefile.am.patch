@@ -1,0 +1,15 @@
+--- .//make-fs/Makefile.am	2021-03-11 17:20:47.000000000 +0100
++++ .//make-fs/Makefile.am_new	2022-01-27 21:13:35.000000000 +0100
+@@ -52,10 +52,9 @@
+ 	../gnulib/lib/libgnu.la
+ 
+ # Manual pages and HTML files for the website.
+-man_MANS = virt-make-fs.1
++man_MANS = 
+ 
+-noinst_DATA = \
+-	$(top_builddir)/website/virt-make-fs.1.html
++noinst_DATA = 
+ 
+ virt-make-fs.1 $(top_builddir)/website/virt-make-fs.1.html: stamp-virt-make-fs.pod
+ 

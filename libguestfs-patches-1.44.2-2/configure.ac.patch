@@ -1,0 +1,73 @@
+--- configure.ac	2021-09-07 18:26:15.000000000 +0200
++++ configure.ac_new	2022-01-26 23:02:29.000000000 +0100
+@@ -141,30 +141,37 @@
+ dnl Check for language bindings.
+ HEADING([Checking for OCaml])
+ m4_include([m4/guestfs-ocaml.m4])
+-HEADING([Checking for Perl])
+-m4_include([m4/guestfs-perl.m4])
+-HEADING([Checking for Python])
+-m4_include([m4/guestfs-python.m4])
+-HEADING([Checking for Ruby])
+-m4_include([m4/guestfs-ruby.m4])
+-HEADING([Checking for Java])
+-m4_include([m4/guestfs-java.m4])
+-HEADING([Checking for Haskell])
+-m4_include([m4/guestfs-haskell.m4])
+-HEADING([Checking for PHP])
+-m4_include([m4/guestfs-php.m4])
+-HEADING([Checking for Erlang])
+-m4_include([m4/guestfs-erlang.m4])
+-HEADING([Checking for Lua])
+-m4_include([m4/guestfs-lua.m4])
+-HEADING([Checking for Go])
+-m4_include([m4/guestfs-golang.m4])
+-HEADING([Checking for GObject Introspection])
+-m4_include([m4/guestfs-gobject.m4])
+-HEADING([Checking for Rust])
+-m4_include([m4/guestfs-rust.m4])
+-HEADING([Checking for Vala])
+-VAPIGEN_CHECK
++
++AM_CONDITIONAL([HAVE_LIBVIRT], [false])
++AM_CONDITIONAL([HAVE_TOOLS], [false])
++AM_CONDITIONAL([HAVE_OCAMLOPT], [false])
++AM_CONDITIONAL([HAVE_OCAML_PKG_GETTEXT], [false])
++AM_CONDITIONAL([HAVE_OCAML], [false])
++AM_CONDITIONAL([HAVE_BYTES_COMPAT_ML], [false])
++AM_CONDITIONAL([HAVE_OCAML_PKG_OUNIT], [false])
++AM_CONDITIONAL([HAVE_PYTHON], [false])
++AM_CONDITIONAL([HAVE_GNU_GETTEXT_TRUE], [false])
++AM_CONDITIONAL([HAVE_GNU_GETTEXT], [false])
++AM_CONDITIONAL([HAVE_PHP], [false])
++AM_CONDITIONAL([HAVE_PERL], [false])
++AM_CONDITIONAL([HAVE_RUBY], [false])
++AM_CONDITIONAL([HAVE_JAVA], [false])
++AM_CONDITIONAL([HAVE_HASKELL], [false])
++AM_CONDITIONAL([HAVE_ERLANG], [false])
++AM_CONDITIONAL([HAVE_LUA], [false])
++AM_CONDITIONAL([HAVE_GOBJECT], [false])
++AM_CONDITIONAL([HAVE_GOLANG], [false])
++AM_CONDITIONAL([HAVE_RUST], [false])
++AM_CONDITIONAL([HAVE_INTROSPECTION], [false])
++AM_CONDITIONAL([ENABLE_VAPIGEN], [false])
++AM_CONDITIONAL([HAVE_JAVAH], [false])
++AM_CONDITIONAL([HAVE_PYCODESTYLE], [false])
++AM_CONDITIONAL([ENABLE_GNULIB_TESTS], [false])
++AM_CONDITIONAL([ENABLE_DAEMON], [false])
++AM_CONDITIONAL([ENABLE_APPLIANCE], [false])
++AM_CONDITIONAL([HAVE_FUSE], [false])
++AM_CONDITIONAL([HAVE_PO4A], [false])
++AM_CONDITIONAL([HAVE_CAML_ALLOC_INITIALIZED_STRING], [true])
+ 
+ dnl Bash completion.
+ HEADING([Checking for bash completion])
+@@ -312,7 +319,7 @@
+                  test-data/files/Makefile
+                  test-data/phony-guests/Makefile
+                  test-data/phony-guests/guests.xml
+-                 test-tool/Makefile
++		 test-tool/Makefile
+                  tests/9p/Makefile
+                  tests/bigdirs/Makefile
+                  tests/btrfs/Makefile

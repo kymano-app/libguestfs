@@ -1,0 +1,11 @@
+--- .//test-tool/Makefile.am	2021-03-11 17:20:48.000000000 +0100
++++ .//test-tool/Makefile.am_new	2022-01-27 08:53:39.000000000 +0100
+@@ -22,7 +22,7 @@
+ 	test-libguestfs-test-tool-docs.sh
+ 
+ bin_PROGRAMS = libguestfs-test-tool
+-man_MANS = libguestfs-test-tool.1
++man_MANS = 
+ 
+ libguestfs_test_tool_SOURCES = \
+ 	../common/options/display-options.c \

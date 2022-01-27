@@ -1,0 +1,11 @@
+--- m4/guestfs-progs.m4	2021-03-11 17:20:47.000000000 +0100
++++ m4/guestfs-progs.m4_new	2022-01-26 20:20:06.000000000 +0100
+@@ -50,7 +50,7 @@
+     AC_MSG_ERROR([gperf must be installed])
+ 
+ dnl Check for genisoimage/mkisofs
+-AC_PATH_PROGS([GENISOIMAGE],[genisoimage mkisofs],[no],
++AC_PATH_PROGS([GENISOIMAGE],[xorrisofs genisoimage mkisofs],[no],
+     [$PATH$PATH_SEPARATOR/usr/sbin$PATH_SEPARATOR/sbin])
+ test "x$GENISOIMAGE" = "xno" && AC_MSG_ERROR([genisoimage must be installed])
+ 

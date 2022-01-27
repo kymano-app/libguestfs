@@ -1,0 +1,23 @@
+--- Makefile.am	2021-04-03 12:22:39.000000000 +0200
++++ Makefile.am_new	2022-01-27 21:19:45.000000000 +0100
+@@ -269,10 +269,7 @@
+ 	website/download/builder/index \
+ 	website/download/builder/index.asc
+ 
+-noinst_DATA = \
+-	website/index.html \
+-	website/README.txt \
+-	website/TODO.txt
++noinst_DATA = 
+ 
+ website/README.txt: README
+ 	cp $< $@
+@@ -367,7 +364,7 @@
+ 
+ # NB. podwrapper is an internal tool, so the man page mustn't be installed.
+ # It should be noinst_MANS but that doesn't work.
+-noinst_DATA += podwrapper.1
++noinst_DATA = 
+ podwrapper.1: podwrapper.pl
+ 	$(PODWRAPPER) \
+ 	  --section 1 \

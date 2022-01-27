@@ -1,0 +1,12 @@
+--- lib/Makefile.in	2021-09-07 18:26:29.000000000 +0200
++++ lib/Makefile.in_new	2022-01-25 21:53:13.000000000 +0100
+@@ -2357,6 +2357,9 @@
+ 	../common/utils/guestfs-utils.h \
+ 	../common/structs/structs-cleanups.h \
+ 	../include/guestfs.h \
++        ../gnulib/lib/error.h \
++        ../gnulib/lib/gettext.h \
++	/opt/local/include/libintl.h \
+ 	guestfs-internal.h \
+ 	guestfs-internal-all.h \
+ 	actions-0.c \

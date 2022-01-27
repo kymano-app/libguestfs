@@ -1,0 +1,13 @@
+--- ocaml/examples/Makefile.am	2020-03-06 20:31:08.000000000 +0100
++++ ocaml/examples/Makefile.am_new	2022-01-26 22:30:33.000000000 +0100
+@@ -27,8 +27,8 @@
+ CLEANFILES += \
+ 	$(noinst_SCRIPTS)
+ 
+-man_MANS = guestfs-ocaml.3
+-noinst_DATA = $(top_builddir)/website/guestfs-ocaml.3.html
++man_MANS = 
++noinst_DATA = 
+ 
+ guestfs-ocaml.3 $(top_builddir)/website/guestfs-ocaml.3.html: stamp-guestfs-ocaml.pod
+ 

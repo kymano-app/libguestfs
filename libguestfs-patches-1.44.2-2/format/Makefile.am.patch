@@ -1,0 +1,13 @@
+--- .//format/Makefile.am	2021-03-11 17:20:47.000000000 +0100
++++ .//format/Makefile.am_new	2022-01-27 21:10:40.000000000 +0100
+@@ -52,8 +52,8 @@
+ 	../gnulib/lib/libgnu.la
+ 
+ # Manual pages and HTML files for the website.
+-man_MANS = virt-format.1
+-noinst_DATA = $(top_builddir)/website/virt-format.1.html
++man_MANS = 
++noinst_DATA = 
+ 
+ virt-format.1 $(top_builddir)/website/virt-format.1.html: stamp-virt-format.pod
+ 

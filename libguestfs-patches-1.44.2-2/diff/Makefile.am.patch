@@ -1,0 +1,15 @@
+--- .//diff/Makefile.am	2021-03-11 17:20:47.000000000 +0100
++++ .//diff/Makefile.am_new	2022-01-27 21:06:24.000000000 +0100
+@@ -54,10 +54,9 @@
+ 	../gnulib/lib/libgnu.la
+ 
+ # Manual pages and HTML files for the website.
+-man_MANS = virt-diff.1
++man_MANS = 
+ 
+-noinst_DATA = \
+-	$(top_builddir)/website/virt-diff.1.html
++noinst_DATA = 
+ 
+ virt-diff.1 $(top_builddir)/website/virt-diff.1.html: stamp-virt-diff.pod
+ 

@@ -1,0 +1,13 @@
+--- .//df/Makefile.am	2021-03-11 17:20:47.000000000 +0100
++++ .//df/Makefile.am_new	2022-01-27 21:07:58.000000000 +0100
+@@ -62,8 +62,8 @@
+ 	-lm
+ 
+ # Manual pages and HTML files for the website.
+-man_MANS = virt-df.1
+-noinst_DATA = $(top_builddir)/website/virt-df.1.html
++man_MANS = 
++noinst_DATA = 
+ 
+ virt-df.1 $(top_builddir)/website/virt-df.1.html: stamp-virt-df.pod
+ 

@@ -1,0 +1,13 @@
+--- .//align/Makefile.am	2021-03-11 17:20:47.000000000 +0100
++++ .//align/Makefile.am_new	2022-01-27 21:03:04.000000000 +0100
+@@ -58,8 +58,8 @@
+ 	-lm
+ 
+ # Manual pages and HTML files for the website.
+-man_MANS = virt-alignment-scan.1
+-noinst_DATA = $(top_builddir)/website/virt-alignment-scan.1.html
++man_MANS = 
++noinst_DATA = 
+ 
+ virt-alignment-scan.1 $(top_builddir)/website/virt-alignment-scan.1.html: stamp-virt-alignment-scan.pod
+ 
