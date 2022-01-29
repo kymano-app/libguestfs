@@ -48,7 +48,7 @@ jobs:
           ./configure CFLAGS="-Wno-error=implicit-function-declaration"  --with-libintl-prefix=/usr/local/ --disable-ruby --disable-nls --disable-python --disable-perl --disable-ocaml --prefix=/opt/local/
           make CFLAGS="-Wno-error=implicit-function-declaration" WERROR_CFLAGS="-Wno-error=implicit-function-declaration"
           sudo make install
-          ls -lt /opt/local/lib/
+          
 
       - name: Libguestfs 1.46.2 Install
         if: false
@@ -111,10 +111,8 @@ jobs:
       - name: Libguestfs 1.44.2 Install
         
         run: |
-
-
-
-   
+          ls -lt /opt/local/lib/
+          bash libguestfs-patches-1.44.sh
 
       - name: Libguestfs 1.46.2 Install 2.0
         if: false
