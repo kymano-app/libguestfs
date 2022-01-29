@@ -1,5 +1,5 @@
 --- configure.ac	2021-09-07 18:26:15.000000000 +0200
-+++ configure.ac_new	2022-01-29 16:23:10.000000000 +0100
++++ configure.ac_new	2022-01-29 16:47:07.000000000 +0100
 @@ -141,30 +141,38 @@
  dnl Check for language bindings.
  HEADING([Checking for OCaml])
@@ -29,6 +29,7 @@
 -HEADING([Checking for Vala])
 -VAPIGEN_CHECK
 +
++AM_CONDITIONAL([HAVE_LIBREADLINE], [false])
 +AM_CONDITIONAL([HAVE_LIBVIRT], [false])
 +AM_CONDITIONAL([HAVE_TOOLS], [false])
 +AM_CONDITIONAL([HAVE_OCAMLOPT], [false])
@@ -59,7 +60,6 @@
 +AM_CONDITIONAL([HAVE_FUSE], [false])
 +AM_CONDITIONAL([HAVE_PO4A], [false])
 +AM_CONDITIONAL([HAVE_CAML_ALLOC_INITIALIZED_STRING], [true])
-+AM_CONDITIONAL([HAVE_LIBREADLINE], [true])
  
  dnl Bash completion.
  HEADING([Checking for bash completion])
