@@ -1,0 +1,36 @@
+--- ./lib/inspect-apps.c	2020-03-06 20:31:08.000000000 +0100
++++ ./lib/inspect-apps.c_new	2022-01-27 23:06:08.000000000 +0100
+@@ -23,12 +23,6 @@
+ #include <unistd.h>
+ #include <string.h>
+ 
+-#ifdef HAVE_ENDIAN_H
+-#include <endian.h>
+-#endif
+-#ifdef HAVE_SYS_ENDIAN_H
+-#include <sys/endian.h>
+-#endif
+ 
+ #if defined __APPLE__ && defined __MACH__
+ /* Define/include necessary items on MacOS X */
+@@ -38,6 +32,20 @@
+ #define __BYTE_ORDER    BYTE_ORDER
+ #include <libkern/OSByteOrder.h>
+ #define __bswap_32      OSSwapConstInt32
++#define htobe16(x) OSSwapHostToBigInt16(x)
++#define htole16(x) OSSwapHostToLittleInt16(x)
++#define be16toh(x) OSSwapBigToHostInt16(x)
++#define le16toh(x) OSSwapLittleToHostInt16(x)
++
++#define htobe32(x) OSSwapHostToBigInt32(x)
++#define htole32(x) OSSwapHostToLittleInt32(x)
++#define be32toh(x) OSSwapBigToHostInt32(x)
++#define le32toh(x) OSSwapLittleToHostInt32(x)
++
++#define htobe64(x) OSSwapHostToBigInt64(x)
++#define htole64(x) OSSwapHostToLittleInt64(x)
++#define be64toh(x) OSSwapBigToHostInt64(x)
++#define le64toh(x) OSSwapLittleToHostInt64(x)
+ #endif /* __APPLE__ */
+ 
+ #include "guestfs.h"

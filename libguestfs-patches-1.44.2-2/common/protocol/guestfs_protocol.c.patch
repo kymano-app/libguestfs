@@ -1,0 +1,148 @@
+750c750
+< 	 if (!xdr_uint64_t (xdrs, &objp->btrfssubvolume_id))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->btrfssubvolume_id))
+752c752
+< 	 if (!xdr_uint64_t (xdrs, &objp->btrfssubvolume_top_level_id))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->btrfssubvolume_top_level_id))
+777c777
+< 	 if (!xdr_uint64_t (xdrs, &objp->btrfsqgroup_rfer))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->btrfsqgroup_rfer))
+779c779
+< 	 if (!xdr_uint64_t (xdrs, &objp->btrfsqgroup_excl))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->btrfsqgroup_excl))
+802c802
+< 	 if (!xdr_uint64_t (xdrs, &objp->btrfsbalance_total))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->btrfsbalance_total))
+804c804
+< 	 if (!xdr_uint64_t (xdrs, &objp->btrfsbalance_balanced))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->btrfsbalance_balanced))
+806c806
+< 	 if (!xdr_uint64_t (xdrs, &objp->btrfsbalance_considered))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->btrfsbalance_considered))
+808c808
+< 	 if (!xdr_uint64_t (xdrs, &objp->btrfsbalance_left))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->btrfsbalance_left))
+829c829
+< 	 if (!xdr_uint64_t (xdrs, &objp->btrfsscrub_data_extents_scrubbed))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->btrfsscrub_data_extents_scrubbed))
+831c831
+< 	 if (!xdr_uint64_t (xdrs, &objp->btrfsscrub_tree_extents_scrubbed))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->btrfsscrub_tree_extents_scrubbed))
+833c833
+< 	 if (!xdr_uint64_t (xdrs, &objp->btrfsscrub_data_bytes_scrubbed))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->btrfsscrub_data_bytes_scrubbed))
+835c835
+< 	 if (!xdr_uint64_t (xdrs, &objp->btrfsscrub_tree_bytes_scrubbed))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->btrfsscrub_tree_bytes_scrubbed))
+837c837
+< 	 if (!xdr_uint64_t (xdrs, &objp->btrfsscrub_read_errors))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->btrfsscrub_read_errors))
+839c839
+< 	 if (!xdr_uint64_t (xdrs, &objp->btrfsscrub_csum_errors))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->btrfsscrub_csum_errors))
+841c841
+< 	 if (!xdr_uint64_t (xdrs, &objp->btrfsscrub_verify_errors))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->btrfsscrub_verify_errors))
+843c843
+< 	 if (!xdr_uint64_t (xdrs, &objp->btrfsscrub_no_csum))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->btrfsscrub_no_csum))
+845c845
+< 	 if (!xdr_uint64_t (xdrs, &objp->btrfsscrub_csum_discards))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->btrfsscrub_csum_discards))
+847c847
+< 	 if (!xdr_uint64_t (xdrs, &objp->btrfsscrub_super_errors))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->btrfsscrub_super_errors))
+849c849
+< 	 if (!xdr_uint64_t (xdrs, &objp->btrfsscrub_malloc_errors))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->btrfsscrub_malloc_errors))
+851c851
+< 	 if (!xdr_uint64_t (xdrs, &objp->btrfsscrub_uncorrectable_errors))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->btrfsscrub_uncorrectable_errors))
+853c853
+< 	 if (!xdr_uint64_t (xdrs, &objp->btrfsscrub_unverified_errors))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->btrfsscrub_unverified_errors))
+855c855
+< 	 if (!xdr_uint64_t (xdrs, &objp->btrfsscrub_corrected_errors))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->btrfsscrub_corrected_errors))
+857c857
+< 	 if (!xdr_uint64_t (xdrs, &objp->btrfsscrub_last_physical))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->btrfsscrub_last_physical))
+905c905
+< 		 if (!xdr_uint64_t (xdrs, &objp->xfs_datablocks))
+---
+> 		 if (!xdr_u_int64_t (xdrs, &objp->xfs_datablocks))
+959c959
+< 		 if (!xdr_uint64_t (xdrs, &objp->xfs_rtblocks))
+---
+> 		 if (!xdr_u_int64_t (xdrs, &objp->xfs_rtblocks))
+961c961
+< 		 if (!xdr_uint64_t (xdrs, &objp->xfs_rtextents))
+---
+> 		 if (!xdr_u_int64_t (xdrs, &objp->xfs_rtextents))
+990c990
+< 		 if (!xdr_uint64_t (xdrs, &objp->xfs_datablocks))
+---
+> 		 if (!xdr_u_int64_t (xdrs, &objp->xfs_datablocks))
+1044c1044
+< 		 if (!xdr_uint64_t (xdrs, &objp->xfs_rtblocks))
+---
+> 		 if (!xdr_u_int64_t (xdrs, &objp->xfs_rtblocks))
+1046c1046
+< 		 if (!xdr_uint64_t (xdrs, &objp->xfs_rtextents))
+---
+> 		 if (!xdr_u_int64_t (xdrs, &objp->xfs_rtextents))
+1065c1065
+< 	 if (!xdr_uint64_t (xdrs, &objp->xfs_datablocks))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->xfs_datablocks))
+1097c1097
+< 	 if (!xdr_uint64_t (xdrs, &objp->xfs_rtblocks))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->xfs_rtblocks))
+1099c1099
+< 	 if (!xdr_uint64_t (xdrs, &objp->xfs_rtextents))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->xfs_rtextents))
+1214c1214
+< 	 if (!xdr_uint64_t (xdrs, &objp->tsk_inode))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->tsk_inode))
+9742c9742
+< 	 if (!xdr_uint64_t (xdrs, &objp->progress_hint))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->progress_hint))
+9744c9744
+< 	 if (!xdr_uint64_t (xdrs, &objp->optargs_bitmask))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->optargs_bitmask))
+9772c9772
+< 	 if (!xdr_uint64_t (xdrs, &objp->position))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->position))
+9774c9774
+< 	 if (!xdr_uint64_t (xdrs, &objp->total))
+---
+> 	 if (!xdr_u_int64_t (xdrs, &objp->total))

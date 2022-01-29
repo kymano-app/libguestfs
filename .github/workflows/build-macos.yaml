@@ -111,35 +111,10 @@ jobs:
       - name: Libguestfs 1.44.2 Install
         
         run: |
-          curl -OL https://download.libguestfs.org/1.44-stable/libguestfs-1.44.2.tar.gz
-          tar -xzf libguestfs-1.44.2.tar.gz
-          cd libguestfs-1.44.2
-          patch align/Makefile.am < ../libguestfs-patches-1.44.2-2/align/Makefile.am.patch
-          patch cat/Makefile.am < ../libguestfs-patches-1.44.2-2/cat/Makefile.am.patch
-          patch common/mlpcre/pcre-c.c < ../libguestfs-patches-1.44.2-2/common/mlpcre/pcre-c.c.patch
-          patch df/Makefile.am < ../libguestfs-patches-1.44.2-2/df/Makefile.am.patch
-          patch diff/Makefile.am < ../libguestfs-patches-1.44.2-2/diff/Makefile.am.patch
-          patch docs/Makefile.am < ../libguestfs-patches-1.44.2-2/docs/Makefile.am.patch
-          patch edit/Makefile.am < ../libguestfs-patches-1.44.2-2/edit/Makefile.am.patch
-          patch examples/Makefile.am < ../libguestfs-patches-1.44.2-2/examples/Makefile.am.patch
-          patch fish/Makefile.am < ../libguestfs-patches-1.44.2-2/fish/Makefile.am.patch
-          patch format/Makefile.am < ../libguestfs-patches-1.44.2-2/format/Makefile.am.patch
-          patch gobject/Makefile.am < ../libguestfs-patches-1.44.2-2/gobject/Makefile.am.patch
-          patch inspector/Makefile.am < ../libguestfs-patches-1.44.2-2/inspector/Makefile.am.patch
-          patch lib/Makefile.am < ../libguestfs-patches-1.44.2-2/lib/Makefile.am.patch
-          patch m4/guestfs-progs.m4 < ../libguestfs-patches-1.44.2-2/m4/guestfs-progs.m4.patch
-          patch make-fs/Makefile.am < ../libguestfs-patches-1.44.2-2/make-fs/Makefile.am.patch
-          patch ocaml/examples/Makefile.am < ../libguestfs-patches-1.44.2-2/ocaml/examples/Makefile.am.patch
-          patch rescue/Makefile.am < ../libguestfs-patches-1.44.2-2/rescue/Makefile.am.patch
-          patch test-tool/Makefile.am < ../libguestfs-patches-1.44.2-2/test-tool/Makefile.am.patch
-          patch test-tool/test-tool.c < ../libguestfs-patches-1.44.2-2/test-tool/test-tool.c.patch
-          patch configure.ac < ../libguestfs-patches-1.44.2-2/configure.ac.patch
-          patch Makefile.am < ../libguestfs-patches-1.44.2-2/Makefile.am.patch
 
-          autoreconf -i
-          ./configure CPPFLAGS="-I/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/mach" CFLAGS="-I/usr/local/include/osxfuse/fuse -Werror-limit=10000 -Wno-error=implicit-function-declaration -Wno-traditional -I/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/mach -I/Library/Developer/CommandLineTools/usr/include/c++/v1" --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --disable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-appliance --disable-fuse --exec-prefix=/opt/local/ LDFLAGS="-L/opt/local/lib" LIBS="-lintl" FUSE_CFLAGS="-I/usr/local/include/osxfuse/fuse -D_FILE_OFFSET_BITS=64" FUSE_LIBS="-losxfuse" --with-libintl-prefix=/System/Volumes/Data/opt/homebrew/Cellar/gettext/0.21/ JANSSON_LIBS=/opt/homebrew/Cellar/jansson/2.14/lib JANSSON_CFLAGS=/opt/homebrew/Cellar/jansson/2.14/include HIVEX_LIBS=/opt/local/lib/
 
-          make WERROR_CFLAGS="-Werror-limit=10000  -Wno-error=format-nonliteral -Wno-error=implicit-function-declaration" CFLAGS="-I/usr/local/include/osxfuse/fuse -I/System/Volumes/Data/opt/homebrew/Cellar/gettext/0.21/include  -Wno-error=implicit-function-declaration -L/System/Volumes/Data/opt/local/lib/ -L/System/Volumes/Data/opt/homebrew/Cellar/gettext/0.21/lib -I/System/Volumes/Data/opt/homebrew/Cellar/gettext/0.21/include -I/System/Volumes/Data/opt/homebrew/Cellar/jansson/2.14/include/ -I/System/Volumes/Data/opt/homebrew/Cellar/pcre2/10.39/include/"
+
+   
 
       - name: Libguestfs 1.46.2 Install 2.0
         if: false
