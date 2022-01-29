@@ -109,10 +109,14 @@ jobs:
           make CC="cc -m64" CFLAGS="-Werror-limit=10000 -Wno-error=implicit-function-declaration -Wno-traditional -I/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/mach" WERROR_CFLAGS="-Werror-limit=10000 -Wno-error=implicit-function-declaration -Wno-traditional"
 
       - name: Libguestfs 1.44.2 Install
-        
         run: |
           ls -lt /opt/local/lib/
           bash libguestfs-patches-1.44.sh
+      - name: Libguestfs 1.44.2 Install
+        if: always()
+        run: |
+          find ./ -name "config.log"
+          cat config.log
 
       - name: Libguestfs 1.46.2 Install 2.0
         if: false
