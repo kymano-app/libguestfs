@@ -1,6 +1,6 @@
 --- configure.ac	2021-09-07 18:26:15.000000000 +0200
-+++ configure.ac_new	2022-01-29 16:47:07.000000000 +0100
-@@ -141,30 +141,38 @@
++++ configure.ac_new	2022-01-29 17:53:26.000000000 +0100
+@@ -141,30 +141,39 @@
  dnl Check for language bindings.
  HEADING([Checking for OCaml])
  m4_include([m4/guestfs-ocaml.m4])
@@ -29,6 +29,7 @@
 -HEADING([Checking for Vala])
 -VAPIGEN_CHECK
 +
++AM_CONDITIONAL([HAVE_LIBREADLINE_FALSE], [true])
 +AM_CONDITIONAL([HAVE_LIBREADLINE], [false])
 +AM_CONDITIONAL([HAVE_LIBVIRT], [false])
 +AM_CONDITIONAL([HAVE_TOOLS], [false])

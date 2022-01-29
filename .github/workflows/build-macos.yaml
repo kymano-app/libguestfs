@@ -52,64 +52,6 @@ jobs:
           ls -l /opt/local/lib/pkgconfig
           ls -l /usr/local/lib/pkgconfig
 
-      - name: Libguestfs 1.46.2 Install
-        if: false
-        run: |
-          curl -OL https://download.libguestfs.org/1.46-stable/libguestfs-1.46.2.tar.gz
-          tar -xzf libguestfs-1.46.2.tar.gz
-          cd libguestfs-1.46.2
-          ls -l
-          # git clone https://github.com/libguestfs/libguestfs
-          # cd libguestfs
-          rm -rf docs
-          rm -rf daemon
-          rm -rf php
-          rm -rf erlang
-          rm -rf examples
-          rm -rf golang
-          rm -rf haskell
-          rm -rf java
-          rm -rf lua
-          rm -rf php
-          rm -rf po-docs
-          rm -rf python
-          rm -rf ruby
-          rm -rf rust
-          rm -rf test-data
-          rm -rf test-tool
-          rm -rf tests
-          rm -rf gobject
-          rm -rf ocaml
-          rm -rf perl
-          patch ./configure < ../libguestfs-patches/configure.patch
-          patch ./Makefile.in < ../libguestfs-patches/Makefile.in.patch
-          patch ./generator/Makefile.am < ../libguestfs-patches/generator/Makefile.am.patch
-          patch ./generator/actions.ml < ../libguestfs-patches/generator/actions.ml.patch
-          patch ./generator/proc_nr.ml < ../libguestfs-patches/generator/proc_nr.ml.patch
-          patch ./generator/main.ml < ../libguestfs-patches/generator/main.ml.patch
-          patch ./gobject/Makefile.inc < ../libguestfs-patches/gobject/Makefile.inc.patch
-          patch ./m4/guestfs-ocaml.m4 < ../libguestfs-patches/m4/guestfs-ocaml.m4.patch
-          patch ./m4/guestfs-daemon.m4 < ../libguestfs-patches/m4/guestfs-daemon.m4.patch
-          patch ./podwrapper.pl.in < ../libguestfs-patches/podwrapper.pl.in.patch
-          patch ./common/utils/guestfs-utils.h ../libguestfs-patches/common/utils/guestfs-utils.h.patch
-          patch ./gnulib/lib/getprogname.h ../libguestfs-patches/gnulib/lib/getprogname.h.patch
-          patch ./lib/inspect-apps.c ../libguestfs-patches/lib/inspect-apps.c.patch
-          patch ./common/mlpcre/pcre-c.c ../libguestfs-patches/common/mlpcre/pcre-c.c.patch 
-          patch ./run.in ../libguestfs-patches/run.in.patch
-          patch ./installcheck.sh.in ../libguestfs-patches/installcheck.sh.in.patch
-          patch ./Makefile.am ../libguestfs-patches/Makefile.am.patch
-          patch ./configure.ac ../libguestfs-patches/configure.ac.patch
-          patch ./lib/Makefile.am ../libguestfs-patches/lib/Makefile.am.patch
-          patch ./gnulib/lib/Makefile.am ../libguestfs-patches/gnulib/lib/Makefile.am.patch
-        
-          # git submodule update --init 
-          # autoreconf -i
-          # ./configure --help 
-          ./configure CC="cc -m64" CPPFLAGS="-I/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/mach" CFLAGS="-fPIC -Werror-limit=10000 -Wno-error=implicit-function-declaration -Wno-traditional -I/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/mach -I/Library/Developer/CommandLineTools/usr/include/c++/v1" --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --disable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-appliance --exec-prefix=/opt/local/ LDFLAGS="-L/opt/local/lib" LIBS="-lintl" FUSE_CFLAGS="-I/usr/local/include/osxfuse/fuse -D_FILE_OFFSET_BITS=64" FUSE_LIBS="-losxfuse" --with-libintl-prefix=/System/Volumes/Data/opt/homebrew/Cellar/gettext/0.21/
-
-
-          make CC="cc -m64" CFLAGS="-Werror-limit=10000 -Wno-error=implicit-function-declaration -Wno-traditional -I/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/mach" WERROR_CFLAGS="-Werror-limit=10000 -Wno-error=implicit-function-declaration -Wno-traditional"
-
       - name: Libguestfs 1.44.2 Install
         run: |
           bash libguestfs-patches-1.44.sh
@@ -118,18 +60,6 @@ jobs:
         if: always()
         run: |
           cat .//libguestfs-1.44.2/config.log
-
-      - name: Libguestfs 1.46.2 Install 2.0
-        if: false
-        run: |
-          curl -OL https://download.libguestfs.org/1.46-stable/libguestfs-1.46.2.tar.gz
-          tar -xzf libguestfs-1.46.2.tar.gz
-          cd libguestfs-1.46.2
-
-          autoreconf -i
-          ./configure CC="cc -m64" CPPFLAGS="-I/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/mach" CFLAGS="-I/usr/local/include/osxfuse/fuse -fPIC -Werror-limit=10000 -Wno-error=implicit-function-declaration -Wno-traditional -I/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/mach -I/Library/Developer/CommandLineTools/usr/include/c++/v1" --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --disable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-appliance --disable-fuse --exec-prefix=/opt/local/ LDFLAGS="-L/opt/local/lib" LIBS="-lintl" FUSE_CFLAGS="-I/usr/local/include/osxfuse/fuse -D_FILE_OFFSET_BITS=64" FUSE_LIBS="-losxfuse" --with-libintl-prefix=/System/Volumes/Data/opt/homebrew/Cellar/gettext/0.21/ JANSSON_LIBS=/opt/homebrew/Cellar/jansson/2.14/lib JANSSON_CFLAGS=/opt/homebrew/Cellar/jansson/2.14/include
-
-          make WERROR_CFLAGS="-Werror-limit=10000  -Wno-error=format-nonliteral -Wno-error=implicit-function-declaration" CFLAGS="-fPIC -I/usr/local/include/osxfuse/fuse -I/System/Volumes/Data/opt/homebrew/Cellar/gettext/0.21/include  -Wno-error=implicit-function-declaration -L/System/Volumes/Data/opt/local/lib/ -L/System/Volumes/Data/opt/homebrew/Cellar/gettext/0.21/lib -I/System/Volumes/Data/opt/homebrew/Cellar/gettext/0.21/include -I/System/Volumes/Data/opt/homebrew/Cellar/jansson/2.14/include/ -I/System/Volumes/Data/opt/homebrew/Cellar/pcre2/10.39/include/"
 
       - name: Compress
         run: |

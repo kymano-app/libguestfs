@@ -1,6 +1,0 @@
-52,56d51
-< dnl Check for genisoimage/mkisofs
-< AC_PATH_PROGS([GENISOIMAGE],[genisoimage mkisofs],[no],
-<     [$PATH$PATH_SEPARATOR/usr/sbin$PATH_SEPARATOR/sbin])
-< test "x$GENISOIMAGE" = "xno" && AC_MSG_ERROR([genisoimage must be installed])
-< 
