@@ -21,7 +21,7 @@ jobs:
 
       - name: readline.h
         run: |
-           find / -name "readline.h" 2>/dev/null
+           find /usr/local/include -name "readline.h" 2>/dev/null
 
       - name: Brew Install
         run: |
@@ -30,7 +30,7 @@ jobs:
       
       - name: readline.h
         run: |
-           find / -name "readline.h" 2>/dev/null
+           find /usr/local/include -name "readline.h" 2>/dev/null
 
       - name: Macports
         run: |
@@ -48,7 +48,8 @@ jobs:
       
       - name: readline.h
         run: |
-           find / -name "readline.h" 2>/dev/null
+           find /usr/local/include -name "readline.h" 2>/dev/null
+           find /opt/local/include -name "readline.h" 2>/dev/null
 
       - name: Hivex
         run: |
