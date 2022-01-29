@@ -1,5 +1,5 @@
 --- configure.ac	2021-09-07 18:26:15.000000000 +0200
-+++ configure.ac_new	2022-01-29 16:22:34.000000000 +0100
++++ configure.ac_new	2022-01-29 16:23:10.000000000 +0100
 @@ -141,30 +141,38 @@
  dnl Check for language bindings.
  HEADING([Checking for OCaml])
@@ -63,12 +63,3 @@
  
  dnl Bash completion.
  HEADING([Checking for bash completion])
-@@ -312,7 +320,7 @@
-                  test-data/files/Makefile
-                  test-data/phony-guests/Makefile
-                  test-data/phony-guests/guests.xml
--                 test-tool/Makefile
-+		 test-tool/Makefile
-                  tests/9p/Makefile
-                  tests/bigdirs/Makefile
-                  tests/btrfs/Makefile
