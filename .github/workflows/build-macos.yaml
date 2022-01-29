@@ -19,10 +19,18 @@ jobs:
         with:
           submodules: recursive
 
+      - name: readline.h
+        run: |
+           find / -name "readline.h" 2>/dev/null
+
       - name: Brew Install
         run: |
            brew install xorriso augeas libmagic jansson automake libiconv gettext
            brew install qemu ocaml opam ocaml-findlib coreutils osxfuse
+      
+      - name: readline.h
+        run: |
+           find / -name "readline.h" 2>/dev/null
 
       - name: Macports
         run: |
@@ -37,6 +45,10 @@ jobs:
           sudo port install autoconf po4a magic
           sudo port install ncurses
           #sudo port install binutils
+      
+      - name: readline.h
+        run: |
+           find / -name "readline.h" 2>/dev/null
 
       - name: Hivex
         run: |
