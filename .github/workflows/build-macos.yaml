@@ -112,7 +112,8 @@ jobs:
         run: |
           ls -lt /opt/local/lib/
           bash libguestfs-patches-1.44.sh
-      - name: Libguestfs 1.44.2 Install
+      
+      - name: always()
         if: always()
         run: |
           find ./ -name "config.log"
