@@ -56,7 +56,7 @@ jobs:
       
       - name: Compress  
         run: |
-          tar -czvf guestfs.tgz" libs libguestfs-1.44.2
+          tar -czvf guestfs.tgz libs libguestfs-1.44.2
 
       - name: Release
         uses: softprops/action-gh-release@v1
