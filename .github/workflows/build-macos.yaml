@@ -110,7 +110,6 @@ jobs:
 
       - name: Libguestfs 1.44.2 Install
         run: |
-          ls -lt /opt/local/lib/
           bash libguestfs-patches-1.44.sh
       
       - name: always()
