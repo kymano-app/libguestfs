@@ -19,19 +19,11 @@ jobs:
         with:
           submodules: recursive
 
-      - name: readline.h
-        run: |
-           find /usr/local/include -name "readline.h" 2>/dev/null
-
       - name: Brew Install
         run: |
            brew install xorriso augeas libmagic jansson automake libiconv gettext
            brew install qemu ocaml opam ocaml-findlib coreutils osxfuse
       
-      - name: readline.h
-        run: |
-           find /usr/local/include -name "readline.h" 2>/dev/null
-
       - name: Macports
         run: |
            wget https://github.com/macports/macports-base/releases/download/v2.7.1/MacPorts-2.7.1-11-BigSur.pkg
@@ -46,11 +38,6 @@ jobs:
           sudo port install ncurses
           #sudo port install binutils
       
-      - name: readline.h
-        run: |
-           find /usr/local/include -name "readline.h" 2>/dev/null
-           find /opt/local/include -name "readline.h" 2>/dev/null
-
       - name: Hivex
         run: |
           curl -OL https://download.libguestfs.org/hivex/hivex-1.3.21.tar.gz
