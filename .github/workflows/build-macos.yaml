@@ -49,25 +49,8 @@ jobs:
           make CFLAGS="-Wno-error=implicit-function-declaration" WERROR_CFLAGS="-Wno-error=implicit-function-declaration"
           sudo make install
           sudo cp /opt/local/lib/pkgconfig/hivex.pc /usr/local/lib/pkgconfig/
-          ls -l /opt/local/lib/pkgconfig
-          ls -l /usr/local/lib/pkgconfig
 
       - name: Libguestfs 1.44.2 Install
         run: |
           bash libguestfs-patches-1.44.sh
-      
-      - name: always()
-        if: always()
-        run: |
-          cat .//libguestfs-1.44.2/config.log
-
-      - name: Compress
-        run: |
-          tar -czvf g.tgz libs bin share
-
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: |
-            *.tgz
-          prerelease: true
+    
