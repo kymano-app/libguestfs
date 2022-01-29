@@ -27,6 +27,6 @@ patch configure.ac < ../libguestfs-patches-1.44.2-2/configure.ac.patch
 patch Makefile.am < ../libguestfs-patches-1.44.2-2/Makefile.am.patch
 
 autoreconf -i
-./configure CFLAGS="-I/opt/local/include/" --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --disable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-fuse --exec-prefix=/opt/local/ LDFLAGS="-L/opt/local/lib -twolevel_namespace" LIBS="-lintl" HIVEX_LIBS="-L/opt/local/lib -lhivex" HIVEX_CFLAGS=-I/opt/local/include
+./configure --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --disable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-fuse --exec-prefix=/opt/local/ LDFLAGS="-twolevel_namespace" LIBS="-lintl"
 
 make CFLAGS="-I/System/Volumes/Data/opt/homebrew/Cellar/pcre2/10.39/include/ -I/System/Volumes/Data/opt/homebrew/Cellar/gettext/0.21/include -Wno-error=implicit-function-declaration"
