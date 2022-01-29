@@ -23,6 +23,8 @@ jobs:
         run: |
            brew install xorriso augeas libmagic jansson automake libiconv gettext
            brew install qemu ocaml opam ocaml-findlib coreutils osxfuse
+           ls -l /opt/local/lib/pkgconfig
+           ls -l /usr/local/lib/pkgconfig
 
       - name: Macports
         run: |
