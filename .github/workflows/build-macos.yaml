@@ -53,4 +53,14 @@ jobs:
       - name: Libguestfs 1.44.2 Install
         run: |
           bash libguestfs-patches-1.44.sh
-    
+      
+      - name: Compress  
+        run: |
+          tar -czvf guestfs.tgz" libs libguestfs-1.44.2
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            *.tgz
+          prerelease: true
