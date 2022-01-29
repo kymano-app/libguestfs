@@ -116,8 +116,7 @@ jobs:
       - name: always()
         if: always()
         run: |
-          find ./ -name "config.log"
-          cat config.log
+          cat .//libguestfs-1.44.2/config.log
 
       - name: Libguestfs 1.46.2 Install 2.0
         if: false
