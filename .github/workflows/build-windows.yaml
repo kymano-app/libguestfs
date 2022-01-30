@@ -41,8 +41,14 @@ jobs:
           pacman -Sy --noconfirm libtool
           pacman -Sy --noconfirm autoconf2.71
           pacman -Sy --noconfirm automake1.16
-          find / -name "autoreconf"
-          
+      
+      - name: Build1
+        shell: bash
+        run: |
+          find / -name "autoreconf*"
+
+      - name: Build2
+        run: |
           pacman -Sy --noconfirm mingw-w64-x86_64-ocaml
           pacman -Sy --noconfirm mingw-w64-x86_64-gcc python
           pacman -Sy --noconfirm mingw-w64-x86_64-toolchain
