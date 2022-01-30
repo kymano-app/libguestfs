@@ -42,8 +42,7 @@ jobs:
       - name: Find
         shell: pwsh 
         run: |
-          Get-ChildItem -Path D:\ -Filter cpio.* -Recurse -ErrorAction SilentlyContinue -Force
-          Get-ChildItem -Path C:\ -Filter cpio.* -Recurse -ErrorAction SilentlyContinue -Force
+          D:\a\_temp\msys64\usr\share\bash-completion\completions\cpio --help
 
       - name: Build
         run: |
