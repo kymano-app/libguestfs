@@ -27,6 +27,7 @@ jobs:
           update: true
           install: >-
             git
+            mingw-w64-x86_64-libarchive
 
       - name: Checkout
         uses: actions/checkout@v2
@@ -36,8 +37,6 @@ jobs:
       - name: Build
         run: |
           pwd
-          pacman -Suy --noconfirm
-          pacman -Sy --noconfirm mingw-w64-x86_64-libarchive
      
       - name: Find
         shell: msys2 {0} 
