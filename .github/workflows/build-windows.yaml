@@ -45,7 +45,7 @@ jobs:
       - name: Build1
         shell: bash
         run: |
-          ls -lt /mingw64/bin/
+          Get-ChildItem -Path C:\ -Filter autoreconf* -Recurse -ErrorAction SilentlyContinue -Force
 
       - name: Build2
         run: |
