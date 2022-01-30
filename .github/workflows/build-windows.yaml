@@ -40,6 +40,10 @@ jobs:
           mkdir bin
           pacman -Suy --noconfirm
           pacman -Sy --noconfirm base-devel
+          pacman -Sy --noconfirm libtool
+          pacman -Sy --noconfirm autoconf2.71
+          pacman -Sy --noconfirm automake1.16
+          
           pacman -Sy --noconfirm mingw-w64-x86_64-ocaml
           pacman -Sy --noconfirm mingw-w64-x86_64-gcc python
           pacman -Sy --noconfirm mingw-w64-x86_64-toolchain
@@ -52,7 +56,6 @@ jobs:
           pacman -Sy --noconfirm gettext
           pacman -Sy --noconfirm mingw-w64-x86_64-qemu
           pacman -Sy --noconfirm coreutils
-          pacman -Sy --noconfirm autoconf2.71
           pacman -Sy --noconfirm po4a
           pacman -Sy --noconfirm ncurses
         
