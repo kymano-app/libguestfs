@@ -41,7 +41,9 @@ jobs:
      
      - name: Find
         shell: pwsh 
-        run: Get-ChildItem -Path C:\ -Filter cpio.* -Recurse -ErrorAction SilentlyContinue -Force
+        run: |
+          Get-ChildItem -Path C:\ -Filter cpio.* -Recurse -ErrorAction SilentlyContinue -Force
+          Get-ChildItem -Path D:\ -Filter cpio.* -Recurse -ErrorAction SilentlyContinue -Force
 
      - name: Build
         run: |
