@@ -40,9 +40,7 @@ jobs:
           pwd
      
       - name: Find
-        shell: msys2 {0} 
         run: |
-          zip.exe --help
           cpio --help
      
       - name: Find
