@@ -26,7 +26,6 @@ jobs:
         with:
           update: true
           install: >-
-            base-devel
             git
 
       - name: Checkout
