@@ -39,6 +39,7 @@ jobs:
           BUILD_PATH=$HOME/QEMU-bin
           mkdir bin
           pacman -Suy --noconfirm
+          pacman -Sy --noconfirm mingw-w64-x86_64-ocaml
           pacman -Sy --noconfirm mingw-w64-x86_64-gcc python
           pacman -Sy --noconfirm mingw-w64-x86_64-toolchain
           pacman -Sy --noconfirm ninja
@@ -49,7 +50,6 @@ jobs:
           pacman -Sy --noconfirm libiconv
           pacman -Sy --noconfirm gettext
           pacman -Sy --noconfirm mingw-w64-x86_64-qemu
-          pacman -Sy --noconfirm mingw-w64-ocaml
           pacman -Sy --noconfirm coreutils
           pacman -Sy --noconfirm autoconf2.71
           pacman -Sy --noconfirm po4a
@@ -62,6 +62,6 @@ jobs:
           cd hivex-1.3.21
           patch ./configure.ac < ../hivex-patches-hivex-1.3.21-2/configure.ac.patch
           autoreconf -i --force
-          ./configure CFLAGS="-Wno-error=implicit-function-declaration"  --with-libintl-prefix=/usr/local/ --disable-ruby --disable-nls --disable-python --disable-perl --disable-ocaml --prefix=/opt/local/
+          ./configure CFLAGS="-Wno-error=implicit-function-declaration" --disable-ruby --disable-nls --disable-python --disable-perl --disable-ocaml
           make CFLAGS="-Wno-error=implicit-function-declaration" WERROR_CFLAGS="-Wno-error=implicit-function-declaration"
           sudo make install
