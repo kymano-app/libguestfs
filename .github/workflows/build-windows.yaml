@@ -49,7 +49,7 @@ jobs:
           pacman -Sy --noconfirm libiconv
           pacman -Sy --noconfirm gettext
           pacman -Sy --noconfirm mingw-w64-x86_64-qemu
-          pacman -Sy --noconfirm ocaml
+          pacman -Sy --noconfirm mingw-w64-ocaml
           pacman -Sy --noconfirm coreutils
           pacman -Sy --noconfirm autoconf2.71
           pacman -Sy --noconfirm po4a
