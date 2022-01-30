@@ -70,6 +70,6 @@ jobs:
           patch ./configure.ac < ../hivex-patches-hivex-1.3.21-2/configure.ac.patch
           autoreconf -i --force
           ./configure CFLAGS="-Wno-error=implicit-function-declaration" --disable-ruby --disable-nls --disable-python --disable-perl --disable-ocaml
-          make CFLAGS="-I/d/a/libguestfs/libguestfs/hivex-1.3.21/gnulib/lib/glthread/-Wno-error=implicit-function-declaration"
+          make CFLAGS="-I/d/a/libguestfs/libguestfs/hivex-1.3.21/gnulib/lib/glthread -Wno-error=implicit-function-declaration"
           echo ":::::::::::::::::::::::::::::::make install"
           sudo make install
