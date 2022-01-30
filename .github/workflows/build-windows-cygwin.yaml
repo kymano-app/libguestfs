@@ -1,0 +1,23 @@
+name: Windows
+
+on:
+  push:
+    tags:
+      - "[0-9]+.[0-9]+.[0-9]+-sygwin" 
+
+jobs:
+  build:
+    runs-on: windows-2022
+    strategy:
+      matrix:
+        arch: [x86_64]
+        platform: [windows]
+    steps:
+      - name: Set up Cygwin
+        uses: egor-tensin/setup-cygwin@v3
+        with:
+          platform: x64
+          packages: cmake gcc-g++
+      - run: |
+          ls.exe -Al
+          pwd.exe
