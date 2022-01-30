@@ -6,7 +6,66 @@ on:
       - "[0-9]+.[0-9]+.[0-9]"
 
 jobs:
-  build-macos-ports:
+  build-macos-x86_64:
+    name: Build0
+    runs-on: macos-11
+    strategy:
+      matrix:
+        arch: [x86_64]
+        platform: [macos]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Brew Install
+        run: |
+           brew install xorriso augeas libmagic jansson automake libiconv gettext
+           brew install qemu ocaml opam ocaml-findlib coreutils osxfuse
+       
+      - name: Macports
+        run: |
+           wget https://github.com/macports/macports-base/releases/download/v2.7.1/MacPorts-2.7.1-11-BigSur.pkg
+           sudo installer -pkg ./MacPorts-2.7.1-11-BigSur.pkg -target /
+
+      - name: Macports Install
+        run: |
+          # sudo chown runner /opt/local/etc/macports/macports.conf 
+          # sudo echo 'build_arch arm64' >> /opt/local/etc/macports/macports.conf
+          export PATH="/opt/local/bin:$PATH"
+          sudo port install autoconf po4a magic
+          sudo port install ncurses
+          #sudo port install binutils
+      
+      - name: Hivex
+        run: |
+          curl -OL https://download.libguestfs.org/hivex/hivex-1.3.21.tar.gz
+          tar -xzf hivex-1.3.21.tar.gz
+          cd hivex-1.3.21
+          patch ./configure.ac < ../hivex-patches-hivex-1.3.21-2/configure.ac.patch
+          autoreconf -i --force
+          ./configure CFLAGS="-Wno-error=implicit-function-declaration"  --with-libintl-prefix=/usr/local/ --disable-ruby --disable-nls --disable-python --disable-perl --disable-ocaml --prefix=/opt/local/
+          make CFLAGS="-Wno-error=implicit-function-declaration" WERROR_CFLAGS="-Wno-error=implicit-function-declaration"
+          sudo make install
+          sudo cp /opt/local/lib/pkgconfig/hivex.pc /usr/local/lib/pkgconfig/
+
+      - name: Libguestfs 1.44.2 Install
+        run: |
+          bash libguestfs-patches-1.44.sh
+      
+      - name: Compress  
+        run: |
+          tar -czvf guestfs.tgz libs libguestfs-1.44.2
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            *.tgz
+          prerelease: true
+
+  build-macos-arm64:
     name: Build0
     runs-on: macos-11
     strategy:
