@@ -36,13 +36,12 @@ jobs:
 
       - name: Build
         run: |
-          BUILD_PATH=$HOME/QEMU-bin
-          mkdir bin
           pacman -Suy --noconfirm
           pacman -Sy --noconfirm base-devel
           pacman -Sy --noconfirm libtool
           pacman -Sy --noconfirm autoconf2.71
           pacman -Sy --noconfirm automake1.16
+          find / -name "autoreconf"
           
           pacman -Sy --noconfirm mingw-w64-x86_64-ocaml
           pacman -Sy --noconfirm mingw-w64-x86_64-gcc python
