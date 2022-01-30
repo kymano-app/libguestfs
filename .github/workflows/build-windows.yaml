@@ -41,7 +41,7 @@ jobs:
       - name: Find
         shell: msys2 {0} 
         run: |
-          zip --help
+          zip.exe --help
           cpio --help
      
       - name: Find
