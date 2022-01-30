@@ -32,14 +32,22 @@ jobs:
         uses: actions/checkout@v2
         with:
           submodules: recursive
-
-      - name: Build
+    
+     - name: Build
         run: |
           pwd
           pacman -Suy --noconfirm
           pacman -Sy --noconfirm mingw-w64-x86_64-libarchive
-          find /mingw64/ -name "cpio*"
-          
+     
+     - name: Find
+        shell: pwsh 
+        run: Get-ChildItem -Path C:\ -Filter cpio.* -Recurse -ErrorAction SilentlyContinue -Force
+
+     - name: Build
+        run: |
+          pwd
+          pacman -Suy --noconfirm
+          pacman -Sy --noconfirm mingw-w64-x86_64-libarchive
           pacman -Sy --noconfirm base-devel
           pacman -Sy --noconfirm libtool
           pacman -Sy --noconfirm autoconf2.71
