@@ -20,3 +20,4 @@ jobs:
           packages: cmake gcc-g++ cpio
       - run: |
           ls
+          cpio
