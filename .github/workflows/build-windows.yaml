@@ -41,7 +41,7 @@ jobs:
           pacman -Sy --noconfirm libtool
           pacman -Sy --noconfirm autoconf2.71
           pacman -Sy --noconfirm automake1.16
-          pacman -Sy --noconfirm mingw-w64-autotools
+          pacman -Sy --noconfirm mingw-w64-x86_64-autotools
           pacman -Ss
           autoreconf
 
