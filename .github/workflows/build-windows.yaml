@@ -40,7 +40,6 @@ jobs:
           pacman -Sy --noconfirm mingw-w64-x86_64-libarchive
      
       - name: Find
-        shell: pwsh 
         run: |
           D:\a\_temp\msys64\usr\share\bash-completion\completions\cpio --help
 
