@@ -23,6 +23,8 @@ jobs:
         run: |
            brew install xorriso augeas libmagic jansson automake libiconv gettext
            brew install qemu ocaml opam ocaml-findlib coreutils osxfuse
+           ls -l /System/Volumes/Data/opt/homebrew/Cellar/gettext/0.21/
+           ls -l /System/Volumes/Data/opt/homebrew/Cellar/gettext/0.21/lib
       
       - name: Macports
         run: |
