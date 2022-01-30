@@ -41,13 +41,9 @@ jobs:
           pacman -Sy --noconfirm libtool
           pacman -Sy --noconfirm autoconf2.71
           pacman -Sy --noconfirm automake1.16
+          pacman -Sy --noconfirm mingw-w64-autotools
           pacman -Ss
-          
-      - name: Build1
-        shell: pwsh
-        run: |
-          Get-ChildItem -Path C:\ -Filter autoreconf* -Recurse -ErrorAction SilentlyContinue -Force
-          Get-ChildItem -Path D:\ -Filter autoreconf* -Recurse -ErrorAction SilentlyContinue -Force
+          autoreconf
 
       - name: Build2
         run: |
