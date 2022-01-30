@@ -58,6 +58,7 @@ jobs:
           pacman -Sy --noconfirm coreutils
           pacman -Sy --noconfirm po4a
           pacman -Sy --noconfirm ncurses
+          pacman -Sy --noconfirm mingw-w64-x86_64-libarchive
           pacman -Ss
 
       - name: Hivex
