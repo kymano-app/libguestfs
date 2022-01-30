@@ -41,6 +41,7 @@ jobs:
      
       - name: Find
         run: |
+          git --help
           cpio --help
      
       - name: Find
