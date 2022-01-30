@@ -30,13 +30,13 @@ autoreconf -i
 ./configure --disable-appliance --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --disable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-fuse --prefix=/opt/local/ LDFLAGS="-L/opt/local/lib -L/usr/local/lib" LIBS="-lintl"
 
 make CFLAGS="-I/System/Volumes/Data/opt/homebrew/Cellar/pcre2/10.39/include/ -I/System/Volumes/Data/opt/homebrew/Cellar/gettext/0.21/include -Wno-error=implicit-function-declaration"
-echo ":::::::::::::::::::::::::::::::::"
 
-sudo cp -r /usr/local/Cellar/pcre2/10.39/lib/* /opt/local/lib/
-sudo cp -r /usr/local/Cellar/gettext/0.21/lib/* /opt/local/lib/
-sudo cp -r /usr/local/Cellar/jansson/2.14/lib/* /opt/local/lib/
-echo ":::::::::::::::::::::::::::::::::2"
-ls -lt /opt/local/lib/
+sudo cp -r /usr/local/Cellar/pcre2/10.39/lib/* /opt/local/lib/ 2>/dev/null
+sudo cp -r /usr/local/Cellar/gettext/0.21/lib/* /opt/local/lib/ 2>/dev/null
+sudo cp -r /usr/local/Cellar/jansson/2.14/lib/* /opt/local/lib/ 2>/dev/null
+sudo cp -r /System/Volumes/Data/opt/homebrew/Cellar/pcre2/10.39/lib/* /opt/local/lib/ 2>/dev/null
+sudo cp -r /System/Volumes/Data/opt/homebrew/Cellar/gettext/0.21/lib/* /opt/local/lib/ 2>/dev/null
+sudo cp -r /System/Volumes/Data/opt/homebrew/Cellar/jansson/2.14/lib/* /opt/local/lib/ 2>/dev/null
 
 cd ../
 curl -OL https://raw.githubusercontent.com/kymano-app/qemu/master/scripts/fix_mac.sh

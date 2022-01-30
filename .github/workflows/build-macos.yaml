@@ -67,10 +67,10 @@ jobs:
 
   build-macos-arm64:
     name: Build0
-    runs-on: macos-11
+    runs-on: self-hosted
     strategy:
       matrix:
-        arch: [x86_64]
+        arch: [arm64]
         platform: [macos]
     steps:
       - name: Checkout
