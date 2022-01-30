@@ -36,6 +36,7 @@ jobs:
 
       - name: Build
         run: |
+          pwd
           pacman -Suy --noconfirm
           pacman -Sy --noconfirm base-devel
           pacman -Sy --noconfirm libtool
