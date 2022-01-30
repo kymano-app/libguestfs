@@ -33,19 +33,19 @@ jobs:
         with:
           submodules: recursive
     
-     - name: Build
+      - name: Build
         run: |
           pwd
           pacman -Suy --noconfirm
           pacman -Sy --noconfirm mingw-w64-x86_64-libarchive
      
-     - name: Find
+      - name: Find
         shell: pwsh 
         run: |
           Get-ChildItem -Path D:\ -Filter cpio.* -Recurse -ErrorAction SilentlyContinue -Force
           Get-ChildItem -Path C:\ -Filter cpio.* -Recurse -ErrorAction SilentlyContinue -Force
 
-     - name: Build
+      - name: Build
         run: |
           pwd
           pacman -Suy --noconfirm
