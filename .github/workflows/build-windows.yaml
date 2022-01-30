@@ -30,15 +30,30 @@ jobs:
             git
             cpio
             mingw-w64-x86_64-libarchive
-
+            base-devel
+            libtool
+            autoconf2.71
+            automake1.16
+            mingw-w64-x86_64-autotools
+            mingw-w64-x86_64-ocaml
+            mingw-w64-x86_64-gcc 
+            python
+            mingw-w64-x86_64-toolchain
+            ninja
+            mingw-w64-x86_64-diffutils
+            xorriso
+            mingw-w64-x86_64-file
+            mingw-w64-x86_64-jansson
+            libiconv
+            gettext
+            mingw-w64-x86_64-qemu
+            coreutils
+            po4a
+            ncurses
       - name: Checkout
         uses: actions/checkout@v2
         with:
           submodules: recursive
-    
-      - name: Build
-        run: |
-          pwd
      
       - name: Find
         run: |
@@ -46,6 +61,7 @@ jobs:
           cpio --help
      
       - name: Find
+        if: false
         shell: pwsh 
         run: |
           D:\a\_temp\msys64\usr\share\bash-completion\completions\cpio --help
@@ -56,34 +72,7 @@ jobs:
         shell: pwsh 
         run: |
           Get-ChildItem -Path D:\ -Filter zip.* -Recurse -ErrorAction SilentlyContinue -Force
-
-      - name: Build
-        run: |
-          pwd
-          pacman -Suy --noconfirm
-          pacman -Sy --noconfirm mingw-w64-x86_64-libarchive
-          pacman -Sy --noconfirm base-devel
-          pacman -Sy --noconfirm libtool
-          pacman -Sy --noconfirm autoconf2.71
-          pacman -Sy --noconfirm automake1.16
-          pacman -Sy --noconfirm mingw-w64-x86_64-autotools
-          pacman -Sy --noconfirm mingw-w64-x86_64-ocaml
-          pacman -Sy --noconfirm mingw-w64-x86_64-gcc 
-          pacman -Sy --noconfirm python
-          pacman -Sy --noconfirm mingw-w64-x86_64-toolchain
-          pacman -Sy --noconfirm ninja
-          pacman -Sy --noconfirm mingw-w64-x86_64-diffutils
-          pacman -Sy --noconfirm xorriso
-          pacman -Sy --noconfirm mingw-w64-x86_64-file
-          pacman -Sy --noconfirm mingw-w64-x86_64-jansson
-          pacman -Sy --noconfirm libiconv
-          pacman -Sy --noconfirm gettext
-          pacman -Sy --noconfirm mingw-w64-x86_64-qemu
-          pacman -Sy --noconfirm coreutils
-          pacman -Sy --noconfirm po4a
-          pacman -Sy --noconfirm ncurses
-          pacman -Ss
-
+          
       - name: Hivex
         run: |
           curl -OL https://download.libguestfs.org/hivex/hivex-1.3.21.tar.gz
