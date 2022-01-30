@@ -45,7 +45,7 @@ jobs:
       - name: Build1
         shell: bash
         run: |
-          find / -name "autoreconf*"
+          ls -lt /mingw64/bin/
 
       - name: Build2
         run: |
