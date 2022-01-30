@@ -17,7 +17,7 @@ jobs:
         uses: egor-tensin/setup-cygwin@v3
         with:
           platform: x64
-          packages: cmake gcc-g++ cpio
+          packages: cmake gcc-g++ cpio xorriso augeas libmagic jansson automake libiconv gettext
       - run: |
           ls
           cpio
