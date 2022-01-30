@@ -1,0 +1,2 @@
+37a38
+> 	./mklarge $(builddir)/minimal $(builddir)/large
