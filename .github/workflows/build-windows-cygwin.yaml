@@ -17,7 +17,7 @@ jobs:
         uses: egor-tensin/setup-cygwin@v3
         with:
           platform: x64
-          packages: cmake gcc-g++ cpio xorriso augeas libmagic jansson automake libiconv gettext qemu ocaml opam ocaml-findlib coreutils osxfuse autoconf po4a ncurses libtool mingw-w64-x86_64-libarchive base-devel mingw-w64-x86_64-autotools mingw-w64-x86_64-ocaml mingw-w64-x86_64-gcc 
+          packages: cmake gcc-g++ cpio xorriso augeas libmagic jansson automake libiconv gettext qemu ocaml opam ocaml-findlib coreutils osxfuse autoconf po4a ncurses libtool mingw-w64-x86_64-libarchive base-devel mingw-w64-x86_64-autotools mingw-w64-x86_64-ocaml mingw-w64-x86_64-gcc mingw-w64-x86_64-qemu
       - run: |
           ls
           cpio --help
