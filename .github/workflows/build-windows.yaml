@@ -42,9 +42,6 @@ jobs:
           pacman -Sy --noconfirm autoconf2.71
           pacman -Sy --noconfirm automake1.16
           pacman -Sy --noconfirm mingw-w64-x86_64-autotools
-          pacman -Ss
-          autoreconf
-
       - name: Build2
         run: |
           pacman -Sy --noconfirm mingw-w64-x86_64-ocaml
@@ -61,7 +58,8 @@ jobs:
           pacman -Sy --noconfirm coreutils
           pacman -Sy --noconfirm po4a
           pacman -Sy --noconfirm ncurses
-        
+          pacman -Ss
+
       - name: Hivex
         run: |
           curl -OL https://download.libguestfs.org/hivex/hivex-1.3.21.tar.gz
