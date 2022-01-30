@@ -28,6 +28,7 @@ jobs:
           update: true
           install: >-
             git
+            cpio
             mingw-w64-x86_64-libarchive
 
       - name: Checkout
