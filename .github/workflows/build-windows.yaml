@@ -43,7 +43,7 @@ jobs:
           pacman -Sy --noconfirm mingw-w64-x86_64-toolchain
           pacman -Sy --noconfirm ninja
           pacman -Sy --noconfirm mingw-w64-x86_64-diffutils
-          pacman -Sy --noconfirm mingw-w64-x86_64-xorriso
+          pacman -Sy --noconfirm xorriso
           pacman -Sy --noconfirm mingw-w64-x86_64-file
           pacman -Sy --noconfirm mingw-w64-jansson
           pacman -Sy --noconfirm mingw-w64-libiconv
