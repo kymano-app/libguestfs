@@ -34,7 +34,7 @@ echo ":::::::::::::::::::::::::::::::::"
 
 sudo cp -r /usr/local/Cellar/pcre2/10.39/lib/* /opt/local/lib/
 sudo cp -r /usr/local/Cellar/gettext/0.21/lib/* /opt/local/lib/
-
+sudo cp -r /usr/local/Cellar/jansson/2.14/lib/* /opt/local/lib/
 echo ":::::::::::::::::::::::::::::::::2"
 ls -lt /opt/local/lib/
 
