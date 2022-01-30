@@ -25,7 +25,7 @@ jobs:
            brew install qemu ocaml opam ocaml-findlib coreutils osxfuse
            ls -l /usr/local/Cellar/gettext/0.21/
            ls -l /usr/local/Cellar/gettext/0.21/lib
-      
+       
       - name: Macports
         run: |
            wget https://github.com/macports/macports-base/releases/download/v2.7.1/MacPorts-2.7.1-11-BigSur.pkg
