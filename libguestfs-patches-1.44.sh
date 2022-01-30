@@ -33,8 +33,17 @@ make CFLAGS="-I/System/Volumes/Data/opt/homebrew/Cellar/pcre2/10.39/include/ -I/
 echo ":::::::::::::::::::::::::::::::::"
 ls -lt /usr/local/lib
 
+echo ":::::::::::::::::::::::::::::::::0"
+ls -lt /System/Volumes/Data/opt/homebrew/Cellar/pcre2/10.39/lib/
+
+echo ":::::::::::::::::::::::::::::::::1"
+ls -lt /System/Volumes/Data/opt/homebrew/Cellar/gettext/0.21/lib/
+
 sudo cp -r /System/Volumes/Data/opt/homebrew/Cellar/pcre2/10.39/lib/* /opt/local/lib/
 sudo cp -r /System/Volumes/Data/opt/homebrew/Cellar/gettext/0.21/lib/* /opt/local/lib/
+
+echo ":::::::::::::::::::::::::::::::::2"
+ls -lt /opt/local/lib/
 
 cd ../
 curl -OL https://raw.githubusercontent.com/kymano-app/qemu/master/scripts/fix_mac.sh
