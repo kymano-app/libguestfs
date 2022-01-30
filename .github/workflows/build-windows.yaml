@@ -40,11 +40,19 @@ jobs:
           pacman -Sy --noconfirm mingw-w64-x86_64-libarchive
      
       - name: Find
+        shell: msys2 {0} 
+        run: |
+          zip --help
+          cpio --help
+     
+      - name: Find
         shell: pwsh 
         run: |
           D:\a\_temp\msys64\usr\share\bash-completion\completions\cpio --help
+          D:\a\_temp\msys64\usr\share\perl5\core_perl\IO\Compress\zip
 
       - name: Find
+        if: false
         shell: pwsh 
         run: |
           Get-ChildItem -Path D:\ -Filter zip.* -Recurse -ErrorAction SilentlyContinue -Force
