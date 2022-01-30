@@ -38,7 +38,7 @@ jobs:
           pwd
           pacman -Suy --noconfirm
           pacman -Sy --noconfirm mingw-w64-x86_64-libarchive
-          cpio --help
+          find /mingw64/ -name "cpio*"
           
           pacman -Sy --noconfirm base-devel
           pacman -Sy --noconfirm libtool
