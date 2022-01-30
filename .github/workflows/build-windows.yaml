@@ -43,7 +43,7 @@ jobs:
           pacman -Sy --noconfirm automake1.16
       
       - name: Build1
-        shell: bash
+        shell: pwsh
         run: |
           Get-ChildItem -Path C:\ -Filter autoreconf* -Recurse -ErrorAction SilentlyContinue -Force
 
