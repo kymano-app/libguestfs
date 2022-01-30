@@ -32,7 +32,10 @@ autoreconf -i
 make CFLAGS="-I/System/Volumes/Data/opt/homebrew/Cellar/pcre2/10.39/include/ -I/System/Volumes/Data/opt/homebrew/Cellar/gettext/0.21/include -Wno-error=implicit-function-declaration"
 echo ":::::::::::::::::::::::::::::::::"
 ls -lt /usr/local/lib
-find /usr/local/lib -type f \( -name "*guestfs*" -o -name "*hivex*" \) | while read f ; do true | sudo cp -L $f /opt/local/lib/ ; echo $f ; done
+
+sudo cp -r /System/Volumes/Data/opt/homebrew/Cellar/pcre2/10.39/lib/* /opt/local/lib/
+sudo cp -r /System/Volumes/Data/opt/homebrew/Cellar/gettext/0.21/lib/* /opt/local/lib/
+
 cd ../
 curl -OL https://raw.githubusercontent.com/kymano-app/qemu/master/scripts/fix_mac.sh
 bash fix_mac.sh
