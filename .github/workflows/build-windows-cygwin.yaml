@@ -24,9 +24,6 @@ jobs:
       
       - name: Hivex
         run: |
-          pwd
-          ls -l
-
           git clone https://github.com/kymano-app/libguestfs.git
           cd libguestfs
           curl -OL https://download.libguestfs.org/hivex/hivex-1.3.21.tar.gz
@@ -44,13 +41,9 @@ jobs:
 
           make CFLAGS="-v -I/d/a/libguestfs/libguestfs/hivex-1.3.21/gnulib/lib -I/d/a/libguestfs/libguestfs/hivex-1.3.21/ -I/d/a/libguestfs/libguestfs/hivex-1.3.21/lib -Wno-error=implicit-function-declaration"
           make install
-          pwd
-          ls -l
-          cd ../
-          pwd
-          ls -l
       - name: Install
         run: |
+          cd libguestfs
           pwd
           ls -l
 
