@@ -21,7 +21,12 @@ jobs:
         with:
           platform: x64
           packages: cmake gcc-g++ cpio xorriso augeas libmagic jansson automake libiconv gettext ocaml opam ocaml-findlib coreutils osxfuse autoconf po4a ncurses libtool mingw-w64-x86_64-libarchive base-devel mingw-w64-x86_64-autotools mingw-w64-x86_64-ocaml mingw-w64-x86_64-gcc mingw-w64-x86_64-qemu python mingw-w64-x86_64-toolchain ninja mingw-w64-x86_64-diffutils mingw-w64-x86_64-file mingw-w64-x86_64-jansson
-
+      
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      
       - name: Hivex
         run: |
           curl -OL https://download.libguestfs.org/hivex/hivex-1.3.21.tar.gz
