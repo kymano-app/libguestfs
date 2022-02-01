@@ -33,6 +33,7 @@ jobs:
           curl -OL https://github.com/hercules-team/augeas/archive/refs/tags/release-1.13.0.tar.gz
           tar -xzf release-1.13.0.tar.gz
           cd augeas-release-1.13.0
+          autoreconf
           ./configure
           make && make install
 
