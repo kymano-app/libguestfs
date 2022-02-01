@@ -31,6 +31,7 @@ jobs:
         shell: pwsh 
         run: |
           Get-ChildItem -Path D:\ -Filter libintl.h -Recurse -ErrorAction SilentlyContinue -Force
+          Get-ChildItem -Path C:\ -Filter libintl.h -Recurse -ErrorAction SilentlyContinue -Force
 
       - name: Hivex 
         run: |
