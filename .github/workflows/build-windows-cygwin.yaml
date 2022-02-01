@@ -24,6 +24,8 @@ jobs:
        
       - name: Hivex 
         run: |
+          Get-Item -Path "C:\Program Files\Git\usr\bin\*.exe" | %{ Set-ProcessMitigation -Name $_.Name -Disable ForceRelocateImages }
+
           msgmerge --help
           git clone https://github.com/kymano-app/libguestfs.git
           cd libguestfs
