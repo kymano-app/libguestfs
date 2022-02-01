@@ -30,11 +30,9 @@ jobs:
 
       - name: augeas 
         run: |
-          curl -OL https://github.com/hercules-team/augeas/archive/refs/tags/release-1.13.0.tar.gz
-          tar -xzf release-1.13.0.tar.gz
-          cd augeas-release-1.13.0
-          autoreconf
-          ./configure
+          git clone https://github.com/hercules-team/augeas.git
+          cd augeas
+          ./autogen.sh
           make && make install
 
       - name: Hivex 
