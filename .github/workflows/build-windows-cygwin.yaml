@@ -28,10 +28,8 @@ jobs:
           packages: cmake gcc-g++ cpio xorriso augeas libmagic jansson automake libiconv libiconv-devel gettext ocaml opam ocaml-findlib coreutils osxfuse autoconf po4a ncurses libtool mingw-w64-x86_64-libarchive base-devel mingw-w64-x86_64-autotools mingw-w64-x86_64-ocaml mingw-w64-x86_64-gcc mingw-w64-x86_64-qemu python mingw-w64-x86_64-toolchain ninja mingw-w64-x86_64-diffutils mingw-w64-x86_64-file mingw-w64-x86_64-jansson gperf genisoimage flex bison byacc libncurses-devel git gettext-devel
       
       - name: Find
-        shell: pwsh 
         run: |
-          Get-ChildItem -Path D:\ -Filter libintl.h -Recurse -ErrorAction SilentlyContinue -Force
-          Get-ChildItem -Path C:\ -Filter libintl.h -Recurse -ErrorAction SilentlyContinue -Force
+          find / -name "libintl.h" 2>/dev/null
 
       - name: Hivex 
         run: |
