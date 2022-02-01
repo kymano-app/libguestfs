@@ -24,6 +24,7 @@ jobs:
        
       - name: Hivex 
         run: |
+          msgmerge --help
           git clone https://github.com/kymano-app/libguestfs.git
           cd libguestfs
           curl -OL https://download.libguestfs.org/hivex/hivex-1.3.21.tar.gz
