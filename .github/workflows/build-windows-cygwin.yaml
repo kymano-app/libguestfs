@@ -25,8 +25,7 @@ jobs:
         uses: egor-tensin/setup-cygwin@v3
         with:
           platform: x64
-          packages: cmake gcc-g++ cpio xorriso augeas libmagic jansson automake libiconv libiconv-devel gettext ocaml opam ocaml-findlib coreutils osxfuse autoconf po4a ncurses libtool mingw-w64-x86_64-libarchive base-devel mingw-w64-x86_64-autotools mingw-w64-x86_64-ocaml mingw-w64-x86_64-gcc mingw-w64-x86_64-qemu python mingw-w64-x86_64-toolchain ninja mingw-w64-x86_64-diffutils mingw-w64-x86_64-file mingw-w64-x86_64-jansson  genisoimage flex bison byacc libncurses-devel git mingw64-x86_64-gettext lynx gperf wget
-
+          packages: cmake gcc-g++ cpio xorriso augeas libmagic jansson automake libiconv libiconv-devel gettext ocaml opam ocaml-findlib coreutils osxfuse autoconf po4a ncurses libtool mingw-w64-x86_64-libarchive base-devel mingw-w64-x86_64-autotools mingw-w64-x86_64-ocaml mingw-w64-x86_64-gcc mingw-w64-x86_64-qemu python mingw-w64-x86_64-toolchain ninja mingw-w64-x86_64-diffutils mingw-w64-x86_64-file mingw-w64-x86_64-jansson  genisoimage flex bison byacc libncurses-devel git mingw64-x86_64-gettext lynx gperf wget libreadline-devel
 
       - name: augeas 
         run: |
