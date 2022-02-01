@@ -21,11 +21,15 @@ jobs:
         with:
           platform: x64
           packages: cmake gcc-g++ cpio xorriso augeas libmagic jansson automake libiconv libiconv-devel gettext ocaml opam ocaml-findlib coreutils osxfuse autoconf po4a ncurses libtool mingw-w64-x86_64-libarchive base-devel mingw-w64-x86_64-autotools mingw-w64-x86_64-ocaml mingw-w64-x86_64-gcc mingw-w64-x86_64-qemu python mingw-w64-x86_64-toolchain ninja mingw-w64-x86_64-diffutils mingw-w64-x86_64-file mingw-w64-x86_64-jansson gperf genisoimage flex bison byacc libncurses-devel
-       
-      - name: Hivex 
+      
+      - name: Fix
+        shell: pwsh 
         run: |
           Get-Item -Path "C:\Program Files\Git\usr\bin\*.exe" | %{ Set-ProcessMitigation -Name $_.Name -Disable ForceRelocateImages }
 
+      - name: Hivex 
+        run: |
+        
           msgmerge --help
           git clone https://github.com/kymano-app/libguestfs.git
           cd libguestfs
