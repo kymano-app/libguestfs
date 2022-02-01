@@ -19,7 +19,7 @@ jobs:
       - name: Fix
         shell: pwsh 
         run: |
-          Remove-Item C:\Program Files\Git\usr\bin\msgmerge.exe
+          Remove-Item "C:\Program Files\Git\usr\bin\msgmerge.exe"
 
       - name: Set up Cygwin
         uses: egor-tensin/setup-cygwin@v3
