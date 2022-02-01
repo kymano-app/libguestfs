@@ -16,7 +16,7 @@ jobs:
         arch: [x86_64]
         platform: [windows]
     steps:
-       - name: Fix
+      - name: Fix
         shell: pwsh 
         run: |
           rm -rf C:\Program Files\Git\usr\bin\msgmerge.exe
