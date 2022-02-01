@@ -26,14 +26,11 @@ jobs:
         with:
           platform: x64
           packages: cmake gcc-g++ cpio xorriso augeas libmagic jansson automake libiconv libiconv-devel gettext ocaml opam ocaml-findlib coreutils osxfuse autoconf po4a ncurses libtool mingw-w64-x86_64-libarchive base-devel mingw-w64-x86_64-autotools mingw-w64-x86_64-ocaml mingw-w64-x86_64-gcc mingw-w64-x86_64-qemu python mingw-w64-x86_64-toolchain ninja mingw-w64-x86_64-diffutils mingw-w64-x86_64-file mingw-w64-x86_64-jansson gperf genisoimage flex bison byacc libncurses-devel git gettext-devel
-      
-      - name: Find
-        run: |
-          find / -name "libintl.h" 2>/dev/null
 
       - name: Hivex 
         run: |
         
+          pwd
           msgmerge --help
           git clone https://github.com/kymano-app/libguestfs.git
           cd libguestfs
@@ -50,7 +47,7 @@ jobs:
 
           ./configure CFLAGS="-Wno-error=implicit-function-declaration" --disable-ruby --disable-nls --disable-python --disable-perl --disable-ocaml --with-libintl-prefix=/usr/local/
 
-          make CFLAGS="-v -I/d/a/libguestfs/libguestfs/hivex-1.3.21/gnulib/lib -I/d/a/libguestfs/libguestfs/hivex-1.3.21/ -I/d/a/libguestfs/libguestfs/hivex-1.3.21/lib -Wno-error=implicit-function-declaration"
+          make CFLAGS="-v -I/usr/include/ -I/d/a/libguestfs/libguestfs/hivex-1.3.21/gnulib/lib -I/d/a/libguestfs/libguestfs/hivex-1.3.21/ -I/d/a/libguestfs/libguestfs/hivex-1.3.21/lib -Wno-error=implicit-function-declaration"
           make install
       - name: Install
         run: |
