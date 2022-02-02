@@ -25,18 +25,7 @@ jobs:
         uses: egor-tensin/setup-cygwin@v3
         with:
           platform: x64
-          packages: cmake gcc-g++ cpio xorriso augeas libmagic jansson automake libiconv libiconv-devel gettext ocaml opam ocaml-findlib coreutils osxfuse autoconf po4a ncurses libtool mingw-w64-x86_64-libarchive base-devel mingw-w64-x86_64-autotools mingw-w64-x86_64-ocaml mingw-w64-x86_64-gcc mingw-w64-x86_64-qemu python mingw-w64-x86_64-toolchain ninja mingw-w64-x86_64-diffutils mingw-w64-x86_64-file mingw-w64-x86_64-jansson  genisoimage flex bison byacc libncurses-devel git mingw64-x86_64-gettext lynx gperf wget libreadline-devel libxml2-devel findutils-debuginfo
-
-      - name: augeas 
-        run: |
-          git clone https://github.com/kymano-app/libguestfs.git
-          cd libguestfs
-          git clone https://github.com/hercules-team/augeas.git
-          cd augeas
-          git reset --hard 002b2d5b60c72da6f3326dfec72152b228a8357d
-          patch ./src/transform.c  ../augeas-patches/src/transform.c.patch
-          ./autogen.sh
-          make && make install
+          packages: cmake gcc-g++ cpio xorriso augeas libmagic jansson automake libiconv libiconv-devel gettext ocaml opam ocaml-findlib coreutils osxfuse autoconf po4a ncurses libtool mingw-w64-x86_64-libarchive base-devel mingw-w64-x86_64-autotools mingw-w64-x86_64-ocaml mingw-w64-x86_64-gcc mingw-w64-x86_64-qemu python mingw-w64-x86_64-toolchain ninja mingw-w64-x86_64-diffutils mingw-w64-x86_64-file mingw-w64-x86_64-jansson  genisoimage flex bison byacc libncurses-devel git mingw64-x86_64-gettext lynx gperf wget
 
       - name: Hivex 
         run: |
@@ -58,11 +47,22 @@ jobs:
 
           make install
       
+      - name: augeas 
+        run: |
+          git clone https://github.com/kymano-app/libguestfs.git
+          cd libguestfs
+          git clone https://github.com/hercules-team/augeas.git
+          cd augeas
+          git reset --hard 002b2d5b60c72da6f3326dfec72152b228a8357d
+          patch ./src/transform.c  ../augeas-patches/src/transform.c.patch
+          ./autogen.sh
+          make && make install
+          
       - name: install gettext-devel
         run: |
           lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg
           install apt-cyg /bin
-          apt-cyg install gettext-devel libtirpc-devel
+          apt-cyg install gettext-devel libtirpc-devel libreadline-devel libxml2-devel findutils-debuginfo
 
       - name: Install
         run: |
