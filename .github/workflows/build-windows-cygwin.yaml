@@ -29,8 +29,10 @@ jobs:
 
       - name: augeas 
         run: |
-          git clone https://github.com/hercules-team/augeas.git
-          cd augeas
+          curl -OL https://github.com/hercules-team/augeas/archive/refs/tags/release-1.13.0.tar.gz
+          cd augeas-release-1.13.0
+          git submodule init
+          git submodule update
           ./autogen.sh
           make && make install
 
