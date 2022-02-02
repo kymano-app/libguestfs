@@ -47,6 +47,13 @@ jobs:
 
           make install
       
+      - name: install gettext-devel
+        run: |
+          lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg
+          install apt-cyg /bin
+          apt-cyg install gettext-devel libtirpc-devel libreadline-devel libxml2-devel findutils-debuginfo
+
+
       - name: augeas 
         run: |
           git clone https://github.com/kymano-app/libguestfs.git
@@ -57,12 +64,6 @@ jobs:
           patch ./src/transform.c  ../augeas-patches/src/transform.c.patch
           ./autogen.sh
           make && make install
-          
-      - name: install gettext-devel
-        run: |
-          lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg
-          install apt-cyg /bin
-          apt-cyg install gettext-devel libtirpc-devel libreadline-devel libxml2-devel findutils-debuginfo
 
       - name: Install
         run: |
