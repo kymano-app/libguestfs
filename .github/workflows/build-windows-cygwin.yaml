@@ -16,7 +16,7 @@ jobs:
         arch: [x86_64]
         platform: [windows]
     steps:
-      - name: Fix
+      - name: Msgmerge fix
         shell: pwsh 
         run: |
           Remove-Item "C:\Program Files\Git\usr\bin\msgmerge.exe"
@@ -25,9 +25,9 @@ jobs:
         uses: egor-tensin/setup-cygwin@v3
         with:
           platform: x64
-          packages: cmake gcc-g++ cpio xorriso augeas libmagic jansson automake libiconv libiconv-devel gettext ocaml opam ocaml-findlib coreutils osxfuse autoconf po4a ncurses libtool mingw-w64-x86_64-libarchive base-devel mingw-w64-x86_64-autotools mingw-w64-x86_64-ocaml mingw-w64-x86_64-gcc mingw-w64-x86_64-qemu python mingw-w64-x86_64-toolchain ninja mingw-w64-x86_64-diffutils mingw-w64-x86_64-file mingw-w64-x86_64-jansson genisoimage flex bison byacc libncurses-devel git mingw64-x86_64-gettext lynx gperf
+          packages: cmake gcc-g++ cpio automake libiconv libiconv-devel gettext ocaml opam ocaml-findlib coreutils autoconf po4a ncurses libtool python ninja genisoimage flex bison byacc libncurses-devel git mingw64-x86_64-gettext lynx gperf
       
-      - name: Hivex 
+      - name: Install Hivex 
         run: |
           pkg-config --variable pc_path pkg-config
 
@@ -48,13 +48,13 @@ jobs:
           make CFLAGS="-v -I/usr/x86_64-w64-mingw32/sys-root/mingw/include/ -I/home/runneradmin/hivex-1.3.21/gnulib/lib -I/home/runneradmin/hivex-1.3.21/ -I/home/runneradmin/hivex-1.3.21/lib -Wno-error=implicit-function-declaration"
           make install
       
-      - name: install gettext-devel
+      - name: Install libs for Augeas
         run: |
           lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg
           install apt-cyg /bin
           apt-cyg install gettext-devel libtirpc-devel libreadline-devel libxml2-devel findutils-debuginfo wget
 
-      - name: augeas 
+      - name: Install augeas 
         run: |
           cd libguestfs
           git clone https://github.com/hercules-team/augeas.git
@@ -65,11 +65,11 @@ jobs:
           make && make install
           cp /usr/local/lib/pkgconfig/augeas.pc /usr/share/pkgconfig/augeas.pc
 
-      - name: install gettext-devel
+      - name: Install libs for Libguestfs
         run: |
           apt-cyg install file-devel
 
-      - name: Install
+      - name: Install Libguestfs
         run: |
           cd libguestfs
 
@@ -100,7 +100,6 @@ jobs:
           patch test-tool/test-tool.c ../libguestfs-patches-1.44.2-2/test-tool/test-tool.c.patch
           patch configure.ac ../libguestfs-patches-1.44.2-2/configure.ac.patch
           patch Makefile.am ../libguestfs-patches-1.44.2-2/Makefile.am.patch
-
 
           autoreconf -i
           ./configure --enable-debug --disable-appliance --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --disable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-fuse LDFLAGS="-L/usr/local/lib" LIBS="-lintl"
