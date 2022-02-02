@@ -1,0 +1,4 @@
+921c921
+<     security_context_t con = NULL;
+---
+>     char *con = NULL;
