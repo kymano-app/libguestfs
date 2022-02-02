@@ -26,14 +26,7 @@ jobs:
         with:
           platform: x64
           packages: cmake gcc-g++ cpio xorriso augeas libmagic jansson automake libiconv libiconv-devel gettext ocaml opam ocaml-findlib coreutils osxfuse autoconf po4a ncurses libtool mingw-w64-x86_64-libarchive base-devel mingw-w64-x86_64-autotools mingw-w64-x86_64-ocaml mingw-w64-x86_64-gcc mingw-w64-x86_64-qemu python mingw-w64-x86_64-toolchain ninja mingw-w64-x86_64-diffutils mingw-w64-x86_64-file mingw-w64-x86_64-jansson genisoimage flex bison byacc libncurses-devel git mingw64-x86_64-gettext lynx gperf
-      
-      - name: Find
-        if: false
-        shell: pwsh 
-        run: |
-          Get-ChildItem -Path C:\ -Filter pkgconfig -Recurse -ErrorAction SilentlyContinue -Force
-          Get-ChildItem -Path D:\ -Filter pkgconfig -Recurse -ErrorAction SilentlyContinue -Force
-
+    
       - name: Hivex 
         run: |
           git clone https://github.com/kymano-app/libguestfs.git
@@ -104,7 +97,7 @@ jobs:
           patch Makefile.am ../libguestfs-patches-1.44.2-2/Makefile.am.patch
 
           export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
-          
+
           autoreconf -i
           ./configure --enable-debug --disable-appliance --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --disable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-fuse LDFLAGS="-L/usr/local/lib" LIBS="-lintl"
 
