@@ -36,8 +36,8 @@ jobs:
         run: |
           mkdir qemu
           cd qemu
-          wget https://github.com/kymano-app/qemu/releases/download/6.2.5-win/qemu-6.2-5.tgz
-          tar -xzf qemu-6.2-5.tgz
+          wget https://github.com/kymano-app/qemu/releases/download/6.2.0-windows/qemu-6.2.0-windows-windows-x86_64.tgz
+          tar -xzf qemu-6.2.0-windows-windows-x86_64.tgz
           ls -l /home/runneradmin/qemu/home/runneradmin/QEMU-bin
 
       - name: Install libs for Hivex
@@ -119,7 +119,7 @@ jobs:
           patch Makefile.am ../libguestfs-patches-1.44.2-2/Makefile.am.patch
 
           autoreconf -i
-          ./configure --with-qemu=/home/runneradmin/qemu/home/runneradmin/QEMU-bin/qemu-system-x86_64.exe --enable-debug --disable-appliance --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --disable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-fuse LDFLAGS="-L/usr/local/lib" LIBS="-lintl"
+          ./configure --with-qemu=/home/runneradmin/qemu/bin/qemu-system-x86_64.exe --enable-debug --disable-appliance --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --disable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-fuse LDFLAGS="-L/usr/local/lib" LIBS="-lintl"
 
           make CFLAGS="-I/usr/x86_64-w64-mingw32/sys-root/mingw/include -Wno-error=implicit-function-declaration"
 
