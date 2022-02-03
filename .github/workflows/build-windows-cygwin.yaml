@@ -31,16 +31,14 @@ jobs:
         run: |
           wget rawgit.com/transcode-open/apt-cyg/master/apt-cyg -O apt-cyg
           install apt-cyg /bin
-      
-      - name: Install wget
-        run: |
-          apt-cyg install wget
 
       - name: Install Qemu 
         run: |
           wget https://github.com/kymano-app/qemu/releases/download/6.2.0-windows/qemu-6.2.0-windows-windows-x86_64.tgz
           tar -xzf qemu-6.2.0-windows-windows-x86_64.tgz
+          ls -l ./qemu-6.2.0-windows-windows-x86_64/
           ln -s ./qemu-6.2.0-windows-windows-x86_64/bin/qemu-system-x86_64.exe /bin/qemu-system-x86_64.exe
+          ls -l /bin
           /bin/qemu-system-x86_64.exe  --help
 
       - name: Install libs for Hivex
