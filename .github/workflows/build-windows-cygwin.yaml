@@ -67,7 +67,7 @@ jobs:
 
       - name: Install libs for Libguestfs
         run: |
-          apt-cyg install file-devel
+          apt-cyg install file-devel libjansson-devel
 
       - name: Install Libguestfs
         run: |
