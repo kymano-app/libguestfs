@@ -25,11 +25,11 @@ jobs:
         uses: egor-tensin/setup-cygwin@v3
         with:
           platform: x64
-          packages: lynx
+          packages: wget
 
       - name: Install apt-cyg 
         run: |
-          lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg
+          wget rawgit.com/transcode-open/apt-cyg/master/apt-cyg -O apt-cyg
           install apt-cyg /bin
       
       - name: Install wget
