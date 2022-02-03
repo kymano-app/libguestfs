@@ -27,6 +27,14 @@ jobs:
           platform: x64
           packages: cmake gcc-g++ cpio automake libiconv libiconv-devel gettext ocaml opam ocaml-findlib coreutils autoconf po4a ncurses libtool python ninja genisoimage flex bison byacc libncurses-devel git mingw64-x86_64-gettext lynx gperf
       
+      - name: Install Qemu 
+        run: |
+          git clone git://git.qemu-project.org/qemu.git
+          cd qemu
+          ./configure
+          make
+          make install
+
       - name: Install Hivex 
         run: |
           pkg-config --variable pc_path pkg-config
@@ -65,7 +73,7 @@ jobs:
           patch ./src/transform.c  ../augeas-patches/src/transform.c.patch
           ./autogen.sh
           make && make install
-          cp /usr/local/lib/pkgconfig/augeas.pc /usr/share/pkgconfig/augeas.pc
+          cp /usr/local/lib/pkgconfig/augeas.pc /usr/share/pkgconfig/
 
       - name: Install libs for Libguestfs
         run: |
