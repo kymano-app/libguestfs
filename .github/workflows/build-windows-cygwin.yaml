@@ -31,7 +31,7 @@ jobs:
         run: |
           git clone git://git.qemu-project.org/qemu.git
           cd qemu
-          ./configure
+          ./configure --cc="gcc-3 -mno-cygwin" --host-cc=gcc-3
           make
           make install
 
