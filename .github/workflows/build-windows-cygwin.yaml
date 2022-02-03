@@ -28,20 +28,15 @@ jobs:
       
       - name: Install Qemu 
         run: |
-          git clone git://git.qemu-project.org/qemu.git
-          cd qemu
-          git reset --hard 44f28df24767cf9dca1ddc9b23157737c4cbb645
-          git submodule init
-          git submodule update --recursive
-          ./configure --target-list=x86_64-softmmu --disable-capstone--target-os=mingw64 --arch=x86_64
+          wget https://github.com/kymano-app/qemu/releases/download/6.2.0-windows/qemu-6.2.0-windows-windows-x86_64.tgz
+          tar -xzf qemu-6.2.0-windows-windows-x86_64.tgz
+          cp qemu-6.2.0-windows-windows-x86_64/bin/qemu-system-x86_64.exe /bin/
 
-
-      - name: Install libs for Augeas
+      - name: Install libs for Hivex
         run: |
           lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg
           install apt-cyg /bin
           apt-cyg install cmake gcc-g++ cpio automake libiconv libiconv-devel gettext ocaml opam ocaml-findlib coreutils autoconf po4a ncurses libtool python ninja genisoimage flex bison byacc libncurses-devel git mingw64-x86_64-gettext lynx gperf
-
 
       - name: Install Hivex 
         run: |
