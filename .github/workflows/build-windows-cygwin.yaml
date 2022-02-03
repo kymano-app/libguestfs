@@ -47,6 +47,8 @@ jobs:
 
           make CFLAGS="-v -I/usr/x86_64-w64-mingw32/sys-root/mingw/include/ -I/home/runneradmin/hivex-1.3.21/gnulib/lib -I/home/runneradmin/hivex-1.3.21/ -I/home/runneradmin/hivex-1.3.21/lib -Wno-error=implicit-function-declaration"
           make install
+
+          cp /usr/local/lib/pkgconfig/hivex.pc /usr/local/lib/pkgconfig/
       
       - name: Install libs for Augeas
         run: |
