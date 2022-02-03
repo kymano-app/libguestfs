@@ -25,6 +25,7 @@ jobs:
         uses: egor-tensin/setup-cygwin@v3
         with:
           platform: x64
+          packages: lynx
 
       - name: Install apt-cyg 
         run: |
