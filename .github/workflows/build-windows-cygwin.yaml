@@ -25,7 +25,6 @@ jobs:
         uses: egor-tensin/setup-cygwin@v3
         with:
           platform: x64
-          packages: cmake gcc-g++
       
       - name: Install Qemu 
         run: |
@@ -34,7 +33,15 @@ jobs:
           git reset --hard 44f28df24767cf9dca1ddc9b23157737c4cbb645
           git submodule init
           git submodule update --recursive
-          ./configure --target-list=x86_64-softmmu --disable-capstone --enable-shared --target-os=mingw64 --arch=x86_64
+          ./configure --target-list=x86_64-softmmu --disable-capstone--target-os=mingw64 --arch=x86_64
+
+
+      - name: Install libs for Augeas
+        run: |
+          lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg
+          install apt-cyg /bin
+          apt-cyg install cmake gcc-g++ cpio automake libiconv libiconv-devel gettext ocaml opam ocaml-findlib coreutils autoconf po4a ncurses libtool python ninja genisoimage flex bison byacc libncurses-devel git mingw64-x86_64-gettext lynx gperf
+
 
       - name: Install Hivex 
         run: |
@@ -61,8 +68,6 @@ jobs:
       
       - name: Install libs for Augeas
         run: |
-          lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg
-          install apt-cyg /bin
           apt-cyg install gettext-devel libtirpc-devel libreadline-devel libxml2-devel findutils-debuginfo wget
 
       - name: Install augeas 
