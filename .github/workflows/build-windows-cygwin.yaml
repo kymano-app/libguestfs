@@ -34,6 +34,7 @@ jobs:
 
       - name: Install Qemu 
         run: |
+          pwd
           wget https://github.com/kymano-app/qemu/releases/download/6.2.0-windows/qemu-6.2.0-windows-windows-x86_64.tgz
           mkdir qemu
           cd qemu
