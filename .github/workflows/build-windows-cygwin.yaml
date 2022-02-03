@@ -31,9 +31,12 @@ jobs:
         run: |
           git clone git://git.qemu-project.org/qemu.git
           cd qemu
-          ./configure --cc="gcc-3 -mno-cygwin" --host-cc=gcc-3
+          SRC_PATH=$PWD
+          BUILD_DIR=$PWD/bin/debug/i686-w64-mingw32
+          mkdir -p $BUILD_DIR
+          cd $BUILD_DIR
+          $SRC_PATH/configure --enable-debug --cross-prefix=i686-w64-mingw32-
           make
-          make install
 
       - name: Install Hivex 
         run: |
