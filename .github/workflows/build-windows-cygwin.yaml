@@ -31,12 +31,10 @@ jobs:
         run: |
           git clone git://git.qemu-project.org/qemu.git
           cd qemu
-          SRC_PATH=$PWD
-          BUILD_DIR=$PWD/bin/debug/i686-w64-mingw32
-          mkdir -p $BUILD_DIR
-          cd $BUILD_DIR
-          $SRC_PATH/configure --enable-debug --cross-prefix=i686-w64-mingw32-
-          make
+          git reset --hard 44f28df24767cf9dca1ddc9b23157737c4cbb645
+          git submodule init
+          git submodule update --recursive
+          ./configure --target-list=x86_64-softmmu --disable-capstone
 
       - name: Install Hivex 
         run: |
