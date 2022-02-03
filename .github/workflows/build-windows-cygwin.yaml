@@ -40,7 +40,7 @@ jobs:
           cd qemu
           tar -xzf qemu-6.2.0-windows-windows-x86_64.tgz
           ls -l ./qemu-6.2.0-windows-windows-x86_64/
-          ln -s ./qemu-6.2.0-windows-windows-x86_64/bin/qemu-system-x86_64.exe /bin/qemu-system-x86_64.exe
+          ln -s /home/runneradmin/qemu/qemu-6.2.0-windows-windows-x86_64/bin/qemu-system-x86_64.exe /bin/qemu-system-x86_64.exe
           ls -l /bin
           /bin/qemu-system-x86_64.exe  --help
 
