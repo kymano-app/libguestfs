@@ -33,9 +33,9 @@ jobs:
           install apt-cyg /bin
      
      
-      - name: Install libs for Hivex
+      - name: Install libs for ocaml
         run: |
-          apt-cyg install gcc-core flexdll
+          apt-cyg install gcc-core flexdll binutils
 
       - name: Install ocaml
         run: |
