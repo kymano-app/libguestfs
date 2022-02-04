@@ -32,16 +32,18 @@ jobs:
           wget rawgit.com/transcode-open/apt-cyg/master/apt-cyg -O apt-cyg
           install apt-cyg /bin
 
-      - name: Install Qemu 
-        run: |
-          mkdir qemu
-          cd qemu
-          wget https://github.com/kymano-app/qemu/releases/download/6.2.0-windows/qemu-6.2.0-windows-windows-x86_64.tgz
-          tar -xzf qemu-6.2.0-windows-windows-x86_64.tgz
-
       - name: Install libs for Hivex
         run: |
-          apt-cyg install cmake gcc-g++ cpio automake libiconv libiconv-devel gettext ocaml opam ocaml-findlib coreutils autoconf po4a ncurses libtool python ninja genisoimage flex bison byacc libncurses-devel git mingw64-x86_64-gettext lynx gperf
+          apt-cyg install cmake gcc-g++ cpio automake libiconv libiconv-devel gettext opam ocaml-findlib coreutils autoconf po4a ncurses libtool python ninja genisoimage flex bison byacc libncurses-devel git mingw64-x86_64-gettext lynx gperf
+
+      - name: Install ocaml
+        run: |
+          git clone https://github.com/ocaml/ocaml.git
+          cd ocaml
+          git submodule update --init --recursive
+          ./configure
+          make
+          make install
 
       - name: Install Hivex 
         run: |
