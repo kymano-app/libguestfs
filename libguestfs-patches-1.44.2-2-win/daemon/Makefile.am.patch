@@ -1,0 +1,7 @@
+395,397c395,396
+< TESTS_ENVIRONMENT = $(top_builddir)/run --test
+< TESTS = \
+< 	daemon_utils_tests
+---
+> TESTS_ENVIRONMENT = 
+> TESTS = 

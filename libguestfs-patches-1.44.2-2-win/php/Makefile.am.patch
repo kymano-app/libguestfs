@@ -1,0 +1,10 @@
+63,65c63
+< TESTS_ENVIRONMENT = \
+< 	MAKE=$(MAKE) \
+< 	$(top_builddir)/run
+---
+> TESTS_ENVIRONMENT = 
+67c65
+< TESTS = run-php-tests.sh
+---
+> TESTS = 

@@ -111,22 +111,36 @@ jobs:
           patch docs/Makefile.am ../libguestfs-patches-1.44.2-2/docs/Makefile.am.patch
           patch edit/Makefile.am ../libguestfs-patches-1.44.2-2/edit/Makefile.am.patch
           patch examples/Makefile.am ../libguestfs-patches-1.44.2-2/examples/Makefile.am.patch
-          patch fish/Makefile.am ../libguestfs-patches-1.44.2-2/fish/Makefile.am.patch
           patch format/Makefile.am ../libguestfs-patches-1.44.2-2/format/Makefile.am.patch
-          patch gobject/Makefile.am ../libguestfs-patches-1.44.2-2/gobject/Makefile.am.patch
           patch inspector/Makefile.am ../libguestfs-patches-1.44.2-2/inspector/Makefile.am.patch
-          patch lib/Makefile.am ../libguestfs-patches-1.44.2-2/lib/Makefile.am.patch
           patch lib/inspect-apps.c ../libguestfs-patches-1.44.2-2/lib/inspect-apps.c.patch
           patch m4/guestfs-progs.m4 ../libguestfs-patches-1.44.2-2/m4/guestfs-progs.m4.patch
           patch make-fs/Makefile.am ../libguestfs-patches-1.44.2-2/make-fs/Makefile.am.patch
           patch ocaml/examples/Makefile.am ../libguestfs-patches-1.44.2-2/ocaml/examples/Makefile.am.patch
-          patch rescue/Makefile.am ../libguestfs-patches-1.44.2-2/rescue/Makefile.am.patch
-          patch test-tool/Makefile.am ../libguestfs-patches-1.44.2-2/test-tool/Makefile.am.patch
           patch test-tool/test-tool.c ../libguestfs-patches-1.44.2-2/test-tool/test-tool.c.patch
           patch configure.ac ../libguestfs-patches-1.44.2-2/configure.ac.patch
-          patch Makefile.am ../libguestfs-patches-1.44.2-2/Makefile.am.patch
           patch generator/pr.ml ../libguestfs-patches-1.44.2-2-win/generator/pr.ml.patch
           patch generator/Makefile.am ../libguestfs-patches-1.44.2-2-win/generator/Makefile.am.patch
+          patch ocaml/Makefile.am ../libguestfs-patches-1.44.2-2-win/ocaml/Makefile.am.patch
+          patch test-data/Makefile ../libguestfs-patches-1.44.2-2-win/test-data/Makefile.am.patch
+          patch fuse/Makefile.am ../libguestfs-patches-1.44.2-2-win/fuse/Makefile.am.patch
+          patch test-tool/Makefile.am ../libguestfs-patches-1.44.2-2-win/test-tool/Makefile.am.patch
+          patch fish/Makefile.am ../libguestfs-patches-1.44.2-2-win/fish/Makefile.am.patch
+          patch ruby/Makefile.am ../libguestfs-patches-1.44.2-2-win/ruby/Makefile.am.patch
+          patch bash/Makefile.am ../libguestfs-patches-1.44.2-2-win/bash/Makefile.am.patch
+          patch golang/Makefile.am ../libguestfs-patches-1.44.2-2-win/golang/Makefile.am.patch
+          patch rescue/Makefile.am ../libguestfs-patches-1.44.2-2-win/rescue/Makefile.am.patch
+          patch python/Makefile.am ../libguestfs-patches-1.44.2-2-win/python/Makefile.am.patch
+          patch rust/Makefile.am ../libguestfs-patches-1.44.2-2-win/rust/Makefile.am.patch
+          patch java/Makefile.am ../libguestfs-patches-1.44.2-2-win/java/Makefile.am.patch
+          patch haskell/Makefile.am ../libguestfs-patches-1.44.2-2-win/haskell/Makefile.am.patch
+          patch lib/Makefile.am ../libguestfs-patches-1.44.2-2-win/lib/Makefile.am.patch
+          patch Makefile.am ../libguestfs-patches-1.44.2-2-win/Makefile.am.patch
+          patch erlang/Makefile.am ../libguestfs-patches-1.44.2-2-win/erlang/Makefile.am.patch
+          patch gobject/Makefile.am ../libguestfs-patches-1.44.2-2-win/gobject/Makefile.am.patch
+          patch php/Makefile.am ../libguestfs-patches-1.44.2-2-win/php/Makefile.am.patch
+          patch daemon/Makefile.am ../libguestfs-patches-1.44.2-2-win/daemon/Makefile.am.patch
+          patch lua/Makefile.am ../libguestfs-patches-1.44.2-2-win/lua/Makefile.am.patch
 
           autoreconf -i
           ./configure --with-qemu="no" --enable-debug --disable-appliance --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --disable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-fuse LDFLAGS="-L/usr/local/lib" LIBS="-lintl"

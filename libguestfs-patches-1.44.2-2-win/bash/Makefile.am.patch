@@ -1,0 +1,13 @@
+107,111c107
+< TESTS_ENVIRONMENT = \
+< 	scripts="$(scripts)" \
+< 	symlinks="$(scripts)" \
+< 	commands="$(scripts) $(symlinks)" \
+< 	$(top_builddir)/run --test
+---
+> TESTS_ENVIRONMENT = 
+113,114c109
+< TESTS = \
+< 	test-complete-in-script.sh
+---
+> TESTS = 

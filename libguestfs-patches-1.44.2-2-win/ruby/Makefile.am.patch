@@ -1,0 +1,16 @@
+40,44c40
+< 	lib/guestfs.rb \
+< 	run-bindtests \
+< 	run-ruby-tests \
+< 	t/tc_*.rb \
+< 	t/test_helper.rb
+---
+> 	lib/guestfs.rb 
+82c78
+< TESTS = run-bindtests run-ruby-tests
+---
+> TESTS = 
+84c80
+< TESTS_ENVIRONMENT = $(top_builddir)/run --test
+---
+> TESTS_ENVIRONMENT = 

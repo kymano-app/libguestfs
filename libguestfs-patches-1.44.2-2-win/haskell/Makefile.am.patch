@@ -1,0 +1,7 @@
+35,38c35
+< TESTS = Guestfs010Load Guestfs030Config
+< if ENABLE_APPLIANCE
+< TESTS += Guestfs050LVCreate
+< endif ENABLE_APPLIANCE
+---
+> TESTS = 

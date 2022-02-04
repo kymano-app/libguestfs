@@ -1,0 +1,11 @@
+163,166c163
+< TESTS = run-bindtests
+< if ENABLE_APPLIANCE
+< TESTS += run-java-tests
+< endif ENABLE_APPLIANCE
+---
+> TESTS = 
+168c165
+< TESTS_ENVIRONMENT = $(top_builddir)/run --test
+---
+> TESTS_ENVIRONMENT = 

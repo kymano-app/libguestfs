@@ -1,0 +1,22 @@
+20,22c20
+< EXTRA_DIST = \
+< 	libguestfs-test-tool.pod \
+< 	test-libguestfs-test-tool-docs.sh
+---
+> EXTRA_DIST =
+24,25c22,23
+< bin_PROGRAMS = libguestfs-test-tool
+< man_MANS = libguestfs-test-tool.1
+---
+> bin_PROGRAMS = 
+> man_MANS = 
+64,65c62
+< TESTS_ENVIRONMENT = \
+< 	$(top_builddir)/run --test
+---
+> TESTS_ENVIRONMENT = 
+67,68c64
+< TESTS = \
+< 	test-libguestfs-test-tool-docs.sh
+---
+> TESTS = 

@@ -1,0 +1,20 @@
+96,102c96
+< TESTS = \
+< 	run-tests \
+< 	run-tests-retvalues
+< 
+< if ENABLE_APPLIANCE
+< TESTS += run-live-tests
+< endif ENABLE_APPLIANCE
+---
+> TESTS = 
+104c98
+< TESTS_ENVIRONMENT = $(top_builddir)/run --test
+---
+> TESTS_ENVIRONMENT = 
+131,132c125,126
+< man_MANS = guestfs-gobject.3
+< noinst_DATA = $(top_builddir)/website/guestfs-gobject.3.html
+---
+> man_MANS = 
+> noinst_DATA = 

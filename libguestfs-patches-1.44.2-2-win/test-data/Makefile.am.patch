@@ -1,0 +1,4 @@
+90c90
+< noinst_DATA = test.iso
+---
+> noinst_DATA = 

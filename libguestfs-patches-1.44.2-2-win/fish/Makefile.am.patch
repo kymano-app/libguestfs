@@ -1,0 +1,90 @@
+185,198c185,186
+< man_MANS = \
+< 	guestfish.1 \
+< 	libguestfs-tools.conf.5 \
+< 	virt-copy-in.1 \
+< 	virt-copy-out.1 \
+< 	virt-tar-in.1 \
+< 	virt-tar-out.1
+< noinst_DATA = \
+< 	$(top_builddir)/website/guestfish.1.html \
+< 	$(top_builddir)/website/libguestfs-tools.conf.5.html \
+< 	$(top_builddir)/website/virt-copy-in.1.html \
+< 	$(top_builddir)/website/virt-copy-out.1.html \
+< 	$(top_builddir)/website/virt-tar-in.1.html \
+< 	$(top_builddir)/website/virt-tar-out.1.html
+---
+> man_MANS = 
+> noinst_DATA = 
+274c262
+< TESTS_ENVIRONMENT = $(top_builddir)/run --test
+---
+> TESTS_ENVIRONMENT = 
+276,312c264
+< TESTS = \
+< 	test-a.sh \
+< 	test-add-uri.sh \
+< 	test-docs.sh \
+< 	test-escapes.sh \
+< 	test-events.sh \
+< 	test-invalid-params.sh \
+< 	test-tilde.sh
+< 
+< if HAVE_LIBVIRT
+< TESTS += \
+< 	test-add-domain.sh \
+< 	test-d.sh
+< endif
+< 
+< if ENABLE_APPLIANCE
+< TESTS += \
+< 	test-copy.sh \
+< 	test-edit.sh \
+< 	test-file-attrs.sh \
+< 	test-find0.sh \
+< 	test-inspect.sh \
+< 	test-glob.sh \
+< 	test-prep.sh \
+< 	test-read-file.sh \
+< 	test-remote.sh \
+< 	test-remote-events.sh \
+< 	test-reopen.sh \
+< 	test-run.sh \
+< 	test-stringlist.sh \
+< 	test-upload-to-dir.sh
+< 
+< if HAVE_FUSE
+< TESTS += \
+< 	test-mount-local.sh
+< endif
+< endif
+---
+> TESTS = 
+316,342d267
+< 
+< EXTRA_DIST += \
+< 	test-a.sh \
+< 	test-add-domain.sh \
+< 	test-add-uri.sh \
+< 	test-alloc.sh \
+< 	test-copy.sh \
+< 	test-d.sh \
+< 	test-docs.sh \
+< 	test-edit.sh \
+< 	test-escapes.sh \
+< 	test-events.sh \
+< 	test-file-attrs.sh \
+< 	test-find0.sh \
+< 	test-glob.sh \
+< 	test-inspect.sh \
+< 	test-invalid-params.sh \
+< 	test-mount-local.sh \
+< 	test-prep.sh \
+< 	test-read-file.sh \
+< 	test-remote.sh \
+< 	test-remote-events.sh \
+< 	test-reopen.sh \
+< 	test-run.sh \
+< 	test-stringlist.sh \
+< 	test-tilde.sh \
+< 	test-upload-to-dir.sh

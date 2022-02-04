@@ -1,0 +1,13 @@
+37,38c37
+< 	run-bindtests \
+< 	run-tests
+---
+> 	run-bindtests
+48c47
+< TESTS_ENVIRONMENT = pkg=$(pkg) $(top_builddir)/run $(VG) # --test
+---
+> TESTS_ENVIRONMENT =
+50c49
+< TESTS = run-bindtests run-tests
+---
+> TESTS = 

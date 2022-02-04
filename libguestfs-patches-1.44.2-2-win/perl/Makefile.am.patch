@@ -1,0 +1,11 @@
+64c64,65
+< TESTS_ENVIRONMENT = $(top_builddir)/run --test
+---
+> TESTS_ENVIRONMENT = 
+> TESTS = 
+66,70d66
+< TESTS = run-bindtests
+< 
+< if ENABLE_APPLIANCE
+< TESTS += run-perl-tests
+< endif

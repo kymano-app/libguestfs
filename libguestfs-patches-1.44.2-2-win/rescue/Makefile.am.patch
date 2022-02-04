@@ -1,0 +1,17 @@
+61,62c61,62
+< man_MANS = virt-rescue.1
+< noinst_DATA = $(top_builddir)/website/virt-rescue.1.html
+---
+> man_MANS = 
+> noinst_DATA = 
+80,87c80
+< TESTS = \
+< 	test-virt-rescue-docs.sh
+< 
+< if ENABLE_APPLIANCE
+< TESTS += \
+< 	test-virt-rescue.pl \
+< 	test-virt-rescue-suggest.sh
+< endif ENABLE_APPLIANCE
+---
+> TESTS = 
