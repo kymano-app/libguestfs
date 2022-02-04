@@ -35,7 +35,7 @@ jobs:
      
       - name: Install libs for Ocaml
         run: |
-          apt-cyg install gcc-core flexdll binutils cmake gcc-g++ automake autoconf libtool python flex bison opam ocaml-findlib  coreutils
+          apt-cyg install gcc-core flexdll binutils cmake gcc-g++ automake autoconf libtool python flex bison opam coreutils
 
       - name: Install Ocaml
         run: |
@@ -50,7 +50,7 @@ jobs:
 
       - name: Install libs for Hivex
         run: |
-          apt-cyg install cpio  libiconv libiconv-devel gettext  po4a ncurses   ninja genisoimage   byacc libncurses-devel git mingw64-x86_64-gettext lynx gperf
+          apt-cyg install cpio  libiconv libiconv-devel gettext  po4a ncurses   ninja genisoimage   byacc libncurses-devel git mingw64-x86_64-gettext lynx gperf ocaml-findlib
 
       - name: Install Hivex 
         run: |
