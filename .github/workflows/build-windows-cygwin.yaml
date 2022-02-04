@@ -42,7 +42,7 @@ jobs:
           rm -rf /usr/lib/ocaml/
           git clone https://github.com/ocaml/ocaml.git
           cd ocaml
-          git checkout 4.14
+          git checkout 4.13
           git submodule update --init --recursive
           ./configure --enable-imprecise-c99-float-ops --prefix=/usr
           make
