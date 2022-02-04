@@ -41,7 +41,7 @@ jobs:
         run: |
           git clone https://github.com/ocaml/ocaml.git
           cd ocaml
-          git checkout 4.12
+          git checkout 4.14
           git submodule update --init --recursive
           ./configure --enable-imprecise-c99-float-ops
           make
