@@ -31,12 +31,17 @@ jobs:
         run: |
           wget rawgit.com/transcode-open/apt-cyg/master/apt-cyg -O apt-cyg
           install apt-cyg /bin
+     
+     
+      - name: Install libs for Hivex
+        run: |
+          apt-cyg install gcc-core flexdll
 
       - name: Install ocaml
         run: |
           git clone https://github.com/ocaml/ocaml.git
           cd ocaml
-          gi checkout 4.12
+          git checkout 4.12
           git submodule update --init --recursive
           ./configure --enable-imprecise-c99-float-ops
           make
