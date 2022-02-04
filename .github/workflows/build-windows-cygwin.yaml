@@ -147,4 +147,13 @@ jobs:
 
           make CFLAGS="-I/usr/x86_64-w64-mingw32/sys-root/mingw/include -Wno-error=implicit-function-declaration"
 
-          make install
+      - name: Compress  
+        run: |
+          tar -czvf guestfs.tgz .
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            *.tgz
+          prerelease: true
