@@ -41,7 +41,7 @@ jobs:
           git clone https://github.com/ocaml/ocaml.git
           cd ocaml
           git submodule update --init --recursive
-          ./configure
+          ./configure --enable-mmap-map-stack
           make
           make install
 
