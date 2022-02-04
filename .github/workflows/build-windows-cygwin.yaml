@@ -33,25 +33,24 @@ jobs:
           install apt-cyg /bin
      
      
-      - name: Install libs for ocaml
+      - name: Install libs for Ocaml
         run: |
           apt-cyg install gcc-core flexdll binutils cmake gcc-g++ automake autoconf libtool python flex bison opam ocaml-findlib  coreutils
 
-      - name: Install ocaml
+      - name: Install Ocaml
         run: |
           ls -l /usr/include/io.h
           git clone https://github.com/ocaml/ocaml.git
           cd ocaml
           git checkout 4.14
           git submodule update --init --recursive
-          ./configure --enable-imprecise-c99-float-ops
+          ./configure --enable-imprecise-c99-float-ops --prefix=/usr
           make
           make install
 
       - name: Install libs for Hivex
         run: |
           apt-cyg install cpio  libiconv libiconv-devel gettext  po4a ncurses   ninja genisoimage   byacc libncurses-devel git mingw64-x86_64-gettext lynx gperf
-
 
       - name: Install Hivex 
         run: |
