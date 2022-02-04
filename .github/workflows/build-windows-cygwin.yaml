@@ -36,12 +36,12 @@ jobs:
         run: |
           git clone https://github.com/ocaml/ocaml.git
           cd ocaml
-          gi checkout 4.14
+          gi checkout 4.12
           git submodule update --init --recursive
           ./configure --enable-imprecise-c99-float-ops
           make
           make install
-          
+
       - name: Install libs for Hivex
         run: |
           apt-cyg install cmake gcc-g++ cpio automake libiconv libiconv-devel gettext opam ocaml-findlib coreutils autoconf po4a ncurses libtool python ninja genisoimage flex bison byacc libncurses-devel git mingw64-x86_64-gettext lynx gperf
