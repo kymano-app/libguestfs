@@ -1,0 +1,4 @@
+53c53
+<   chan := open_out filename_new;
+---
+>   chan := open_out_bin filename_new;
