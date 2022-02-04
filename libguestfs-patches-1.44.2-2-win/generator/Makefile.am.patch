@@ -1,0 +1,8 @@
+186c186
+< noinst_PROGRAM = generator
+---
+> noinst_PROGRAM =
+201c201
+< noinst_DATA = stamp-generator
+---
+> noinst_DATA = 
