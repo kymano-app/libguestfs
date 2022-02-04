@@ -32,19 +32,19 @@ jobs:
           wget rawgit.com/transcode-open/apt-cyg/master/apt-cyg -O apt-cyg
           install apt-cyg /bin
 
-      - name: Install libs for Hivex
-        run: |
-          apt-cyg install cmake gcc-g++ cpio automake libiconv libiconv-devel gettext opam ocaml-findlib coreutils autoconf po4a ncurses libtool python ninja genisoimage flex bison byacc libncurses-devel git mingw64-x86_64-gettext lynx gperf
-
       - name: Install ocaml
         run: |
           git clone https://github.com/ocaml/ocaml.git
           cd ocaml
           gi checkout 4.14
           git submodule update --init --recursive
-          ./configure
+          ./configure --enable-imprecise-c99-float-ops
           make
           make install
+          
+      - name: Install libs for Hivex
+        run: |
+          apt-cyg install cmake gcc-g++ cpio automake libiconv libiconv-devel gettext opam ocaml-findlib coreutils autoconf po4a ncurses libtool python ninja genisoimage flex bison byacc libncurses-devel git mingw64-x86_64-gettext lynx gperf
 
       - name: Install Hivex 
         run: |
