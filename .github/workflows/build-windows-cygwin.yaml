@@ -39,7 +39,7 @@ jobs:
 
       - name: Install Ocaml
         run: |
-          ls -l /usr/include/io.h
+          rm -rf /usr/lib/ocaml/
           git clone https://github.com/ocaml/ocaml.git
           cd ocaml
           git checkout 4.14
