@@ -1,23 +1,8 @@
-40,41d39
-< 	actions_internal_tests.ml \
-< 	actions_internal_tests.mli \
-52,53d49
-< 	bindtests.ml \
-< 	bindtests.mli \
-112,113d107
-< 	tests_c_api.ml \
-< 	tests_c_api.mli \
-137d130
-< 	actions_internal_tests.cmo \
-155d147
-< 	tests_c_api.cmo \
-170d161
-< 	bindtests.cmo \
-186c177
+186c186
 < noinst_PROGRAM = generator
 ---
 > noinst_PROGRAM =
-201c192
+201c201
 < noinst_DATA = stamp-generator
 ---
-> noinst_DATA = 
+> noinst_DATA =
