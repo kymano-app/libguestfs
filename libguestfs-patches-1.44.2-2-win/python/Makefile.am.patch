@@ -1,8 +1,78 @@
-118c118
+46,143d45
+< if HAVE_PYTHON
+< 
+< # Build the library.
+< 
+< pythondir = $(PYTHON_INSTALLDIR)
+< 
+< python_DATA = guestfs.py
+< 
+< python_LTLIBRARIES = libguestfsmod.la
+< 
+< libguestfsmod_la_SOURCES = \
+< 	actions-0.c \
+< 	actions-1.c \
+< 	actions-2.c \
+< 	actions-3.c \
+< 	actions-4.c \
+< 	actions-5.c \
+< 	actions-6.c \
+< 	actions.h \
+< 	handle.c \
+< 	module.c \
+< 	structs.c \
+< 	../common/utils/stringlists-utils.c
+< 
+< libguestfsmod_la_CPPFLAGS = \
+< 	-DGUESTFS_PRIVATE=1 \
+< 	$(PYTHON_CFLAGS) \
+< 	-I$(top_srcdir)/common/utils -I$(top_builddir)/common/utils \
+< 	-I$(top_srcdir)/lib -I$(top_builddir)/lib \
+< 	-I$(top_srcdir)/include
+< 
+< libguestfsmod_la_CFLAGS = \
+< 	$(WARN_CFLAGS) $(WERROR_CFLAGS)
+< 
+< libguestfsmod_la_LIBADD = \
+< 	$(top_builddir)/lib/libguestfs.la
+< 
+< libguestfsmod_la_LDFLAGS = -avoid-version -shared -module -shrext $(PYTHON_EXT_SUFFIX)
+< 
+< # Currently we don't use setup.py to build the Python library for
+< # distribution with libguestfs (although maybe we should in future).
+< # For now, these are some rules which use setup.py to make a source
+< # distribution for pip, and a few other bits.
+< 
+< sdist: setup.py stamp-extra-files
+< 	$(PYTHON) setup.py $@
+< 
+< setup-build: setup.py stamp-extra-files
+< 	$(PYTHON) setup.py build
+< 
+< setup-install: setup.py stamp-extra-files
+< 	$(PYTHON) setup.py install $(SETUP_INSTALL_ARGS)
+< 
+< # Python's crappy MANIFEST file cannot graft single files, so we have
+< # to hard-link any extra files we need into the local directory.
+< stamp-extra-files: \
+< 	  config.h \
+< 	  guestfs-stringlists-utils.h \
+< 	  stringlists-utils.c
+< 	touch $@
+< 
+< config.h:
+< 	ln ../config.h $@
+< 
+< guestfs-stringlists-utils.h:
+< 	ln $(top_srcdir)/common/utils/guestfs-stringlists-utils.h $@
+< 
+< stringlists-utils.c:
+< 	ln $(top_srcdir)/common/utils/stringlists-utils.c $@
+< 
+< # Tests.
+< 
 < TESTS_ENVIRONMENT = $(top_builddir)/run --test
----
-> TESTS_ENVIRONMENT = 
-120,130c120
+< 
 < TESTS = run-bindtests
 < 
 < if ENABLE_APPLIANCE
@@ -14,5 +84,16 @@
 < endif
 < 
 < endif HAVE_PYTHON
----
-> TESTS = 
+< 
+< # Extra clean.
+< CLEANFILES += \
+< 	*.pyc \
+< 	examples/*~ examples/*.pyc \
+< 	t/*~ t/*.pyc \
+< 	config.h \
+< 	guestfs-stringlists-utils.h \
+< 	stamp-extra-files \
+< 	stringlists-utils.c
+< 
+< clean-local:
+< 	rm -rf build dist __pycache__ t/__pycache__
