@@ -1,0 +1,18 @@
+119c119
+<   static pcre2_code *name;                                              \
+---
+>   static char *name;                                              \
+124,134d123
+<     int errnum;                                                         \
+<     PCRE2_SIZE offset;                                                  \
+<     name = pcre2_compile ((PCRE2_SPTR)(pattern),                        \
+<                           PCRE2_ZERO_TERMINATED,                        \
+<                           (options), &errnum, &offset, NULL);           \
+<     if (name == NULL) {                                                 \
+<       PCRE2_UCHAR err[256];                                             \
+<       pcre2_get_error_message (errnum, err, sizeof err);                \
+<       ignore_value (write (2, err, strlen ((char *)err)));              \
+<       abort ();                                                         \
+<     }                                                                   \
+140d128
+<     pcre2_code_free (name);                                             \
