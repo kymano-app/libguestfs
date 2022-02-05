@@ -32,10 +32,12 @@ jobs:
           wget rawgit.com/transcode-open/apt-cyg/master/apt-cyg -O apt-cyg
           install apt-cyg /bin
      
-     
       - name: Install libs for Ocaml
         run: |
           apt-cyg install gcc-core flexdll binutils cmake gcc-g++ automake autoconf libtool python flex bison opam coreutils
+          
+      - name: find
+        run: find / -name "fcntl.h" 2>/dev/null
 
       - name: Install Ocaml
         run: |
