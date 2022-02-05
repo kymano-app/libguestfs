@@ -1,0 +1,85 @@
+55d54
+<   json_decref (* (json_t **) ptr);
+458,469d456
+<   json_error_t err;
+< 
+<   if (!json)
+<     return;
+< 
+<   *treep = json_loads (json, 0, &err);
+<   if (*treep == NULL) {
+<     if (strlen (err.text) > 0)
+<       debug (g, "QMP parse error: %s (ignored)", err.text);
+<     else
+<       debug (g, "QMP unknown parse error (ignored)");
+<   }
+483,513d469
+<   CLEANUP_JSON_T_DECREF json_t *tree = NULL;
+<   json_error_t err;
+<   json_t *return_node, *enabled_node;
+< 
+<   *ret = true;                  /* Assume KVM is enabled. */
+< 
+<   if (!json)
+<     return;
+< 
+<   tree = json_loads (json, 0, &err);
+<   if (tree == NULL) {
+<     if (strlen (err.text) > 0)
+<       debug (g, "QMP parse error: %s (ignored)", err.text);
+<     else
+<       debug (g, "QMP unknown parse error (ignored)");
+<     return;
+<   }
+< 
+<   return_node = json_object_get (tree, "return");
+<   if (!json_is_object (return_node)) {
+<     debug (g, "QMP query-kvm: no \"return\" node (ignored)");
+<     return;
+<   }
+<   enabled_node = json_object_get (return_node, "enabled");
+<   /* Note that json_is_boolean will check that enabled_node != NULL. */
+<   if (!json_is_boolean (enabled_node)) {
+<     debug (g, "QMP query-kvm: no \"enabled\" node or not a boolean (ignored)");
+<     return;
+<   }
+< 
+<   *ret = json_is_true (enabled_node);
+684,720d639
+<   json_t *schema, *v, *meta_type, *members, *m, *name;
+<   size_t i, j;
+< 
+<   /* If there's no QMP schema, fall back to checking the version. */
+<   if (!data->qmp_schema_tree) {
+<   fallback:
+<     return guestfs_int_version_ge (&data->qemu_version, 2, 10, 0);
+<   }
+< 
+<   /* Top element of qmp_schema_tree is the { "return": ... } wrapper.
+<    * Extract the schema from the wrapper.  Note the returned ‘schema’
+<    * will be an array.
+<    */
+<   schema = json_object_get (data->qmp_schema_tree, "return");
+<   if (!json_is_array (schema))
+<     goto fallback;
+< 
+<   /* Now look for any member of the array which has:
+<    * { "meta-type": "object",
+<    *   "members": [ ... { "name": "locking", ... } ... ] ... }
+<    */
+<   json_array_foreach (schema, i, v) {
+<     meta_type = json_object_get (v, "meta-type");
+<     if (json_is_string (meta_type) &&
+<         STREQ (json_string_value (meta_type), "object")) {
+<       members = json_object_get (v, "members");
+<       if (json_is_array (members)) {
+<         json_array_foreach (members, j, m) {
+<           name = json_object_get (m, "name");
+<           if (json_is_string (name) &&
+<               STREQ (json_string_value (name), "locking"))
+<             return 1;
+<         }
+<       }
+<     }
+<   }
+< 

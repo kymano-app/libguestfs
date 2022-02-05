@@ -120,7 +120,7 @@ jobs:
           make && make install
           cp /usr/lib/pkgconfig/libpcre2-8.pc /usr/share/pkgconfig/
           cp /usr/lib/pkgconfig/libpcre2-posix.pc /usr/share/pkgconfig/
-          
+
       - name: Install libs for Libguestfs
         run: |
           apt-cyg install file-devel libjansson-devel
@@ -179,6 +179,8 @@ jobs:
           patch common/utils/pcre2-cleanups.c ../libguestfs-patches-1.44.2-2-win/common/utils/pcre2-cleanups.c.patch
           patch lib/guestfs-internal-all.h ../libguestfs-patches-1.44.2-2-win/lib/guestfs-internal-all.h.patch
           patch lib/version.c ../libguestfs-patches-1.44.2-2-win/lib/version.c.patch
+          patch lib/info.c ../libguestfs-patches-1.44.2-2-win/lib/info.c.patch
+          patch lib/qemu.c ../libguestfs-patches-1.44.2-2-win/lib/qemu.c.patch
 
           rm -rf Makefile.in
           rm -rf generator/Makefile.in
