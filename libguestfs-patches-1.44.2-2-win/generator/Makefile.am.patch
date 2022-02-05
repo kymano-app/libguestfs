@@ -6,3 +6,6 @@
 < noinst_DATA = stamp-generator
 ---
 > noinst_DATA =
+215,216d214
+< 	cd $(top_srcdir) && $(abs_builddir)/generator
+< 	touch $@
