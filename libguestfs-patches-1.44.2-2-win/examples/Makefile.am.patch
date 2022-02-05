@@ -1,0 +1,56 @@
+32,67c32
+< noinst_PROGRAMS = create-disk debug-logging display-icon inspect-vm
+< if HAVE_LIBVIRT
+< noinst_PROGRAMS += copy-over libvirt-auth
+< endif
+< if HAVE_HIVEX
+< noinst_PROGRAMS += virt-dhcp-address
+< endif
+< if HAVE_FUSE
+< noinst_PROGRAMS += mount-local
+< endif
+< 
+< if HAVE_LIBVIRT
+< copy_over_SOURCES = copy-over.c
+< copy_over_CPPFLAGS = \
+< 	-DGUESTFS_NO_DEPRECATED=1 \
+< 	-I$(top_srcdir)/include
+< copy_over_CFLAGS = \
+< 	$(LIBVIRT_CFLAGS) \
+< 	-pthread \
+< 	$(WARN_CFLAGS) $(WERROR_CFLAGS)
+< copy_over_LDADD = \
+< 	$(top_builddir)/lib/libguestfs.la \
+< 	$(LIBVIRT_LIBS)
+< 
+< libvirt_auth_SOURCES = libvirt-auth.c
+< libvirt_auth_CPPFLAGS = \
+< 	-DGUESTFS_NO_DEPRECATED=1 \
+< 	-I$(top_srcdir)/include
+< libvirt_auth_CFLAGS = \
+< 	$(LIBVIRT_CFLAGS) \
+< 	-pthread \
+< 	$(WARN_CFLAGS) $(WERROR_CFLAGS)
+< libvirt_auth_LDADD = \
+< 	$(top_builddir)/lib/libguestfs.la \
+< 	$(LIBVIRT_LIBS)
+< endif
+---
+> noinst_PROGRAMS = 
+119,128d83
+< if HAVE_HIVEX
+< virt_dhcp_address_SOURCES = virt-dhcp-address.c
+< virt_dhcp_address_CPPFLAGS = \
+< 	-DGUESTFS_NO_DEPRECATED=1 \
+< 	-I$(top_srcdir)/include
+< virt_dhcp_address_CFLAGS = \
+< 	$(WARN_CFLAGS) $(WERROR_CFLAGS)
+< virt_dhcp_address_LDADD = \
+< 	$(top_builddir)/lib/libguestfs.la
+< endif
+130,131c85,86
+< man_MANS = guestfs-examples.3
+< noinst_DATA = $(top_builddir)/website/guestfs-examples.3.html
+---
+> man_MANS = 
+> noinst_DATA =

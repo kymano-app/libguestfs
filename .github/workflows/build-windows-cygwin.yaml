@@ -130,7 +130,6 @@ jobs:
           patch diff/Makefile.am ../libguestfs-patches-1.44.2-2/diff/Makefile.am.patch
           patch docs/Makefile.am ../libguestfs-patches-1.44.2-2/docs/Makefile.am.patch
           patch edit/Makefile.am ../libguestfs-patches-1.44.2-2/edit/Makefile.am.patch
-          patch examples/Makefile.am ../libguestfs-patches-1.44.2-2/examples/Makefile.am.patch
           patch format/Makefile.am ../libguestfs-patches-1.44.2-2/format/Makefile.am.patch
           patch inspector/Makefile.am ../libguestfs-patches-1.44.2-2/inspector/Makefile.am.patch
           patch lib/inspect-apps.c ../libguestfs-patches-1.44.2-2/lib/inspect-apps.c.patch
@@ -162,6 +161,8 @@ jobs:
           patch daemon/Makefile.am ../libguestfs-patches-1.44.2-2-win/daemon/Makefile.am.patch
           patch lua/Makefile.am ../libguestfs-patches-1.44.2-2-win/lua/Makefile.am.patch
           patch lib/guestfs-internal.h ../libguestfs-patches-1.44.2-2-win/lib/guestfs-internal.h.patch
+          patch examples/Makefile.am ../libguestfs-patches-1.44.2-2-win/examples/Makefile.am.patch
+
           rm -rf Makefile.in
           rm -rf generator/Makefile.in
 
