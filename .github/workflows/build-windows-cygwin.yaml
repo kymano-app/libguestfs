@@ -34,7 +34,7 @@ jobs:
      
       - name: Install libs for Ocaml
         run: |
-          apt-cyg install gcc-core flexdll binutils cmake gcc-g++ automake autoconf libtool python flex bison opam coreutils ocaml-dune
+          apt-cyg install gcc-core flexdll binutils cmake gcc-g++ automake autoconf libtool python flex bison opam coreutils
           
       - name: Install Ocaml
         run: |
@@ -46,7 +46,11 @@ jobs:
           ./configure --enable-imprecise-c99-float-ops --prefix=/usr
           make
           make install
-     
+      
+      - name: Install libs for opam
+        run: |
+          apt-cyg install ocaml-dune
+      
       - name: Install opam
         run: |
           curl -OL https://github.com/ocaml/opam/archive/refs/tags/2.1.2.tar.gz
