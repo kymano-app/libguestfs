@@ -52,6 +52,7 @@ jobs:
           apt-cyg install ocaml-dune ocaml-findlib
       
       - name: Install opam
+        if: false
         run: |
           curl -OL https://github.com/ocaml/opam/archive/refs/tags/2.1.2.tar.gz
           tar -xzf 2.1.2.tar.gz
@@ -62,6 +63,7 @@ jobs:
           make install
 
       - name: Install stdlib-shims
+        if: false
         run: |
           opam init
           opam install stdlib-shims
