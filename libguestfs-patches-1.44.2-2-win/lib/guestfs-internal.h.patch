@@ -1,4 +1,22 @@
-32a33
+33c33
+< 
+---
 > #include <sys/un.h>
-33a35
-> #define PCRE2_STATIC
+620,625c620,625
+< extern int guestfs_int_match (guestfs_h *g, const char *str, const pcre2_code *re);
+< extern char *guestfs_int_match1 (guestfs_h *g, const char *str, const pcre2_code *re);
+< extern int guestfs_int_match2 (guestfs_h *g, const char *str, const pcre2_code *re, char **ret1, char **ret2);
+< extern int guestfs_int_match3 (guestfs_h *g, const char *str, const pcre2_code *re, char **ret1, char **ret2, char **ret3);
+< extern int guestfs_int_match4 (guestfs_h *g, const char *str, const pcre2_code *re, char **ret1, char **ret2, char **ret3, char **ret4);
+< extern int guestfs_int_match6 (guestfs_h *g, const char *str, const pcre2_code *re, char **ret1, char **ret2, char **ret3, char **ret4, char **ret5, char **ret6);
+---
+> extern int guestfs_int_match (guestfs_h *g, const char *str, const char *re);
+> extern char *guestfs_int_match1 (guestfs_h *g, const char *str, const char *re);
+> extern int guestfs_int_match2 (guestfs_h *g, const char *str, const char *re, char **ret1, char **ret2);
+> extern int guestfs_int_match3 (guestfs_h *g, const char *str, const char *re, char **ret1, char **ret2, char **ret3);
+> extern int guestfs_int_match4 (guestfs_h *g, const char *str, const char *re, char **ret1, char **ret2, char **ret3, char **ret4);
+> extern int guestfs_int_match6 (guestfs_h *g, const char *str, const char *re, char **ret1, char **ret2, char **ret3, char **ret4, char **ret5, char **ret6);
+822c822
+< extern int guestfs_int_version_from_x_y_re (guestfs_h *g, struct version *v, const char *str, const pcre2_code *re);
+---
+> extern int guestfs_int_version_from_x_y_re (guestfs_h *g, struct version *v, const char *str, const char *re);
