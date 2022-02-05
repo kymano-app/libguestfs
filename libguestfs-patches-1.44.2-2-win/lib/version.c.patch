@@ -1,0 +1,12 @@
+39c39
+< static int version_from_x_y_or_x (guestfs_h *g, struct version *v, const char *str, const pcre2_code *re, bool allow_only_x);
+---
+> static int version_from_x_y_or_x (guestfs_h *g, struct version *v, const char *str, const char *re, bool allow_only_x);
+80c80
+<                                  const char *str, const pcre2_code *re)
+---
+>                                  const char *str, const char *re)
+118c118
+<                        const pcre2_code *re, bool allow_only_x)
+---
+>                        const char *re, bool allow_only_x)
