@@ -54,6 +54,7 @@ jobs:
 
       - name: Install stdlib-shims
         run: |
+          opam init
           opam install stdlib-shims
 
       - name: Install Hivex 
