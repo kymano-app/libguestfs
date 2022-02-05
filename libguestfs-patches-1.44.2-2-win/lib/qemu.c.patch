@@ -1,6 +1,14 @@
-55d54
+49,51d48
+< #ifdef HAVE_ATTRIBUTE_CLEANUP
+< #define CLEANUP_JSON_T_DECREF __attribute__((cleanup(cleanup_json_t_decref)))
+< 
+55d51
 <   json_decref (* (json_t **) ptr);
-458,469d456
+58d53
+< #else
+60d54
+< #endif
+458,469d451
 <   json_error_t err;
 < 
 <   if (!json)
@@ -13,7 +21,7 @@
 <     else
 <       debug (g, "QMP unknown parse error (ignored)");
 <   }
-483,513d469
+483,513d464
 <   CLEANUP_JSON_T_DECREF json_t *tree = NULL;
 <   json_error_t err;
 <   json_t *return_node, *enabled_node;
@@ -45,7 +53,7 @@
 <   }
 < 
 <   *ret = json_is_true (enabled_node);
-684,720d639
+684,720d634
 <   json_t *schema, *v, *meta_type, *members, *m, *name;
 <   size_t i, j;
 < 
@@ -83,3 +91,5 @@
 <     }
 <   }
 < 
+1066d979
+<     json_decref (data->qmp_schema_tree);
