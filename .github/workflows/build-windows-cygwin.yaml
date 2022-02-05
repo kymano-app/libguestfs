@@ -35,17 +35,6 @@ jobs:
       - name: Install libs for Ocaml
         run: |
           apt-cyg install gcc-core flexdll binutils cmake gcc-g++ automake autoconf libtool python flex bison coreutils opam 
-      
-      - name: Install PCRE2
-        run: |
-          git clone https://github.com/PhilipHazel/pcre2.git
-          cd pcre2
-          git reset --hard 111cd470b55d0c06bfb157c8f4521907d3d95fdb
-          autoreconf -i
-          ./configure --prefix=/usr
-          make && make install
-          cp /usr/lib/pkgconfig/libpcre2-8.pc /usr/share/pkgconfig/
-          cp /usr/lib/pkgconfig/libpcre2-posix.pc /usr/share/pkgconfig/
 
       - name: Install Ocaml
         run: |
@@ -121,6 +110,17 @@ jobs:
           make && make install
           cp /usr/local/lib/pkgconfig/augeas.pc /usr/share/pkgconfig/
 
+      - name: Install PCRE2
+        run: |
+          git clone https://github.com/PhilipHazel/pcre2.git
+          cd pcre2
+          git reset --hard 111cd470b55d0c06bfb157c8f4521907d3d95fdb
+          autoreconf -i
+          ./configure --prefix=/usr
+          make && make install
+          cp /usr/lib/pkgconfig/libpcre2-8.pc /usr/share/pkgconfig/
+          cp /usr/lib/pkgconfig/libpcre2-posix.pc /usr/share/pkgconfig/
+          
       - name: Install libs for Libguestfs
         run: |
           apt-cyg install file-devel libjansson-devel
