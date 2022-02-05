@@ -191,7 +191,7 @@ jobs:
           patch lib/guestfs-internal-all.h ../libguestfs-patches-1.44.2-2-win/lib/guestfs-internal-all.h.patch
           patch lib/version.c ../libguestfs-patches-1.44.2-2-win/lib/version.c.patch
           patch lib/info.c ../libguestfs-patches-1.44.2-2-win/lib/info.c.patch
-          patch lib/qemu.c ../libguestfs-patches-1.44.2-2-win/lib/qemu.c.patch
+          #patch lib/qemu.c ../libguestfs-patches-1.44.2-2-win/lib/qemu.c.patch
 
           rm -rf Makefile.in
           rm -rf generator/Makefile.in
