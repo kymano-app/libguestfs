@@ -112,7 +112,7 @@ jobs:
 
       - name: Install libs for Libguestfs
         run: |
-          apt-cyg install file-devel libjansson-devel
+          apt-cyg install file-devel libjansson-devel libpcre2-devel
 
       - name: Install Libguestfs
         run: |
