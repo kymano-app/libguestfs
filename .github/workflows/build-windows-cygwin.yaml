@@ -163,7 +163,9 @@ jobs:
           patch lib/guestfs-internal.h ../libguestfs-patches-1.44.2-2-win/lib/guestfs-internal.h.patch
           patch examples/Makefile.am ../libguestfs-patches-1.44.2-2-win/examples/Makefile.am.patch
           patch lib/match.c ../libguestfs-patches-1.44.2-2-win/lib/match.c.patch
-          
+          patch daemon/btrfs.c libguestfs-patches-1.44.2-2-win/daemon/btrfs.c.patch
+          patch tests/c-api/tests-main.c ../libguestfs-patches-1.44.2-2-win/tests/c-api/tests-main.c.patch
+
           rm -rf Makefile.in
           rm -rf generator/Makefile.in
 
