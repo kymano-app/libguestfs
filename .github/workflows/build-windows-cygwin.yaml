@@ -39,6 +39,7 @@ jobs:
       - name: Install PCRE2
         run: |
           git clone https://github.com/PhilipHazel/pcre2.git
+          cd pcre2
           git reset --hard 111cd470b55d0c06bfb157c8f4521907d3d95fdb
           ./configure --prefix=/usr
           make && make install    
