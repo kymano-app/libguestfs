@@ -36,15 +36,6 @@ jobs:
         run: |
           apt-cyg install gcc-core flexdll binutils cmake gcc-g++ automake autoconf libtool python flex bison coreutils opam 
 
-      - name: Install jansson
-        run: |
-          git clone https://github.com/akheron/jansson.git
-          cd jansson
-          git reset --hard addeeef408cf9e4711a234e04fc2c4bd7357561b
-          autoreconf -i
-          ./configure --prefix=/usr
-          make && make install
-
       - name: Install Ocaml
         run: |
           rm -rf /usr/lib/ocaml/
@@ -129,10 +120,20 @@ jobs:
           make && make install
           cp /usr/lib/pkgconfig/libpcre2-8.pc /usr/share/pkgconfig/
           cp /usr/lib/pkgconfig/libpcre2-posix.pc /usr/share/pkgconfig/
-
+      
+      - name: Install jansson
+        run: |
+          git clone https://github.com/akheron/jansson.git
+          cd jansson
+          git reset --hard addeeef408cf9e4711a234e04fc2c4bd7357561b
+          autoreconf -i
+          ./configure --prefix=/usr
+          make && make install
+          cp /usr/lib/pkgconfig/jansson.pc /usr/share/pkgconfig/
+          
       - name: Install libs for Libguestfs
         run: |
-          apt-cyg install file-devel libjansson-devel
+          apt-cyg install file-devel
 
       - name: Install Libguestfs
         run: |
