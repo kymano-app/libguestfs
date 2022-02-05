@@ -1,4 +1,4 @@
-33c33
-< 
----
+32a33
 > #include <sys/un.h>
+33a35
+> #define PCRE2_STATIC

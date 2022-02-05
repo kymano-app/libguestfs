@@ -162,7 +162,8 @@ jobs:
           patch lua/Makefile.am ../libguestfs-patches-1.44.2-2-win/lua/Makefile.am.patch
           patch lib/guestfs-internal.h ../libguestfs-patches-1.44.2-2-win/lib/guestfs-internal.h.patch
           patch examples/Makefile.am ../libguestfs-patches-1.44.2-2-win/examples/Makefile.am.patch
-
+          patch lib/match.c ../libguestfs-patches-1.44.2-2-win/lib/match.c.patch
+          
           rm -rf Makefile.in
           rm -rf generator/Makefile.in
 
