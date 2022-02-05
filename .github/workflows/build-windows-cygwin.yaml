@@ -34,7 +34,7 @@ jobs:
      
       - name: Install libs for Ocaml
         run: |
-          apt-cyg install gcc-core flexdll binutils cmake gcc-g++ automake autoconf libtool python flex bison opam coreutils
+          apt-cyg install gcc-core flexdll binutils cmake gcc-g++ automake autoconf libtool python flex bison coreutils
           
       - name: Install Ocaml
         run: |
@@ -47,24 +47,7 @@ jobs:
           make
           make install
       
-      - name: Install libs for opam
-        run: |
-          apt-cyg install ocaml-dune
-      
-      - name: Install opam
-        run: |
-          curl -OL https://github.com/ocaml/opam/archive/refs/tags/2.1.2.tar.gz
-          tar -xzf 2.1.2.tar.gz
-          cd opam-2.1.2
-          dune external-lib-deps --missing --root . --promote-install-files --profile release opam-installer.install opam.install
-          ./configure  --prefix=/usr
-          make lib-ext 
-          make install
 
-      - name: Install stdlib-shims
-        run: |
-          opam init
-          opam install stdlib-shims
 
       - name: Install libs for Hivex
         run: |
