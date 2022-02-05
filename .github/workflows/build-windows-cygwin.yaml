@@ -43,7 +43,9 @@ jobs:
           git reset --hard 111cd470b55d0c06bfb157c8f4521907d3d95fdb
           autoreconf -i
           ./configure --prefix=/usr
-          make && make install    
+          make && make install
+          cp /usr/lib/pkgconfig/libpcre2-8.pc /usr/share/pkgconfig/
+          cp /usr/lib/pkgconfig/libpcre2-posix.pc /usr/share/pkgconfig/
 
       - name: Install Ocaml
         run: |
