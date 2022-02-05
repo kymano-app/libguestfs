@@ -1,4 +1,4 @@
-144,167c144,175
+144,167c144,176
 < HEADING([Checking for Perl])
 < m4_include([m4/guestfs-perl.m4])
 < HEADING([Checking for Python])
@@ -33,6 +33,7 @@
 > AM_CONDITIONAL([HAVE_BYTES_COMPAT_ML], [false])
 > AM_CONDITIONAL([HAVE_OCAML_PKG_OUNIT], [false])
 > AM_CONDITIONAL([HAVE_PYTHON], [false])
+> AM_CONDITIONAL([HAVE_PYTHON_TRUE], [false])
 > AM_CONDITIONAL([HAVE_GNU_GETTEXT_TRUE], [false])
 > AM_CONDITIONAL([HAVE_GNU_GETTEXT], [false])
 > AM_CONDITIONAL([HAVE_PHP], [false])
