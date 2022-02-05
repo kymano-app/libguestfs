@@ -52,11 +52,6 @@ jobs:
         run: |
           apt-cyg install cpio  libiconv libiconv-devel gettext  po4a ncurses   ninja genisoimage   byacc libncurses-devel git mingw64-x86_64-gettext lynx gperf ocaml-findlib
 
-      - name: Install stdlib-shims
-        run: |
-          opam init
-          opam install stdlib-shims
-
       - name: Install Hivex 
         run: |
           pkg-config --variable pc_path pkg-config
