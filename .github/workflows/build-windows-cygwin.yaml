@@ -53,7 +53,7 @@ jobs:
           tar -xzf 2.1.2.tar.gz
           cd opam-2.1.2
           ./configure  --prefix=/usr
-          make 
+          make lib-ext 
           make install
 
       - name: Install stdlib-shims
