@@ -3,7 +3,7 @@
 59c58
 < static json_t *get_json_output (guestfs_h *g, const char *filename);
 ---
-> static char *get_json_output (guestfs_h *g, const char *filename);
+> static json_t *get_json_output (guestfs_h *g, const char *filename);
 66,83d64
 <   CLEANUP_JSON_T_DECREF json_t *tree = get_json_output (g, filename);
 <   json_t *node;
