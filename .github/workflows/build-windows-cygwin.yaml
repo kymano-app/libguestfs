@@ -126,7 +126,7 @@ jobs:
           git clone https://github.com/akheron/jansson.git
           cd jansson
           git reset --hard addeeef408cf9e4711a234e04fc2c4bd7357561b
-          patch CMakeLists.txt ../jansson-win/CMakeLists.txt.patch-static
+          patch CMakeLists.txt ../jansson-win/CMakeLists.txt
           autoreconf -i
           ./configure --prefix=/usr
           make && make install
