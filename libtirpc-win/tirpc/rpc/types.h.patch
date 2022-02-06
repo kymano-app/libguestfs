@@ -1,0 +1,7 @@
+52a53,58
+> typedef int64_t quad_t;
+> typedef u_int64_t u_quad_t;
+> typedef int mutex_t;
+> #define IPV6_PORTRANGE          14;
+> #define IPV6_PORTRANGE_LOW 2;
+> 

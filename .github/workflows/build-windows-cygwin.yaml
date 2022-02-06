@@ -106,6 +106,7 @@ jobs:
           git clone git://git.linux-nfs.org/projects/steved/libtirpc.git
           cd libtirpc
           git reset --hard 2d07cfd2f71b5ac05475b2ff79c4bf38f3b6ec5c
+          patch tirpc/rpc/types.h.patch ../libtirpc-win/tirpc/rpc/types.h.patch
           chmod +x ./autogen.sh
           ./autogen.sh --disable-symvers --prefix=/usr --disable-ipv6 --disable-authdes --disable-gssapi
           ./configure --prefix=/usr --disable-symvers --prefix=/usr --disable-ipv6 --disable-authdes --disable-gssapi
