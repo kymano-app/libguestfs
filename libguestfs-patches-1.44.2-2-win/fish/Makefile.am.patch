@@ -1,9 +1,7 @@
-119c119,120
-< 	$(LTLIBINTL)
----
-> 	$(LTLIBINTL) \
->         -no-undefined
-185,198c186,187
+159a160,161
+> guestfish_LDFLAGS = -no-undefined
+> 
+185,198c187,188
 < man_MANS = \
 < 	guestfish.1 \
 < 	libguestfs-tools.conf.5 \
@@ -21,7 +19,7 @@
 ---
 > man_MANS = 
 > noinst_DATA = 
-274,289c263
+274,289c264
 < TESTS_ENVIRONMENT = $(top_builddir)/run --test
 < 
 < TESTS = \
@@ -40,7 +38,7 @@
 < endif
 ---
 > TESTS_ENVIRONMENT = 
-291,312c265
+291,312c266
 < if ENABLE_APPLIANCE
 < TESTS += \
 < 	test-copy.sh \
@@ -65,7 +63,7 @@
 < endif
 ---
 > TESTS = 
-316,342d268
+316,342d269
 < 
 < EXTRA_DIST += \
 < 	test-a.sh \
