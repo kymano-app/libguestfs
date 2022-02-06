@@ -101,13 +101,13 @@ jobs:
       
       - name: Install XML2
         run: |
-          apt-cyg install python-devel
+          apt-cyg install python3-devel
           git clone https://github.com/GNOME/libxml2.git
           cd libxml2
           git reset --hard 9b8ef34dc9c24bfe325edd15aaf0ec00326f04e9
           chmod +x ./autogen.sh
           ./autogen.sh
-          ./configure --prefix=/usr
+          ./configure CFLAGS='-I/usr/include/python3.9/' LDFLAGS='-L/usr/lib/python3.9' --prefix=/usr
           make && make install
 
       - name: Install augeas 
@@ -145,7 +145,7 @@ jobs:
 
       - name: Install libs for Libguestfs
         run: |
-          apt-cyg install file-devel
+          apt-cyg install file-devel libtirpc-devel
 
       - name: Install Libguestfs
         run: |
