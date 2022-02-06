@@ -99,6 +99,18 @@ jobs:
         run: |
           apt-cyg install gettext-devel libtirpc-devel libreadline-devel  findutils-debuginfo wget
       
+       
+      - name: Install libtirpc
+        run: |
+          apt-cyg install python3-devel
+          git clone git://git.linux-nfs.org/projects/steved/libtirpc.git
+          cd libtirpc
+          git reset --hard 2d07cfd2f71b5ac05475b2ff79c4bf38f3b6ec5c
+          chmod +x ./autogen.sh
+          ./autogen.sh --disable-symvers --prefix=/usr --disable-ipv6 --disable-authdes --disable-gssapi
+          ./configure --prefix=/usr --disable-symvers --prefix=/usr --disable-ipv6 --disable-authdes --disable-gssapi
+          make && make install
+
       - name: Install XML2
         run: |
           apt-cyg install python3-devel
@@ -145,7 +157,7 @@ jobs:
 
       - name: Install libs for Libguestfs
         run: |
-          apt-cyg install file-devel libtirpc-devel
+          apt-cyg install file-devel
 
       - name: Install Libguestfs
         run: |
