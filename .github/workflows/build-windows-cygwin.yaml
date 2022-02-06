@@ -114,6 +114,7 @@ jobs:
 
       - name: Install XML2
         run: |
+          cd libguestfs
           apt-cyg install python3-devel
           git clone https://github.com/GNOME/libxml2.git
           cd libxml2
