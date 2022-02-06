@@ -1,0 +1,52 @@
+304,352d303
+< if(JANSSON_BUILD_SHARED_LIBS)
+<    add_library(jansson SHARED
+<       ${JANSSON_SRC}
+<       ${JANSSON_HDR_PRIVATE}
+<       ${JANSSON_HDR_PUBLIC}
+<       src/jansson.def)
+< 
+< # check if linker support --default-symver
+<    list(APPEND CMAKE_REQUIRED_LIBRARIES "-Wl,--default-symver")
+<    check_c_source_compiles(
+<    "
+<    int main (void)
+<    {
+<       return 0;
+<    }
+<    "
+<    DSYMVER_WORKS
+<    )
+<    list(REMOVE_ITEM CMAKE_REQUIRED_LIBRARIES "-Wl,--default-symver")
+< 
+<    if (SYMVER_WORKS)
+<       set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,--default-symver")
+<    else()
+< # some linkers may only support --version-script
+<       file(WRITE "${CMAKE_CURRENT_BINARY_DIR}/jansson.sym" "JANSSON_${JANSSON_SOVERSION} {
+<     global:
+<           *;
+< };
+< ")
+<       list(APPEND CMAKE_REQUIRED_LIBRARIES "-Wl,--version-script,${CMAKE_CURRENT_BINARY_DIR}/jansson.sym")
+<       check_c_source_compiles(
+<    "
+<    int main (void)
+<    {
+<       return 0;
+<    }
+<    "
+<    VSCRIPT_WORKS
+<    )
+<       list(REMOVE_ITEM CMAKE_REQUIRED_LIBRARIES "-Wl,--version-script,${CMAKE_CURRENT_BINARY_DIR}/jansson.sym")
+<       if (VSCRIPT_WORKS)
+<          set(CMAKE_SHARED_LINKER_FLAGS "-Wl,--version-script,${CMAKE_CURRENT_BINARY_DIR}/jansson.sym")
+<       endif()
+<    endif()
+< 
+<    set_target_properties(jansson PROPERTIES
+<       VERSION ${JANSSON_VERSION}
+<       SOVERSION ${JANSSON_SOVERSION})
+< else()
+359d309
+< endif()
