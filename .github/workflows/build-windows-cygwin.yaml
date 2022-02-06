@@ -105,7 +105,8 @@ jobs:
           git clone https://github.com/GNOME/libxml2.git
           cd libxml2
           git reset --hard 9b8ef34dc9c24bfe325edd15aaf0ec00326f04e9
-          autoreconf -i
+          chmod +x ./autogen.sh
+          ./autogen.sh
           ./configure --prefix=/usr
           make && make install
 
