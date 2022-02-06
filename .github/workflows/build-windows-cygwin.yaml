@@ -97,7 +97,7 @@ jobs:
       
       - name: Install libs for Augeas
         run: |
-          apt-cyg install gettext-devel libtirpc-devel libreadline-devel  findutils-debuginfo wget
+          apt-cyg install gettext-devel libreadline-devel  findutils-debuginfo wget
       
        
       - name: Install libtirpc
