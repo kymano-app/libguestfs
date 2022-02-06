@@ -97,7 +97,16 @@ jobs:
       
       - name: Install libs for Augeas
         run: |
-          apt-cyg install gettext-devel libtirpc-devel libreadline-devel libxml2-devel findutils-debuginfo wget
+          apt-cyg install gettext-devel libtirpc-devel libreadline-devel  findutils-debuginfo wget
+      
+      - name: Install XML2
+        run: |
+          git clone https://github.com/GNOME/libxml2.git
+          cd libxml2
+          git reset --hard 9b8ef34dc9c24bfe325edd15aaf0ec00326f04e9
+          autoreconf -i
+          ./configure --prefix=/usr
+          make && make install
 
       - name: Install augeas 
         run: |
