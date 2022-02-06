@@ -1,14 +1,19 @@
-196c196
+166c166,167
+< 	$(VERSION_SCRIPT_FLAGS)$(srcdir)/libguestfs.syms
+---
+> 	$(VERSION_SCRIPT_FLAGS)$(srcdir)/libguestfs.syms \
+>         -no-undefined
+196c197
 < TESTS_ENVIRONMENT = $(top_builddir)/run --test
 ---
 > TESTS_ENVIRONMENT = 
-199,200c199,200
+199,200c200,201
 < TESTS = unit-tests
 < check_PROGRAMS = unit-tests
 ---
 > TESTS = 
 > check_PROGRAMS = 
-230,255c230,231
+230,255c231,232
 < man_MANS = guestfs.3 libguestfs.3
 < noinst_DATA = $(top_builddir)/website/guestfs.3.html
 < 
