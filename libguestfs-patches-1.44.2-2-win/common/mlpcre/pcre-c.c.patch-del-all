@@ -1,0 +1,131 @@
+27a28
+> #define PCRE2_STATIC
+45,53d45
+< #ifndef HAVE_CAML_ALLOC_INITIALIZED_STRING
+< static inline value
+< caml_alloc_initialized_string (mlsize_t len, const char *p)
+< {
+<   value sv = caml_alloc_string (len);
+<   memcpy ((char *) String_val (sv), p, len);
+<   return sv;
+< }
+< #endif
+63c55
+<   pcre2_match_data *match_data; /* match offsets */
+---
+>   char *match_data; /* match offsets */
+72d63
+<     pcre2_match_data_free (data->match_data);
+99,106d89
+<   PCRE2_UCHAR err[256];
+<   value args[2];
+< 
+<   pcre2_get_error_message (errnum, err, sizeof err);
+< 
+<   args[0] = caml_copy_string ((char *) err);
+<   args[1] = Val_int (errnum);
+<   caml_raise_with_args (*caml_named_value ("PCRE.Error"), 2, args);
+121c104
+< #define Regexp_val(rv) (*(pcre2_code **)Data_custom_val(rv))
+---
+> #define Regexp_val(rv) (*(char **)Data_custom_val(rv))
+126,127c109
+<   pcre2_code *re = Regexp_val (rev);
+<   if (re) pcre2_code_free (re);
+---
+>   char *re = Regexp_val (rev);
+141c123
+< Val_regexp (pcre2_code *re)
+---
+> Val_regexp (char *re)
+146c128
+<   rv = caml_alloc_custom (&custom_operations, sizeof (pcre2_code *), 0, 1);
+---
+>   rv = caml_alloc_custom (&custom_operations, sizeof (char *), 0, 1);
+178c160
+<   pcre2_code *re;
+---
+>   char *re;
+180c162
+<   PCRE2_SIZE errnum;
+---
+>   char errnum;
+182,192d163
+<   /* Flag parameters are all ‘bool option’, defaulting to false. */
+<   if (is_Some_true (anchoredv))
+<     options |= PCRE2_ANCHORED;
+<   if (is_Some_true (caselessv))
+<     options |= PCRE2_CASELESS;
+<   if (is_Some_true (dotallv))
+<     options |= PCRE2_DOTALL;
+<   if (is_Some_true (extendedv))
+<     options |= PCRE2_EXTENDED;
+<   if (is_Some_true (multilinev))
+<     options |= PCRE2_MULTILINE;
+196,201d166
+<   re = pcre2_compile ((PCRE2_SPTR) patt, strlen (patt),
+<                       options, &errcode, &errnum, NULL);
+<   if (re == NULL)
+<     raise_pcre_error (errcode);
+< 
+<   CAMLreturn (Val_regexp (re));
+218c183
+<   pcre2_code *re = Regexp_val (rev);
+---
+>   char *re = Regexp_val (rev);
+238d202
+<   m->match_data = pcre2_match_data_create_from_pattern (re, NULL);
+244,251d207
+<   m->r = pcre2_match (re, (PCRE2_SPTR) m->subject, len,
+<                       Optint_val (offsetv, 0), 0,
+<                       m->match_data, NULL);
+<   if (m->r < 0 && m->r != PCRE2_ERROR_NOMATCH) {
+<     int ret = m->r;
+<     free_last_match (m);
+<     raise_pcre_error (ret);
+<   }
+259,260d214
+<   r = m->r != PCRE2_ERROR_NOMATCH;
+< 
+283c237
+<   PCRE2_SIZE len;
+---
+>   char len;
+286,288d239
+<   if (m == NULL)
+<     raise_pcre_other_error ("PCRE.sub called without calling PCRE.matches");
+< 
+292,311d242
+<   r = pcre2_substring_length_bynumber (m->match_data, n, &len);
+<   if (r == PCRE2_ERROR_NOSUBSTRING || r == PCRE2_ERROR_UNSET)
+<     caml_raise_not_found ();
+<   if (r < 0)
+<     raise_pcre_error (r);
+< 
+<   strv = caml_alloc_string (len);
+< 
+<   /* This is fine.  OCaml allocates space for the trailing \0
+<    * and pcre expects that the buffer will be large enough to
+<    * store it.
+<    */
+<   len++;
+< 
+<   r = pcre2_substring_copy_bynumber (m->match_data, n,
+<                                      (PCRE2_UCHAR *) String_val (strv),
+<                                      &len);
+<   if (r < 0)
+<     raise_pcre_error (r);
+< 
+322,328c253
+<   PCRE2_SIZE *vec;
+< 
+<   if (m == NULL)
+<     raise_pcre_other_error ("PCRE.subi called without calling PCRE.matches");
+< 
+<   if (n < 0)
+<     caml_invalid_argument ("PCRE.subi: n must be >= 0");
+---
+>   char *vec;
+336,337d260
+<   vec = pcre2_get_ovector_pointer (m->match_data);
+< 

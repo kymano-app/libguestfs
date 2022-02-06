@@ -1,5 +1,2 @@
-34,37d33
-<   pcre2_match_data *data = * (pcre2_match_data **) ptr;
-< 
-<   if (data)
-<     pcre2_match_data_free (data);
+25a26
+> #define PCRE2_STATIC
