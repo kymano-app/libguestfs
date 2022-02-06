@@ -102,6 +102,7 @@ jobs:
        
       - name: Install libtirpc
         run: |
+          cd libguestfs
           apt-cyg install python3-devel
           git clone git://git.linux-nfs.org/projects/steved/libtirpc.git
           cd libtirpc
