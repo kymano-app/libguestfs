@@ -118,7 +118,6 @@ jobs:
 
 
       - name: Install XML2
-        if: false
         run: |
           cd libguestfs
           apt-cyg install python3-devel
