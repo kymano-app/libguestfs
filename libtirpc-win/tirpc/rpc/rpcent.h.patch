@@ -1,0 +1,6 @@
+54,58d53
+< struct rpcent {
+< 	char	*r_name;	/* name of server for this rpc program */
+< 	char	**r_aliases;	/* alias list */
+< 	int	r_number;	/* rpc program number */
+< };
