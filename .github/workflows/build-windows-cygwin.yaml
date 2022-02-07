@@ -109,6 +109,7 @@ jobs:
           git reset --hard 2d07cfd2f71b5ac05475b2ff79c4bf38f3b6ec5c
           patch tirpc/rpc/types.h ../libtirpc-win/tirpc/rpc/types.h.patch
           patch tirpc/rpc/rpcent.h ../libtirpc-win/tirpc/rpc/rpcent.h.patch
+          patch tirpc/reentrant.h ../libtirpc-win/tirpc/reentrant.h.patch
           chmod +x ./autogen.sh
           ./autogen.sh --disable-symvers --prefix=/usr --disable-ipv6 --disable-authdes --disable-gssapi
           ./configure --prefix=/usr --disable-symvers --prefix=/usr --disable-ipv6 --disable-authdes --disable-gssapi
