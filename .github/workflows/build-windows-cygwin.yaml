@@ -114,6 +114,8 @@ jobs:
           ./autogen.sh --disable-symvers --prefix=/usr --disable-ipv6 --disable-authdes --disable-gssapi
           ./configure --prefix=/usr --disable-symvers --prefix=/usr --disable-ipv6 --disable-authdes --disable-gssapi
           make && make install
+          cp /usr/lib/pkgconfig/libtirpc.pc/usr/share/pkgconfig/
+
 
       - name: Install XML2
         run: |
