@@ -97,7 +97,7 @@ jobs:
       
       - name: Install libs for Augeas
         run: |
-          apt-cyg install gettext-devel libreadline-devel  findutils-debuginfo wget
+          apt-cyg install gettext-devel libreadline-devel  findutils-debuginfo wget libxml2-devel
       
        
       - name: Install libtirpc
@@ -118,6 +118,7 @@ jobs:
 
 
       - name: Install XML2
+        if: false
         run: |
           cd libguestfs
           apt-cyg install python3-devel
@@ -231,7 +232,7 @@ jobs:
           ./configure --with-qemu="no" --enable-debug --disable-appliance --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --disable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-fuse 
 
           make
-          
+
       - name: Compress  
         run: |
           tar -czvf guestfs.tgz .
