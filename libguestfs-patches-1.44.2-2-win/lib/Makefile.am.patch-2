@@ -1,0 +1,40 @@
+196c196
+< TESTS_ENVIRONMENT = $(top_builddir)/run --test
+---
+> TESTS_ENVIRONMENT = 
+199,200c199,200
+< TESTS = unit-tests
+< check_PROGRAMS = unit-tests
+---
+> TESTS = 
+> check_PROGRAMS = 
+230,255c230,231
+< man_MANS = guestfs.3 libguestfs.3
+< noinst_DATA = $(top_builddir)/website/guestfs.3.html
+< 
+< guestfs.3 $(top_builddir)/website/guestfs.3.html: stamp-guestfs.pod
+< 
+< stamp-guestfs.pod: guestfs.pod \
+< 		guestfs-actions.pod \
+< 		guestfs-availability.pod \
+< 		guestfs-structs.pod
+< 	$(PODWRAPPER) \
+< 	  --section 3 \
+< 	  --man guestfs.3 \
+< 	  --html $(top_builddir)/website/guestfs.3.html \
+< 	  --insert $(srcdir)/guestfs-actions.pod:__ACTIONS__ \
+< 	  --insert $(srcdir)/guestfs-availability.pod:__AVAILABILITY__ \
+< 	  --insert $(srcdir)/guestfs-structs.pod:__STRUCTS__ \
+< 	  --license LGPLv2+ \
+< 	  $<
+< 	touch $@
+< 
+< # The only reason we have to generate this from the Makefile is
+< # because the global CLEANFILES rule deletes it.
+< libguestfs.3: Makefile.am
+< 	rm -f $@ $@-t
+< 	echo '.so man3/guestfs.3' > $@-t
+< 	mv $@-t $@
+---
+> man_MANS =
+> noinst_DATA = 
