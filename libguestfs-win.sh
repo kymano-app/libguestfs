@@ -44,7 +44,7 @@ patch daemon/Makefile.am ../libguestfs-patches-1.44.2-2-win/daemon/Makefile.am.p
 patch lua/Makefile.am ../libguestfs-patches-1.44.2-2-win/lua/Makefile.am.patch
 patch lib/guestfs-internal.h ../libguestfs-patches-1.44.2-2-win/lib/guestfs-internal.h.patch-0.1
 patch examples/Makefile.am ../libguestfs-patches-1.44.2-2-win/examples/Makefile.am.patch
-patch lib/match.c ../libguestfs-patches-1.44.2-2-win/lib/match.c.patch
+#patch lib/match.c ../libguestfs-patches-1.44.2-2-win/lib/match.c.patch
 patch daemon/btrfs.c ../libguestfs-patches-1.44.2-2-win/daemon/btrfs.c.patch
 patch tests/c-api/tests-main.c ../libguestfs-patches-1.44.2-2-win/tests/c-api/tests-main.c.patch
 patch common/mlpcre/pcre-c.c ../libguestfs-patches-1.44.2-2-win/common/mlpcre/pcre-c.c.patch
