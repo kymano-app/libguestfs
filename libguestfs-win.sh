@@ -56,6 +56,6 @@ patch common/utils/pcre2-cleanups.c ../libguestfs-patches-1.44.2-2-win/common/ut
 
 autoreconf -i
 
-./configure --with-qemu="no" --enable-debug --disable-appliance --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --disable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-fuse CFLAGS="-ggdb /usr/lib/libpcre2-8.la /usr/lib/libjansson.la" LDFLAGS="-L/usr/local/lib -L/usr/lib" LIBS="-lintl"
+./configure --with-qemu="no" --enable-debug --disable-appliance --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --disable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-fuse CFLAGS="-ggdb" LDFLAGS="-L/usr/local/lib -L/usr/lib" LIBS="-lintl -lpcre2-8 -ljansson"
 
 make CFLAGS="-I/usr/include/ -ggdb" --trace
