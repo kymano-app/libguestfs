@@ -1,7 +1,6 @@
 
-mkdir tmp
-git clone https://github.com/kymano-app/libguestfs.git
-cd libguestfs
+git clone https://github.com/kymano-app/libguestfs.git libguestfs_new
+cd libguestfs_new
  curl -OL https://download.libguestfs.org/1.44-stable/libguestfs-1.44.2.tar.gz
 tar -xzf libguestfs-1.44.2.tar.gz
 cd libguestfs-1.44.2
