@@ -1,0 +1,6 @@
+24,28d23
+< static inline char const *
+< getprogname (void)
+< {
+<   return program_invocation_short_name;
+< }
