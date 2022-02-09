@@ -20,7 +20,7 @@ patch make-fs/Makefile.am ../libguestfs-patches-1.44.2-2/make-fs/Makefile.am.pat
 patch ocaml/examples/Makefile.am ../libguestfs-patches-1.44.2-2/ocaml/examples/Makefile.am.patch
 #patch test-tool/test-tool.c ../libguestfs-patches-1.44.2-2/test-tool/test-tool.c.patch
 patch configure.ac ../libguestfs-patches-1.44.2-2/configure.ac.patch
-patch generator/pr.ml ../libguestfs-patches-1.44.2-2-win/generator/pr.ml.patch
+#patch generator/pr.ml ../libguestfs-patches-1.44.2-2-win/generator/pr.ml.patch
 patch generator/Makefile.am ../libguestfs-patches-1.44.2-2-win/generator/Makefile.am.patch
 patch ocaml/Makefile.am ../libguestfs-patches-1.44.2-2-win/ocaml/Makefile.am.patch
 patch test-data/Makefile.am ../libguestfs-patches-1.44.2-2-win/test-data/Makefile.am.patch
