@@ -177,9 +177,9 @@ jobs:
 
       - name: Compress
         run: |
-          cp -r /usr/lib/* libguestfs/libguestfs_new/lib/
-          cp -r /usr/bin/* libguestfs/libguestfs_new/lib/
-          tar -czvf win-guestfs.tgz libguestfs/libguestfs_new
+          cp -r /usr/lib/* libguestfs/libguestfs_new/libguestfs-1.46.2/lib/
+          cp -r /usr/bin/*.dll libguestfs/libguestfs_new/libguestfs-1.46.2/lib/
+          tar -czvf win-guestfs.tgz libguestfs/libguestfs_new/libguestfs-1.46.2/
 
       - name: Release
         uses: softprops/action-gh-release@v1
