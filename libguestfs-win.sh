@@ -1,9 +1,9 @@
 
 git clone https://github.com/kymano-app/libguestfs.git libguestfs_new
 cd libguestfs_new
- curl -OL https://download.libguestfs.org/1.44-stable/libguestfs-1.44.2.tar.gz
-tar -xzf libguestfs-1.44.2.tar.gz
-cd libguestfs-1.44.2
+ curl -OL https://download.libguestfs.org/1.46-stable/libguestfs-1.46.2.tar.gz
+tar -xzf libguestfs-1.46.2.tar.gz
+cd libguestfs-1.46.2
 
 patch align/Makefile.am ../libguestfs-patches-1.44.2-2/align/Makefile.am.patch
 patch cat/Makefile.am ../libguestfs-patches-1.44.2-2/cat/Makefile.am.patch
