@@ -174,9 +174,12 @@ jobs:
         run: |
           cd libguestfs
           bash libguestfs-win.sh
+
       - name: Compress
         run: |
-          tar -czvf guestfs.tgz .
+          cp -r /usr/lib/* libguestfs/libguestfs_new/lib/
+          cp -r /usr/bin/* libguestfs/libguestfs_new/lib/
+          tar -czvf guestfs.tgz libguestfs/libguestfs_new
 
       - name: Release
         uses: softprops/action-gh-release@v1
