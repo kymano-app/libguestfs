@@ -34,7 +34,7 @@ jobs:
      
       - name: Install libs for Ocaml
         run: |
-          apt-cyg install gcc-core flexdll binutils cmake gcc-g++ automake autoconf libtool python flex bison coreutils opam ocaml-findlib
+          apt-cyg install gcc-core flexdll binutils cmake gcc-g++ automake autoconf libtool python flex bison coreutils opam
 
       - name: Install Ocaml
         run: |
@@ -168,7 +168,7 @@ jobs:
 
       - name: Install libs for Libguestfs
         run: |
-          apt-cyg install file-devel libxml2-devel libtirpc-devel libjansson-devel pcre2 libpcre2-devel
+          apt-cyg install file-devel libxml2-devel libtirpc-devel libjansson-devel pcre2 libpcre2-devel ocaml-findlib
 
       - name: Install Libguestfs
         run: |
