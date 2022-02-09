@@ -118,6 +118,7 @@ jobs:
 
 
       - name: Install XML2
+        if: false
         run: |
           cd libguestfs
           apt-cyg install python3-devel
@@ -166,7 +167,7 @@ jobs:
       - name: Install libs for Libguestfs
         run: |
           apt-cyg install file-devel
-          apt-cyg remove libxml2-devel
+          apt-cyg install libxml2-devel
 
       - name: Install Libguestfs
         run: |
