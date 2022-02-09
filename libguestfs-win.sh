@@ -7,7 +7,7 @@ cd libguestfs-1.44.2
 
 patch align/Makefile.am ../libguestfs-patches-1.44.2-2/align/Makefile.am.patch
 patch cat/Makefile.am ../libguestfs-patches-1.44.2-2/cat/Makefile.am.patch
-patch common/protocol/guestfs_protocol.c ../libguestfs-patches-1.44.2-2/common/protocol/guestfs_protocol.c.patch
+#patch common/protocol/guestfs_protocol.c ../libguestfs-patches-1.44.2-2/common/protocol/guestfs_protocol.c.patch
 patch df/Makefile.am ../libguestfs-patches-1.44.2-2/df/Makefile.am.patch
 patch diff/Makefile.am ../libguestfs-patches-1.44.2-2/diff/Makefile.am.patch
 patch docs/Makefile.am ../libguestfs-patches-1.44.2-2/docs/Makefile.am.patch
