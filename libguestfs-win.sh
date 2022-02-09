@@ -18,7 +18,7 @@ patch inspector/Makefile.am ../libguestfs-patches-1.44.2-2/inspector/Makefile.am
 patch m4/guestfs-progs.m4 ../libguestfs-patches-1.44.2-2/m4/guestfs-progs.m4.patch
 patch make-fs/Makefile.am ../libguestfs-patches-1.44.2-2/make-fs/Makefile.am.patch
 patch ocaml/examples/Makefile.am ../libguestfs-patches-1.44.2-2/ocaml/examples/Makefile.am.patch
-patch test-tool/test-tool.c ../libguestfs-patches-1.44.2-2/test-tool/test-tool.c.patch
+#patch test-tool/test-tool.c ../libguestfs-patches-1.44.2-2/test-tool/test-tool.c.patch
 patch configure.ac ../libguestfs-patches-1.44.2-2/configure.ac.patch
 patch generator/pr.ml ../libguestfs-patches-1.44.2-2-win/generator/pr.ml.patch
 patch generator/Makefile.am ../libguestfs-patches-1.44.2-2-win/generator/Makefile.am.patch
