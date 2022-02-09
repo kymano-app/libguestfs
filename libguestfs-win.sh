@@ -26,7 +26,7 @@ patch ocaml/Makefile.am ../libguestfs-patches-1.44.2-2-win/ocaml/Makefile.am.pat
 patch test-data/Makefile.am ../libguestfs-patches-1.44.2-2-win/test-data/Makefile.am.patch
 patch fuse/Makefile.am ../libguestfs-patches-1.44.2-2-win/fuse/Makefile.am.patch
 patch test-tool/Makefile.am ../libguestfs-patches-1.44.2-2-win/test-tool/Makefile.am.patch
-patch fish/Makefile.am ../libguestfs-patches-1.44.2-2-win/fish/Makefile.am.patch_2
+patch fish/Makefile.am ../libguestfs-patches-1.44.2-2-win/fish/Makefile.am.3.patch
 patch ruby/Makefile.am ../libguestfs-patches-1.44.2-2-win/ruby/Makefile.am.patch
 patch bash/Makefile.am ../libguestfs-patches-1.44.2-2-win/bash/Makefile.am.patch
 patch golang/Makefile.am ../libguestfs-patches-1.44.2-2-win/golang/Makefile.am.patch

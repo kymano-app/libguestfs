@@ -1,0 +1,38 @@
+185,198c185,186
+< man_MANS = \
+< 	guestfish.1 \
+< 	libguestfs-tools.conf.5 \
+< 	virt-copy-in.1 \
+< 	virt-copy-out.1 \
+< 	virt-tar-in.1 \
+< 	virt-tar-out.1
+< noinst_DATA = \
+< 	$(top_builddir)/website/guestfish.1.html \
+< 	$(top_builddir)/website/libguestfs-tools.conf.5.html \
+< 	$(top_builddir)/website/virt-copy-in.1.html \
+< 	$(top_builddir)/website/virt-copy-out.1.html \
+< 	$(top_builddir)/website/virt-tar-in.1.html \
+< 	$(top_builddir)/website/virt-tar-out.1.html
+---
+> man_MANS = 
+> noinst_DATA = 
+274c262
+< TESTS_ENVIRONMENT = $(top_builddir)/run --test
+---
+> TESTS_ENVIRONMENT = 
+276,283c264
+< TESTS = \
+< 	test-a.sh \
+< 	test-add-uri.sh \
+< 	test-docs.sh \
+< 	test-escapes.sh \
+< 	test-events.sh \
+< 	test-invalid-params.sh \
+< 	test-tilde.sh
+---
+> TESTS = 
+308,311d288
+< if HAVE_FUSE
+< TESTS += \
+< 	test-mount-local.sh
+< endif
