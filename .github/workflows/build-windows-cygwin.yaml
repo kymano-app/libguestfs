@@ -155,6 +155,7 @@ jobs:
           cp /usr/lib/pkgconfig/libpcre2-posix.pc /usr/share/pkgconfig/
       
       - name: Install jansson
+        if: false
         run: |
           git clone https://github.com/akheron/jansson.git
           cd jansson
@@ -167,7 +168,7 @@ jobs:
 
       - name: Install libs for Libguestfs
         run: |
-          apt-cyg install file-devel libxml2-devel libtirpc-devel
+          apt-cyg install file-devel libxml2-devel libtirpc-devel jansson libjansson-devel
 
       - name: Install Libguestfs
         run: |
