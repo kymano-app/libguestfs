@@ -5,22 +5,8 @@ cd libguestfs_new
 tar -xzf libguestfs-1.46.2.tar.gz
 cd libguestfs-1.46.2
 
-#patch align/Makefile.am ../libguestfs-patches-1.44.2-2/align/Makefile.am.patch
-#patch cat/Makefile.am ../libguestfs-patches-1.44.2-2/cat/Makefile.am.patch
-#patch common/protocol/guestfs_protocol.c ../libguestfs-patches-1.44.2-2/common/protocol/guestfs_protocol.c.patch
-#patch df/Makefile.am ../libguestfs-patches-1.44.2-2/df/Makefile.am.patch
-#patch diff/Makefile.am ../libguestfs-patches-1.44.2-2/diff/Makefile.am.patch
-#patch docs/Makefile.am ../libguestfs-patches-1.44.2-2/docs/Makefile.am.patch
-#patch edit/Makefile.am ../libguestfs-patches-1.44.2-2/edit/Makefile.am.patch
-#patch format/Makefile.am ../libguestfs-patches-1.44.2-2/format/Makefile.am.patch
-#patch inspector/Makefile.am ../libguestfs-patches-1.44.2-2/inspector/Makefile.am.patch
-#patch lib/inspect-apps.c ../libguestfs-patches-1.44.2-2/lib/inspect-apps.c.patch
-#patch m4/guestfs-progs.m4 ../libguestfs-patches-1.44.2-2/m4/guestfs-progs.m4.patch
-#patch make-fs/Makefile.am ../libguestfs-patches-1.44.2-2/make-fs/Makefile.am.patch
 patch ocaml/examples/Makefile.am ../libguestfs-patches-1.44.2-2/ocaml/examples/Makefile.am.patch
-#patch test-tool/test-tool.c ../libguestfs-patches-1.44.2-2/test-tool/test-tool.c.patch
 patch configure.ac ../libguestfs-patches-1.44.2-2/configure.ac.patch
-#patch generator/pr.ml ../libguestfs-patches-1.44.2-2-win/generator/pr.ml.patch
 patch generator/Makefile.am ../libguestfs-patches-1.44.2-2-win/generator/Makefile.am.patch
 patch ocaml/Makefile.am ../libguestfs-patches-1.44.2-2-win/ocaml/Makefile.am.patch
 patch test-data/Makefile.am ../libguestfs-patches-1.44.2-2-win/test-data/Makefile.am.patch
@@ -44,15 +30,6 @@ patch daemon/Makefile.am ../libguestfs-patches-1.44.2-2-win/daemon/Makefile.am.p
 patch lua/Makefile.am ../libguestfs-patches-1.44.2-2-win/lua/Makefile.am.patch
 patch lib/guestfs-internal.h ../libguestfs-patches-1.44.2-2-win/lib/guestfs-internal.h.patch-0.1
 patch examples/Makefile.am ../libguestfs-patches-1.44.2-2-win/examples/Makefile.am.patch
-#patch lib/match.c ../libguestfs-patches-1.44.2-2-win/lib/match.c.patch
-#patch daemon/btrfs.c ../libguestfs-patches-1.44.2-2-win/daemon/btrfs.c.patch
-#patch tests/c-api/tests-main.c ../libguestfs-patches-1.44.2-2-win/tests/c-api/tests-main.c.patch
-#patch common/mlpcre/pcre-c.c ../libguestfs-patches-1.44.2-2-win/common/mlpcre/pcre-c.c.patch_3
-#patch common/utils/pcre2-cleanups.c ../libguestfs-patches-1.44.2-2-win/common/utils/pcre2-cleanups.c.patch
-#patch lib/guestfs-internal-all.h ../libguestfs-patches-1.44.2-2-win/lib/guestfs-internal-all.h.patch
-#patch lib/version.c ../libguestfs-patches-1.44.2-2-win/lib/version.c.patch
-#patch lib/info.c ../libguestfs-patches-1.44.2-2-win/lib/info.c.patch
-#patch lib/qemu.c ../libguestfs-patches-1.44.2-2-win/lib/qemu.c.patch
 patch gnulib/lib/getprogname.h ../libguestfs-patches-1.46.2-win/gnulib/lib/getprogname.h.patch
 patch docs/Makefile.am ../libguestfs-patches-1.46.2-win/docs/Makefile.am.patch
 
