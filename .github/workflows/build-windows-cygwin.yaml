@@ -101,6 +101,7 @@ jobs:
       
        
       - name: Install libtirpc
+        if: false
         run: |
           cd libguestfs
           apt-cyg install python3-devel
