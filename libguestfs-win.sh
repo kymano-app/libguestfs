@@ -42,7 +42,7 @@ patch gobject/Makefile.am ../libguestfs-patches-1.44.2-2-win/gobject/Makefile.am
 patch php/Makefile.am ../libguestfs-patches-1.44.2-2-win/php/Makefile.am.patch
 patch daemon/Makefile.am ../libguestfs-patches-1.44.2-2-win/daemon/Makefile.am.patch
 patch lua/Makefile.am ../libguestfs-patches-1.44.2-2-win/lua/Makefile.am.patch
-#patch lib/guestfs-internal.h ../libguestfs-patches-1.44.2-2-win/lib/guestfs-internal.h.patch-0.1
+patch lib/guestfs-internal.h ../libguestfs-patches-1.44.2-2-win/lib/guestfs-internal.h.patch-0.1
 patch examples/Makefile.am ../libguestfs-patches-1.44.2-2-win/examples/Makefile.am.patch
 #patch lib/match.c ../libguestfs-patches-1.44.2-2-win/lib/match.c.patch
 #patch daemon/btrfs.c ../libguestfs-patches-1.44.2-2-win/daemon/btrfs.c.patch
