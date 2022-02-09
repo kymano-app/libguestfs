@@ -1,0 +1,15 @@
+32d31
+< SUBDIRS += test-data
+272,275c271
+< noinst_DATA = \
+< 	website/index.html \
+< 	website/README.txt \
+< 	website/TODO.txt
+---
+> noinst_DATA = 
+370d365
+< noinst_DATA += podwrapper.1
+533c528
+< TESTS = check-mli.sh
+---
+> TESTS = 

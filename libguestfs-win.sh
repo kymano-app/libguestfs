@@ -36,7 +36,7 @@ patch rust/Makefile.am ../libguestfs-patches-1.44.2-2-win/rust/Makefile.am.patch
 patch java/Makefile.am ../libguestfs-patches-1.44.2-2-win/java/Makefile.am.patch
 patch haskell/Makefile.am ../libguestfs-patches-1.44.2-2-win/haskell/Makefile.am.patch
 patch lib/Makefile.am ../libguestfs-patches-1.44.2-2-win/lib/Makefile.am.3.patch
-patch Makefile.am ../libguestfs-patches-1.44.2-2-win/Makefile.am.patch
+patch Makefile.am ../libguestfs-patches-1.44.2-2-win/Makefile.am.2.patch
 patch erlang/Makefile.am ../libguestfs-patches-1.44.2-2-win/erlang/Makefile.am.patch
 patch gobject/Makefile.am ../libguestfs-patches-1.44.2-2-win/gobject/Makefile.am.patch
 patch php/Makefile.am ../libguestfs-patches-1.44.2-2-win/php/Makefile.am.patch
