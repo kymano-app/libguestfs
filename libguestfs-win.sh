@@ -21,11 +21,11 @@ patch ocaml/examples/Makefile.am ../libguestfs-patches-1.44.2-2/ocaml/examples/M
 #patch test-tool/test-tool.c ../libguestfs-patches-1.44.2-2/test-tool/test-tool.c.patch
 patch configure.ac ../libguestfs-patches-1.44.2-2/configure.ac.patch
 #patch generator/pr.ml ../libguestfs-patches-1.44.2-2-win/generator/pr.ml.patch
-#patch generator/Makefile.am ../libguestfs-patches-1.44.2-2-win/generator/Makefile.am.patch
+patch generator/Makefile.am ../libguestfs-patches-1.44.2-2-win/generator/Makefile.am.patch
 patch ocaml/Makefile.am ../libguestfs-patches-1.44.2-2-win/ocaml/Makefile.am.patch
-patch test-data/Makefile.am ../libguestfs-patches-1.44.2-2-win/test-data/Makefile.am.patch
+#patch test-data/Makefile.am ../libguestfs-patches-1.44.2-2-win/test-data/Makefile.am.patch
 patch fuse/Makefile.am ../libguestfs-patches-1.44.2-2-win/fuse/Makefile.am.patch
-patch test-tool/Makefile.am ../libguestfs-patches-1.44.2-2-win/test-tool/Makefile.am.patch
+#patch test-tool/Makefile.am ../libguestfs-patches-1.44.2-2-win/test-tool/Makefile.am.patch
 patch fish/Makefile.am ../libguestfs-patches-1.44.2-2-win/fish/Makefile.am.3.patch
 patch ruby/Makefile.am ../libguestfs-patches-1.44.2-2-win/ruby/Makefile.am.patch
 patch bash/Makefile.am ../libguestfs-patches-1.44.2-2-win/bash/Makefile.am.patch
