@@ -56,8 +56,8 @@ patch tests/c-api/tests-main.c ../libguestfs-patches-1.44.2-2-win/tests/c-api/te
 
 autoreconf -i
 
-./configure --with-qemu="no" --enable-debug --disable-appliance --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --enable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-fuse CFLAGS="-ggdb" LDFLAGS="-L/usr/local/lib -L/usr/lib" LIBS="-lintl -lpcre2-8 -ljansson -ltirpc"
+./configure --with-qemu="no" --enable-debug --disable-appliance --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --enable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-fuse CFLAGS="-I/usr/lib/ocaml/ -ggdb" LDFLAGS="-L/usr/local/lib -L/usr/lib" LIBS="-lintl -lpcre2-8 -ljansson -ltirpc"
 
-make CFLAGS="-I/usr/include/ -ggdb" --trace
+make CFLAGS="-I/usr/include/ -I/usr/lib/ocaml/ -ggdb" --trace
 
 ./run guestfish
