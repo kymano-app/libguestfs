@@ -47,7 +47,7 @@ patch examples/Makefile.am ../libguestfs-patches-1.44.2-2-win/examples/Makefile.
 #patch lib/match.c ../libguestfs-patches-1.44.2-2-win/lib/match.c.patch
 #patch daemon/btrfs.c ../libguestfs-patches-1.44.2-2-win/daemon/btrfs.c.patch
 #patch tests/c-api/tests-main.c ../libguestfs-patches-1.44.2-2-win/tests/c-api/tests-main.c.patch
-patch common/mlpcre/pcre-c.c ../libguestfs-patches-1.44.2-2-win/common/mlpcre/pcre-c.c.patch_3
+#patch common/mlpcre/pcre-c.c ../libguestfs-patches-1.44.2-2-win/common/mlpcre/pcre-c.c.patch_3
 #patch common/utils/pcre2-cleanups.c ../libguestfs-patches-1.44.2-2-win/common/utils/pcre2-cleanups.c.patch
 #patch lib/guestfs-internal-all.h ../libguestfs-patches-1.44.2-2-win/lib/guestfs-internal-all.h.patch
 #patch lib/version.c ../libguestfs-patches-1.44.2-2-win/lib/version.c.patch
@@ -56,7 +56,7 @@ patch common/mlpcre/pcre-c.c ../libguestfs-patches-1.44.2-2-win/common/mlpcre/pc
 
 autoreconf -i
 
-./configure --with-qemu="no" --enable-debug --disable-appliance --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --disable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-fuse CFLAGS="-I/usr/lib/ocaml/ -ggdb" LDFLAGS="-L/usr/local/lib -L/usr/lib" LIBS="-lintl -lpcre2-8 -ljansson -ltirpc"
+./configure --with-qemu="no" --enable-debug --disable-appliance --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --enable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-fuse CFLAGS="-I/usr/lib/ocaml/ -ggdb" LDFLAGS="-L/usr/local/lib -L/usr/lib" LIBS="-lintl -lpcre2-8 -ljansson -ltirpc"
 
 make CFLAGS="-I/usr/include/ -I/usr/lib/ocaml/ -ggdb" --trace
 
