@@ -1,0 +1,16 @@
+196c196
+< TESTS_ENVIRONMENT = $(top_builddir)/run --test
+---
+> TESTS_ENVIRONMENT = 
+199,200c199,200
+< TESTS = unit-tests
+< check_PROGRAMS = unit-tests
+---
+> TESTS = 
+> check_PROGRAMS = 
+230,231c230,231
+< man_MANS = guestfs.3 libguestfs.3
+< noinst_DATA = $(top_builddir)/website/guestfs.3.html
+---
+> man_MANS = 
+> noinst_DATA = 
