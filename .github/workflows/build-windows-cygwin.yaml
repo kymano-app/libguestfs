@@ -166,8 +166,7 @@ jobs:
 
       - name: Install libs for Libguestfs
         run: |
-          apt-cyg install file-devel
-          apt-cyg install libxml2-devel
+          apt-cyg install file-devel libxml2-devel libtirpc-devel
 
       - name: Install Libguestfs
         run: |
