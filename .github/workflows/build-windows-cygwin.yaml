@@ -144,6 +144,7 @@ jobs:
           cp /usr/local/lib/pkgconfig/augeas.pc /usr/share/pkgconfig/
 
       - name: Install PCRE2
+        if: false
         run: |
           git clone https://github.com/PhilipHazel/pcre2.git
           cd pcre2
@@ -168,7 +169,7 @@ jobs:
 
       - name: Install libs for Libguestfs
         run: |
-          apt-cyg install file-devel libxml2-devel libtirpc-devel jansson libjansson-devel
+          apt-cyg install file-devel libxml2-devel libtirpc-devel jansson libjansson-devel pcre2 libpcre2-devel
 
       - name: Install Libguestfs
         run: |
