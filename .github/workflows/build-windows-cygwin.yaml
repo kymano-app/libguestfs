@@ -34,7 +34,7 @@ jobs:
      
       - name: Install libs for Ocaml
         run: |
-          apt-cyg install gcc-core flexdll binutils cmake gcc-g++ automake autoconf libtool python flex bison coreutils opam 
+          apt-cyg install gcc-core flexdll binutils cmake gcc-g++ automake autoconf libtool python flex bison coreutils opam ocaml-findlib
 
       - name: Install Ocaml
         run: |
@@ -48,8 +48,9 @@ jobs:
           make install
       
       - name: Install libs for opam
+        if: false
         run: |
-          apt-cyg install ocaml-dune ocaml-findlib
+          apt-cyg install ocaml-dune 
       
       - name: Install opam
         if: false
@@ -99,7 +100,6 @@ jobs:
         run: |
           apt-cyg install gettext-devel libreadline-devel  findutils-debuginfo wget libxml2-devel
       
-       
       - name: Install libtirpc
         if: false
         run: |
@@ -116,7 +116,6 @@ jobs:
           ./configure --prefix=/usr --disable-symvers --prefix=/usr --disable-ipv6 --disable-authdes --disable-gssapi
           make && make install
           cp /usr/lib/pkgconfig/libtirpc.pc /usr/share/pkgconfig/
-
 
       - name: Install XML2
         if: false
@@ -175,7 +174,7 @@ jobs:
         run: |
           cd libguestfs
           bash libguestfs-win.sh
-      - name: Compress  
+      - name: Compress
         run: |
           tar -czvf guestfs.tgz .
 
