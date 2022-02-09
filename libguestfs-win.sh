@@ -54,6 +54,7 @@ patch examples/Makefile.am ../libguestfs-patches-1.44.2-2-win/examples/Makefile.
 #patch lib/info.c ../libguestfs-patches-1.44.2-2-win/lib/info.c.patch
 #patch lib/qemu.c ../libguestfs-patches-1.44.2-2-win/lib/qemu.c.patch
 patch gnulib/lib/getprogname.h ../libguestfs-patches-1.46.2-win/gnulib/lib/getprogname.h.patch
+patch docs/Makefile.am ../libguestfs-patches-1.46.2-win/docs/Makefile.am.patch
 
 autoreconf -i
 
