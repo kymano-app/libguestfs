@@ -16,7 +16,9 @@ jobs:
         arch: [x86_64]
         platform: [windows]
     steps:
-      - run: |
+      - name: test
+        shell: bash 
+        run: |
           ls -l "/cygdrive/c/"
           ls -l "/cygdrive/c/Program Files (x86)"
           #ls -l /cygdrive/c/msys64/
