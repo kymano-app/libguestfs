@@ -157,6 +157,7 @@ jobs:
           patch fish/rc.c ../libguestfs-patches-1.46.2-win/fish/rc.c.patch
           patch lib/launch-unix.c ../libguestfs-patches-1.46.2-win/lib/launch-unix.c.patch
           patch lib/launch-libvirt.c ../libguestfs-patches-1.46.2-win/lib/launch-libvirt.c.patch
+          patch m4/guestfs-ocaml.m4 ../libguestfs-patches-1.46.2-win-mingw/m4/guestfs-ocaml.m4.patch 
 
           autoreconf -i
 

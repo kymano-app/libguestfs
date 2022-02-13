@@ -1,0 +1,5 @@
+31,34d30
+< AS_IF([test "x$OCAMLFIND" = "xno"],[
+<     AC_MSG_ERROR([OCaml findlib is required])
+< ])
+< 
