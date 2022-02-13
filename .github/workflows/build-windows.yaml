@@ -52,10 +52,8 @@ jobs:
             ncurses
       - name: Find
         if: true
-        shell: pwsh 
         run: |
-          Get-ChildItem -Path D:\ -Filter libglib-2.0.dll.a -Recurse -ErrorAction SilentlyContinue -Force
-          Get-ChildItem -Path D:\ -Filter libglib-2.0.dll -Recurse -ErrorAction SilentlyContinue -Force
+          find / -name libglib-2.0.dll.a
 
       - name: Checkout
         uses: actions/checkout@v2
