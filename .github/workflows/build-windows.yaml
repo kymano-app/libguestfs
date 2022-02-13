@@ -86,6 +86,8 @@ jobs:
 
       - name: Install Libguestfs
         run: |
+          ln -s /mingw64/bin/ncursesw6-config /mingw64/bin/ncurses6-config
+          
           git clone https://github.com/kymano-app/libguestfs.git libguestfs_new
           cd libguestfs_new
           curl -OL https://download.libguestfs.org/1.46-stable/libguestfs-1.46.2.tar.gz
