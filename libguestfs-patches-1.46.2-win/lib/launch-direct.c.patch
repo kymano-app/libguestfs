@@ -1,10 +1,12 @@
-51a52,56
+40d39
+< #include <sys/un.h>
+51a51,55
 > #include "winsock2.h"
 > #include "windows.h"
 > #include "ws2tcpip.h"
 > #include "afunix.h"
 > 
-466a472,479
+466a471,478
 >   int Result = 0;
 >   WSADATA WsaData = { 0 };
 >   Result = WSAStartup(MAKEWORD(2, 2), &WsaData);
