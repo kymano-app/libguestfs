@@ -83,7 +83,7 @@ jobs:
           tar -xzf findlib-1.9.3.tar.gz
           cd ocamlfind-findlib-1.9.3
           ./configure
-          make CFLAGS="-I/usr/include/ -I/mingw64/include/ -I/mingw64/x86_64-w64-mingw32/include/" --trace 
+          make
           make install
 
       - name: Install augeas
