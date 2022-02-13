@@ -1,7 +1,7 @@
 
 git clone https://github.com/kymano-app/libguestfs.git libguestfs_new
 cd libguestfs_new
- curl -OL https://download.libguestfs.org/1.46-stable/libguestfs-1.46.2.tar.gz
+curl -OL https://download.libguestfs.org/1.46-stable/libguestfs-1.46.2.tar.gz
 tar -xzf libguestfs-1.46.2.tar.gz
 cd libguestfs-1.46.2
 
@@ -32,6 +32,7 @@ patch lib/guestfs-internal.h ../libguestfs-patches-1.44.2-2-win/lib/guestfs-inte
 patch examples/Makefile.am ../libguestfs-patches-1.44.2-2-win/examples/Makefile.am.patch
 patch gnulib/lib/getprogname.h ../libguestfs-patches-1.46.2-win/gnulib/lib/getprogname.h.patch
 patch docs/Makefile.am ../libguestfs-patches-1.46.2-win/docs/Makefile.am.patch
+patch lib/launch-direct.c ../libguestfs-patches-1.46.2-win/lib/launch-direct.c.patch
 
 autoreconf -i
 
