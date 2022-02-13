@@ -83,7 +83,7 @@ jobs:
           tar -xzf findlib-1.9.3.tar.gz
           cd ocamlfind-findlib-1.9.3
           ./configure
-          make
+          make all
           make install
 
       - name: Install augeas
