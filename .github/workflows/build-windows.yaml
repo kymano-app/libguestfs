@@ -59,7 +59,8 @@ jobs:
       - name: Find
         if: true
         run: |
-          find / -name "pwd.h" 
+          find /usr -name "pwd.h" 
+          find /mingw64 -name "pwd.h" 
           # D:\a\_temp\msys64\mingw64\
           ls -l /usr/include/rpc
           ls -l /mingw64/include
