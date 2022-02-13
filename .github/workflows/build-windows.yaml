@@ -69,8 +69,8 @@ jobs:
           export PKG_CONFIG_PATH=$(pkg-config --variable pc_path pkg-config):/usr/lib/pkgconfig
           pkg-config --list-all
           which pkg-config
-          echo $PKG_CONFIG_EXECUTABLE
-          echo $PKG_CONFIG
+          export PKG_CONFIG_EXECUTABLE=/mingw64/bin/pkg-config
+          export PKG_CONFIG=/mingw64/bin/pkg-config
 
       - name: Checkout
         uses: actions/checkout@v2
@@ -96,6 +96,8 @@ jobs:
 
       - name: Install Libguestfs
         run: |
+          echo $PKG_CONFIG_EXECUTABLE
+
           ln -s /mingw64/bin/ncursesw6-config /mingw64/bin/ncurses6-config
 
           git clone https://github.com/kymano-app/libguestfs.git libguestfs_new
