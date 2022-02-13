@@ -7,3 +7,7 @@
 < struct sockaddr_un myaddr;
 ---
 > #include "afunix.h"
+111c110
+<         AC_MSG_ERROR([cannot get it])
+---
+>         AC_MSG_ERROR([xcannot get it])
