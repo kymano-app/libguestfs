@@ -27,6 +27,12 @@ jobs:
           platform: x64
           packages: wget
 
+      - run: |
+          ls -l /cygdrive/c/
+          ls -l /cygdrive/c/msys64/
+          ls -l /cygdrive/c/msys64/mingw64/
+          ls -l /cygdrive/c/msys64/mingw64/x86_64-w64-mingw32/include/
+
       - name: Install apt-cyg 
         run: |
           wget rawgit.com/transcode-open/apt-cyg/master/apt-cyg -O apt-cyg
