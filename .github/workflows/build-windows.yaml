@@ -64,7 +64,6 @@ jobs:
           ls -l /mingw64/include
           ls -l /mingw64/x86_64-w64-mingw32/include
           ls -l /mingw64/x86_64-w64-mingw32/
-          echo "ls -l /mingw64/lib/"
           ls -l /mingw64/
 
       - name: Checkout
