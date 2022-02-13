@@ -68,6 +68,9 @@ jobs:
 
           export PKG_CONFIG_PATH=$(pkg-config --variable pc_path pkg-config):/usr/lib/pkgconfig
           pkg-config --list-all
+          which pkg-config
+          echo $PKG_CONFIG_EXECUTABLE
+          echo $PKG_CONFIG
 
       - name: Checkout
         uses: actions/checkout@v2
