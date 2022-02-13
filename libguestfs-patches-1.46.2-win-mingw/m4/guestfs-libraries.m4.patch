@@ -21,3 +21,13 @@
 <     AC_MSG_RESULT([$unix_path_max])
 <     AC_DEFINE_UNQUOTED([UNIX_PATH_MAX], $unix_path_max, [Custom value for UNIX_PATH_MAX])
 <   ])
+251,259d228
+< dnl Check for Augeas >= 1.2.0 (required).
+< PKG_CHECK_MODULES([AUGEAS],[augeas >= 1.2.0])
+< 
+< dnl Check for aug_source function, added in Augeas 1.8.0.
+< old_LIBS="$LIBS"
+< LIBS="$AUGEAS_LIBS"
+< AC_CHECK_FUNCS([aug_source])
+< LIBS="$old_LIBS"
+< 

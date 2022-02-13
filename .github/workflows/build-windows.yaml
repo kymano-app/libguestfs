@@ -77,7 +77,8 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Install augeas 
+      - name: Install augeas
+        if: false 
         run: |
           git clone https://github.com/hercules-team/augeas.git
           cd augeas
