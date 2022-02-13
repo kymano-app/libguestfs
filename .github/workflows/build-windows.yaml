@@ -50,6 +50,7 @@ jobs:
             coreutils
             po4a
             ncurses
+            ncurses-devel
       - name: Find
         if: true
         run: |
