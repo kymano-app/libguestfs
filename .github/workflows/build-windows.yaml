@@ -64,10 +64,11 @@ jobs:
           ls -l /
           ls -l /mingw64/include
           ls -l /mingw64/x86_64-w64-mingw32/include
+          ls -l /mingw64/x86_64-w64-mingw32/
           echo "ls -l /mingw64/lib/"
           ls -l /mingw64/
           echo "find"
-          find /mingw64/ -name "afunix.h"
+          find /mingw64/ -name "xdr.h"
 
       - name: Checkout
         uses: actions/checkout@v2
