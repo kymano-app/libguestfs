@@ -16,17 +16,6 @@ jobs:
         arch: [x86_64]
         platform: [windows]
     steps:
-      - name: test
-        shell: bash 
-        run: |
-          ls -l "/cygdrive/c/"
-          ls -l "/cygdrive/c/Program Files (x86)"
-          #ls -l /cygdrive/c/msys64/
-          #ls -l /cygdrive/c/msys64/mingw64/
-          #ls -l /cygdrive/c/msys64/mingw64/x86_64-w64-mingw32/include/
-          ls -l /cygdrive/c/Program Files (x86)/Windows Kits/10/Include/10.0.22000.0/shared/
-
-
       - name: Msgmerge fix
         shell: pwsh 
         run: |
@@ -37,6 +26,15 @@ jobs:
         with:
           platform: x64
           packages: wget
+
+      - name: test
+        run: |
+          ls -l "/cygdrive/c/"
+          ls -l "/cygdrive/c/Program Files (x86)"
+          #ls -l /cygdrive/c/msys64/
+          #ls -l /cygdrive/c/msys64/mingw64/
+          #ls -l /cygdrive/c/msys64/mingw64/x86_64-w64-mingw32/include/
+          ls -l /cygdrive/c/Program Files (x86)/Windows Kits/10/Include/10.0.22000.0/shared/
 
       - name: Install apt-cyg 
         run: |
