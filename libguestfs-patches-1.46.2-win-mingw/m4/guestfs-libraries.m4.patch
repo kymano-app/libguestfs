@@ -2,3 +2,7 @@
 < #include <sys/un.h>
 ---
 > #include "afunix.h"
+108c108
+< #include <sys/un.h>
+---
+> #include "afunix.h"
