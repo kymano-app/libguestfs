@@ -86,7 +86,8 @@ jobs:
           cp ../augeas-patches/pwd.h /mingw64/include/
           cp ../augeas-patches/pwd.h /mingw64/x86_64-w64-mingw32/include/
           ./autogen.sh
-          make && make install
+          make CFLAGS="-I/usr/include/ -I/mingw64/include/ -I/mingw64/x86_64-w64-mingw32/include/ " --trace 
+          make install
           cp /usr/local/lib/pkgconfig/augeas.pc /usr/share/pkgconfig/
 
       - name: Hivex
