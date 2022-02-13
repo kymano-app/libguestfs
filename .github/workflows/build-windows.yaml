@@ -53,7 +53,7 @@ jobs:
             mingw-w64-x86_64-ncurses
             libtirpc-devel
             mingw-w64-x86_64-pcre2
-            mingw-w64-libxml2
+            mingw-w64-x86_64-libxml2
             findutils
 
       - name: Find
