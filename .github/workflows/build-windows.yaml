@@ -53,6 +53,7 @@ jobs:
       - name: Find
         if: true
         run: |
+          # D:\a\_temp\msys64\mingw64\
           echo "ls -l /mingw64/lib/"
           ls -l /mingw64/lib/
           echo "ls -l /mingw64/lib/"
