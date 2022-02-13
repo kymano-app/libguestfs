@@ -67,7 +67,7 @@ jobs:
           ls -l /mingw64/
 
           export PKG_CONFIG_PATH=$(pkg-config --variable pc_path pkg-config):/usr/lib/pkgconfig
-          pkg-config --list-all
+          /mingw64/bin/pkg-config --list-all
           which pkg-config
 
       - name: Checkout
@@ -96,6 +96,7 @@ jobs:
         run: |
           export PKG_CONFIG_EXECUTABLE=/mingw64/bin/pkg-config
           export PKG_CONFIG=/mingw64/bin/pkg-config
+          export PKG_CONFIG_PATH=$(pkg-config --variable pc_path pkg-config):/usr/lib/pkgconfig
 
           echo $PKG_CONFIG_EXECUTABLE
           /mingw64/bin/pkg-config --list-all
