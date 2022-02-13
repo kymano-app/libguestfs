@@ -62,8 +62,8 @@ jobs:
           # D:\a\_temp\msys64\mingw64\
           echo "ls -l /mingw64/lib/"
           ls -l /
-          ls -l /mingw64/
-          ls -l /mingw64/usr/
+          ls -l /mingw64/include
+          ls -l /mingw64/x86_64-w64-mingw32/include
           echo "ls -l /mingw64/lib/"
           ls -l /mingw64/
           echo "find"
