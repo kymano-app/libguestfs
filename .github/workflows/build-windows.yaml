@@ -67,7 +67,7 @@ jobs:
           echo "ls -l /mingw64/lib/"
           ls -l /mingw64/
           echo "find"
-          find /mingw64/ -name "xdr.h"
+          find / -name "xdr.h" 2>/dev/null
 
       - name: Checkout
         uses: actions/checkout@v2
