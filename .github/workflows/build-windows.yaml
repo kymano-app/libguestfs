@@ -50,7 +50,12 @@ jobs:
             coreutils
             po4a
             ncurses
-
+      - name: Find
+        if: true
+        shell: pwsh 
+        run: |
+          Get-ChildItem -Path D:\ -Filter libglib-2.0.dll.a -Recurse -ErrorAction SilentlyContinue -Force          Get-ChildItem -Path D:\ -Filter libglib-2.0.dll -Recurse -ErrorAction SilentlyContinue -Force
+          
       - name: Checkout
         uses: actions/checkout@v2
         with:
@@ -123,9 +128,3 @@ jobs:
         run: |
           D:\a\_temp\msys64\usr\share\bash-completion\completions\cpio --help
           D:\a\_temp\msys64\usr\share\perl5\core_perl\IO\Compress\zip
-
-      - name: Find
-        if: false
-        shell: pwsh 
-        run: |
-          Get-ChildItem -Path D:\ -Filter zip.* -Recurse -ErrorAction SilentlyContinue -Force
