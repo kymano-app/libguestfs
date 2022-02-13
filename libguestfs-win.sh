@@ -38,6 +38,6 @@ autoreconf -i
 
 ./configure --with-qemu="no" --enable-debug --disable-appliance --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --enable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-fuse LDFLAGS="-L/usr/local/lib -L/usr/lib" LIBS="-lintl -lpcre2-8 -ljansson -ltirpc"
 
-make CFLAGS=" -I/cygdrive/c/msys64/mingw64/x86_64-w64-mingw32/include/ -I/usr/include/ -I/usr/lib/ocaml/" --trace
+make CFLAGS="-I/cygdrive/c/Program Files\ \(x86\)/Windows\ Kits/10/Include/10.0.22000.0/shared -I/usr/include/ -I/usr/lib/ocaml/" --trace
 
 ./run guestfish --help
