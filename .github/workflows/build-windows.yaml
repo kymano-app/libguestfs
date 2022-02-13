@@ -73,7 +73,6 @@ jobs:
       
       - name: Install Libguestfs
         run: |
-          cd libguestfs
           bash libguestfs-win.sh
 
       - name: Find
