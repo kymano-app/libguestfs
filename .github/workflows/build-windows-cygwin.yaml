@@ -17,6 +17,7 @@ jobs:
         platform: [windows]
     steps:
       - run: |
+          ls -l "/cygdrive/c/"
           ls -l "/cygdrive/c/Program Files (x86)"
           #ls -l /cygdrive/c/msys64/
           #ls -l /cygdrive/c/msys64/mingw64/
