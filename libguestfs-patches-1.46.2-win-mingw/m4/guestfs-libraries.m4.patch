@@ -2,7 +2,8 @@
 < #include <sys/un.h>
 ---
 > #include "afunix.h"
-108c108
+108,109c108
 < #include <sys/un.h>
+< struct sockaddr_un myaddr;
 ---
 > #include "afunix.h"
