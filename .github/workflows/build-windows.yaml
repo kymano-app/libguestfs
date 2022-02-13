@@ -86,6 +86,10 @@ jobs:
           ./configure
           make all
           make install
+      - name: Archive Test Results
+        if: always()
+        run: |
+          cat ocamlfind-findlib-1.9.3/ocargs.log
 
       - name: Install augeas
         if: false 
