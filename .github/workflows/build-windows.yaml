@@ -85,6 +85,7 @@ jobs:
           patch ./src/transform.c  ../augeas-patches/src/transform.c.patch
           patch ./src/internal.h ../augeas-patches/src/internal.h.patch
           cp ../augeas-patches/pwd.h .
+          cp ../augeas-patches/xtypes.h .
           ./autogen.sh
           make CFLAGS="-I/usr/include/ -I/mingw64/include/ -I/mingw64/x86_64-w64-mingw32/include/" --trace 
           make install
