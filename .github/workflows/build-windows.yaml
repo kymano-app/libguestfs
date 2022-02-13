@@ -60,8 +60,7 @@ jobs:
         if: true
         run: |
           # D:\a\_temp\msys64\mingw64\
-          echo "ls -l /mingw64/lib/"
-          ls -l /
+          ls -l /usr/
           ls -l /mingw64/include
           ls -l /mingw64/x86_64-w64-mingw32/include
           ls -l /mingw64/x86_64-w64-mingw32/
