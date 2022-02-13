@@ -53,7 +53,10 @@ jobs:
       - name: Find
         if: true
         run: |
-          find / -name libglib-2.0.dll.a
+          echo "ls -l /mingw64/lib/"
+          ls -l /mingw64/lib/
+          echo "ls -l /mingw64/lib/"
+          ls -l /mingw64/
 
       - name: Checkout
         uses: actions/checkout@v2
