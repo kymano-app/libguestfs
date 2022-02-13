@@ -33,6 +33,8 @@ patch examples/Makefile.am ../libguestfs-patches-1.44.2-2-win/examples/Makefile.
 patch gnulib/lib/getprogname.h ../libguestfs-patches-1.46.2-win/gnulib/lib/getprogname.h.patch
 patch docs/Makefile.am ../libguestfs-patches-1.46.2-win/docs/Makefile.am.patch
 patch lib/launch-direct.c ../libguestfs-patches-1.46.2-win/lib/launch-direct.c.patch
+patch fish/rc.c ../libguestfs-patches-1.46.2-win/fish/rc.c.patch
+patch lib/launch-unix.c ../libguestfs-patches-1.46.2-win/lib/launch-unix.c.patch 
 
 autoreconf -i
 
