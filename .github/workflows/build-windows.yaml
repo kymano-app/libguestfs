@@ -158,6 +158,7 @@ jobs:
           patch lib/launch-unix.c ../libguestfs-patches-1.46.2-win/lib/launch-unix.c.patch
           patch lib/launch-libvirt.c ../libguestfs-patches-1.46.2-win/lib/launch-libvirt.c.patch
           patch m4/guestfs-ocaml.m4 ../libguestfs-patches-1.46.2-win-mingw/m4/guestfs-ocaml.m4.patch 
+          patch ocaml/Makefile.am ../libguestfs-patches-1.46.2-win-mingw/ocaml/Makefile.am.patch
 
           autoreconf -i
 
