@@ -49,8 +49,8 @@ jobs:
             mingw-w64-x86_64-qemu
             coreutils
             po4a
-            ncurses
             ncurses-devel
+            mingw-w64-x86_64-ncurses
       - name: Find
         if: true
         run: |
