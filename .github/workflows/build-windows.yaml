@@ -65,6 +65,7 @@ jobs:
           ls -l /mingw64/x86_64-w64-mingw32/include
           ls -l /mingw64/x86_64-w64-mingw32/
           ls -l /mingw64/
+          find / -name "libtirpc.pc" 2>/dev/null
 
       - name: Checkout
         uses: actions/checkout@v2
