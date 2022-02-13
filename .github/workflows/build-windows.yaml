@@ -78,7 +78,6 @@ jobs:
 
       - name: Install augeas 
         run: |
-          cd libguestfs
           git clone https://github.com/hercules-team/augeas.git
           cd augeas
           git reset --hard 002b2d5b60c72da6f3326dfec72152b228a8357d
