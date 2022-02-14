@@ -136,6 +136,7 @@ jobs:
           mv hivex-windows.tgz ../
 
       - name: Release
+        if: false
         uses: softprops/action-gh-release@v1
         with:
           files: |
