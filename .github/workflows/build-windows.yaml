@@ -78,7 +78,7 @@ jobs:
           submodules: recursive
       
       - name: Install ocamlfind
-        if: true
+        if: false
         run: |
           # doesn't work
           ls -l /mingw64/lib/ocaml
@@ -91,10 +91,6 @@ jobs:
           ./configure
           make all
           make install
-      - name: Archive Test Results
-        if: always()
-        run: |
-          cat ocamlfind-findlib-1.9.3/ocargs.log
 
       - name: Install augeas
         if: false 
