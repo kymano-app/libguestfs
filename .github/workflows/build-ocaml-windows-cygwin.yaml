@@ -62,7 +62,7 @@ jobs:
         run: |
           tar -czvf ocaml.tgz ocaml/
       
-      - uses: actions/upload-artifact@v2§
+      - uses: actions/upload-artifact@v2
         with:
           name: my-artifact
           path: ocaml.tgz
