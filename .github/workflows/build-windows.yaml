@@ -57,10 +57,11 @@ jobs:
             findutils
 
       - name: Find
-        if: false
+        if: true
         run: |
-          find /usr -name "pwd.h" 
-          find /mingw64 -name "pwd.h" 
+          find /usr -name "fcntl.h" 
+          find /mingw64 -name "fcntl.h" 
+
           # D:\a\_temp\msys64\mingw64\
           ls -l /usr/include/rpc
           ls -l /mingw64/include
