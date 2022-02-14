@@ -51,9 +51,13 @@ jobs:
           ./configure --enable-imprecise-c99-float-ops --prefix=/home/runneradmin/ocaml/ocaml_package
           make
           make install
-          tar -czvf ocaml-windows.tgz ocaml_package/
-          mv ocaml-windows.tgz ../
+          tar -czvf ocamlwindows.tgz ocaml_package/
+          mv ocamlwindows.tgz ../
           cd ../
+          pwd
+          ls -l
+      - name: pwd
+        run: |
           pwd
           ls -l
 
