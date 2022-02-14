@@ -30,7 +30,9 @@ jobs:
       - name: Dir 
         shell: pwsh 
         run: |
+          dir C:\tools\cygwin\
           dir C:\tools\cygwin\home\
+          dir C:\tools\cygwin\usr\
 
       - name: test
         run: |
