@@ -146,7 +146,6 @@ jobs:
 
           patch ocaml/examples/Makefile.am ../libguestfs-patches-1.44.2-2/ocaml/examples/Makefile.am.patch
           patch configure.ac ../libguestfs-patches-1.44.2-2/configure.ac.patch
-          patch generator/Makefile.am ../libguestfs-patches-1.44.2-2-win/generator/Makefile.am.patch
           patch test-data/Makefile.am ../libguestfs-patches-1.44.2-2-win/test-data/Makefile.am.patch
           patch fuse/Makefile.am ../libguestfs-patches-1.44.2-2-win/fuse/Makefile.am.patch
           patch test-tool/Makefile.am ../libguestfs-patches-1.44.2-2-win/test-tool/Makefile.am.patch
@@ -164,7 +163,6 @@ jobs:
           patch erlang/Makefile.am ../libguestfs-patches-1.44.2-2-win/erlang/Makefile.am.patch
           patch gobject/Makefile.am ../libguestfs-patches-1.44.2-2-win/gobject/Makefile.am.patch
           patch php/Makefile.am ../libguestfs-patches-1.44.2-2-win/php/Makefile.am.patch
-          patch daemon/Makefile.am ../libguestfs-patches-1.44.2-2-win/daemon/Makefile.am.patch
           patch lua/Makefile.am ../libguestfs-patches-1.44.2-2-win/lua/Makefile.am.patch
           patch lib/guestfs-internal.h ../libguestfs-patches-1.44.2-2-win/lib/guestfs-internal.h.patch-0.1
           patch examples/Makefile.am ../libguestfs-patches-1.44.2-2-win/examples/Makefile.am.patch
@@ -177,6 +175,13 @@ jobs:
           patch lib/launch-libvirt.c ../libguestfs-patches-1.46.2-win/lib/launch-libvirt.c.patch
           patch m4/guestfs-ocaml.m4 ../libguestfs-patches-1.46.2-win-mingw/m4/guestfs-ocaml.m4.patch 
           patch ocaml/Makefile.am ../libguestfs-patches-1.46.2-win-mingw/ocaml/Makefile.am.patch
+          patch bundled/ocaml-augeas/configure.ac ../libguestfs-patches-1.46.2-win-mingw/bundled/ocaml-augeas/configure.ac.patch
+          common/mlgettext/Makefile.am ../libguestfs-patches-1.46.2-win-mingw/common/mlgettext/Makefile.am.patch
+          common/mlpcre/Makefile.am ../libguestfs-patches-1.46.2-win-mingw/common/mlpcre/Makefile.am.patch
+          common/mlstdutils/Makefile.am ../libguestfs-patches-1.46.2-win-mingw/common/mlstdutils/Makefile.am.patch
+          common/mlutils/Makefile.am ../libguestfs-patches-1.46.2-win-mingw/common/mlutils/Makefile.am.patch
+          daemon/Makefile.am ../libguestfs-patches-1.46.2-win-mingw/daemon/Makefile.am.patch
+          generator/Makefile.am ../libguestfs-patches-1.46.2-win-mingw/generator/Makefile.am.patch
 
           autoreconf -i
 

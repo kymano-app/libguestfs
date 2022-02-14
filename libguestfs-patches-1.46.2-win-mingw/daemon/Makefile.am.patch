@@ -1,0 +1,11 @@
+398c398
+< -include .depend
+---
+> #-include .depend
+403,405c403,404
+< TESTS_ENVIRONMENT = $(top_builddir)/run --test
+< TESTS = \
+< 	daemon_utils_tests
+---
+> TESTS_ENVIRONMENT = 
+> TESTS = 

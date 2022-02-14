@@ -1,0 +1,15 @@
+186c186
+< noinst_PROGRAM = generator
+---
+> noinst_PROGRAM =
+199c199
+< -include .depend
+---
+> #-include .depend
+201c201
+< noinst_DATA = stamp-generator
+---
+> noinst_DATA =
+215,216d214
+< 	cd $(top_srcdir) && $(abs_builddir)/generator
+< 	touch $@

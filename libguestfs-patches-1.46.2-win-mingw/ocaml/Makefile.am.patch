@@ -24,5 +24,8 @@
 < endif
 ---
 > check_DATA = 
-176a171
+177c171,172
+< -include .depend
+---
 > 
+> #-include .depend
