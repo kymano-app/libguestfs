@@ -8,15 +8,23 @@
 < 	guestfs_config.ml
 ---
 > CONFIGURE_GENERATED_ML = 
-74c72
+34,38c32
+< SOURCES_ML = \
+< 	$(CONFIGURE_GENERATED_ML) \
+< 	stringMap.ml \
+< 	stringSet.ml \
+< 	std_utils.ml
+---
+> SOURCES_ML =
+74c68
 < OCAMLPACKAGES_TESTS = $(MLSTDUTILS_CMA)
 ---
 > OCAMLPACKAGES_TESTS =
-76c74
+76c70
 < OCAMLPACKAGES_TESTS += -package ounit2
 ---
 > OCAMLPACKAGES_TESTS =
-117,125c115,116
+117,125c111,112
 < std_utils_tests_DEPENDENCIES = \
 < 	$(std_utils_tests_THEOBJECTS) \
 < 	$(MLSTDUTILS_CMA) \
@@ -29,15 +37,15 @@
 ---
 > std_utils_tests_DEPENDENCIES = 
 > std_utils_tests_LINK = 
-127c118
+127c114
 < TESTS_ENVIRONMENT = $(top_builddir)/run --test
 ---
 > TESTS_ENVIRONMENT =
-132,136d122
+132,136d118
 < if HAVE_OCAML_PKG_OUNIT
 < check_PROGRAMS += std_utils_tests
 < TESTS += std_utils_tests
 < endif
 < 
-143d128
+143d124
 < -include .depend
