@@ -48,7 +48,7 @@ jobs:
           mkdir ocaml-package
           git checkout 4.14
           git submodule update --init --recursive
-          ./configure --enable-imprecise-c99-float-ops --prefix=./ocaml-package
+          ./configure --enable-imprecise-c99-float-ops --prefix=/home/runneradmin/ocaml/ocaml-package
           make
           make install
 
