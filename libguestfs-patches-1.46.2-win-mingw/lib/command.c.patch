@@ -1,2 +1,27 @@
-94d93
+89a90
+> #include <bits/sigaction.h>
+94d94
 < #include <sys/select.h>
+102a103,104
+> #define O_NOCTTY 0
+> 
+465c467
+<     if (pipe2 (errorfd, O_CLOEXEC) == -1) {
+---
+>     if (pipe2 (errorfd, O_NOINHERIT) == -1) {
+473c475
+<     if (pipe2 (outfd, O_CLOEXEC) == -1) {
+---
+>     if (pipe2 (outfd, O_NOINHERIT) == -1) {
+565c567
+<     max_fd = sysconf (_SC_OPEN_MAX);
+---
+>     max_fd = -1;
+810c812
+<   if (pipe2 (fd, O_CLOEXEC) == -1) {
+---
+>   if (pipe2 (fd, O_NOINHERIT) == -1) {
+823c825
+<                 O_WRONLY|O_CREAT|O_NOCTTY|O_TRUNC|O_CLOEXEC, 0600);
+---
+>                 O_WRONLY|O_CREAT|O_NOCTTY|O_TRUNC|O_NOINHERIT, 0600);
