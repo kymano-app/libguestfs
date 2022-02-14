@@ -1,3 +1,7 @@
-28a29,30
+28a29,34
+> #include "windef.h"
+> #include "winsock2.h"
+> #include "windows.h"
+> #include "ws2tcpip.h"
 > #include "afunix.h"
 > 
