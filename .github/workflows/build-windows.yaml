@@ -56,10 +56,14 @@ jobs:
             mingw-w64-x86_64-libxml2
             findutils
             mingw-w64-x86_64-portablexdr
+      
       - name: Find
         if: true
         run: |
           cat D:/a/_temp/msys64/usr/include/rpc/rpc.h
+          cat /usr/include/rpc/rpc.h
+          cat /mingw64/include/rpc/rpc.h
+          cat /mingw64/x86_64-w64-mingw32/include/rpc.h
           #ls -l /mingw64/include/rpc/
           #ls -l /mingw64/include/rpc/xdr.h
           #ls -l /mingw64/include/rpc/rpc.h
@@ -67,6 +71,7 @@ jobs:
           find /usr -name "rpc.h" 
           find /mingw64 -name "rpc.h"
           ls -l /
+      
       - name: Find
         if: true
         run: |
