@@ -201,6 +201,7 @@ jobs:
           patch common/mlutils/Makefile.am ../libguestfs-patches-1.46.2-win-mingw/common/mlutils/Makefile.am.patch
           patch daemon/Makefile.am ../libguestfs-patches-1.46.2-win-mingw/daemon/Makefile.am.patch
           patch generator/Makefile.am ../libguestfs-patches-1.46.2-win-mingw/generator/Makefile.am.patch
+          patch gnulib/lib/cloexec.c ../libguestfs-patches-1.46.2-win-mingw/gnulib/lib/cloexec.c.patch
 
           autoreconf -i
 
