@@ -61,6 +61,8 @@ jobs:
         run: |
           find /usr -name "fcntl.h" 
           find /mingw64 -name "fcntl.h" 
+          cat /mingw64/x86_64-w64-mingw32/include/fcntl.h
+
 
           # D:\a\_temp\msys64\mingw64\
           ls -l /usr/include/rpc
