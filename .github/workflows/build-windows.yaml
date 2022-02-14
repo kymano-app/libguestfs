@@ -106,8 +106,18 @@ jobs:
           make CFLAGS="-I/usr/include/ -I/mingw64/include/ -I/mingw64/x86_64-w64-mingw32/include/" --trace 
           make install
           cp /usr/local/lib/pkgconfig/augeas.pc /usr/share/pkgconfig/
-
+      
       - name: Hivex
+        if: false
+        run: |
+          curl -OL https://github.com/kymano-app/libguestfs/releases/download/hivex-windows/hivex-windows.tgz
+          tar -xzf hivex-windows.tgz
+          cp hivex_package/lib/* /mingw64/lib/
+          cp hivex_package/share/* /mingw64/share/
+          cp hivex_package/include/* /mingw64/include/
+
+      - name: Hivex from source code
+        if: false
         run: |
           curl -OL https://download.libguestfs.org/hivex/hivex-1.3.21.tar.gz
           tar -xzf hivex-1.3.21.tar.gz
@@ -125,7 +135,7 @@ jobs:
           make install
           tar -czvf hivex-windows.tgz hivex_package/
           mv hivex-windows.tgz ../
-      
+
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
