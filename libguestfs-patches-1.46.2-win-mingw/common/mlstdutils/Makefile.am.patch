@@ -26,6 +26,22 @@
 > SOURCES_MLI = 
 > 
 > SOURCES_ML =
+45c33
+< noinst_LIBRARIES = libmlstdutils.a
+---
+> noinst_LIBRARIES = 
+48c36
+< MLSTDUTILS_CMA = mlstdutils.cma
+---
+> MLSTDUTILS_CMA = 
+50c38
+< MLSTDUTILS_CMA = mlstdutils.cmxa
+---
+> MLSTDUTILS_CMA = 
+55c43
+< noinst_DATA = mlstdutils.cma
+---
+> noinst_DATA = 
 74c62
 < OCAMLPACKAGES_TESTS = $(MLSTDUTILS_CMA)
 ---
