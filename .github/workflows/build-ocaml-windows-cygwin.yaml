@@ -19,7 +19,6 @@ jobs:
       - name: Msgmerge fix
         shell: pwsh 
         run: |
-          dir D:\a\_temp\
           Remove-Item "C:\Program Files\Git\usr\bin\msgmerge.exe"
 
       - name: Set up Cygwin
@@ -27,6 +26,12 @@ jobs:
         with:
           platform: x64
           packages: wget
+      
+      - name: Msgmerge fix
+        shell: pwsh 
+        run: |
+          dir D:\a\_temp\
+          Remove-Item "C:\Program Files\Git\usr\bin\msgmerge.exe"
 
       - name: test
         run: |
