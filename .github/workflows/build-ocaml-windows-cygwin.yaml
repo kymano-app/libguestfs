@@ -40,10 +40,7 @@ jobs:
       - name: Dir 
         shell: pwsh 
         run: |
-          dir C:\tools\cygwin\
-          dir C:\tools\cygwin\home\
-          dir C:\tools\cygwin\usr\
-          Get-ChildItem -Path C:\ -Filter ddygiiuhmDfdfdfdd -Recurse -ErrorAction SilentlyContinue -Force
+          dir C:\tools\cygwin\home\runneradmin\
 
       - name: Install libs for Ocaml
         run: |
