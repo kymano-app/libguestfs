@@ -165,12 +165,17 @@
 < noinst_PROGRAM = generator
 ---
 > noinst_PROGRAM =
-199d47
+191,194d39
+< 	$(MAKE) -C $(top_builddir)/common/mlstdutils mlstdutils.cma
+< 	$(OCAMLFIND) ocamlc $(OCAMLFLAGS) \
+< 	    $(OCAMLPACKAGES) -linkpkg mlstdutils.cma \
+< 	    $^ -o $@
+199d43
 < -include .depend
-201c49
+201c45
 < noinst_DATA = stamp-generator
 ---
 > noinst_DATA =
-215,216d62
+215,216d58
 < 	cd $(top_srcdir) && $(abs_builddir)/generator
 < 	touch $@
