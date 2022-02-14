@@ -181,7 +181,7 @@ jobs:
           patch generator/Makefile.am ../libguestfs-patches-1.46.2-win-mingw/generator/Makefile.am.patch
           patch gnulib/lib/cloexec.c ../libguestfs-patches-1.46.2-win-mingw/gnulib/lib/cloexec.c.patch
           patch gnulib/lib/nonblocking.c ../libguestfs-patches-1.46.2-win-mingw/gnulib/lib/nonblocking.c.patch
-          patch common/guestfs-utils.h ../libguestfs-patches-1.46.2-win-mingw/common/guestfs-utils.h.patch
+          patch common/utils/guestfs-utils.h ../libguestfs-patches-1.46.2-win-mingw/common/utils/guestfs-utils.h.patch
 
           autoreconf -i
 
