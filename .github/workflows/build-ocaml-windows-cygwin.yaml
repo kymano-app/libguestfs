@@ -27,7 +27,7 @@ jobs:
           platform: x64
           packages: wget
       
-      - name: Msgmerge fix
+      - name: Dir C:\tools\cygwin\home\
         shell: pwsh 
         run: |
           dir C:\tools\cygwin
