@@ -78,7 +78,10 @@ jobs:
           submodules: recursive
       
       - name: Install ocamlfind
+        if: true
         run: |
+          # doesn't work
+          ls -l /mingw64/lib/ocaml
           which ocamlc
           ocamlc -config
 
