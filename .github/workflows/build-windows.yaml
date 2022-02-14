@@ -125,7 +125,7 @@ jobs:
       - name: Install Libguestfs
         run: |
           rm -rf /usr/include/rpc/
-          
+
           export PKG_CONFIG_EXECUTABLE=/mingw64/bin/pkg-config
           export PKG_CONFIG=/mingw64/bin/pkg-config
           export PKG_CONFIG_PATH=$(pkg-config --variable pc_path pkg-config):/usr/lib/pkgconfig
@@ -181,6 +181,7 @@ jobs:
           patch generator/Makefile.am ../libguestfs-patches-1.46.2-win-mingw/generator/Makefile.am.patch
           patch gnulib/lib/cloexec.c ../libguestfs-patches-1.46.2-win-mingw/gnulib/lib/cloexec.c.patch
           patch gnulib/lib/nonblocking.c ../libguestfs-patches-1.46.2-win-mingw/gnulib/lib/nonblocking.c.patch
+          patch common/guestfs-utils.h ../libguestfs-patches-1.46.2-win-mingw/common/guestfs-utils.h.patch
 
           autoreconf -i
 
