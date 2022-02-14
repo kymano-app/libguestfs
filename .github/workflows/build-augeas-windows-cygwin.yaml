@@ -56,9 +56,13 @@ jobs:
           pwd
           ls -l
 
+      - name: pwd
+        run: |
+          pwd
+          ls -l
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            augeas-windows.tgz
+            *.tgz
           prerelease: true
