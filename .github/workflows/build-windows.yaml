@@ -60,10 +60,10 @@ jobs:
         if: true
         shell: bash
         run: |
-          ls -l /mingw64/include/rpc/
-          ls -l /mingw64/include/rpc/xdr.h
-          ls -l /mingw64/include/rpc/rpc.h
-          cat /mingw64/include/rpc/rpc.h
+          #ls -l /mingw64/include/rpc/
+          #ls -l /mingw64/include/rpc/xdr.h
+          #ls -l /mingw64/include/rpc/rpc.h
+          #cat /mingw64/include/rpc/rpc.h
           find /usr -name "rpc.h" 
           find /mingw64 -name "rpc.h"
           ls -l /
