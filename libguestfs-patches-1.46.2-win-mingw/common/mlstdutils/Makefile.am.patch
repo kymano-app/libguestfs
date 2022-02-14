@@ -1,30 +1,40 @@
-22,23c22
+20,38c20,26
+< EXTRA_DIST = \
+< 	$(SOURCES_MLI) \
 < 	$(filter-out $(CONFIGURE_GENERATED_ML),$(SOURCES_ML)) \
 < 	std_utils_tests.ml
----
-> 	$(filter-out $(CONFIGURE_GENERATED_ML),$(SOURCES_ML))
-25,26c24
+< 
 < CONFIGURE_GENERATED_ML = \
 < 	guestfs_config.ml
----
-> CONFIGURE_GENERATED_ML = 
-34,38c32
+< 
+< SOURCES_MLI = \
+< 	guestfs_config.mli \
+< 	std_utils.mli \
+< 	stringMap.mli \
+< 	stringSet.mli
+< 
 < SOURCES_ML = \
 < 	$(CONFIGURE_GENERATED_ML) \
 < 	stringMap.ml \
 < 	stringSet.ml \
 < 	std_utils.ml
 ---
+> EXTRA_DIST = 
+> 
+> CONFIGURE_GENERATED_ML = 
+> 
+> SOURCES_MLI = 
+> 
 > SOURCES_ML =
-74c68
+74c62
 < OCAMLPACKAGES_TESTS = $(MLSTDUTILS_CMA)
 ---
 > OCAMLPACKAGES_TESTS =
-76c70
+76c64
 < OCAMLPACKAGES_TESTS += -package ounit2
 ---
 > OCAMLPACKAGES_TESTS =
-117,125c111,112
+117,125c105,106
 < std_utils_tests_DEPENDENCIES = \
 < 	$(std_utils_tests_THEOBJECTS) \
 < 	$(MLSTDUTILS_CMA) \
@@ -37,15 +47,15 @@
 ---
 > std_utils_tests_DEPENDENCIES = 
 > std_utils_tests_LINK = 
-127c114
+127c108
 < TESTS_ENVIRONMENT = $(top_builddir)/run --test
 ---
 > TESTS_ENVIRONMENT =
-132,136d118
+132,136d112
 < if HAVE_OCAML_PKG_OUNIT
 < check_PROGRAMS += std_utils_tests
 < TESTS += std_utils_tests
 < endif
 < 
-143d124
+143d118
 < -include .depend
