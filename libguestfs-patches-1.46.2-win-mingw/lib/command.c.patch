@@ -13,7 +13,7 @@
 >     if (pipe2 (outfd, O_NOINHERIT) == -1) {
 541d541
 <   struct sigaction sa;
-554,572c554
+554,560d553
 <   memset (&sa, 0, sizeof sa);
 <   sa.sa_handler = SIG_DFL;
 <   sa.sa_flags = 0;
@@ -21,25 +21,11 @@
 <   for (i = 1; i < NSIG; ++i)
 <     sigaction (i, &sa, NULL);
 < 
-<   if (cmd->close_files) {
-<     /* Close all other file descriptors.  This ensures that we don't
-<      * hold open (eg) pipes from the parent process.
-<      */
-<     max_fd = sysconf (_SC_OPEN_MAX);
-<     if (max_fd == -1)
-<       max_fd = 1024;
-<     if (max_fd > 65536)
-<       max_fd = 65536;        /* bound the amount of work we do here */
-<     for (fd = 3; fd < max_fd; ++fd)
-<       close (fd);
-<   }
----
-> 
-810c792
+810c803
 <   if (pipe2 (fd, O_CLOEXEC) == -1) {
 ---
 >   if (pipe2 (fd, O_NOINHERIT) == -1) {
-823c805
+823c816
 <                 O_WRONLY|O_CREAT|O_NOCTTY|O_TRUNC|O_CLOEXEC, 0600);
 ---
 >                 O_WRONLY|O_CREAT|O_NOCTTY|O_TRUNC|O_NOINHERIT, 0600);
