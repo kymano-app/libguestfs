@@ -60,6 +60,9 @@ jobs:
       - name: Find
         if: true
         run: |
+          grep -R "ADDRESS_FAMILY" /mingw64/include/ 
+          grep -R "ADDRESS_FAMILY" /mingw64/x86_64-w64-mingw32/include/
+          grep -R "ADDRESS_FAMILY" /usr/include/
           echo "========D:/a/_temp/msys64/usr/include/rpc/rpc.h"
           cat D:/a/_temp/msys64/usr/include/rpc/rpc.h
           echo "========/usr/include/rpc/rpc.h"
