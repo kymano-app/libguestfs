@@ -58,8 +58,8 @@ jobs:
             mingw-w64-x86_64-portablexdr
       - name: Find
         if: true
-        shell: bash
         run: |
+          cat D:/a/_temp/msys64/usr/include/rpc/rpc.h
           #ls -l /mingw64/include/rpc/
           #ls -l /mingw64/include/rpc/xdr.h
           #ls -l /mingw64/include/rpc/rpc.h
@@ -105,21 +105,6 @@ jobs:
           make all
           make install
 
-      - name: Install augeas
-        if: false 
-        run: |
-          git clone https://github.com/hercules-team/augeas.git
-          cd augeas
-          git reset --hard 002b2d5b60c72da6f3326dfec72152b228a8357d
-          patch ./src/transform.c  ../augeas-patches/src/transform.c.patch
-          patch ./src/internal.h ../augeas-patches/src/internal.h.patch
-          cp ../augeas-patches/pwd.h .
-          cp ../augeas-patches/xtypes.h .
-          ./autogen.sh
-          make CFLAGS="-I/usr/include/ -I/mingw64/include/ -I/mingw64/x86_64-w64-mingw32/include/" --trace 
-          make install
-          cp /usr/local/lib/pkgconfig/augeas.pc /usr/share/pkgconfig/
-      
       - name: Hivex
         run: |
           curl -OL https://github.com/kymano-app/libguestfs/releases/download/hivex-windows/hivex-windows.tgz
