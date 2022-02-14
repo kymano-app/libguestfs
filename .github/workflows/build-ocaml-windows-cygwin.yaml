@@ -30,8 +30,7 @@ jobs:
       - name: Msgmerge fix
         shell: pwsh 
         run: |
-          dir D:\a\_temp\
-          Remove-Item "C:\Program Files\Git\usr\bin\msgmerge.exe"
+          dir C:\tools\cygwin
 
       - name: test
         run: |
