@@ -38,7 +38,7 @@ jobs:
      
       - name: Install libs
         run: |
-          apt-cyg install gcc-core binutils cmake gcc-g++ automake autoconf libtool gettext-devel libreadline-devel findutils-debuginfo wget libxml2-devel
+          apt-cyg install gcc-core binutils cmake gcc-g++ automake autoconf libtool gettext-devel libreadline-devel findutils-debuginfo wget libxml2-devel libiconv libiconv-devel 
 
       - name: Augeas from source code
         run: |
@@ -52,6 +52,9 @@ jobs:
           make && make install
           tar -czvf augeas-windows.tgz augeas_package/
           mv augeas-windows.tgz ../
+          cd ../
+          pwd
+          ls -l
 
       - name: Release
         uses: softprops/action-gh-release@v1
