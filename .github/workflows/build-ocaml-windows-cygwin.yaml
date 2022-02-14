@@ -53,6 +53,9 @@ jobs:
           make install
           tar -czvf ocaml-windows.tgz ocaml_package/
           mv ocaml-windows.tgz ../
+          cd ../
+          pwd
+          ls -l
 
       - name: Release
         uses: softprops/action-gh-release@v1
