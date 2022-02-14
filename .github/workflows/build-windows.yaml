@@ -172,12 +172,12 @@ jobs:
           patch m4/guestfs-ocaml.m4 ../libguestfs-patches-1.46.2-win-mingw/m4/guestfs-ocaml.m4.patch 
           patch ocaml/Makefile.am ../libguestfs-patches-1.46.2-win-mingw/ocaml/Makefile.am.patch
           patch bundled/ocaml-augeas/configure.ac ../libguestfs-patches-1.46.2-win-mingw/bundled/ocaml-augeas/configure.ac.patch
-          common/mlgettext/Makefile.am ../libguestfs-patches-1.46.2-win-mingw/common/mlgettext/Makefile.am.patch
-          common/mlpcre/Makefile.am ../libguestfs-patches-1.46.2-win-mingw/common/mlpcre/Makefile.am.patch
-          common/mlstdutils/Makefile.am ../libguestfs-patches-1.46.2-win-mingw/common/mlstdutils/Makefile.am.patch
-          common/mlutils/Makefile.am ../libguestfs-patches-1.46.2-win-mingw/common/mlutils/Makefile.am.patch
-          daemon/Makefile.am ../libguestfs-patches-1.46.2-win-mingw/daemon/Makefile.am.patch
-          generator/Makefile.am ../libguestfs-patches-1.46.2-win-mingw/generator/Makefile.am.patch
+          patch common/mlgettext/Makefile.am ../libguestfs-patches-1.46.2-win-mingw/common/mlgettext/Makefile.am.patch
+          patch common/mlpcre/Makefile.am ../libguestfs-patches-1.46.2-win-mingw/common/mlpcre/Makefile.am.patch
+          patch common/mlstdutils/Makefile.am ../libguestfs-patches-1.46.2-win-mingw/common/mlstdutils/Makefile.am.patch
+          patch common/mlutils/Makefile.am ../libguestfs-patches-1.46.2-win-mingw/common/mlutils/Makefile.am.patch
+          patch daemon/Makefile.am ../libguestfs-patches-1.46.2-win-mingw/daemon/Makefile.am.patch
+          patch generator/Makefile.am ../libguestfs-patches-1.46.2-win-mingw/generator/Makefile.am.patch
 
           autoreconf -i
 
