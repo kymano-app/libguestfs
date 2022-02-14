@@ -23,10 +23,11 @@ jobs:
           echo ::set-output name=TAG::${GITHUB_REF#refs/tags/}
       - name: Find
         if: true
+        shell: bash
         run: |
           find /usr -name "rpc.h" 
           find /mingw64 -name "rpc.h"
-          find / -name "rpc.h"
+          ls -l /
 
       - uses: msys2/setup-msys2@v2
         with:
