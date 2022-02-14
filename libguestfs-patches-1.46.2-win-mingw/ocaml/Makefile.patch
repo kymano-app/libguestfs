@@ -1,0 +1,28 @@
+24,25c24
+< 	guestfs-c-errnos.c \
+< 	$(srcdir)/bindtests.ml
+---
+> 	guestfs-c-errnos.c
+31,33c30
+< 	META.in \
+< 	run-bindtests \
+< 	t/*.ml
+---
+> 	META.in
+112c109
+< TESTS_ENVIRONMENT = $(top_builddir)/run --test
+---
+> TESTS_ENVIRONMENT = 
+155c152
+< TESTS = run-bindtests $(test_progs_all)
+---
+> TESTS = 
+157,160c154
+< check_DATA = bindtests.bc $(test_progs_all)
+< if HAVE_OCAMLOPT
+< check_DATA += bindtests.opt
+< endif
+---
+> check_DATA = 
+177d170
+< -include .depend

@@ -1,8 +1,6 @@
-398c398
+398d397
 < -include .depend
----
-> #-include .depend
-403,405c403,404
+403,405c402,403
 < TESTS_ENVIRONMENT = $(top_builddir)/run --test
 < TESTS = \
 < 	daemon_utils_tests
