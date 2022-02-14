@@ -52,8 +52,8 @@ jobs:
           make
           make install
           tar -czvf ocaml-windows.tgz ocaml_package/
-          mv ocaml-windows.tgz ../../
-          cd ../../
+          mv ocaml-windows.tgz ../
+          cd ../
           pwd
           ls -l
 
