@@ -21,13 +21,6 @@ jobs:
         shell: bash
         run: |
           echo ::set-output name=TAG::${GITHUB_REF#refs/tags/}
-      - name: Find
-        if: true
-        shell: bash
-        run: |
-          find /usr -name "rpc.h" 
-          find /mingw64 -name "rpc.h"
-          ls -l /
 
       - uses: msys2/setup-msys2@v2
         with:
@@ -62,7 +55,14 @@ jobs:
             mingw-w64-x86_64-pcre2
             mingw-w64-x86_64-libxml2
             findutils
-
+            mingw-w64-x86_64-portablexdr
+      - name: Find
+        if: true
+        shell: bash
+        run: |
+          find /usr -name "rpc.h" 
+          find /mingw64 -name "rpc.h"
+          ls -l /
       - name: Find
         if: true
         run: |
