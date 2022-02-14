@@ -1,0 +1,4 @@
+72c72
+<   fd = open (appliance, O_RDONLY|O_CLOEXEC);
+---
+>   fd = open (appliance, O_RDONLY|O_NOINHERIT);
