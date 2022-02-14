@@ -14,7 +14,7 @@ jobs:
         platform: [windows]
     defaults:
       run:
-        shell: msys2 {0}
+        shell: msys2 {0} 
     steps:
       - name: Branch name
         id: branch_name
