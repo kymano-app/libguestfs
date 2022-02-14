@@ -38,7 +38,7 @@ jobs:
      
       - name: Install libs
         run: |
-          apt-cyg install gcc-core binutils cmake gcc-g++ automake autoconf libtool gettext-devel libreadline-devel findutils-debuginfo wget libxml2-devel libiconv libiconv-devel 
+          apt-cyg install gcc-core binutils cmake gcc-g++ automake autoconf libtool gettext-devel libreadline-devel findutils-debuginfo wget libxml2-devel libiconv libiconv-devel  bison
 
       - name: Augeas from source code
         run: |
@@ -51,8 +51,8 @@ jobs:
           ./autogen.sh --prefix=/home/runneradmin/libguestfs/augeas/augeas_package
           make && make install
           tar -czvf augeas-windows.tgz augeas_package/
-          mv augeas-windows.tgz ../
-          cd ../
+          mv augeas-windows.tgz ../../
+          cd ../../
           pwd
           ls -l
 
