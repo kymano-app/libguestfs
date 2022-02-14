@@ -61,6 +61,11 @@ jobs:
       - name: Compress
         run: |
           tar -czvf ocaml.tgz ocaml/
+      
+      - uses: actions/upload-artifact@v2§
+        with:
+          name: my-artifact
+          path: ocaml.tgz
 
       - name: Release
         uses: softprops/action-gh-release@v1
