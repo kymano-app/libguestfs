@@ -130,7 +130,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            hivex-windows.tgz.tgz
+            hivex-windows.tgz
           prerelease: true
 
       - name: Install Libguestfs
