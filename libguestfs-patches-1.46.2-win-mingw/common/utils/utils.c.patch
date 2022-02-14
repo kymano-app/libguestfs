@@ -1,2 +1,27 @@
 36d35
 < #include <sys/wait.h>
+151,174d149
+<   int fd;
+<   size_t i;
+<   unsigned char c;
+<   int saved_errno;
+< 
+<   fd = open ("/dev/urandom", O_RDONLY|O_CLOEXEC);
+<   if (fd == -1)
+<     return -1;
+< 
+<   for (i = 0; i < len; ++i) {
+<     if (read (fd, &c, 1) != 1) {
+<       saved_errno = errno;
+<       close (fd);
+<       errno = saved_errno;
+<       return -1;
+<     }
+<     /* Do not change this! */
+<     ret[i] = "0123456789abcdefghijklmnopqrstuvwxyz"[c % 36];
+<   }
+<   ret[len] = '\0';
+< 
+<   if (close (fd) == -1)
+<     return -1;
+< 
