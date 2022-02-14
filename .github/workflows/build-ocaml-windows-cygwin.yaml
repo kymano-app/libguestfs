@@ -67,7 +67,6 @@ jobs:
       - name: Compress
         run: |
           tar -czvf ocaml.tgz ocaml/
-          ls -l C:\tools\cygwin\home\runneradmin\ocaml.tgz
       
       - uses: actions/upload-artifact@v2
         with:
