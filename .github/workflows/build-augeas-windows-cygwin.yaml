@@ -56,10 +56,11 @@ jobs:
           pwd
           ls -l
 
-      - name: pwd
-        run: |
-          pwd
-          ls -l
+      - uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: C:\tools\cygwin\home\runneradmin\augeas-windows.tgz
+
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
