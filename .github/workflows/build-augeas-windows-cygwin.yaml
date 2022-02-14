@@ -51,8 +51,8 @@ jobs:
           ./autogen.sh --prefix=/home/runneradmin/libguestfs/augeas/augeas_package
           make && make install
           tar -czvf augeas-windows.tgz augeas_package/
-          mv augeas-windows.tgz ../../
-          cd ../../
+          mv augeas-windows.tgz ../
+          cd ../
           pwd
           ls -l
 
