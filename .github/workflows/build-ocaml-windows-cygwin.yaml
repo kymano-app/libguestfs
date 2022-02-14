@@ -63,6 +63,7 @@ jobs:
           tar -czvf ocaml.tgz ocaml/
 
       - name: pwd
+        shell: bash 
         run: |
           pwd
           ls -l
