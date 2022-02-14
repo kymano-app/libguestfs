@@ -27,13 +27,6 @@ jobs:
           platform: x64
           packages: wget
       
-      - name: Dir 
-        shell: pwsh 
-        run: |
-          dir C:\tools\cygwin\
-          dir C:\tools\cygwin\home\
-          dir C:\tools\cygwin\usr\
-
       - name: test
         run: |
           pwd
@@ -42,7 +35,16 @@ jobs:
         run: |
           wget rawgit.com/transcode-open/apt-cyg/master/apt-cyg -O apt-cyg
           install apt-cyg /bin
-     
+          echo 'ddygiiuhmDfdfdfdd' > ddygiiuhmDfdfdfdd
+      
+      - name: Dir 
+        shell: pwsh 
+        run: |
+          dir C:\tools\cygwin\
+          dir C:\tools\cygwin\home\
+          dir C:\tools\cygwin\usr\
+          Get-ChildItem -Path C:\ -Filter ddygiiuhmDfdfdfdd -Recurse -ErrorAction SilentlyContinue -Force
+
       - name: Install libs for Ocaml
         run: |
           apt-cyg install gcc-core flexdll binutils cmake gcc-g++ automake autoconf libtool python flex bison coreutils opam
