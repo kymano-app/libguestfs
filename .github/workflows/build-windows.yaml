@@ -57,7 +57,7 @@ jobs:
             findutils
 
       - name: Find
-        if: true
+        if: false
         run: |
           find /usr -name "pwd.h" 
           find /mingw64 -name "pwd.h" 
