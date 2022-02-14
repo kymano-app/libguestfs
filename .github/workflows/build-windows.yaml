@@ -184,6 +184,7 @@ jobs:
           patch common/utils/guestfs-utils.h ../libguestfs-patches-1.46.2-win-mingw/common/utils/guestfs-utils.h.patch
           patch common/utils/utils.c ../libguestfs-patches-1.46.2-win-mingw/common/utils/utils.c.patch
           patch lib/guestfs-internal.h ../libguestfs-patches-1.46.2-win-mingw/lib/guestfs-internal.h.patch
+          patch lib/appliance.c ../libguestfs-patches-1.46.2-win-mingw/lib/appliance.c.patch
 
           autoreconf -i
 
