@@ -61,5 +61,5 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            ocaml-windows.tgz
+            *.tgz
           prerelease: true
