@@ -21,6 +21,10 @@
 <   for (i = 1; i < NSIG; ++i)
 <     sigaction (i, &sa, NULL);
 < 
+565c558
+<     max_fd = sysconf (_SC_OPEN_MAX);
+---
+>     max_fd = -1;
 810c803
 <   if (pipe2 (fd, O_CLOEXEC) == -1) {
 ---
