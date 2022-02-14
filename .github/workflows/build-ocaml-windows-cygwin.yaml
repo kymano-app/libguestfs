@@ -27,10 +27,10 @@ jobs:
           platform: x64
           packages: wget
       
-      - name: Dir C:\tools\cygwin\home\
+      - name: Dir 
         shell: pwsh 
         run: |
-          dir C:\tools\cygwin
+          dir C:\tools\cygwin\home\
 
       - name: test
         run: |
@@ -66,12 +66,12 @@ jobs:
       - name: Compress
         run: |
           tar -czvf ocaml.tgz ocaml/
-          ls -l /home/runneradmin/ocaml.tgz
+          ls -l C:\tools\cygwin\home\runneradmin\ocaml.tgz
       
       - uses: actions/upload-artifact@v2
         with:
           name: my-artifact
-          path: /home/runneradmin/ocaml.tgz
+          path: C:\tools\cygwin\home\runneradmin\ocaml.tgz
 
       - name: Release
         uses: softprops/action-gh-release@v1
