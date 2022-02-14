@@ -1,5 +1,7 @@
-34,37d33
+33,36c33
+< 
 < # include <sys/ioctl.h>
 < # include <sys/socket.h>
 < # include <unistd.h>
-< 
+---
+> #include <winsock2.h>
