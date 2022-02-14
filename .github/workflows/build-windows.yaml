@@ -111,9 +111,9 @@ jobs:
         run: |
           curl -OL https://github.com/kymano-app/libguestfs/releases/download/hivex-windows/hivex-windows.tgz
           tar -xzf hivex-windows.tgz
-          cp hivex_package/lib/* /mingw64/lib/
-          cp hivex_package/share/* /mingw64/share/
-          cp hivex_package/include/* /mingw64/include/
+          cp -r hivex_package/lib/* /mingw64/lib/
+          cp -r hivex_package/share/* /mingw64/share/
+          cp -r hivex_package/include/* /mingw64/include/
 
       - name: Hivex from source code
         if: false
