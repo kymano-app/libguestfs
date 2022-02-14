@@ -57,7 +57,7 @@ jobs:
             findutils
 
       - name: Find
-        if: true
+        if: false
         run: |
           find /usr -name "fcntl.h" 
           find /mingw64 -name "fcntl.h" 
