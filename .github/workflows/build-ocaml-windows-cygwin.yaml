@@ -16,6 +16,11 @@ jobs:
         arch: [x86_64]
         platform: [windows]
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
       - name: Msgmerge fix
         shell: pwsh 
         run: |
