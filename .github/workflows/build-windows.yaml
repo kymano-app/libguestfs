@@ -108,7 +108,6 @@ jobs:
           cp /usr/local/lib/pkgconfig/augeas.pc /usr/share/pkgconfig/
       
       - name: Hivex
-        if: false
         run: |
           curl -OL https://github.com/kymano-app/libguestfs/releases/download/hivex-windows/hivex-windows.tgz
           tar -xzf hivex-windows.tgz
