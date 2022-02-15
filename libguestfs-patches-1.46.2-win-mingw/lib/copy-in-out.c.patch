@@ -1,2 +1,6 @@
 26d25
 < #include <sys/wait.h>
+120c119
+<   if (mkdir (d.basename, 0777) == -1 && errno != EEXIST) {
+---
+>   if (mkdir (d.basename) == -1 && errno != EEXIST) {
