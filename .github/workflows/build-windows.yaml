@@ -190,6 +190,7 @@ jobs:
           patch lib/conn-socket.c ../libguestfs-patches-1.46.2-win-mingw/lib/conn-socket.c.patch
           patch lib/copy-in-out.c ../libguestfs-patches-1.46.2-win-mingw/lib/copy-in-out.c.patch
           patch lib/create.c ../libguestfs-patches-1.46.2-win-mingw/lib/create.c.patch
+          patch lib/drives.c ../libguestfs-patches-1.46.2-win-mingw/lib/drives.c.patch
 
 
           cp ../libguestfs-patches-1.46.2-win-mingw/pollwin.h .

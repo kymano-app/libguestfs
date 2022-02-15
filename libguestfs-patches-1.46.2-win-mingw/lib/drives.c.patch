@@ -1,0 +1,10 @@
+31,32d30
+< #include <netdb.h>
+< #include <arpa/inet.h>
+35a34,39
+> #include "windef.h"
+> #include "winsock2.h"
+> #include "windows.h"
+> #include "ws2tcpip.h"
+> #include "afunix.h"
+> 
