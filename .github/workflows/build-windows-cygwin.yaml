@@ -129,15 +129,18 @@ jobs:
 
       - name: Install augeas 
         run: |
-          wget https://github.com/kymano-app/libguestfs/releases/download/augeas-win/augeas-windows.tgz
+          wget https://github.com/kymano-app/libguestfs/releases/download/augeas-win-cygwin/augeas-windows.tgz
           tar -xzf augeas-windows.tgz
           
+          sed -i '1s/.*/prefix=\/usr\/local/' "augeas_package/lib/pkgconfig/augeas.pc"
+          cat augeas_package/lib/pkgconfig/augeas.pc
+
           cp -r augeas_package/lib/pkgconfig/* /usr/share/pkgconfig/
 
           cp -r augeas_package/lib/* /usr/local/lib/
           cp -r augeas_package/bin/* /usr/local/bin/
           cp -r augeas_package/include/* /usr/local/include/
-          cp -r augeas_package/share/* /usr/local/share/
+          cp -r augeas_package/share /usr/local/
 
       - name: Install PCRE2
         if: false
