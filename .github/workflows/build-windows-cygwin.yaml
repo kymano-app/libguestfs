@@ -47,13 +47,12 @@ jobs:
       - name: Install Ocaml
         run: |
           rm -rf /usr/lib/ocaml/
-          git clone https://github.com/ocaml/ocaml.git
-          cd ocaml
-          git checkout 4.14
-          git submodule update --init --recursive
-          ./configure --enable-imprecise-c99-float-ops --prefix=/usr
-          make
-          make install
+          wget https://github.com/kymano-app/libguestfs/releases/download/Ocaml-win/ocaml_windows.tgz
+          tar -xzf ocaml_windows.tgz
+          cp -r ocaml_package/lib/* /usr/lib/
+          cp -r ocaml_package/bin/* /usr/bin/
+          cp -r ocaml_package/man/* /usr/man/
+          cp -r ocaml_package/share/* /usr/lib/
       
       - name: Install libs for opam
         if: false
@@ -141,14 +140,15 @@ jobs:
 
       - name: Install augeas 
         run: |
-          cd libguestfs
-          git clone https://github.com/hercules-team/augeas.git
-          cd augeas
-          git reset --hard 002b2d5b60c72da6f3326dfec72152b228a8357d
-          patch ./src/transform.c  ../augeas-patches/src/transform.c.patch
-          ./autogen.sh
-          make && make install
-          cp /usr/local/lib/pkgconfig/augeas.pc /usr/share/pkgconfig/
+          wget https://github.com/kymano-app/libguestfs/releases/download/augeas-win/augeas-windows.tgz
+          tar -xzf augeas-windows.tgz
+          
+          cp augeas_package/lib/pkgconfig/* /usr/share/pkgconfig/
+
+          cp augeas_package/lib/* /usr/local/lib/
+          cp augeas_package/bin/* /usr/local/bin/
+          cp augeas_package/include/* /usr/local/include/
+          cp augeas_package/share/* /usr/local/share/
 
       - name: Install PCRE2
         if: false
