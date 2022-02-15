@@ -2,7 +2,8 @@
 < #include <poll.h>
 34d32
 < #include <sys/socket.h>  /* accept4 */
-38a37,41
+38a37,42
+> #include "pollwin.h"
 > #include "windef.h"
 > #include "winsock2.h"
 > #include "windows.h"
