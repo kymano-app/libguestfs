@@ -88,6 +88,7 @@ jobs:
           cp -r hivex_package/lib/* /usr/local/lib/
           cp -r hivex_package/bin/* /usr/local/bin/
           cp -r hivex_package/share/* /usr/local/lib/
+          cp -r hivex_package/include /usr/local/
       
       - name: Install libs for Augeas
         run: |
