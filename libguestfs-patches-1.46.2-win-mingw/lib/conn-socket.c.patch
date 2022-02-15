@@ -1,0 +1,10 @@
+32d31
+< #include <poll.h>
+34d32
+< #include <sys/socket.h>  /* accept4 */
+38a37,41
+> #include "windef.h"
+> #include "winsock2.h"
+> #include "windows.h"
+> #include "afunix.h"
+> 

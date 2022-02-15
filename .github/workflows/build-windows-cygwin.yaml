@@ -51,7 +51,6 @@ jobs:
           tar -xzf ocaml_windows.tgz
           cp -r ocaml_package/lib/* /usr/lib/
           cp -r ocaml_package/bin/* /usr/bin/
-          cp -r ocaml_package/man/* /usr/man/
           cp -r ocaml_package/share/* /usr/lib/
       
       - name: Install libs for opam

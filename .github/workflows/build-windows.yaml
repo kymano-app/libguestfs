@@ -187,6 +187,7 @@ jobs:
           patch lib/appliance.c ../libguestfs-patches-1.46.2-win-mingw/lib/appliance.c.patch
           patch lib/appliance-kcmdline.c ../libguestfs-patches-1.46.2-win-mingw/lib/appliance-kcmdline.c.patch
           patch lib/command.c ../libguestfs-patches-1.46.2-win-mingw/lib/command.c.patch
+          patch lib/conn-socket.c ../libguestfs-patches-1.46.2-win-mingw/lib/conn-socket.c.patch
 
           autoreconf -i
 
