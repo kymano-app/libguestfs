@@ -82,7 +82,7 @@ jobs:
       - name: Install Hivex 
         run: |
           wget https://github.com/kymano-app/libguestfs/releases/download/Hivex-win-cygwin/hivex_windows.tgz
-          tzr -xzf hivex_windows.tgz
+          tar -xzf hivex_windows.tgz
 
           cp -r hivex_package/lib/pkgconfig/* /usr/share/pkgconfig/
           cp -r hivex_package/lib/* /usr/local/lib/
