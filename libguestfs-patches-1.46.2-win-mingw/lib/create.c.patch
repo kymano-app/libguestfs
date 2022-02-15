@@ -1,3 +1,14 @@
-35,36d34
+24a25,26
+> #define O_NOCTTY 0
+> 
+35,36d36
 < #include <sys/wait.h>
 < #include <sys/ioctl.h>
+108c108
+<   fd = open (filename, O_WRONLY|O_NOCTTY|O_CLOEXEC, 0666);
+---
+>   fd = open (filename, O_WRONLY|O_NOCTTY|O_NOINHERIT, 0666);
+179c179
+<   fd = open (filename, O_WRONLY|O_CREAT|O_NOCTTY|O_TRUNC|O_CLOEXEC, 0666);
+---
+>   fd = open (filename, O_WRONLY|O_CREAT|O_NOCTTY|O_TRUNC|O_NOINHERIT, 0666);
