@@ -1,0 +1,78 @@
+name: Windows
+
+on:
+  push:
+    tags:
+      - "hivex-windows-cygwin" 
+
+jobs:
+  build:
+    runs-on: windows-2019
+    defaults:
+      run:
+        shell: C:\tools\cygwin\bin\bash.exe --login -o igncr '{0}'
+    strategy:
+      matrix:
+        arch: [x86_64]
+        platform: [windows]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Set up Cygwin
+        uses: egor-tensin/setup-cygwin@v3
+        with:
+          platform: x64
+          packages: wget
+      
+      - name: test
+        run: |
+          pwd
+
+      - name: Install apt-cyg 
+        run: |
+          wget rawgit.com/transcode-open/apt-cyg/master/apt-cyg -O apt-cyg
+          install apt-cyg /bin
+
+      - name: Install libs for Hivex
+        run: |
+          apt-cyg install gcc-core flexdll binutils cmake gcc-g++ automake autoconf libtool python flex bison coreutils opam cpio  libiconv libiconv-devel gettext  po4a ncurses   ninja genisoimage   byacc libncurses-devel git mingw64-x86_64-gettext lynx gperf
+
+      - name: Hivex from source code
+        run: |
+          git clone https://github.com/kymano-app/libguestfs.git
+          cd libguestfs
+          curl -OL https://download.libguestfs.org/hivex/hivex-1.3.21.tar.gz
+          tar -xzf hivex-1.3.21.tar.gz
+          cd hivex-1.3.21
+          
+          rm -rf ./aclocal.m4
+          aclocal
+          
+          patch ./images/Makefile.am  ../hivex-patches-hivex-1.3.21-2/images/Makefile.am.patch
+          autoreconf -i --force
+          
+          ./configure CFLAGS="-Wno-error=implicit-function-declaration" --disable-ruby --disable-nls --disable-python --disable-perl --disable-ocaml --prefix=/home/runneradmin/hivex_package
+
+          make CFLAGS="-v -I/usr/x86_64-w64-mingw32/sys-root/mingw/include/ -I/home/runneradmin/hivex-1.3.21/gnulib/lib -I/home/runneradmin/hivex-1.3.21/ -I/home/runneradmin/hivex-1.3.21/lib -Wno-error=implicit-function-declaration"
+          make install
+      
+      - name: Compress
+        run: |
+          ls -l 
+          tar -czvf hivex_windows.tgz hivex_package/
+          pwd
+          ls -l
+      
+      - uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: C:\tools\cygwin\home\runneradmin\hivex_windows.tgz
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: C:\tools\cygwin\home\runneradmin\hivex_windows.tgz
+          prerelease: true  
