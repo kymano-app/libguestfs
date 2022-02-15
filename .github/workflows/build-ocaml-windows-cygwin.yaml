@@ -62,24 +62,19 @@ jobs:
           ./configure --enable-imprecise-c99-float-ops --prefix=/home/runneradmin/ocaml/ocaml_package
           make
           make install
-          mv ocaml_package ../
-          #tar -czvf ocamlwindows.tgz ocaml_package/
-          #mv ocamlwindows.tgz ../
-          #cd ../
-          #pwd
-          #ls -l
-      
-      - name: Compress
-        run: |
-          tar -czvf ocaml.tgz ocaml/
+          tar -czvf ocaml_windows.tgz ocaml_package/
+          mv ocaml_windows.tgz ../
+          cd ../
+          pwd
+          ls -l
       
       - uses: actions/upload-artifact@v2
         with:
           name: my-artifact
-          path: C:\tools\cygwin\home\runneradmin\ocaml.tgz
+          path: C:\tools\cygwin\home\runneradmin\ocaml_windows.tgz
 
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          files: ocaml.tgz
+          files: C:\tools\cygwin\home\runneradmin\ocaml_windows.tgz
           prerelease: true  
