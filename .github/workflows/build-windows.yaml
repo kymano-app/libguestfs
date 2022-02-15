@@ -188,6 +188,9 @@ jobs:
           patch lib/appliance-kcmdline.c ../libguestfs-patches-1.46.2-win-mingw/lib/appliance-kcmdline.c.patch
           patch lib/command.c ../libguestfs-patches-1.46.2-win-mingw/lib/command.c.patch
           patch lib/conn-socket.c ../libguestfs-patches-1.46.2-win-mingw/lib/conn-socket.c.patch
+          patch lib/copy-in-out.c ../libguestfs-patches-1.46.2-win-mingw/lib/copy-in-out.c.patch
+
+
           cp ../libguestfs-patches-1.46.2-win-mingw/pollwin.h .
 
           autoreconf -i
