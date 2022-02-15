@@ -50,8 +50,9 @@ jobs:
           wget https://github.com/kymano-app/libguestfs/releases/download/Ocaml-win/ocaml_windows.tgz
           tar -xzf ocaml_windows.tgz
           
-          sed -i '1s/.*/prefix=\/usr\/lib\/ocaml\/stublibs' "ocaml_package/lib/ocaml/ld.conf"
-          sed -i '2s/.*/prefix=\/usr\/lib\/ocaml' "ocaml_package/lib/ocaml/ld.conf"
+          cat ocaml_package/lib/ocaml/ld.conf
+          echo /usr/lib/ocaml/stublibs > ocaml_package/lib/ocaml/ld.conf
+          echo /usr/lib/ocaml >> ocaml_package/lib/ocaml/ld.conf
           cat ocaml_package/lib/ocaml/ld.conf
 
           cp -r ocaml_package/lib/* /usr/lib/
