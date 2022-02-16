@@ -1,0 +1,18 @@
+18a19
+> #define O_NOCTTY 0
+97c98
+<   fd = open (tmpfile, O_RDONLY|O_CLOEXEC);
+---
+>   fd = open (tmpfile, O_RDONLY|O_NOINHERIT);
+223c224
+<   fd = open (tmpfile, O_RDONLY|O_CLOEXEC);
+---
+>   fd = open (tmpfile, O_RDONLY|O_NOINHERIT);
+324c325
+<   fd = open (tmpfile, O_WRONLY|O_CREAT|O_NOCTTY|O_CLOEXEC, 0600);
+---
+>   fd = open (tmpfile, O_WRONLY|O_CREAT|O_NOCTTY|O_NOINHERIT, 0600);
+523c524
+<   fd = open (tmpfile, O_RDONLY|O_CLOEXEC);
+---
+>   fd = open (tmpfile, O_RDONLY|O_NOINHERIT);

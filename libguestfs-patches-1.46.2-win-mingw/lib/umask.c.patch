@@ -1,0 +1,4 @@
+122c122
+<   r = pipe2 (fd, O_CLOEXEC);
+---
+>   r = pipe2 (fd, O_NOINHERIT);

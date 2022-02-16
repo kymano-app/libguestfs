@@ -1,0 +1,10 @@
+18c18
+< 
+---
+> #define O_NOCTTY 0
+28d27
+< #include <sys/wait.h>
+733c732
+<   fd = open (r, O_WRONLY|O_CREAT|O_TRUNC|O_NOCTTY|O_CLOEXEC, 0600);
+---
+>   fd = open (r, O_WRONLY|O_CREAT|O_TRUNC|O_NOCTTY|O_NOINHERIT, 0600);

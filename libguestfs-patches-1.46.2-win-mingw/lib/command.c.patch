@@ -1,19 +1,20 @@
+80c80
+< 
+---
+> #define O_NOCTTY 0
 94d93
 < #include <sys/select.h>
-102a102,103
-> #define O_NOCTTY 0
-> 
-465c466
+465c464
 <     if (pipe2 (errorfd, O_CLOEXEC) == -1) {
 ---
 >     if (pipe2 (errorfd, O_NOINHERIT) == -1) {
-473c474
+473c472
 <     if (pipe2 (outfd, O_CLOEXEC) == -1) {
 ---
 >     if (pipe2 (outfd, O_NOINHERIT) == -1) {
-541d541
+541d539
 <   struct sigaction sa;
-554,560d553
+554,560d551
 <   memset (&sa, 0, sizeof sa);
 <   sa.sa_handler = SIG_DFL;
 <   sa.sa_flags = 0;
@@ -21,15 +22,15 @@
 <   for (i = 1; i < NSIG; ++i)
 <     sigaction (i, &sa, NULL);
 < 
-565c558
+565c556
 <     max_fd = sysconf (_SC_OPEN_MAX);
 ---
 >     max_fd = -1;
-810c803
+810c801
 <   if (pipe2 (fd, O_CLOEXEC) == -1) {
 ---
 >   if (pipe2 (fd, O_NOINHERIT) == -1) {
-823c816
+823c814
 <                 O_WRONLY|O_CREAT|O_NOCTTY|O_TRUNC|O_CLOEXEC, 0600);
 ---
 >                 O_WRONLY|O_CREAT|O_NOCTTY|O_TRUNC|O_NOINHERIT, 0600);

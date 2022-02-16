@@ -191,6 +191,12 @@ jobs:
           patch lib/copy-in-out.c ../libguestfs-patches-1.46.2-win-mingw/lib/copy-in-out.c.patch
           patch lib/create.c ../libguestfs-patches-1.46.2-win-mingw/lib/create.c.patch
           patch lib/drives.c ../libguestfs-patches-1.46.2-win-mingw/lib/drives.c.patch
+          patch lib/qemu.c ../libguestfs-patches-1.46.2-win-mingw/lib/qemu.c.patch
+          patch lib/proto.c ../libguestfs-patches-1.46.2-win-mingw/lib/proto.c.patch
+          patch lib/inspect-icon.c ../libguestfs-patches-1.46.2-win-mingw/lib/inspect-icon.c.patch
+          patch lib/file.c ../libguestfs-patches-1.46.2-win-mingw/lib/file.c.patch
+          patch fish/fish.c ../libguestfs-patches-1.46.2-win-mingw/fish/fish.c.patch
+          patch lib/umask.c ../libguestfs-patches-1.46.2-win-mingw/lib/umask.c.patch
 
 
           cp ../libguestfs-patches-1.46.2-win-mingw/pollwin.h .

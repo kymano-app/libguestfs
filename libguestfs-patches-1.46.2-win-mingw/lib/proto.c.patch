@@ -1,0 +1,12 @@
+74c74
+< 
+---
+> #define O_NOCTTY 0
+355c355
+<   fd = open (filename, O_RDONLY|O_CLOEXEC);
+---
+>   fd = open (filename, O_RDONLY|O_NOINHERIT);
+795c795
+<     fd = open (filename, O_WRONLY|O_CREAT|O_TRUNC|O_NOCTTY|O_CLOEXEC, 0666);
+---
+>     fd = open (filename, O_WRONLY|O_CREAT|O_TRUNC|O_NOCTTY|O_NOINHERIT, 0666);

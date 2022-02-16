@@ -1,0 +1,14 @@
+23c23
+< 
+---
+> #define O_NOCTTY 0
+38d37
+< #include <sys/wait.h>
+530c529
+<     if (open (file, O_RDONLY|O_CLOEXEC) == -1)
+---
+>     if (open (file, O_RDONLY|O_NOINHERIT) == -1)
+1528c1527
+<     fd = open (histfile, O_WRONLY|O_CREAT|O_NOCTTY|O_CLOEXEC, 0600);
+---
+>     fd = open (histfile, O_WRONLY|O_CREAT|O_NOCTTY|O_NOINHERIT, 0600);
