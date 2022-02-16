@@ -24,7 +24,6 @@ jobs:
 
       - uses: msys2/setup-msys2@v2
         with:
-          msystem: UCRT64
           path-type: inherit
           update: true
           install: >-
@@ -94,6 +93,10 @@ jobs:
           export PKG_CONFIG_PATH=$(pkg-config --variable pc_path pkg-config):/usr/lib/pkgconfig
           /mingw64/bin/pkg-config --list-all
           which pkg-config
+      
+      - name: ls -l /mingw64
+        if: true
+        run: ls -l /mingw64/
 
       - name: Checkout
         uses: actions/checkout@v2
