@@ -24,6 +24,7 @@ jobs:
 
       - uses: msys2/setup-msys2@v2
         with:
+          msystem: UCRT64
           path-type: inherit
           update: true
           install: >-
@@ -77,7 +78,7 @@ jobs:
           #ls -l /
       
       - name: Find
-        if: true
+        if: false
         run: |
           find /usr -name "ioctl.h" 
           find /mingw64 -name "ioctl.h"
