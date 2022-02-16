@@ -58,14 +58,14 @@ jobs:
             mingw-w64-x86_64-portablexdr
       
       - name: Find
-        if: true
+        if: false
         run: |
-          echo "========D:/a/_temp/msys64/usr/include/rpc/rpc.h"
-          cat D:/a/_temp/msys64/usr/include/rpc/rpc.h
-          echo "========/usr/include/rpc/rpc.h"
-          cat /usr/include/rpc/rpc.h
-          echo "========/mingw64/include/rpc/rpc.h"
-          cat /mingw64/include/rpc/rpc.h
+          #echo "========D:/a/_temp/msys64/usr/include/rpc/rpc.h"
+          #cat D:/a/_temp/msys64/usr/include/rpc/rpc.h
+          #echo "========/usr/include/rpc/rpc.h"
+          #cat /usr/include/rpc/rpc.h
+          #echo "========/mingw64/include/rpc/rpc.h"
+          #cat /mingw64/include/rpc/rpc.h
           #echo "========/mingw64/x86_64-w64-mingw32/include/rpc.h"
           #cat /mingw64/x86_64-w64-mingw32/include/rpc.h
           #ls -l /mingw64/include/rpc/
