@@ -1,7 +1,8 @@
-23,24d22
-< #define O_NOCTTY 0
+22c22
 < 
-538c536
-<   fd = open (filename, O_WRONLY|O_CREAT|O_TRUNC|O_NOCTTY|O_NOINHERIT, 0666);
 ---
->   fd = open (filename, O_WRONLY|O_CREAT|O_TRUNC|O_NOCTTY|O_CLOEXEC, 0666);
+> #define O_NOCTTY 0
+536c536
+<   fd = open (filename, O_WRONLY|O_CREAT|O_TRUNC|O_NOCTTY|O_CLOEXEC, 0666);
+---
+>   fd = open (filename, O_WRONLY|O_CREAT|O_TRUNC|O_NOCTTY|O_NOINHERIT, 0666);
