@@ -1,0 +1,183 @@
+name: Windows
+
+on:
+  push:
+    tags:
+      - "[0-9]+.[0-9]+.[0-9]+-cygwin-pre-installed-libs" 
+
+jobs:
+  build:
+    runs-on: windows-2022
+    defaults:
+      run:
+        shell: C:\tools\cygwin\bin\bash.exe --login -o igncr '{0}'
+    strategy:
+      matrix:
+        arch: [x86_64]
+        platform: [windows]
+    steps:
+      - name: Msgmerge fix
+        shell: pwsh 
+        run: |
+          Remove-Item "C:\Program Files\Git\usr\bin\msgmerge.exe"
+
+      - name: Set up Cygwin
+        uses: egor-tensin/setup-cygwin@v3
+        with:
+          platform: x64
+          packages: wget
+
+      - name: Install apt-cyg 
+        run: |
+          wget rawgit.com/transcode-open/apt-cyg/master/apt-cyg -O apt-cyg
+          install apt-cyg /bin
+     
+      - name: Install libs for Ocaml
+        run: |
+          apt-cyg install gcc-core flexdll binutils cmake gcc-g++ automake autoconf libtool python flex bison coreutils opam
+
+      - name: Install Ocaml
+        run: |
+          rm -rf /usr/lib/ocaml/
+          wget https://github.com/kymano-app/libguestfs/releases/download/Ocaml-win/ocaml_windows.tgz
+          tar -xzf ocaml_windows.tgz
+          
+          cat ocaml_package/lib/ocaml/ld.conf
+          echo /usr/lib/ocaml/stublibs > ocaml_package/lib/ocaml/ld.conf
+          echo /usr/lib/ocaml >> ocaml_package/lib/ocaml/ld.conf
+          cat ocaml_package/lib/ocaml/ld.conf
+          cp -r ocaml_package/lib/* /usr/lib/
+          cp -r ocaml_package/bin/* /usr/bin/
+          cp -r ocaml_package/share/* /usr/share/
+      
+      - name: Install libs for opam
+        if: false
+        run: |
+          apt-cyg install ocaml-dune 
+      
+      - name: Install opam
+        if: false
+        run: |
+          curl -OL https://github.com/ocaml/opam/archive/refs/tags/2.1.2.tar.gz
+          tar -xzf 2.1.2.tar.gz
+          cd opam-2.1.2
+          dune external-lib-deps --missing --root . --promote-install-files --profile release opam-installer.install opam.install
+          ./configure  --prefix=/usr
+          make lib-ext 
+          make install
+
+      - name: Install stdlib-shims
+        if: false
+        run: |
+          opam init
+          opam install stdlib-shims
+
+      - name: Install libs for Hivex
+        run: |
+          apt-cyg install cpio  libiconv libiconv-devel gettext  po4a ncurses   ninja genisoimage   byacc libncurses-devel git mingw64-x86_64-gettext lynx gperf 
+
+      - name: Install Hivex 
+        run: |
+          wget https://github.com/kymano-app/libguestfs/releases/download/Hivex-win-cygwin/hivex_windows.tgz
+          tar -xzf hivex_windows.tgz
+          sed -i '1s/.*/prefix=\/usr\/local/' "hivex_package/lib/pkgconfig/hivex.pc"
+          cat hivex_package/lib/pkgconfig/hivex.pc
+          cp -r hivex_package/lib/pkgconfig/* /usr/share/pkgconfig/
+          cp -r hivex_package/lib/* /usr/local/lib/
+          cp -r hivex_package/bin/* /usr/local/bin/
+          cp -r hivex_package/share/* /usr/local/lib/
+          cp -r hivex_package/include /usr/local/
+
+      - name: Install libs for Augeas
+        run: |
+          apt-cyg install gettext-devel libreadline-devel  findutils-debuginfo wget libxml2-devel
+      
+      - name: Install libtirpc
+        if: false
+        run: |
+          cd libguestfs
+          apt-cyg install python3-devel
+          git clone git://git.linux-nfs.org/projects/steved/libtirpc.git
+          cd libtirpc
+          git reset --hard 2d07cfd2f71b5ac05475b2ff79c4bf38f3b6ec5c
+          patch tirpc/rpc/types.h ../libtirpc-win/tirpc/rpc/types.h.patch
+          patch tirpc/rpc/rpcent.h ../libtirpc-win/tirpc/rpc/rpcent.h.patch
+          patch tirpc/reentrant.h ../libtirpc-win/tirpc/reentrant.h.patch
+          chmod +x ./autogen.sh
+          ./autogen.sh --disable-symvers --prefix=/usr --disable-ipv6 --disable-authdes --disable-gssapi
+          ./configure --prefix=/usr --disable-symvers --prefix=/usr --disable-ipv6 --disable-authdes --disable-gssapi
+          make && make install
+          cp /usr/lib/pkgconfig/libtirpc.pc /usr/share/pkgconfig/
+
+      - name: Install XML2
+        if: false
+        run: |
+          cd libguestfs
+          apt-cyg install python3-devel
+          git clone https://github.com/GNOME/libxml2.git
+          cd libxml2
+          git reset --hard 9b8ef34dc9c24bfe325edd15aaf0ec00326f04e9
+          chmod +x ./autogen.sh
+          ./autogen.sh
+          ./configure CFLAGS='-I/usr/include/python3.9/' LDFLAGS='-L/usr/lib/python3.9' --prefix=/usr
+          make && make install
+          cp /usr/lib/pkgconfig/libxml-2.0.pc /usr/share/pkgconfig/
+
+      - name: Install augeas 
+        run: |
+          wget https://github.com/kymano-app/libguestfs/releases/download/augeas-win-cygwin/augeas-windows.tgz
+          tar -xzf augeas-windows.tgz
+          
+          sed -i '1s/.*/prefix=\/usr\/local/' "augeas_package/lib/pkgconfig/augeas.pc"
+          cat augeas_package/lib/pkgconfig/augeas.pc
+          cp -r augeas_package/lib/pkgconfig/* /usr/share/pkgconfig/
+          cp -r augeas_package/lib/* /usr/local/lib/
+          cp -r augeas_package/bin/* /usr/local/bin/
+          cp -r augeas_package/include/* /usr/local/include/
+          cp -r augeas_package/share /usr/local/
+
+      - name: Install PCRE2
+        if: false
+        run: |
+          git clone https://github.com/PhilipHazel/pcre2.git
+          cd pcre2
+          git reset --hard 111cd470b55d0c06bfb157c8f4521907d3d95fdb
+          autoreconf -i
+          ./configure --prefix=/usr
+          make && make install
+          cp /usr/lib/pkgconfig/libpcre2-8.pc /usr/share/pkgconfig/
+          cp /usr/lib/pkgconfig/libpcre2-posix.pc /usr/share/pkgconfig/
+      
+      - name: Install jansson
+        if: false
+        run: |
+          git clone https://github.com/akheron/jansson.git
+          cd jansson
+          git reset --hard addeeef408cf9e4711a234e04fc2c4bd7357561b
+          #patch CMakeLists.txt ../jansson-win/CMakeLists.txt
+          autoreconf -i
+          ./configure --prefix=/usr
+          make && make install
+          cp /usr/lib/pkgconfig/jansson.pc /usr/share/pkgconfig/
+
+      - name: Install libs for Libguestfs
+        run: |
+          apt-cyg install file-devel libxml2-devel libtirpc-devel libjansson-devel pcre2 libpcre2-devel ocaml-findlib
+
+      - name: Install Libguestfs
+        run: |
+          cd libguestfs
+          bash libguestfs-win.sh
+      
+      - name: Compress
+        run: |
+          cp -r /usr/lib/* libguestfs/libguestfs_new/libguestfs-1.46.2/lib/
+          cp -r /usr/bin/*.dll libguestfs/libguestfs_new/libguestfs-1.46.2/lib/
+          tar -czvf win-guestfs.tgz libguestfs/libguestfs_new/libguestfs-1.46.2/
+      
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            *.tgz
+          prerelease: true
