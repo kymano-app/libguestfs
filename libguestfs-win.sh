@@ -1,7 +1,7 @@
 
 git clone https://github.com/kymano-app/libguestfs.git libguestfs_new
 cd libguestfs_new
-curl -OL https://download.libguestfs.org/1.46-stable/libguestfs-1.46.2.tar.gz
+ curl -OL https://download.libguestfs.org/1.46-stable/libguestfs-1.46.2.tar.gz
 tar -xzf libguestfs-1.46.2.tar.gz
 cd libguestfs-1.46.2
 
@@ -32,15 +32,11 @@ patch lib/guestfs-internal.h ../libguestfs-patches-1.44.2-2-win/lib/guestfs-inte
 patch examples/Makefile.am ../libguestfs-patches-1.44.2-2-win/examples/Makefile.am.patch
 patch gnulib/lib/getprogname.h ../libguestfs-patches-1.46.2-win/gnulib/lib/getprogname.h.patch
 patch docs/Makefile.am ../libguestfs-patches-1.46.2-win/docs/Makefile.am.patch
-patch lib/launch-direct.c ../libguestfs-patches-1.46.2-win/lib/launch-direct.c.patch
-patch fish/rc.c ../libguestfs-patches-1.46.2-win/fish/rc.c.patch
-patch lib/launch-unix.c ../libguestfs-patches-1.46.2-win/lib/launch-unix.c.patch 
-patch lib/launch-libvirt.c ../libguestfs-patches-1.46.2-win/lib/launch-libvirt.c.patch
 
 autoreconf -i
 
 ./configure --with-qemu="no" --enable-debug --disable-appliance --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --enable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-fuse LDFLAGS="-L/usr/local/lib -L/usr/lib" LIBS="-lintl -lpcre2-8 -ljansson -ltirpc"
 
-make CFLAGS="-I/cygdrive/c/Program\ Files\ \(x86\)/Windows\ Kits/10/Include/10.0.22000.0/shared -I/usr/include/ -I/usr/lib/ocaml/" --trace
+make CFLAGS="-I/usr/include/ -I/usr/lib/ocaml/" --trace
 
 ./run guestfish --help
