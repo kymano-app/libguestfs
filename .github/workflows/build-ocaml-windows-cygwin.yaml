@@ -61,13 +61,13 @@ jobs:
           mkdir ocaml_package/lib
           git checkout 4.14
           git submodule update --init --recursive
-          ./configure --enable-imprecise-c99-float-ops --prefix=/usr/local
+          ./configure --enable-imprecise-c99-float-ops --prefix=/usr
           make
           make install
-          find /usr/local/bin -name "*ocaml*" | while read f ; do true | cp $f ocaml_package/bin/; done
-          find /usr/local/bin -name "*flex*" | while read f ; do true | cp $f ocaml_package/bin/; done
-          cp -r /usr/local/lib/ocaml ocaml_package/lib/
-          cp -r /usr/local/lib/ocaml ocaml_package/lib/
+          find /usr/bin -name "*ocaml*" | while read f ; do true | cp $f ocaml_package/bin/; done
+          find /usr/bin -name "*flex*" | while read f ; do true | cp $f ocaml_package/bin/; done
+          cp -r /usr/lib/ocaml ocaml_package/lib/
+          cp -r /usr/lib/ocaml ocaml_package/lib/
           tar -czvf ocaml_windows.tgz ocaml_package/
           mv ocaml_windows.tgz ../
           cd ../

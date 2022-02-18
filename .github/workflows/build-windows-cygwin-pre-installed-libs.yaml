@@ -43,12 +43,12 @@ jobs:
           tar -xzf ocaml_windows.tgz
           
           cat ocaml_package/lib/ocaml/ld.conf
-          #echo /usr/local/lib/ocaml/stublibs > ocaml_package/lib/ocaml/ld.conf
-          #echo /usr/local/lib/ocaml >> ocaml_package/lib/ocaml/ld.conf
+          #echo /usr/lib/ocaml/stublibs > ocaml_package/lib/ocaml/ld.conf
+          #echo /usr/lib/ocaml >> ocaml_package/lib/ocaml/ld.conf
           #cat ocaml_package/lib/ocaml/ld.conf
-          cp -r ocaml_package/lib/* /usr/local/lib/
-          cp -r ocaml_package/bin/* /usr/local/bin/
-          #cp -r ocaml_package/share/* /usr/share/
+          cp -r ocaml_package/lib/* /usr/lib/
+          cp -r ocaml_package/bin/* /usr/bin/
+          #cp -r ocaml_package/share/* /usr/
       
       - name: Install libs for opam
         if: false
