@@ -39,16 +39,16 @@ jobs:
       - name: Install Ocaml
         run: |
           rm -rf /usr/lib/ocaml/
-          wget https://github.com/kymano-app/libguestfs/releases/download/Ocaml-win/ocaml_windows.tgz
+          wget https://github.com/kymano-app/libguestfs/releases/download/ocaml-windows-cygwin/ocaml_windows.tgz
           tar -xzf ocaml_windows.tgz
           
           cat ocaml_package/lib/ocaml/ld.conf
-          echo /usr/lib/ocaml/stublibs > ocaml_package/lib/ocaml/ld.conf
-          echo /usr/lib/ocaml >> ocaml_package/lib/ocaml/ld.conf
-          cat ocaml_package/lib/ocaml/ld.conf
-          cp -r ocaml_package/lib/* /usr/lib/
-          cp -r ocaml_package/bin/* /usr/bin/
-          cp -r ocaml_package/share/* /usr/share/
+          #echo /usr/local/lib/ocaml/stublibs > ocaml_package/lib/ocaml/ld.conf
+          #echo /usr/local/lib/ocaml >> ocaml_package/lib/ocaml/ld.conf
+          #cat ocaml_package/lib/ocaml/ld.conf
+          cp -r ocaml_package/lib/* /usr/local/lib/
+          cp -r ocaml_package/bin/* /usr/local/bin/
+          #cp -r ocaml_package/share/* /usr/share/
       
       - name: Install libs for opam
         if: false
