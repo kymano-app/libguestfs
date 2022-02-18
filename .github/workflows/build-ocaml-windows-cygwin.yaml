@@ -57,11 +57,17 @@ jobs:
           git clone https://github.com/ocaml/ocaml.git
           cd ocaml
           mkdir ocaml_package
+          mkdir ocaml_package/bin
+          mkdir ocaml_package/lib
           git checkout 4.14
           git submodule update --init --recursive
-          ./configure --enable-imprecise-c99-float-ops --prefix=/home/runneradmin/ocaml/ocaml_package
+          ./configure --enable-imprecise-c99-float-ops --prefix=/usr/local
           make
           make install
+          find /usr/local/bin -name "*ocaml*" | while read f ; do true | cp $f ocaml_package/bin/; done
+          find /usr/local/bin -name "*flex*" | while read f ; do true | cp $f ocaml_package/bin/; done
+          cp -r /usr/local/lib/ocaml ocaml_package/lib/
+          cp -r /usr/local/lib/ocaml ocaml_package/lib/
           tar -czvf ocaml_windows.tgz ocaml_package/
           mv ocaml_windows.tgz ../
           cd ../
