@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-2022
+    runs-on: windows-2019
     defaults:
       run:
         shell: C:\tools\cygwin\bin\bash.exe --login -o igncr '{0}'
@@ -176,6 +176,11 @@ jobs:
           cp -r /usr/bin/*.dll libguestfs/libguestfs_new/libguestfs-1.46.2/lib/
           tar -czvf win-guestfs.tgz libguestfs/libguestfs_new/libguestfs-1.46.2/
       
+      - uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: C:\tools\cygwin\home\runneradmin\win-guestfs.tgz
+
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
