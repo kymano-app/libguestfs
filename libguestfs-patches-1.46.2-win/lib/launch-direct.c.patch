@@ -171,11 +171,51 @@
 < 
 ---
 >     debug (g, "qemu fork 01");
-789c830
+778c819,820
+<     if (g->verbose)
+---
+>     if (g->verbose){
+>       debug (g, "qemu fork 000111");
+780c822,823
+< 
+---
+>     }
+>     debug (g, "qemu fork 0001");
+782c825,826
+<     if (g->pgroup)
+---
+>     if (g->pgroup) {
+>       debug (g, "qemu fork 00011");
+784c828,829
+< 
+---
+>     }
+>     debug (g, "qemu fork 0002");
+789c834
 < 
 ---
 >     debug (g, "qemu fork 02");
-790a832
+790a836
 >     debug (g, "qemu fork 03");
-796a839
+796a843
 >   debug (g, "qemu fork pid %d", r);
+803a851
+>   debug (g, "qemu fork 0123", r);
+805a854
+>     debug (g, "qemu fork 333", r);
+869c918,919
+< 
+---
+>   
+>   debug (g, "qemu fork 33344", r);
+882a933
+>   debug (g, "qemu fork guestfs_int_new_conn_socket_listening", r);
+885c936,937
+<   if (!g->conn)
+---
+>   if (!g->conn) {
+>     debug (g, "qemu fork guestfs_int_new_conn_socket_listening error", r);
+886a939
+>   }
+898a952
+>   debug (g, "qemu !!!!!!!!!!!!", r);
