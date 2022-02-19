@@ -1,9 +1,31 @@
-760a761
+464a465
+>     debug (cmd->g, "capture_errors");
+472a474
+>     debug (cmd->g, "stdout_callback");
+473a476
+>       debug (cmd->g, "stdout_callback ERR");
+480a484
+>     debug (cmd->g, "stdout_callback NO PID");
+486a491
+>     debug (cmd->g, "stdout_callback PID > 0");
+487a493
+>       debug (cmd->g, "capture_errors");
+494a501
+>       debug (cmd->g, "stdout_callback");
+500a508
+>     debug (cmd->g, "return 0");
+505a514
+>     debug (cmd->g, "Child process capture_errors");
+513a523
+>     debug (cmd->g, "stdout_callback");
+525a536
+>   debug (cmd->g, "ERROR");
+760a772
 >   debug (cmd->g, "finish_command ok");
-763a765
+763a776
 >   debug (cmd->g, "run_command");
-766a769
+766a780
 >   debug (cmd->g, "loop");
-769a773,774
+769a784,785
 >   debug (cmd->g, "wait_command");
 > 
