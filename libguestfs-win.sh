@@ -34,6 +34,7 @@ patch gnulib/lib/getprogname.h ../libguestfs-patches-1.46.2-win/gnulib/lib/getpr
 patch docs/Makefile.am ../libguestfs-patches-1.46.2-win/docs/Makefile.am.patch
 cp ../libguestfs-patches-1.44.2-2-win/afunix.h .
 patch lib/launch-direct.c ../libguestfs-patches-1.46.2-win/lib/launch-direct.c.patch
+patch lib/command.c ../libguestfs-patches-1.46.2-win/lib/command.c.patch
 patch lib/qemu.c ../libguestfs-patches-1.46.2-win/lib/qemu.c.patch
 
 autoreconf -i

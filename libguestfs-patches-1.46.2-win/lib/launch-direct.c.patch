@@ -14,10 +14,35 @@
 <   debug (g, "begin testing qemu features");
 ---
 >   debug (g, "begin testing qemu features : %d", FD_SETSIZE);
-459a465,466
->   debug (g, "create socket");
+417a423
+>   /*
+429a436
+>   */
+432,439c439,440
+<   has_kvm = guestfs_int_platform_has_kvm (g, data->qemu_data);
+<   debug (g, "qemu KVM: %s", has_kvm ? "enabled" : "disabled");
+< 
+<   force_tcg = guestfs_int_get_backend_setting_bool (g, "force_tcg");
+<   if (force_tcg == -1)
+<     return -1;
+<   else if (force_tcg)
+<     accel_val = "tcg";
+---
+>   // has_kvm = guestfs_int_platform_has_kvm (g, data->qemu_data);
+>   // debug (g, "qemu KVM: %s", has_kvm ? "enabled" : "disabled");
+440a442,448
+>   //force_tcg = guestfs_int_get_backend_setting_bool (g, "force_tcg");
+>   //if (force_tcg == -1)
+>   //  return -1;
+>   //else if (force_tcg)
+>   //  accel_val = "tcg";
+>   
+>   /*
+458a467,469
+>   */
 > 
-466a474,483
+>   debug (g, "create socket");
+466a478,487
 >   debug (g, "start socket");
 > 
 >   int Result = 0;
@@ -28,10 +53,10 @@
 >       goto cleanup0;
 >   }
 > 
-476a494,495
+476a498,499
 >   debug (g, "binding");
 > 
-489c508
+489c512
 <     if (socketpair (AF_LOCAL, SOCK_STREAM|SOCK_CLOEXEC, 0, sv) == -1) {
 ---
 >     if (socketpair (CF_LOCALE, SOCK_STREAM|SOCK_CLOEXEC, 0, sv) == -1) {

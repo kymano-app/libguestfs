@@ -7,13 +7,11 @@
 <     if (pipe2 (errorfd, O_CLOEXEC) == -1) {
 ---
 >     debug (cmd->g, "run_command capture_errors 1");
->     if (_pipe (errorfd, 512, O_NOINHERIT) == -1) {
+>     if (pipe2 (errorfd, O_CLOEXEC) == -1) == -1) {
 >       debug (cmd->g, "run_command capture_errors error pipe2");
-473c479,481
-<     if (pipe2 (outfd, O_CLOEXEC) == -1) {
----
+472a479
 >     debug (cmd->g, "run_command stdout_callback 1");
->     if (_pipe (outfd, 512, O_NOINHERIT) == -1) {
+473a481
 >       debug (cmd->g, "run_command stdout_callback ERR");
 478a487
 > 
