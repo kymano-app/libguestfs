@@ -62,8 +62,14 @@
 >   debug (g, "listening");
 483a509
 >     debug (g, "listen error -1");
-489c515,516
+488,489c514,516
+<   if (!g->direct_mode) {
 <     if (socketpair (AF_LOCAL, SOCK_STREAM|SOCK_CLOEXEC, 0, sv) == -1) {
 ---
+>   /*if (!g->direct_mode) {
 >     debug (g, "socketpair");
 >     if (socketpair (CF_LOCALE, SOCK_STREAM|SOCK_CLOEXEC, 0, sv) == -1) {
+493c520
+<   }
+---
+>   }*/
