@@ -47,52 +47,58 @@
 635a658
 >     debug (cmd->g, "COMMAND_STYLE_SYSTEM EXIT_FAILURE");
 661a685
->     debug (cmd->g, "loop cmd->errorfd");
-674a699
+>     debug (cmd->g, "loop cmd->errorfd %d", cmd->errorfd);
+667a692
+>     debug (cmd->g, "loop cmd->outfd %d", cmd->outfd);
+671a697,698
+>   
+>   debug (cmd->g, "loop nr_fds %d", nr_fds);
+674a702,703
 >     debug (cmd->g, "loop select");
-676a702
->       debug (cmd->g, "loop err %d", r);
-679a706
+>     debug (cmd->g, "loop maxfd %d", maxfd);
+676a706
+>       debug (cmd->g, "loop err %d %d", r, FD_SETSIZE);
+679a710
 >       debug (cmd->g, "loop err return -1");
-682a710
+682a714
 >     debug (cmd->g, "loop 2");
-684a713
+684a717
 >       debug (cmd->g, "loop read");
-686c715,716
+686c719,720
 <       if (n > 0)
 ---
 >       if (n > 0) {
 >         debug (cmd->g, "loop n > 0");
-688a719
+688a723
 >       }
-689a721
+689a725
 >         debug (cmd->g, "loop n = 0");
-696a729
+696a733
 >         debug (cmd->g, "loop n = -1");
-704a738
+704a742
 >     debug (cmd->g, "loop 3");
-710a745
+710a749
 >         debug (cmd->g, "loop 2 n>0");
-714a750
+714a754
 >         debug (cmd->g, "loop 2 n=0");
-723a760
+723a764
 >         debug (cmd->g, "loop 2 n = -1");
-732c769,770
+732c773,774
 < 
 ---
 >   
 >   debug (cmd->g, "loop return 0");
-760a799
+760a803
 >   debug (cmd->g, "finish_command ok");
-763a803
+763a807
 >   debug (cmd->g, "run_command");
-767c807,809
+767c811,813
 <   if (loop (cmd) == -1)
 ---
 >   debug (cmd->g, "loop");
 >   if (loop (cmd) == -1) {
 >     debug (cmd->g, "loop = -1");
-768a811,813
+768a815,817
 >   }
 > 
 >   debug (cmd->g, "wait_command");
