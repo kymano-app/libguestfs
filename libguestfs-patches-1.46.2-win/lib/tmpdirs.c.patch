@@ -3,6 +3,6 @@
 >   debug (g, "tmp: %s", str);
 > 
 177a181
->   str = "c:\\tmp"
+>   str = "c:\\tmp";
 189a194
 >     debug (g, "tmppath: %s :: %s", tmppath, tmpdir);
