@@ -20,12 +20,36 @@
 >     debug (cmd->g, "stdout_callback");
 525a536
 >   debug (cmd->g, "ERROR");
-760a772
+540a552
+>   debug (cmd->g, "run_child 1");
+613a626
+>   debug (cmd->g, "run_child Run the command");
+615a629
+>     debug (cmd->g, "COMMAND_STYLE_EXECV");
+621a636
+>     debug (cmd->g, "COMMAND_STYLE_EXECV EXIT");
+624a640
+>     debug (cmd->g, "COMMAND_STYLE_SYSTEM");
+625a642
+>     debug (cmd->g, "COMMAND_STYLE_SYSTEM system");
+626a644
+>       debug (cmd->g, "COMMAND_STYLE_SYSTEM system -1");
+630c648,649
+<     if (WIFEXITED (r))
+---
+>     if (WIFEXITED (r)) {
+>       debug (cmd->g, "COMMAND_STYLE_SYSTEM WEXITSTATUS");
+631a651,652
+>     }
+>     debug (cmd->g, "COMMAND_STYLE_SYSTEM guestfs_int_exit_status_to_string");
+635a657
+>     debug (cmd->g, "COMMAND_STYLE_SYSTEM EXIT_FAILURE");
+760a783
 >   debug (cmd->g, "finish_command ok");
-763a776
+763a787
 >   debug (cmd->g, "run_command");
-766a780
+766a791
 >   debug (cmd->g, "loop");
-769a784,785
+769a795,796
 >   debug (cmd->g, "wait_command");
 > 
