@@ -54,9 +54,16 @@
 >   }
 > 
 476a498,499
->   debug (g, "binding");
+>   debug (g, "binding %s / %s", addr.sun_path, data->guestfsd_sock);
 > 
-489c512
+478a502
+>     debug (g, "binding error -1");
+482a507
+>   debug (g, "listening");
+483a509
+>     debug (g, "listen error -1");
+489c515,516
 <     if (socketpair (AF_LOCAL, SOCK_STREAM|SOCK_CLOEXEC, 0, sv) == -1) {
 ---
+>     debug (g, "socketpair");
 >     if (socketpair (CF_LOCALE, SOCK_STREAM|SOCK_CLOEXEC, 0, sv) == -1) {
