@@ -14,3 +14,7 @@
 >       goto cleanup0;
 >   }
 > 
+489c498
+<     if (socketpair (AF_LOCAL, SOCK_STREAM|SOCK_CLOEXEC, 0, sv) == -1) {
+---
+>     if (socketpair (CF_LOCALE, SOCK_STREAM|SOCK_CLOEXEC, 0, sv) == -1) {

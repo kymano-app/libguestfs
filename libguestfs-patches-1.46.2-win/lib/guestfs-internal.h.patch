@@ -1,2 +1,8 @@
 33d32
 < #include <rpc/xdr.h>
+688,689c687,688
+< extern int guestfs_int_send (guestfs_h *g, int proc_nr, uint64_t progress_hint, uint64_t optargs_bitmask, xdrproc_t xdrp, char *args);
+< extern int guestfs_int_recv (guestfs_h *g, const char *fn, struct guestfs_message_header *hdr, struct guestfs_message_error *err, xdrproc_t xdrp, char *ret);
+---
+> extern int guestfs_int_send (guestfs_h *g, int proc_nr, uint64_t progress_hint, uint64_t optargs_bitmask, rpcproc_t xdrp, char *args);
+> extern int guestfs_int_recv (guestfs_h *g, const char *fn, struct guestfs_message_header *hdr, struct guestfs_message_error *err, rpcproc_t xdrp, char *ret);
