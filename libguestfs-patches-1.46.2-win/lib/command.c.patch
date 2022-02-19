@@ -3,11 +3,9 @@
 > #define FD_SETSIZE      1024
 > #endif
 > 
-465c469,471
-<     if (pipe2 (errorfd, O_CLOEXEC) == -1) {
----
+464a469
 >     debug (cmd->g, "run_command capture_errors 1");
->     if (pipe2 (errorfd, O_CLOEXEC) == -1) == -1) {
+465a471
 >       debug (cmd->g, "run_command capture_errors error pipe2");
 472a479
 >     debug (cmd->g, "run_command stdout_callback 1");
@@ -63,7 +61,7 @@
 >     debug (cmd->g, "loop cmd->outfd %d", cmd->outfd);
 671a703,704
 >   
->   debug (cmd->g, "loop nr_fds %d", nr_fds);
+>   debug (cmd->g, "loop nr_fds");
 674a708,709
 >     debug (cmd->g, "loop select");
 >     debug (cmd->g, "loop maxfd %d", maxfd);
