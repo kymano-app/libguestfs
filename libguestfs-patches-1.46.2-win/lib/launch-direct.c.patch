@@ -1,21 +1,23 @@
-24a25,26
+24a25,28
+> #ifndef FD_SETSIZE
 > #define FD_SETSIZE      1024
+> #endif
 > 
-39,40d40
+39,40d42
 < #include <sys/socket.h>
 < #include <sys/un.h>
-51a52,54
+51a54,56
 > #include "winsock2.h"
 > #include "afunix.h"
 > 
-415c418
+415c420
 <   debug (g, "begin testing qemu features");
 ---
 >   debug (g, "begin testing qemu features : %d", FD_SETSIZE);
-459a463,464
+459a465,466
 >   debug (g, "create socket");
 > 
-466a472,481
+466a474,483
 >   debug (g, "start socket");
 > 
 >   int Result = 0;
@@ -26,10 +28,10 @@
 >       goto cleanup0;
 >   }
 > 
-476a492,493
+476a494,495
 >   debug (g, "binding");
 > 
-489c506
+489c508
 <     if (socketpair (AF_LOCAL, SOCK_STREAM|SOCK_CLOEXEC, 0, sv) == -1) {
 ---
 >     if (socketpair (CF_LOCALE, SOCK_STREAM|SOCK_CLOEXEC, 0, sv) == -1) {

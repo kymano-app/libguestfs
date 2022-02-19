@@ -1,32 +1,38 @@
-170a171,172
+22c22,24
+< 
+---
+> #ifndef FD_SETSIZE
+> #define FD_SETSIZE      1024
+> #endif
+170a173,174
 >  
 >   debug (g, "1");
-172a175
+172a177
 >   debug (g, "2");
-173a177
+173a179
 >   debug (g, "3");
-178c182
+178c184
 < 
 ---
 >   debug (g, "4");
-206a211
+206a213
 >   debug (g, "do_test");
-231a237
+231a239
 >   debug (g, "out");
-239a246
+239a248
 >   debug (g, "error");
-254a262
+254a264
 >   debug (g, "cache_filename");
-264a273
+264a275
 >   debug (g, "test_qemu_help");
-266a276,277
+266a278,279
 >   
 >   debug (g, "test_qemu_help 1");
-271a283
+271a285
 >   debug (g, "test_qemu_help 2");
-273a286
+273a288
 >   debug (g, "test_qemu_help 3");
-274a288
+274a290
 >   debug (g, "test_qemu_help 4");
-277a292
+277a294
 >     debug (g, "test_qemu_help guestfs_int_external_command_failed");
