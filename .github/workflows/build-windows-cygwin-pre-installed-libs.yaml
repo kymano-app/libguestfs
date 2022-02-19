@@ -169,7 +169,15 @@ jobs:
           git clone https://github.com/kymano-app/libguestfs.git
           cd libguestfs
           bash libguestfs-win.sh
-      
+     
+      - name: Install Libguestfs
+        if: always()
+        run: |
+          cd libguestfs/libguestfs_new/libguestfs-1.46.2/
+          cp -r ../libguestfs-patches-1.46.2-win/include/sys lib/
+          make CFLAGS="-I/usr/include/ -I/usr/lib/ocaml/" --trace
+          ./run guestfish --help
+          
       - name: Compress
         run: |
           cp -r /usr/lib/* libguestfs/libguestfs_new/libguestfs-1.46.2/lib/
