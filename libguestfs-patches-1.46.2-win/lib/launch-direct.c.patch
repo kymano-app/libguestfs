@@ -6,6 +6,10 @@
 > #include "winsock2.h"
 > #include "afunix.h"
 > 
+415c417
+<   debug (g, "begin testing qemu features");
+---
+>   debug (g, "begin testing qemu features : %d", FD_SETSIZE);
 459a462,463
 >   debug (g, "create socket");
 > 
