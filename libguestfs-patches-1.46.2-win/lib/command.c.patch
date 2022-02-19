@@ -3,107 +3,115 @@
 > #define FD_SETSIZE      1024
 > #endif
 > 
-464a469
+465c469,471
+<     if (pipe2 (errorfd, O_CLOEXEC) == -1) {
+---
 >     debug (cmd->g, "run_command capture_errors 1");
-472a478
+>     if (_pipe (errorfd, 512, O_NOINHERIT) == -1) {
+>       debug (cmd->g, "run_command capture_errors error pipe2");
+473c479,481
+<     if (pipe2 (outfd, O_CLOEXEC) == -1) {
+---
 >     debug (cmd->g, "run_command stdout_callback 1");
-473a480
->       debug (cmd->g, "stdout_callback ERR");
-478a486
+>     if (_pipe (outfd, 512, O_NOINHERIT) == -1) {
+>       debug (cmd->g, "run_command stdout_callback ERR");
+478a487
 > 
-480a489
+480a490
 >     debug (cmd->g, "stdout_callback NO PID");
-486a496
+486a497
 >     debug (cmd->g, "run_command stdout_callback PID %d", cmd->pid);
-487a498
+487a499
 >       debug (cmd->g, "capture_errors");
-494a506
+494a507
 >       debug (cmd->g, "run_command stdout_callback 2");
-500a513
+500a514
 >     debug (cmd->g, "return 0");
-505a519
+505a520
 >     debug (cmd->g, "Child process capture_errors");
-513a528
->     debug (cmd->g, "stdout_callback");
-525a541
+513a529
+>     debug (cmd->g, "Child process stdout_callback");
+521a538
+>   debug (cmd->g, "run_child cmd");
+525a543
 >   debug (cmd->g, "ERROR");
-540a557
+540a559
 >   debug (cmd->g, "run_child 1");
-613a631
+613a633
 >   debug (cmd->g, "run_child Run the command");
-615a634
+615a636
 >     debug (cmd->g, "COMMAND_STYLE_EXECV");
-621a641
+621a643
 >     debug (cmd->g, "COMMAND_STYLE_EXECV EXIT");
-624a645
+624a647
 >     debug (cmd->g, "COMMAND_STYLE_SYSTEM");
-625a647
+625a649
 >     debug (cmd->g, "COMMAND_STYLE_SYSTEM system");
-626a649
+626a651
 >       debug (cmd->g, "COMMAND_STYLE_SYSTEM system -1");
-630c653,654
+630c655,656
 <     if (WIFEXITED (r))
 ---
 >     if (WIFEXITED (r)) {
 >       debug (cmd->g, "COMMAND_STYLE_SYSTEM WEXITSTATUS");
-631a656,657
+631a658,659
 >     }
 >     debug (cmd->g, "COMMAND_STYLE_SYSTEM guestfs_int_exit_status_to_string");
-635a662
+635a664
 >     debug (cmd->g, "COMMAND_STYLE_SYSTEM EXIT_FAILURE");
-661a689
+661a691
 >     debug (cmd->g, "loop cmd->errorfd %d", cmd->errorfd);
-667a696
+667a698
 >     debug (cmd->g, "loop cmd->outfd %d", cmd->outfd);
-671a701,702
+671a703,704
 >   
 >   debug (cmd->g, "loop nr_fds %d", nr_fds);
-674a706,707
+674a708,709
 >     debug (cmd->g, "loop select");
 >     debug (cmd->g, "loop maxfd %d", maxfd);
-676a710
+676a712
 >       debug (cmd->g, "loop err %d %d", r, FD_SETSIZE);
-679a714
+679a716
 >       debug (cmd->g, "loop err return -1");
-682a718
+682a720
 >     debug (cmd->g, "loop 2");
-684a721
+684a723
 >       debug (cmd->g, "loop read");
-686c723,724
+686c725,726
 <       if (n > 0)
 ---
 >       if (n > 0) {
 >         debug (cmd->g, "loop n > 0");
-688a727
+688a729
 >       }
-689a729
+689a731
 >         debug (cmd->g, "loop n = 0");
-696a737
+696a739
 >         debug (cmd->g, "loop n = -1");
-704a746
+704a748
 >     debug (cmd->g, "loop 3");
-710a753
+710a755
 >         debug (cmd->g, "loop 2 n>0");
-714a758
+714a760
 >         debug (cmd->g, "loop 2 n=0");
-723a768
+723a770
 >         debug (cmd->g, "loop 2 n = -1");
-732c777,778
+732c779,780
 < 
 ---
 >   
 >   debug (cmd->g, "loop return 0");
-760a807
+760a809
 >   debug (cmd->g, "finish_command ok");
-763a811
+763a813
 >   debug (cmd->g, "run_command");
-767c815,817
+767c817,819
 <   if (loop (cmd) == -1)
 ---
 >   debug (cmd->g, "loop");
 >   if (loop (cmd) == -1) {
 >     debug (cmd->g, "loop = -1");
-768a819,821
+768a821,823
 >   }
 > 
 >   debug (cmd->g, "wait_command");
