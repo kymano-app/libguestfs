@@ -1,0 +1,9 @@
+760a761
+>   debug (cmd->g, "finish_command ok");
+763a765
+>   debug (cmd->g, "run_command");
+766a769
+>   debug (cmd->g, "loop");
+769a773,774
+>   debug (cmd->g, "wait_command");
+> 

@@ -1,0 +1,32 @@
+170a171,172
+>  
+>   debug (g, "1");
+172a175
+>   debug (g, "2");
+173a177
+>   debug (g, "3");
+178c182
+< 
+---
+>   debug (g, "4");
+206a211
+>   debug (g, "do_test");
+231a237
+>   debug (g, "out");
+239a246
+>   debug (g, "error");
+254a262
+>   debug (g, "cache_filename");
+264a273
+>   debug (g, "test_qemu_help");
+266a276,277
+>   
+>   debug (g, "test_qemu_help 1");
+271a283
+>   debug (g, "test_qemu_help 2");
+273a286
+>   debug (g, "test_qemu_help 3");
+274a288
+>   debug (g, "test_qemu_help 4");
+277a292
+>     debug (g, "test_qemu_help guestfs_int_external_command_failed");
