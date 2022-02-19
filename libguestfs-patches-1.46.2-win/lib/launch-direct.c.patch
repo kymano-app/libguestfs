@@ -1,14 +1,15 @@
 39,40d38
 < #include <sys/socket.h>
 < #include <sys/un.h>
-51a50,52
+51a50,53
+> #define FD_SETSIZE      1024
 > #include "winsock2.h"
 > #include "afunix.h"
 > 
-459a461,462
+459a462,463
 >   debug (g, "create socket");
 > 
-466a470,479
+466a471,480
 >   debug (g, "start socket");
 > 
 >   int Result = 0;
@@ -19,10 +20,10 @@
 >       goto cleanup0;
 >   }
 > 
-476a490,491
+476a491,492
 >   debug (g, "binding");
 > 
-489c504
+489c505
 <     if (socketpair (AF_LOCAL, SOCK_STREAM|SOCK_CLOEXEC, 0, sv) == -1) {
 ---
 >     if (socketpair (CF_LOCALE, SOCK_STREAM|SOCK_CLOEXEC, 0, sv) == -1) {
