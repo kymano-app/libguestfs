@@ -1,55 +1,98 @@
 464a465
->     debug (cmd->g, "capture_errors");
+>     debug (cmd->g, "run_command capture_errors 1");
 472a474
->     debug (cmd->g, "stdout_callback");
+>     debug (cmd->g, "run_command stdout_callback 1");
 473a476
 >       debug (cmd->g, "stdout_callback ERR");
-480a484
+478a482
+> 
+480a485
 >     debug (cmd->g, "stdout_callback NO PID");
-486a491
->     debug (cmd->g, "stdout_callback PID > 0");
-487a493
+486a492
+>     debug (cmd->g, "run_command stdout_callback PID %d", cmd->pid);
+487a494
 >       debug (cmd->g, "capture_errors");
-494a501
->       debug (cmd->g, "stdout_callback");
-500a508
+494a502
+>       debug (cmd->g, "run_command stdout_callback 2");
+500a509
 >     debug (cmd->g, "return 0");
-505a514
+505a515
 >     debug (cmd->g, "Child process capture_errors");
-513a523
+513a524
 >     debug (cmd->g, "stdout_callback");
-525a536
+525a537
 >   debug (cmd->g, "ERROR");
-540a552
+540a553
 >   debug (cmd->g, "run_child 1");
-613a626
+613a627
 >   debug (cmd->g, "run_child Run the command");
-615a629
+615a630
 >     debug (cmd->g, "COMMAND_STYLE_EXECV");
-621a636
+621a637
 >     debug (cmd->g, "COMMAND_STYLE_EXECV EXIT");
-624a640
+624a641
 >     debug (cmd->g, "COMMAND_STYLE_SYSTEM");
-625a642
+625a643
 >     debug (cmd->g, "COMMAND_STYLE_SYSTEM system");
-626a644
+626a645
 >       debug (cmd->g, "COMMAND_STYLE_SYSTEM system -1");
-630c648,649
+630c649,650
 <     if (WIFEXITED (r))
 ---
 >     if (WIFEXITED (r)) {
 >       debug (cmd->g, "COMMAND_STYLE_SYSTEM WEXITSTATUS");
-631a651,652
+631a652,653
 >     }
 >     debug (cmd->g, "COMMAND_STYLE_SYSTEM guestfs_int_exit_status_to_string");
-635a657
+635a658
 >     debug (cmd->g, "COMMAND_STYLE_SYSTEM EXIT_FAILURE");
-760a783
+661a685
+>     debug (cmd->g, "loop cmd->errorfd");
+674a699
+>     debug (cmd->g, "loop select");
+676a702
+>       debug (cmd->g, "loop err %d", r);
+679a706
+>       debug (cmd->g, "loop err return -1");
+682a710
+>     debug (cmd->g, "loop 2");
+684a713
+>       debug (cmd->g, "loop read");
+686c715,716
+<       if (n > 0)
+---
+>       if (n > 0) {
+>         debug (cmd->g, "loop n > 0");
+688a719
+>       }
+689a721
+>         debug (cmd->g, "loop n = 0");
+696a729
+>         debug (cmd->g, "loop n = -1");
+704a738
+>     debug (cmd->g, "loop 3");
+710a745
+>         debug (cmd->g, "loop 2 n>0");
+714a750
+>         debug (cmd->g, "loop 2 n=0");
+723a760
+>         debug (cmd->g, "loop 2 n = -1");
+732c769,770
+< 
+---
+>   
+>   debug (cmd->g, "loop return 0");
+760a799
 >   debug (cmd->g, "finish_command ok");
-763a787
+763a803
 >   debug (cmd->g, "run_command");
-766a791
+767c807,809
+<   if (loop (cmd) == -1)
+---
 >   debug (cmd->g, "loop");
-769a795,796
->   debug (cmd->g, "wait_command");
+>   if (loop (cmd) == -1) {
+>     debug (cmd->g, "loop = -1");
+768a811,813
+>   }
 > 
+>   debug (cmd->g, "wait_command");
