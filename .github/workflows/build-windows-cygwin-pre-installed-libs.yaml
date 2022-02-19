@@ -191,17 +191,20 @@ jobs:
           ./run guestfish --help
           
       - name: Compress
+        if: always()
         run: |
           cp -r /usr/lib/* libguestfs/libguestfs_new/libguestfs-1.46.2/lib/
           cp -r /usr/bin/*.dll libguestfs/libguestfs_new/libguestfs-1.46.2/lib/
           tar -czvf win-guestfs.tgz libguestfs/libguestfs_new/libguestfs-1.46.2/
       
       - uses: actions/upload-artifact@v2
+        if: always()
         with:
           name: my-artifact
           path: C:\tools\cygwin\home\runneradmin\win-guestfs.tgz
 
       - name: Release
+        if: always()
         uses: softprops/action-gh-release@v1
         with:
           files: C:\tools\cygwin\home\runneradmin\win-guestfs.tgz
