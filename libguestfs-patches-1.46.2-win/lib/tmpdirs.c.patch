@@ -1,0 +1,4 @@
+124a125,127
+>   str = "c:/tmp";
+>   debug (g, "tmp: %s", str);
+> 

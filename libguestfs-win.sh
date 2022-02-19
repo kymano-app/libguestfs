@@ -36,6 +36,7 @@ cp ../libguestfs-patches-1.44.2-2-win/afunix.h .
 patch lib/launch-direct.c ../libguestfs-patches-1.46.2-win/lib/launch-direct.c.patch
 patch lib/command.c ../libguestfs-patches-1.46.2-win/lib/command.c.patch
 patch lib/qemu.c ../libguestfs-patches-1.46.2-win/lib/qemu.c.patch
+patch lib/tmpdirs.c ../libguestfs-patches-1.46.2-win/lib/tmpdirs.c.patch
 
 autoreconf -i
 
