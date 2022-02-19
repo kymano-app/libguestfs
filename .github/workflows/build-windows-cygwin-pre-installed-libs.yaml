@@ -184,6 +184,9 @@ jobs:
         run: |
           cd libguestfs/libguestfs_new/libguestfs-1.46.2/
           rm -rf lib/sys
+          patch -R common/protocol/guestfs_protocol.h ../libguestfs-patches-1.46.2-win/common/protocol/guestfs_protocol.h.patch
+          patch -R lib/guestfs-internal.h ../libguestfs-patches-1.46.2-win/lib/guestfs-internal.h.patch
+
           make CFLAGS="-I/usr/include/ -I/usr/lib/ocaml/" --trace
           ./run guestfish --help
           
