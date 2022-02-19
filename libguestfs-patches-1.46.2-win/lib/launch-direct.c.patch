@@ -5,7 +5,20 @@
 > #include "winsock2.h"
 > #include "afunix.h"
 > 
-466a468,475
+419,421c420,422
+<     data->qemu_data = guestfs_int_test_qemu (g);
+<     if (data->qemu_data == NULL)
+<       goto cleanup0;
+---
+>     //data->qemu_data = guestfs_int_test_qemu (g);
+>     //if (data->qemu_data == NULL)
+>     //  goto cleanup0;
+459a461,462
+>   debug (g, "create socket");
+> 
+466a470,479
+>   debug (g, "start socket");
+> 
 >   int Result = 0;
 >   WSADATA WsaData = { 0 };
 >   Result = WSAStartup(MAKEWORD(2, 2), &WsaData);
@@ -14,7 +27,10 @@
 >       goto cleanup0;
 >   }
 > 
-489c498
+476a490,491
+>   debug (g, "binding");
+> 
+489c504
 <     if (socketpair (AF_LOCAL, SOCK_STREAM|SOCK_CLOEXEC, 0, sv) == -1) {
 ---
 >     if (socketpair (CF_LOCALE, SOCK_STREAM|SOCK_CLOEXEC, 0, sv) == -1) {
