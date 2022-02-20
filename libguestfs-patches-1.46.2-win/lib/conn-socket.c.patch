@@ -1,10 +1,16 @@
-457,458c457,458
+454c454,456
+<   assert (daemon_accept_sock >= 0);
+---
+>   debug (g, "\ndaemon_accept_sock: %d\n", daemon_accept_sock);
+> 
+>   //assert (daemon_accept_sock >= 0);
+457,458c459,460
 <     perrorf (g, "new_conn_socket_listening: set_nonblocking_flag");
 <     return NULL;
 ---
 >     //perrorf (g, "new_conn_socket_listening: set_nonblocking_flag");
 >     //return NULL;
-463,464c463,464
+463,464c465,466
 <       perrorf (g, "new_conn_socket_listening: set_nonblocking_flag");
 <       return NULL;
 ---
