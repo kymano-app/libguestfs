@@ -6,30 +6,32 @@
 > #include "winsock2.h"
 > #include "afunix.h"
 > 
-48,49c49,50
+40d40
+< #include <rpc/xdr.h>
+48,49c48,49
 < #define SOCKET_DIR "/tmp/.guestfish-%ju" /* euid */
 < #define SOCKET_PATH "/tmp/.guestfish-%ju/socket-%ju" /* euid, pid */
 ---
 > #define SOCKET_DIR "c:\\tmp\\.guestfish-%ju" /* euid */
 > #define SOCKET_PATH "c:\\tmp\\.guestfish-%ju\\socket-%ju" /* euid, pid */
-53a55
+53a54
 >   printf("create_sockdir");
-67,72d68
+67,72d67
 <   if (!S_ISDIR (statbuf.st_mode) ||
 <       (statbuf.st_mode & 0777) != 0700 ||
 <       statbuf.st_uid != euid)
 <     error (EXIT_FAILURE, 0,
 <            _("‘%s’ is not a directory or has insecure owner or permissions"),
 <            dir);
-78a75
+78a74
 >   printf("create_sockpath\n");
-84c81
+84c80
 < 
 ---
 >   printf("sockpath: %s\n", sockpath);
-253a251
+253a250
 >   printf ("create_sockpath::\n");
-255a254,260
+255a253,259
 >   int Result = 0;
 >   WSADATA WsaData = { 0 };
 >   Result = WSAStartup(MAKEWORD(2, 2), &WsaData);

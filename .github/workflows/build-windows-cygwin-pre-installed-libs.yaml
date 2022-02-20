@@ -188,7 +188,19 @@ jobs:
           patch -R lib/guestfs-internal.h ../libguestfs-patches-1.46.2-win/lib/guestfs-internal.h.patch
 
           make CFLAGS="-I/usr/include/ -I/usr/lib/ocaml/" --trace
-          ./run guestfish --help
+
+      - name: Install Libguestfs 4
+        if: always()
+        run: |
+          cd libguestfs/libguestfs_new/libguestfs-1.46.2/
+          cp -r ../libguestfs-patches-1.46.2-win/include/sys lib/
+          make CFLAGS="-I/usr/include/ -I/usr/lib/ocaml/" --trace          
+          
+      - name: Install Libguestfs 5
+        if: always()
+        run: |
+          rm -rf lib/sys
+          make CFLAGS="-I/usr/include/ -I/usr/lib/ocaml/" --trace          
           
       - name: Compress
         if: always()
