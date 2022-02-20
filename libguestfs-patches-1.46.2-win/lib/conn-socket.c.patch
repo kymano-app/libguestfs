@@ -1,0 +1,12 @@
+457,458c457,458
+<     perrorf (g, "new_conn_socket_listening: set_nonblocking_flag");
+<     return NULL;
+---
+>     //perrorf (g, "new_conn_socket_listening: set_nonblocking_flag");
+>     //return NULL;
+463,464c463,464
+<       perrorf (g, "new_conn_socket_listening: set_nonblocking_flag");
+<       return NULL;
+---
+>       //perrorf (g, "new_conn_socket_listening: set_nonblocking_flag");
+>       //return NULL;
