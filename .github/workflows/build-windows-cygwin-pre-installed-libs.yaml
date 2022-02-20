@@ -177,7 +177,6 @@ jobs:
           cp -r ../libguestfs-patches-1.46.2-win/include/sys lib/
           patch common/protocol/guestfs_protocol.h ../libguestfs-patches-1.46.2-win/common/protocol/guestfs_protocol.h.patch
           patch lib/guestfs-internal.h ../libguestfs-patches-1.46.2-win/lib/guestfs-internal.h.patch
-          patch lib/conn-socket.c ../libguestfs-patches-1.46.2-win/lib/conn-socket.c.patch
           make CFLAGS="-I/usr/include/ -I/usr/lib/ocaml/" --trace          
 
       - name: Install Libguestfs 3
@@ -187,7 +186,6 @@ jobs:
           rm -rf lib/sys
           patch -R common/protocol/guestfs_protocol.h ../libguestfs-patches-1.46.2-win/common/protocol/guestfs_protocol.h.patch
           patch -R lib/guestfs-internal.h ../libguestfs-patches-1.46.2-win/lib/guestfs-internal.h.patch
-          patch -R lib/conn-socket.c ../libguestfs-patches-1.46.2-win/lib/conn-socket.c.patch
 
           make CFLAGS="-I/usr/include/ -I/usr/lib/ocaml/" --trace
           ./run guestfish --help

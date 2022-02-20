@@ -37,7 +37,9 @@ patch lib/launch-direct.c ../libguestfs-patches-1.46.2-win/lib/launch-direct.c.p
 patch lib/command.c ../libguestfs-patches-1.46.2-win/lib/command.c.patch
 patch lib/qemu.c ../libguestfs-patches-1.46.2-win/lib/qemu.c.patch
 patch lib/tmpdirs.c ../libguestfs-patches-1.46.2-win/lib/tmpdirs.c.patch
- 
+patch lib/conn-socket.c ../libguestfs-patches-1.46.2-win/lib/conn-socket.c.patch
+
+
 autoreconf -i
 
 ./configure --with-qemu="no" --enable-debug --disable-appliance --enable-vala=no --disable-rust --enable-introspection=no --disable-gobject --disable-golang --disable-lua --disable-php --disable-erlang --disable-haskell --disable-ruby --disable-python  --disable-perl --enable-ocaml --disable-libtool-lock --disable-dependency-tracking --disable-option-checking --disable-rust --with-distro=openbsd --disable-probes  --disable-daemon --disable-fuse LDFLAGS="-L/usr/local/lib -L/usr/lib" LIBS="-lintl -lpcre2-8 -ljansson -ltirpc -lws2_32"
