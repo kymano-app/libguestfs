@@ -38,7 +38,7 @@ patch lib/command.c ../libguestfs-patches-1.46.2-win/lib/command.c.patch
 patch lib/qemu.c ../libguestfs-patches-1.46.2-win/lib/qemu.c.patch
 patch lib/tmpdirs.c ../libguestfs-patches-1.46.2-win/lib/tmpdirs.c.patch
 patch lib/conn-socket.c ../libguestfs-patches-1.46.2-win/lib/conn-socket.c.patch
-
+patch fish/rc.c ../libguestfs-patches-1.46.2-win/fish/rc.c.patch
 
 autoreconf -i
 
